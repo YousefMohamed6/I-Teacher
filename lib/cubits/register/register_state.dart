@@ -1,9 +1,15 @@
 abstract class RegisterPageState {}
 
-class ShowPassword extends RegisterPageState {}
+class Loading extends RegisterPageState {}
 
-class HidenPassword extends RegisterPageState {}
+class Success extends RegisterPageState {}
 
-class LoadingState extends RegisterPageState {}
+class Failure extends RegisterPageState {}
 
-class InitState extends RegisterPageState {}
+class RegisterFailure extends RegisterPageState {
+  final String errMessage;
+
+  RegisterFailure({required this.errMessage});
+}
+
+class RegisterInitial extends RegisterPageState {}

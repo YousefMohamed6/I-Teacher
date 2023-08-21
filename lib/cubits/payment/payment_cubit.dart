@@ -21,7 +21,7 @@ class PaymentCubit extends Cubit<PaymentState> {
   }
 
   void paymentLoading() {
-    emit(ProcessSuccess());
+    emit(state);
   }
 
   Future<void> checkPayment() async {

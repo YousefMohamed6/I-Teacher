@@ -2,13 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mrjoo/consts/text.dart';
 import 'package:mrjoo/cubits/chat/chat_state.dart';
-import 'package:mrjoo/helper/show_message.dart';
 import 'package:mrjoo/models/message_model.dart';
 
 class ChatCubit extends Cubit<ChatState> {
-  ChatCubit() : super(ChatSuccess());
+  ChatCubit() : super(ChatLoading());
   final messageCtrl = TextEditingController();
   final scrollController = ScrollController();
   var formKey = GlobalKey<FormState>();
@@ -17,9 +17,9 @@ class ChatCubit extends Cubit<ChatState> {
   String? _timeState;
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kMessageCollection);
-  List<MessageModel> messages = [];
-  void sentMessage() {
-    reference.add({
+  List<MessageModel>? messages;
+  void sentMessage() async {
+    await reference.add({
       kMessageField: messageCtrl.text,
       kCreatedAtField: DateTime.now(),
       kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
@@ -61,18 +61,10 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  void getMesssages(context) async {
-    emit(ChatLoading());
-    try {
-      QuerySnapshot<Object?> collection = await reference.get();
-      var date = collection.docs;
-      for (int i = 0; i < date.length; ++i) {
-        messages.add(MessageModel.fromJsonData(date[i]));
-      }
-      animateTo();
-      emit(ChatSuccess());
-    } catch (e) {
-      ShowMessage.show(context, msg: 'Failed get Messages');
+  void getMessages() {
+    if (messages == null) {
+      emit(ChatLoading());
+    } else {
       emit(ChatFailure());
     }
   }
@@ -83,5 +75,11 @@ class ChatCubit extends Cubit<ChatState> {
       animateTo();
       messageCtrl.clear();
     }
+  }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+    GoogleSignIn().signOut();
+    emit(SignOut());
   }
 }
