@@ -3,15 +3,9 @@ import 'package:mrjoo/cubits/chat/chat_cubit.dart';
 import 'package:mrjoo/cubits/course/course_cubit.dart';
 import 'package:mrjoo/cubits/customer/customer_cubit.dart';
 import 'package:mrjoo/cubits/login/login_cubit.dart';
-<<<<<<< HEAD
 import 'package:mrjoo/cubits/payment/payment_cubit.dart';
 import 'package:mrjoo/cubits/register/register_cubit.dart';
 import 'package:mrjoo/cubits/homepage/homepage_cubit.dart';
-=======
-
-import 'package:mrjoo/cubits/payment/payment_cubit.dart';
-import 'package:mrjoo/cubits/register/register_cubit.dart';
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
 import 'package:mrjoo/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -40,12 +34,9 @@ class MrJoo extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-<<<<<<< HEAD
           create: (context) => HomepageCubit(),
         ),
         BlocProvider(
-=======
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
           create: (context) => LoginCubit(),
         ),
         BlocProvider(
@@ -57,17 +48,10 @@ class MrJoo extends StatelessWidget {
         BlocProvider(
           create: (context) => ChatCubit(),
         ),
-<<<<<<< HEAD
         BlocProvider(
           create: (context) => PaymentCubit(),
         ),
         BlocProvider(
-=======
-         BlocProvider(
-          create: (context) => PaymentCubit(),
-        ),
-         BlocProvider(
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
           create: (context) => CourseCubit(),
         ),
       ],
@@ -77,11 +61,7 @@ class MrJoo extends StatelessWidget {
         themeMode: ThemeManger().themeMode,
         routes: {
           SplashPage.id: (context) => const SplashPage(),
-<<<<<<< HEAD
           HomePage.id: (context) => const HomePage(),
-=======
-          TeacherDataPage.id: (context) => const TeacherDataPage(),
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
           LoginPage.id: (context) => const LoginPage(),
           CustomerPage.id: (context) => const CustomerPage(),
           PaymentPage.id: (context) => const PaymentPage(),

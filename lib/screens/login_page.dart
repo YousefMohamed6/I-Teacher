@@ -35,7 +35,6 @@ class LoginPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: kAppBarColor,
         ),
-<<<<<<< HEAD
         body: BlocConsumer<LoginCubit, LoginPageState>(
           listener: (context, state) {
             if (state is LoginLoading) {
@@ -103,108 +102,13 @@ class LoginPage extends StatelessWidget {
                           text: 'Forget Password',
                           fontWeight: FontWeight.bold,
                           onPressed: () async {
-=======
-        body: BlocBuilder<LoginCubit, LoginPageState>(
-          builder: (context, state) {
-            return Background(
-              child: BlocProvider.of<LoginCubit>(context).isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : ListView(
-                      children: [
-                        const VerticalSizedBox(48),
-                        const Avatar(image: kAvaterLogo),
-                        const VerticalSizedBox(48),
-                        Form(
-                            key: BlocProvider.of<LoginCubit>(context).emailkey,
-                            child: CustomFormField(
-                              textInputType: TextInputType.emailAddress,
-                              prefixIcon: const Icon(Icons.email),
-                              lablelText: "Email",
-                              hintText: "Enter Your Email",
-                              controller:
-                                  BlocProvider.of<LoginCubit>(context).email,
-                            )),
-                        const VerticalSizedBox(16),
-                        Form(
-                          key: BlocProvider.of<LoginCubit>(context).passwordKey,
-                          child: CustomFormField(
-                            lablelText: "Password",
-                            hintText: "Enter your Password",
-                            textInputType: TextInputType.visiblePassword,
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                BlocProvider.of<LoginCubit>(context)
-                                    .changeObscureText();
-                              },
-                              icon: BlocProvider.of<LoginCubit>(context)
-                                      .obscuretext
-                                  ? const Icon(Icons.visibility)
-                                  : const Icon(Icons.visibility_off),
-                            ),
-                            prefixIcon: const Icon(Icons.lock),
-                            obscureText: BlocProvider.of<LoginCubit>(context)
-                                .obscuretext,
-                            controller:
-                                BlocProvider.of<LoginCubit>(context).password,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            CustomTextButton(
-                              text: 'Forget Password',
-                              fontWeight: FontWeight.bold,
-                              onPressed: () async {
-                                if (BlocProvider.of<LoginCubit>(context)
-                                    .emailkey
-                                    .currentState!
-                                    .validate()) {
-                                  BlocProvider.of<LoginCubit>(context)
-                                      .restPassword(context);
-                                }
-                              },
-                            ),
-                          ],
-                        ),
-                        const VerticalSizedBox(24),
-                        CustomButton(
-                          color: Colors.white,
-                          onPressed: () async {
-                            BlocProvider.of<LoginCubit>(context)
-                                .changeStateLoading();
-                            if (BlocProvider.of<LoginCubit>(context)
-                                .passwordKey
-                                .currentState!
-                                .validate()) {}
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
                             if (BlocProvider.of<LoginCubit>(context)
                                 .emailkey
                                 .currentState!
                                 .validate()) {
                               BlocProvider.of<LoginCubit>(context)
-<<<<<<< HEAD
                                   .restPassword();
                             }
-=======
-                                  .loginUser(context);
-                            }
-                            BlocProvider.of<LoginCubit>(context)
-                                .changeStateLoading();
-                          },
-                          child: const CustomText(
-                            text: 'Login',
-                            color: kPrimryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const VerticalSizedBox(24),
-                        CustomRow(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          text: "don't have any account?",
-                          textButton: "Register Now",
-                          onPressed: () {
-                            Navigator.pushNamed(context, CustomerPage.id);
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
                           },
                         ),
                       ],

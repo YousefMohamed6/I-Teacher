@@ -23,60 +23,40 @@ class PaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const CustomText(
-          text: "Payment",
-          fontSize: 24,
-          fontFamily: kFontPacifico,
-          fontWeight: FontWeight.bold,
+        appBar: AppBar(
+          title: const CustomText(
+            text: "Payment",
+            fontSize: 24,
+            fontFamily: kFontPacifico,
+            fontWeight: FontWeight.bold,
+          ),
+          centerTitle: true,
+          backgroundColor: kAppBarColor,
         ),
-        centerTitle: true,
-        backgroundColor: kAppBarColor,
-      ),
-      body: BlocConsumer<PaymentCubit, PaymentState>(
-        listener: (context, state) {
-<<<<<<< HEAD
+        body: BlocConsumer<PaymentCubit, PaymentState>(
+            listener: (context, state) {
           if (state is ProcessSuccess) {
             ShowMessage.show(context, msg: 'Follow steps');
           } else if (state is ProcessFailure) {
-=======
-          if (state is PaymentLoading) {
-            BlocProvider.of<PaymentCubit>(context).isLoading = true;
-          } else if (state is PaymentSuccess) {
-            ShowMessage.show(context, msg: 'Follow Link');
-            BlocProvider.of<PaymentCubit>(context).isLoading = false;
-          } else if (state is PaymentFailure) {
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
             ShowMessage.show(context, msg: 'Faild');
           }
           if (state is Paid) {
             ShowMessage.show(context, msg: 'Payment Success');
             Navigator.popAndPushNamed(context, RegisterPage.id);
-<<<<<<< HEAD
           } else if (state is PaymentFaild) {
-=======
-          } else if (state is UnPaid) {
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
             ShowMessage.show(context, msg: 'You Not Register');
           }
-        },
-        builder: (context, state) {
+        }, builder: (context, state) {
           if (state is PaymentLoading) {
-<<<<<<< HEAD
             return const Background(
                 child: Center(child: CircularProgressIndicator()));
           } else if (state is ProcessSuccess) {
-=======
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is PaymentSuccess) {
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
             return WebViewWidget(
               controller: WebViewController()
                 ..setJavaScriptMode(JavaScriptMode.unrestricted)
                 ..setBackgroundColor(const Color(0x00000000))
                 ..setNavigationDelegate(
                   NavigationDelegate(
-<<<<<<< HEAD
                     onProgress: (int progress) {},
                     onPageStarted: (String url) {
                       BlocProvider.of<PaymentCubit>(context).paymentLoading();
@@ -87,16 +67,6 @@ class PaymentPage extends StatelessWidget {
                     onWebResourceError: (WebResourceError error) {},
                     onNavigationRequest: (NavigationRequest request) {
                       if (request.url.startsWith('https://flutter.dev')) {
-=======
-                    onProgress: (int progress) {
-                      // Update loading bar.
-                    },
-                    onPageStarted: (String url) {},
-                    onPageFinished: (String url) {},
-                    onWebResourceError: (WebResourceError error) {},
-                    onNavigationRequest: (NavigationRequest request) {
-                      if (request.url.startsWith('')) {
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
                         return NavigationDecision.prevent;
                       }
                       return NavigationDecision.navigate;
@@ -171,8 +141,6 @@ class PaymentPage extends StatelessWidget {
               ),
             );
           }
-        },
-      ),
-    );
+        }));
   }
 }

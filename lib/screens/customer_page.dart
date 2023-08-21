@@ -29,12 +29,8 @@ class CustomerPage extends StatelessWidget {
         backgroundColor: kAppBarColor,
       ),
       body: Background(
-<<<<<<< HEAD
         child: BlocConsumer<CustomerCubit, CustomerPageState>(
           listener: (context, state) {},
-=======
-        child: BlocBuilder<CustomerCubit, CustomerPageState>(
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
           builder: (context, state) {
             return ListView(
               children: [
@@ -98,12 +94,7 @@ class CustomerPage extends StatelessWidget {
                               .formKey
                               .currentState!
                               .validate()) {
-<<<<<<< HEAD
                             BlocProvider.of<CustomerCubit>(context).customer();
-=======
-                            BlocProvider.of<CustomerCubit>(context)
-                                .customer();
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
                             Navigator.pushNamed(context, PaymentPage.id);
                           }
                           BlocProvider.of<CustomerCubit>(context)

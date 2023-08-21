@@ -17,20 +17,8 @@ class LoginCubit extends Cubit<LoginPageState> {
     obscuretext ? emit(HidenPassword()) : emit(ShowPassword());
   }
 
-<<<<<<< HEAD
   void loginUser() async {
     emit(LoginLoading());
-=======
-  void changeStateLoading() {
-    _isLoading = !_isLoading;
-    _isLoading ? emit(LoadingState()) : emit(InitialState());
-  }
-
-  bool get obscuretext => _obscuretext;
-  bool get isLoading => _isLoading;
-
-  void loginUser(context) async {
->>>>>>> b2db2189bd5d52409229ac81e9bf8c27e25b0840
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email.text,
