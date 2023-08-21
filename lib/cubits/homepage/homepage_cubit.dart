@@ -5,7 +5,6 @@ import 'package:mrjoo/cubits/homepage/homepage_state.dart';
 class HomepageCubit extends Cubit<HomePageState> {
   HomepageCubit() : super(HomepageInitial());
   void chechIsLogin() {
-    emit(HomeLoading());
     if (FirebaseAuth.instance.currentUser != null) {
       emit(UserLogin());
     } else {

@@ -38,13 +38,10 @@ class LoginPage extends StatelessWidget {
         body: BlocConsumer<LoginCubit, LoginPageState>(
           listener: (context, state) {
             if (state is LoginLoading) {
-              BlocProvider.of<LoginCubit>(context).isLoading = true;
             } else if (state is LoginSuccess) {
-              BlocProvider.of<LoginCubit>(context).isLoading = false;
               ShowMessage.show(context, msg: 'Login');
               Navigator.popAndPushNamed(context, ChatPage.id);
             } else if (state is LoginFialure) {
-              BlocProvider.of<LoginCubit>(context).isLoading = false;
               ShowMessage.show(context, msg: state.errMessage);
             }
             if (state is RestSuccess) {

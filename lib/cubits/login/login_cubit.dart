@@ -10,7 +10,7 @@ class LoginCubit extends Cubit<LoginPageState> {
   var emailkey = GlobalKey<FormState>();
   var passwordKey = GlobalKey<FormState>();
   bool obscuretext = true;
-  bool isLoading = false;
+ 
 
   void changeObscureText() {
     obscuretext = !obscuretext;
