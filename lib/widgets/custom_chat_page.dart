@@ -9,7 +9,6 @@ class CustomChatPage extends StatelessWidget {
   const CustomChatPage({
     super.key,
     required this.messages,
-    required this.user,
     required this.scrollController,
     required this.controller,
     required this.onFieldSubmitted,
@@ -18,7 +17,7 @@ class CustomChatPage extends StatelessWidget {
   });
 
   final List messages;
-  final User user;
+
   final ScrollController scrollController;
   final TextEditingController controller;
   final void Function(String?) onFieldSubmitted;
@@ -34,8 +33,9 @@ class CustomChatPage extends StatelessWidget {
             controller: scrollController,
             itemCount: messages.length,
             itemBuilder: (context, index) {
+              final user = FirebaseAuth.instance.currentUser;
               Time time = Time(index: index, messagesList: messages);
-              if (user.uid == messages[index].id) {
+              if (user!.uid == messages[index].id) {
                 return ChatBubble(
                   fullName: user.displayName!,
                   bubbleColor: kUserColor,

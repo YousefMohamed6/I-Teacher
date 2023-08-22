@@ -1,9 +1,13 @@
-abstract class ChatState {}
+import 'package:mrjoo/models/message_model.dart';
 
-class ChatInitial extends ChatState {}
+abstract class ChatState {}
 
 class Loading extends ChatState {}
 
-class Success extends ChatState {}
+class Success extends ChatState {
+  final List<MessageModel> messages;
+
+  Success({required this.messages});
+}
 
 class SignOut extends ChatState {}

@@ -15,7 +15,7 @@ class ChatCubit extends Cubit<ChatState> {
   String? _minute;
   String? _hour;
   String? _timeState;
-  List<MessageModel> messages = [];
+
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kMessageCollection);
   Stream<QuerySnapshot<Object?>>? snapshot;
@@ -54,12 +54,17 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  getMessages() async {
-    var data = await reference.get();
-    for (int i = 0; i < data.docs.length; ++i) {
-      messages.add(MessageModel.fromJsonData(data.docs[i]));
-    }
-    emit(Success());
+void getMessages() {
+    reference
+        .orderBy(kCreatedAtField, descending: true)
+        .snapshots()
+        .listen((event) {
+      List<MessageModel> messages = [];
+      for (int i = 0; i < event.docs.length; ++i) {
+        messages.add(MessageModel.fromJsonData(event.docs[i]));
+      }
+      emit(Success(messages: messages));
+    });
   }
 
   void sendMessage() async {
@@ -72,7 +77,7 @@ class ChatCubit extends Cubit<ChatState> {
       });
       animateTo();
       messageCtrl.clear();
-      emit(Success());
+      getMessages();
     }
   }
 

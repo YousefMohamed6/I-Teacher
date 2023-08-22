@@ -1,7 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mrjoo/consts/colors.dart';
-import 'package:mrjoo/consts/text.dart';
 import 'package:mrjoo/cubits/chat/chat_cubit.dart';
 import 'package:mrjoo/cubits/chat/chat_state.dart';
 import 'package:mrjoo/helper/show_message.dart';
@@ -45,9 +42,6 @@ class ChatPage extends StatelessWidget {
               ShowMessage.show(context, msg: 'LogOut');
               Navigator.popAndPushNamed(context, LoginPage.id);
             }
-            if (state is Loading) {
-              BlocProvider.of<ChatCubit>(context).getMessages();
-            }
           },
           builder: (context, state) {
             if (state is Loading) {
@@ -56,27 +50,24 @@ class ChatPage extends StatelessWidget {
                   backgroundColor: Colors.white,
                 ),
               );
+            } else if (state is Success) {
+              return CustomChatPage(
+                messages: state.messages,
+                formKey: BlocProvider.of<ChatCubit>(context).formKey,
+                scrollController:
+                    BlocProvider.of<ChatCubit>(context).scrollController,
+                controller: BlocProvider.of<ChatCubit>(context).messageCtrl,
+                onFieldSubmitted: (message) {
+                  BlocProvider.of<ChatCubit>(context).sendMessage();
+                },
+                onPressed: () {
+                  BlocProvider.of<ChatCubit>(context).sendMessage();
+                },
+              );
             } else {
-              return StreamBuilder<QuerySnapshot>(
-                  stream: BlocProvider.of<ChatCubit>(context)
-                      .reference
-                      .orderBy(kCreatedAtField, descending: true)
-                      .snapshots(),
-                  builder: (context, snapshot) => CustomChatPage(
-                        messages: BlocProvider.of<ChatCubit>(context).messages,
-                        user: FirebaseAuth.instance.currentUser!,
-                        formKey: BlocProvider.of<ChatCubit>(context).formKey,
-                        scrollController: BlocProvider.of<ChatCubit>(context)
-                            .scrollController,
-                        controller:
-                            BlocProvider.of<ChatCubit>(context).messageCtrl,
-                        onFieldSubmitted: (message) {
-                          BlocProvider.of<ChatCubit>(context).sendMessage();
-                        },
-                        onPressed: () {
-                          BlocProvider.of<ChatCubit>(context).sendMessage();
-                        },
-                      ));
+              return const Center(
+                child: CustomText(text: 'SomeThing Wrong'),
+              );
             }
           },
         ),
