@@ -8,26 +8,19 @@ import 'package:mrjoo/cubits/chat/chat_state.dart';
 import 'package:mrjoo/models/message_model.dart';
 
 class ChatCubit extends Cubit<ChatState> {
-  ChatCubit() : super(ChatLoading());
+  ChatCubit() : super(Loading());
   final messageCtrl = TextEditingController();
   final scrollController = ScrollController();
   var formKey = GlobalKey<FormState>();
   String? _minute;
   String? _hour;
   String? _timeState;
+  List<MessageModel> messages = [];
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kMessageCollection);
-  List<MessageModel>? messages;
-  void sentMessage() async {
-    await reference.add({
-      kMessageField: messageCtrl.text,
-      kCreatedAtField: DateTime.now(),
-      kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
-      kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
-    });
-    emit(ChatSuccess());
-    animateTo();
-  }
+  Stream<QuerySnapshot<Object?>>? snapshot;
+
+  void sentMessage() async {}
 
   String get hour {
     var value = 12;
@@ -61,19 +54,25 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  void getMessages() {
-    if (messages == null) {
-      emit(ChatLoading());
-    } else {
-      emit(ChatFailure());
+  getMessages() async {
+    var data = await reference.get();
+    for (int i = 0; i < data.docs.length; ++i) {
+      messages.add(MessageModel.fromJsonData(data.docs[i]));
     }
+    emit(Success());
   }
 
-  void checkValidate() {
+  void sendMessage() async {
     if (formKey.currentState!.validate()) {
-      sentMessage();
+      await reference.add({
+        kMessageField: messageCtrl.text,
+        kCreatedAtField: DateTime.now(),
+        kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
+        kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
+      });
       animateTo();
       messageCtrl.clear();
+      emit(Success());
     }
   }
 

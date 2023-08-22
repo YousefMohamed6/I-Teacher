@@ -42,7 +42,7 @@ class CustomChatPage extends StatelessWidget {
                   bottonLeftRedius: 24.0,
                   bottonRightRedius: 0.0,
                   message: messages[index].message,
-                  time: '${time.hour()}:${time.minute()} ${time.state()}',
+                  time: '${time.hour()} : ${time.minute()} ${time.state()}',
                   alignmentMessage: Alignment.topRight,
                 );
               } else {
@@ -52,7 +52,7 @@ class CustomChatPage extends StatelessWidget {
                   bottonLeftRedius: 0.0,
                   bottonRightRedius: 24.0,
                   message: messages[index].message,
-                  time: '${time.hour()}:${time.minute()} ${time.state()}',
+                  time: '${time.hour()} : ${time.minute()} ${time.state()}',
                   alignmentMessage: Alignment.topLeft,
                 );
               }

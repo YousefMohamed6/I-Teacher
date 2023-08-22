@@ -69,7 +69,7 @@ class MrJoo extends StatelessWidget {
           ChatPage.id: (context) => const ChatPage(),
         },
         debugShowCheckedModeBanner: false,
-        initialRoute: ChatPage.id,
+        initialRoute: SplashPage.id,
       ),
     );
   }
