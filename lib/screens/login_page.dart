@@ -36,27 +36,26 @@ class LoginPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: kAppBarColor,
         ),
-        body: BlocConsumer<LoginCubit, LoginPageState>(
-          listener: (context, state) {
-            if (state is LoginLoading) {
-            } else if (state is LoginSuccess) {
-              ShowMessage.show(context, msg: 'Login');
-              BlocProvider.of<ChatCubit>(context).getMessages();
-              Navigator.popAndPushNamed(context, ChatPage.id);
-            } else if (state is LoginFialure) {
-              ShowMessage.show(context, msg: state.errMessage);
-            }
-            if (state is RestSuccess) {
-              ShowMessage.show(context, msg: 'Success Check Gmail');
-            }
-          },
-          builder: (context, state) {
-            if (state is LoginLoading) {
-              return const Background(
-                  child: Center(child: CircularProgressIndicator()));
-            } else {
-              return Background(
-                child: ListView(
+        body: Background(
+          child: BlocConsumer<LoginCubit, LoginPageState>(
+            listener: (context, state) {
+              if (state is LoginLoading) {
+              } else if (state is LoginSuccess) {
+                ShowMessage.show(context, msg: 'Login');
+                BlocProvider.of<ChatCubit>(context).getMessages();
+                Navigator.popAndPushNamed(context, ChatPage.id);
+              } else if (state is LoginFialure) {
+                ShowMessage.show(context, msg: state.errMessage);
+              }
+              if (state is RestSuccess) {
+                ShowMessage.show(context, msg: 'Success Check Gmail');
+              }
+            },
+            builder: (context, state) {
+              if (state is LoginLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                return ListView(
                   children: [
                     const VerticalSizedBox(48),
                     const Avatar(image: kAvaterLogo),
@@ -144,10 +143,10 @@ class LoginPage extends StatelessWidget {
                     ),
                     const VerticalSizedBox(16),
                   ],
-                ),
-              );
-            }
-          },
+                );
+              }
+            },
+          ),
         ),
       ),
     );

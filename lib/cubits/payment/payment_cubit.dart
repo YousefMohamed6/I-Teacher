@@ -20,10 +20,6 @@ class PaymentCubit extends Cubit<PaymentState> {
     emit(PaymentInitial());
   }
 
-  void paymentLoading() {
-    emit(state);
-  }
-
   Future<void> checkPayment() async {
     emit(PaymentLoading());
     try {
@@ -41,20 +37,26 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
 
-  Future<dynamic> visa({required customerModel}) async {
+  Future<dynamic> pay({required customerModel}) async {
+    isVisa
+        ? await _visa(customerModel: customerModel)
+        : await _wellats(customerModel: customerModel);
+  }
+
+  Future<dynamic> _visa({required customerModel}) async {
     emit(PaymentLoading());
     try {
       var data = await Fawaterk()
           .sendPaymentRequest(customerData: customerModel, paymentMethodId: 2);
-      emit(ProcessSuccess());
       invoiceId = data['invoiceId'];
       url = data['url'];
+      emit(ProcessSuccess());
     } catch (ex) {
       emit(ProcessFailure());
     }
   }
 
-  Future<dynamic> wellats({required customerModel}) async {
+  Future<dynamic> _wellats({required customerModel}) async {
     emit(PaymentLoading());
     try {
       var data = await Fawaterk()

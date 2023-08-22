@@ -77,7 +77,6 @@ void getMessages() {
       });
       animateTo();
       messageCtrl.clear();
-      getMessages();
     }
   }
 

@@ -11,10 +11,11 @@ import 'package:mrjoo/screens/register_page.dart';
 import 'package:mrjoo/widgets/asset_image.dart';
 import 'package:mrjoo/widgets/background.dart';
 import 'package:mrjoo/widgets/custom_button.dart';
+import 'package:mrjoo/widgets/custom_icon_button.dart';
 import 'package:mrjoo/widgets/custom_text.dart';
 import 'package:mrjoo/widgets/payment_item.dart';
 import 'package:mrjoo/widgets/vertical_sizebox.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:mrjoo/widgets/webview.dart';
 
 class PaymentPage extends StatelessWidget {
   static const String id = 'PaymentPage';
@@ -23,63 +24,48 @@ class PaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const CustomText(
-            text: "Payment",
-            fontSize: 24,
-            fontFamily: kFontPacifico,
-            fontWeight: FontWeight.bold,
-          ),
-          centerTitle: true,
-          backgroundColor: kAppBarColor,
+      appBar: AppBar(
+        title: const CustomText(
+          text: "Payment",
+          fontSize: 24,
+          fontFamily: kFontPacifico,
+          fontWeight: FontWeight.bold,
         ),
-        body: BlocConsumer<PaymentCubit, PaymentState>(
-            listener: (context, state) {
-          if (state is ProcessSuccess) {
-            ShowMessage.show(context, msg: 'Follow steps');
-          } else if (state is ProcessFailure) {
-            ShowMessage.show(context, msg: 'Faild');
-          }
-          if (state is Paid) {
-            ShowMessage.show(context, msg: 'Payment Success');
-            Navigator.popAndPushNamed(context, RegisterPage.id);
-          } else if (state is PaymentFaild) {
-            ShowMessage.show(context, msg: 'You Not Register');
-          }
-        }, builder: (context, state) {
-          if (state is PaymentLoading) {
-            return const Background(
-                child: Center(child: CircularProgressIndicator()));
-          } else if (state is ProcessSuccess) {
-            return WebViewWidget(
-              controller: WebViewController()
-                ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                ..setBackgroundColor(const Color(0x00000000))
-                ..setNavigationDelegate(
-                  NavigationDelegate(
-                    onProgress: (int progress) {},
-                    onPageStarted: (String url) {
-                      BlocProvider.of<PaymentCubit>(context).paymentLoading();
-                    },
-                    onPageFinished: (String url) {
-                      BlocProvider.of<PaymentCubit>(context).checkPayment();
-                    },
-                    onWebResourceError: (WebResourceError error) {},
-                    onNavigationRequest: (NavigationRequest request) {
-                      if (request.url.startsWith('https://flutter.dev')) {
-                        return NavigationDecision.prevent;
-                      }
-                      return NavigationDecision.navigate;
-                    },
-                  ),
-                )
-                ..loadRequest(
-                  Uri.parse(BlocProvider.of<PaymentCubit>(context).url),
-                ),
-            );
-          } else {
-            return Background(
-              child: ListView(
+        centerTitle: true,
+        actions: [
+          CustomIconButton(
+            onPressed: () {
+              BlocProvider.of<PaymentCubit>(context).checkPayment();
+            },
+            icon: const Icon(Icons.person_add),
+            iconSize: 32,
+          )
+        ],
+        backgroundColor: kAppBarColor,
+      ),
+      body: Background(
+        child: BlocConsumer<PaymentCubit, PaymentState>(
+          listener: (context, state) {
+            if (state is ProcessSuccess) {
+              ShowMessage.show(context, msg: 'Follow steps');
+            } else if (state is ProcessFailure) {
+              ShowMessage.show(context, msg: 'Faild');
+            }
+            if (state is Paid) {
+              ShowMessage.show(context, msg: 'Payment Success');
+              Navigator.popAndPushNamed(context, RegisterPage.id);
+            } else if (state is PaymentFaild) {
+              ShowMessage.show(context, msg: 'You Not Register');
+            }
+          },
+          builder: (context, state) {
+            if (state is PaymentLoading) {
+              return const Background(
+                  child: Center(child: CircularProgressIndicator()));
+            } else if (state is ProcessSuccess) {
+              return const WebView();
+            } else {
+              return ListView(
                 children: [
                   const VerticalSizedBox(96),
                   Container(
@@ -127,7 +113,7 @@ class PaymentPage extends StatelessWidget {
                   CustomButton(
                     color: kMainTextColor,
                     onPressed: () {
-                      BlocProvider.of<PaymentCubit>(context).visa(
+                      BlocProvider.of<PaymentCubit>(context).pay(
                           customerModel: BlocProvider.of<CustomerCubit>(context)
                               .customerData);
                     },
@@ -138,9 +124,11 @@ class PaymentPage extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-            );
-          }
-        }));
+              );
+            }
+          },
+        ),
+      ),
+    );
   }
 }

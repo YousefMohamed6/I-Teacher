@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/consts/colors.dart';
 import 'package:mrjoo/consts/fonts.dart';
 import 'package:mrjoo/consts/images.dart';
+import 'package:mrjoo/cubits/chat/chat_cubit.dart';
+import 'package:mrjoo/cubits/payment/payment_cubit.dart';
 import 'package:mrjoo/cubits/register/register_cubit.dart';
 import 'package:mrjoo/cubits/register/register_state.dart';
 import 'package:mrjoo/helper/show_message.dart';
@@ -52,6 +54,8 @@ class RegisterPage extends StatelessWidget {
           listener: (context, state) {
             if (state is Success) {
               ShowMessage.show(context, msg: 'Success');
+              BlocProvider.of<ChatCubit>(context).getMessages();
+              BlocProvider.of<PaymentCubit>(context).invoiceId = 0;
               Navigator.popAndPushNamed(context, ChatPage.id);
             } else if (state is Failure) {
               ShowMessage.show(context, msg: 'Sign Up is Faild');
