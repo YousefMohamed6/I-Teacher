@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/view_model/colors.dart';
-import 'package:mrjoo/view_model/fonts.dart';
 import 'package:mrjoo/view_model/images.dart';
 import 'package:mrjoo/cubits/chat/chat_cubit.dart';
 import 'package:mrjoo/cubits/payment/payment_cubit.dart';
@@ -12,6 +11,7 @@ import 'package:mrjoo/views/screens/login_page.dart';
 import 'package:mrjoo/views/widgets/asset_image.dart';
 import 'package:mrjoo/views/widgets/avatar.dart';
 import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_appbar.dart';
 import 'package:mrjoo/views/widgets/custom_button.dart';
 import 'package:mrjoo/views/widgets/custom_form_field.dart';
 import 'package:mrjoo/views/widgets/custom_icon_button.dart';
@@ -27,14 +27,8 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const CustomText(
-          text: "Register",
-          fontSize: 20,
-          fontFamily: kFontPacifico,
-          fontWeight: FontWeight.bold,
-        ),
-        centerTitle: true,
+      appBar: customAppBar(
+        title: "Register",
         actions: [
           CustomIconButton(
             onPressed: () {
@@ -47,7 +41,6 @@ class RegisterPage extends StatelessWidget {
             iconSize: 50,
           )
         ],
-        backgroundColor: kAppBarColor,
       ),
       body: Background(
         child: BlocConsumer<RegisterCubit, RegisterPageState>(

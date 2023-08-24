@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/view_model/colors.dart';
-import 'package:mrjoo/view_model/fonts.dart';
 import 'package:mrjoo/view_model/images.dart';
 import 'package:mrjoo/cubits/chat/chat_cubit.dart';
 import 'package:mrjoo/cubits/login/login_cubit.dart';
@@ -9,6 +8,7 @@ import 'package:mrjoo/helper/show_message.dart';
 import 'package:mrjoo/views/screens/chat_page.dart';
 import 'package:mrjoo/views/widgets/avatar.dart';
 import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_appbar.dart';
 import 'package:mrjoo/views/widgets/custom_button.dart';
 import 'package:mrjoo/views/widgets/custom_form_field.dart';
 import 'package:mrjoo/views/widgets/custom_row.dart';
@@ -26,16 +26,7 @@ class LoginPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: Scaffold(
-        appBar: AppBar(
-          title: const CustomText(
-            text: "Login",
-            fontSize: 24,
-            fontFamily: kFontPacifico,
-            fontWeight: FontWeight.bold,
-          ),
-          centerTitle: true,
-          backgroundColor: kAppBarColor,
-        ),
+        appBar: customAppBar(title: 'Login'),
         body: Background(
           child: BlocConsumer<LoginCubit, LoginPageState>(
             listener: (context, state) {

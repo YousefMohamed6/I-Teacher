@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/view_model/colors.dart';
-import 'package:mrjoo/view_model/fonts.dart';
 import 'package:mrjoo/view_model/images.dart';
 import 'package:mrjoo/cubits/customer/customer_cubit.dart';
 import 'package:mrjoo/cubits/customer/customer_state.dart';
 import 'package:mrjoo/views/widgets/asset_image.dart';
 import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_appbar.dart';
 import 'package:mrjoo/views/widgets/custom_button.dart';
 import 'package:mrjoo/views/widgets/custom_form_field.dart';
 import 'package:mrjoo/views/widgets/custom_text.dart';
@@ -18,16 +18,7 @@ class CustomerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const CustomText(
-          text: "Customer",
-          fontSize: 24,
-          fontFamily: kFontPacifico,
-          fontWeight: FontWeight.bold,
-        ),
-        centerTitle: true,
-        backgroundColor: kAppBarColor,
-      ),
+      appBar: customAppBar(title: "Customer"),
       body: Background(
         child: BlocConsumer<CustomerCubit, CustomerPageState>(
           listener: (context, state) {},

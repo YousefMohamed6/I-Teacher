@@ -1,12 +1,12 @@
-import 'package:mrjoo/view_model/colors.dart';
 import 'package:mrjoo/cubits/chat/chat_cubit.dart';
 import 'package:mrjoo/cubits/chat/chat_state.dart';
 import 'package:mrjoo/helper/show_message.dart';
 import 'package:mrjoo/views/screens/login_page.dart';
 import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_appbar.dart';
 import 'package:mrjoo/views/widgets/custom_chat_page.dart';
+import 'package:mrjoo/views/widgets/custom_icon_button.dart';
 import 'package:mrjoo/views/widgets/custom_text.dart';
-import 'package:mrjoo/views/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,24 +16,17 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const CustomText(
-          text: "Group Chat",
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-        centerTitle: true,
+      appBar: customAppBar(
+        title: 'Chat',
         actions: [
-          CustomTextButton(
-            text: 'SignOut',
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+          CustomIconButton(
+            icon: const Icon(Icons.logout_outlined),
+            iconSize: 40,
             onPressed: () {
               BlocProvider.of<ChatCubit>(context).signOut();
             },
           ),
         ],
-        backgroundColor: kAppBarColor,
       ),
       body: Background(
         child: BlocConsumer<ChatCubit, ChatState>(

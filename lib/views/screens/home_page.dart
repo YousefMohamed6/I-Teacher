@@ -13,6 +13,7 @@ import 'package:mrjoo/views/screens/login_page.dart';
 import 'package:mrjoo/views/widgets/asset_image.dart';
 import 'package:mrjoo/views/widgets/avatar.dart';
 import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_appbar.dart';
 import 'package:mrjoo/views/widgets/custom_icon_button.dart';
 import 'package:mrjoo/views/widgets/custom_row.dart';
 import 'package:mrjoo/views/widgets/custom_text.dart';
@@ -25,14 +26,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const CustomText(
-          text: kAppName,
-          fontSize: 24,
-          fontFamily: kFontPacifico,
-          fontWeight: FontWeight.bold,
-        ),
-        centerTitle: true,
+      appBar: customAppBar(
+        title: kAppName,
         actions: [
           CustomTextButton(
             text: "To Course",
@@ -43,7 +38,6 @@ class HomePage extends StatelessWidget {
             },
           ),
         ],
-        backgroundColor: kAppBarColor,
       ),
       body: BlocConsumer<HomepageCubit, HomePageState>(
         listener: (context, state) {
