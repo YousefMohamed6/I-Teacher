@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mrjoo/consts/text.dart';
+import 'package:mrjoo/view_model/text.dart';
 import 'package:mrjoo/cubits/chat/chat_state.dart';
 import 'package:mrjoo/models/message_model.dart';
 

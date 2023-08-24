@@ -1,21 +1,21 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/consts/colors.dart';
-import 'package:mrjoo/consts/fonts.dart';
-import 'package:mrjoo/consts/images.dart';
+import 'package:mrjoo/view_model/colors.dart';
+import 'package:mrjoo/view_model/fonts.dart';
+import 'package:mrjoo/view_model/images.dart';
 import 'package:mrjoo/cubits/chat/chat_cubit.dart';
 import 'package:mrjoo/cubits/login/login_cubit.dart';
 import 'package:mrjoo/cubits/login/login_state.dart';
 import 'package:mrjoo/helper/show_message.dart';
-import 'package:mrjoo/screens/chat_page.dart';
-import 'package:mrjoo/widgets/avatar.dart';
-import 'package:mrjoo/widgets/background.dart';
-import 'package:mrjoo/widgets/custom_button.dart';
-import 'package:mrjoo/widgets/custom_form_field.dart';
-import 'package:mrjoo/widgets/custom_row.dart';
-import 'package:mrjoo/widgets/custom_text.dart';
-import 'package:mrjoo/widgets/custom_text_button.dart';
-import 'package:mrjoo/widgets/vertical_sizebox.dart';
-import 'package:mrjoo/screens/customer_page.dart';
+import 'package:mrjoo/views/screens/chat_page.dart';
+import 'package:mrjoo/views/widgets/avatar.dart';
+import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_button.dart';
+import 'package:mrjoo/views/widgets/custom_form_field.dart';
+import 'package:mrjoo/views/widgets/custom_row.dart';
+import 'package:mrjoo/views/widgets/custom_text.dart';
+import 'package:mrjoo/views/widgets/custom_text_button.dart';
+import 'package:mrjoo/views/widgets/vertical_sizebox.dart';
+import 'package:mrjoo/views/screens/customer_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {

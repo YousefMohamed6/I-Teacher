@@ -1,12 +1,12 @@
-import 'package:mrjoo/consts/colors.dart';
+import 'package:mrjoo/view_model/colors.dart';
 import 'package:mrjoo/cubits/chat/chat_cubit.dart';
 import 'package:mrjoo/cubits/chat/chat_state.dart';
 import 'package:mrjoo/helper/show_message.dart';
-import 'package:mrjoo/screens/login_page.dart';
-import 'package:mrjoo/widgets/background.dart';
-import 'package:mrjoo/widgets/custom_chat_page.dart';
-import 'package:mrjoo/widgets/custom_text.dart';
-import 'package:mrjoo/widgets/custom_text_button.dart';
+import 'package:mrjoo/views/screens/login_page.dart';
+import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_chat_page.dart';
+import 'package:mrjoo/views/widgets/custom_text.dart';
+import 'package:mrjoo/views/widgets/custom_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

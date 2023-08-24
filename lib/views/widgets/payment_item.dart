@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/consts/colors.dart';
-import 'package:mrjoo/widgets/asset_image.dart';
+import 'package:mrjoo/view_model/colors.dart';
+import 'package:mrjoo/views/widgets/asset_image.dart';
 
 class PaymentItem extends StatelessWidget {
   const PaymentItem({super.key, required this.imagePath, required this.select});

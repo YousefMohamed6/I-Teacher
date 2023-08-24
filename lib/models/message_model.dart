@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mrjoo/consts/text.dart';
+import 'package:mrjoo/view_model/text.dart';
 
 class MessageModel {
   final String message;

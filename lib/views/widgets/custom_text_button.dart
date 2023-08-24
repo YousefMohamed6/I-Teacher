@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/consts/colors.dart';
-import 'package:mrjoo/widgets/custom_text.dart';
+import 'package:mrjoo/view_model/colors.dart';
+import 'package:mrjoo/views/widgets/custom_text.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({

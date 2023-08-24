@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mrjoo/consts/colors.dart';
+import 'package:mrjoo/view_model/colors.dart';
 import 'package:mrjoo/helper/time.dart';
-import 'package:mrjoo/widgets/chat_bubble.dart';
-import 'package:mrjoo/widgets/custom_form_field.dart';
+import 'package:mrjoo/views/widgets/chat_bubble.dart';
+import 'package:mrjoo/views/widgets/custom_form_field.dart';
 
 class CustomChatPage extends StatelessWidget {
   const CustomChatPage({

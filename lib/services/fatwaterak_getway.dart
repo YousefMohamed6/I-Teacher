@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:mrjoo/consts/links.dart';
-import 'package:mrjoo/helper/show_message.dart';
+import 'package:mrjoo/view_model/links.dart';
 import 'package:mrjoo/helper/api.dart';
-import 'package:mrjoo/screens/register_page.dart';
 import '../models/customer_model.dart';
 
 class Fawaterk {
@@ -50,22 +47,5 @@ class Fawaterk {
     var url = responseBody['data']['payment_data']['redirectTo'];
     var invoiceId = responseBody['data']['invoice_id'];
     return {'invoiceId': invoiceId, 'url': url};
-  }
-
-  static Future<void> checkPayment(context, {required transactionId}) async {
-    try {
-      var response = await _api.get(
-          url: kTransactionFawaterak + transactionId.toString(),
-          token: kFawaterakToken);
-      var paymentStatus = response['data']['invoice_transactions'][0]['status'];
-      if (paymentStatus == 'success') {
-        ShowMessage.show(context, msg: 'Payment Success');
-        Navigator.popAndPushNamed(context, RegisterPage.id);
-      } else {
-        ShowMessage.show(context, msg: 'Payment Failed');
-      }
-    } catch (ex) {
-      ShowMessage.show(context, msg: 'You not Register');
-    }
   }
 }

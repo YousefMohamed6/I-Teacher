@@ -9,15 +9,14 @@ import 'package:mrjoo/cubits/homepage/homepage_cubit.dart';
 import 'package:mrjoo/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mrjoo/screens/chat_page.dart';
-import 'package:mrjoo/screens/login_page.dart';
-import 'package:mrjoo/screens/payment_page.dart';
-import 'package:mrjoo/screens/customer_page.dart';
-import 'package:mrjoo/screens/register_page.dart';
-import 'package:mrjoo/screens/splash_page.dart';
-import 'package:mrjoo/screens/home_page.dart';
-import 'package:mrjoo/theme/theme.dart';
-import 'package:mrjoo/theme/theme_manger.dart';
+import 'package:mrjoo/views/screens/chat_page.dart';
+import 'package:mrjoo/views/screens/home_page.dart';
+import 'package:mrjoo/views/screens/login_page.dart';
+import 'package:mrjoo/views/screens/payment_page.dart';
+import 'package:mrjoo/views/screens/customer_page.dart';
+import 'package:mrjoo/views/screens/register_page.dart';
+import 'package:mrjoo/views/screens/splash_page.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,9 +55,6 @@ class MrJoo extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        themeMode: ThemeManger().themeMode,
         routes: {
           SplashPage.id: (context) => const SplashPage(),
           HomePage.id: (context) => const HomePage(),

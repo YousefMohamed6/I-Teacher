@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/consts/colors.dart';
-import 'package:mrjoo/consts/fonts.dart';
-import 'package:mrjoo/consts/images.dart';
+import 'package:mrjoo/view_model/colors.dart';
+import 'package:mrjoo/view_model/fonts.dart';
+import 'package:mrjoo/view_model/images.dart';
 import 'package:mrjoo/cubits/customer/customer_cubit.dart';
 import 'package:mrjoo/cubits/payment/payment_cubit.dart';
 import 'package:mrjoo/cubits/payment/payment_state.dart';
 import 'package:mrjoo/helper/show_message.dart';
-import 'package:mrjoo/screens/register_page.dart';
-import 'package:mrjoo/widgets/asset_image.dart';
-import 'package:mrjoo/widgets/background.dart';
-import 'package:mrjoo/widgets/custom_button.dart';
-import 'package:mrjoo/widgets/custom_icon_button.dart';
-import 'package:mrjoo/widgets/custom_text.dart';
-import 'package:mrjoo/widgets/payment_item.dart';
-import 'package:mrjoo/widgets/vertical_sizebox.dart';
-import 'package:mrjoo/widgets/webview.dart';
+import 'package:mrjoo/views/screens/register_page.dart';
+import 'package:mrjoo/views/widgets/asset_image.dart';
+import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/widgets/custom_button.dart';
+import 'package:mrjoo/views/widgets/custom_icon_button.dart';
+import 'package:mrjoo/views/widgets/custom_text.dart';
+import 'package:mrjoo/views/widgets/payment_item.dart';
+import 'package:mrjoo/views/widgets/vertical_sizebox.dart';
+import 'package:mrjoo/views/widgets/webview.dart';
 
 class PaymentPage extends StatelessWidget {
   static const String id = 'PaymentPage';

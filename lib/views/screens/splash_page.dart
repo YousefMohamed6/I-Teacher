@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/consts/images.dart';
-import 'package:mrjoo/widgets/asset_image.dart';
-import 'package:mrjoo/widgets/background.dart';
-import 'package:mrjoo/screens/home_page.dart';
+import 'package:mrjoo/view_model/images.dart';
+import 'package:mrjoo/views/widgets/asset_image.dart';
+import 'package:mrjoo/views/widgets/background.dart';
+import 'package:mrjoo/views/screens/home_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/consts/colors.dart';
-import 'package:mrjoo/consts/fonts.dart';
+import 'package:mrjoo/view_model/colors.dart';
+import 'package:mrjoo/view_model/fonts.dart';
 
 class ChatBubble extends StatelessWidget {
   const ChatBubble({

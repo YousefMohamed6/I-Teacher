@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/consts/colors.dart';
+import 'package:mrjoo/view_model/colors.dart';
 
 class Background extends StatelessWidget {
   const Background({super.key, this.child});
