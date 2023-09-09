@@ -13,7 +13,6 @@ import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/payment/presentation/views/widgets/payment_item.dart';
-import 'package:mrjoo/core/widgets/vertical_sizebox.dart';
 import 'package:mrjoo/features/payment/presentation/views/widgets/webview.dart';
 
 class PaymentPage extends StatelessWidget {
@@ -59,7 +58,7 @@ class PaymentPage extends StatelessWidget {
             } else {
               return ListView(
                 children: [
-                  const VerticalSizedBox(96),
+                  const SizedBox(height: 96),
                   Container(
                     width: (MediaQuery.of(context).size.width * 0.42) / 4,
                     height: (MediaQuery.of(context).size.height * 0.42) / 2,
@@ -74,7 +73,7 @@ class PaymentPage extends StatelessWidget {
                       width: 300,
                     ),
                   ),
-                  const VerticalSizedBox(48),
+                  const SizedBox(height:48),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     mainAxisSize: MainAxisSize.max,
@@ -101,7 +100,7 @@ class PaymentPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const VerticalSizedBox(32),
+                  const SizedBox(height:32),
                   CustomButton(
                     color: kMainTextColor,
                     onPressed: () {

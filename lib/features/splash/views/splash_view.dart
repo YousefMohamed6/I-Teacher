@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/features/home/presentation/views/home_page.dart';
+import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/splash/widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {

@@ -10,7 +10,7 @@ import 'package:mrjoo/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
-import 'package:mrjoo/features/home/presentation/views/home_page.dart';
+import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/login/presentation/views/login_page.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_page.dart';
 import 'package:mrjoo/features/customer/presentation/views/customer_page.dart';

@@ -17,7 +17,6 @@ import 'package:mrjoo/core/widgets/custom_icon_button.dart';
 import 'package:mrjoo/features/home/presentation/views/widgets/custom_row.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
-import 'package:mrjoo/core/widgets/vertical_sizebox.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -51,9 +50,9 @@ class HomeView extends StatelessWidget {
           return Background(
             child: ListView(
               children: [
-                const VerticalSizedBox(84),
+                const SizedBox(height:84),
                 const Avatar(image: kAvaterLogo),
-                const VerticalSizedBox(56),
+                const SizedBox(height:56),
                 const CustomText(
                   text: kTeacherName,
                   textAlign: TextAlign.center,
@@ -61,7 +60,7 @@ class HomeView extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: kMainTextColor,
                 ),
-                const VerticalSizedBox(16),
+                const SizedBox(height:16),
                 const CustomText(
                   text: kTeacherJob,
                   textAlign: TextAlign.center,
@@ -70,7 +69,7 @@ class HomeView extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: kMainTextColor,
                 ),
-                const VerticalSizedBox(5),
+                const SizedBox(height:5),
                 CustomRow(
                   mainAxisAlignment: MainAxisAlignment.center,
                   text: "Phone Number : ",
@@ -88,7 +87,7 @@ class HomeView extends StatelessWidget {
                         url: 'mailto:$kEmail?subject=$kEmailSubject');
                   },
                 ),
-                const VerticalSizedBox(32),
+                const SizedBox(height:32),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   mainAxisSize: MainAxisSize.min,
@@ -129,5 +128,13 @@ class HomeView extends StatelessWidget {
         },
       ),
     );
+  }
+}
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

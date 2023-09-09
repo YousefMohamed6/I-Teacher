@@ -13,7 +13,6 @@ import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/features/home/presentation/views/widgets/custom_row.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
-import 'package:mrjoo/core/widgets/vertical_sizebox.dart';
 import 'package:mrjoo/features/customer/presentation/views/customer_page.dart';
 import 'package:flutter/material.dart';
 
@@ -47,9 +46,9 @@ class LoginPage extends StatelessWidget {
               } else {
                 return ListView(
                   children: [
-                    const VerticalSizedBox(48),
+                    const SizedBox(height:48),
                     const Avatar(image: kAvaterLogo),
-                    const VerticalSizedBox(48),
+                    const SizedBox(height:48),
                     Form(
                         key: BlocProvider.of<LoginCubit>(context).emailkey,
                         child: CustomFormField(
@@ -60,7 +59,7 @@ class LoginPage extends StatelessWidget {
                           controller:
                               BlocProvider.of<LoginCubit>(context).email,
                         )),
-                    const VerticalSizedBox(16),
+                    const SizedBox(height:16),
                     Form(
                       key: BlocProvider.of<LoginCubit>(context).passwordKey,
                       child: CustomFormField(
@@ -101,7 +100,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const VerticalSizedBox(24),
+                    const SizedBox(height:24),
                     CustomButton(
                       color: Colors.white,
                       onPressed: () async {
@@ -122,7 +121,7 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const VerticalSizedBox(24),
+                    const SizedBox(height:24),
                     CustomRow(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       text: "don't have any account?",
@@ -131,7 +130,7 @@ class LoginPage extends StatelessWidget {
                         Navigator.pushNamed(context, CustomerPage.id);
                       },
                     ),
-                    const VerticalSizedBox(16),
+                    const SizedBox(height:16),
                   ],
                 );
               }
