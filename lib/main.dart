@@ -1,22 +1,21 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/cubits/chat/chat_cubit.dart';
-import 'package:mrjoo/cubits/course/course_cubit.dart';
-import 'package:mrjoo/cubits/customer/customer_cubit.dart';
-import 'package:mrjoo/cubits/login/login_cubit.dart';
-import 'package:mrjoo/cubits/payment/payment_cubit.dart';
-import 'package:mrjoo/cubits/register/register_cubit.dart';
-import 'package:mrjoo/cubits/homepage/homepage_cubit.dart';
+import 'package:mrjoo/core/theme/theme_cubit.dart';
+import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
+import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
+import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
+import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
+import 'package:mrjoo/features/register/data/register_cubit/register_cubit.dart';
+import 'package:mrjoo/features/home/data/home_cubit/home_cubit.dart';
 import 'package:mrjoo/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mrjoo/views/screens/chat_page.dart';
-import 'package:mrjoo/views/screens/home_page.dart';
-import 'package:mrjoo/views/screens/login_page.dart';
-import 'package:mrjoo/views/screens/payment_page.dart';
-import 'package:mrjoo/views/screens/customer_page.dart';
-import 'package:mrjoo/views/screens/register_page.dart';
-import 'package:mrjoo/views/screens/splash_page.dart';
-
+import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
+import 'package:mrjoo/features/home/presentation/views/home_page.dart';
+import 'package:mrjoo/features/login/presentation/views/login_page.dart';
+import 'package:mrjoo/features/payment/presentation/views/payment_page.dart';
+import 'package:mrjoo/features/customer/presentation/views/customer_page.dart';
+import 'package:mrjoo/features/register/presentation/views/register_page.dart';
+import 'package:mrjoo/features/splash/views/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +32,7 @@ class MrJoo extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomepageCubit(),
+          create: (context) => HomeViewCubit(),
         ),
         BlocProvider(
           create: (context) => LoginCubit(),
@@ -51,13 +50,13 @@ class MrJoo extends StatelessWidget {
           create: (context) => PaymentCubit(),
         ),
         BlocProvider(
-          create: (context) => CourseCubit(),
+          create: (context) => ThemeCubit(),
         ),
       ],
       child: MaterialApp(
         routes: {
-          SplashPage.id: (context) => const SplashPage(),
-          HomePage.id: (context) => const HomePage(),
+          SplashView.id: (context) => const SplashView(),
+          HomeView.id: (context) => const HomeView(),
           LoginPage.id: (context) => const LoginPage(),
           CustomerPage.id: (context) => const CustomerPage(),
           PaymentPage.id: (context) => const PaymentPage(),
@@ -65,7 +64,7 @@ class MrJoo extends StatelessWidget {
           ChatPage.id: (context) => const ChatPage(),
         },
         debugShowCheckedModeBanner: false,
-        initialRoute: SplashPage.id,
+        initialRoute: SplashView.id,
       ),
     );
   }
