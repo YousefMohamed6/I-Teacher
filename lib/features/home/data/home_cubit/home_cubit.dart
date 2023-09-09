@@ -4,7 +4,7 @@ import 'package:mrjoo/features/home/data/home_cubit/home_state.dart';
 
 class HomeViewCubit extends Cubit<HomeViewState> {
   HomeViewCubit() : super(HomeViewInitial());
-  void chechIsLogin() {
+  void chechLoginState() {
     if (FirebaseAuth.instance.currentUser != null) {
       emit(UserLogin());
     } else {

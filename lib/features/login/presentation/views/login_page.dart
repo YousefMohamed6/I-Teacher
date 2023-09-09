@@ -10,7 +10,7 @@ import 'package:mrjoo/core/widgets/avatar.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
-import 'package:mrjoo/features/home/presentation/views/widgets/custom_row.dart';
+import 'package:mrjoo/features/home/presentation/views/widgets/contect_item.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
 import 'package:mrjoo/features/customer/presentation/views/customer_page.dart';
@@ -46,9 +46,9 @@ class LoginPage extends StatelessWidget {
               } else {
                 return ListView(
                   children: [
-                    const SizedBox(height:48),
+                    const SizedBox(height: 48),
                     const Avatar(image: kAvaterLogo),
-                    const SizedBox(height:48),
+                    const SizedBox(height: 48),
                     Form(
                         key: BlocProvider.of<LoginCubit>(context).emailkey,
                         child: CustomFormField(
@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
                           controller:
                               BlocProvider.of<LoginCubit>(context).email,
                         )),
-                    const SizedBox(height:16),
+                    const SizedBox(height: 16),
                     Form(
                       key: BlocProvider.of<LoginCubit>(context).passwordKey,
                       child: CustomFormField(
@@ -100,7 +100,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height:24),
+                    const SizedBox(height: 24),
                     CustomButton(
                       color: Colors.white,
                       onPressed: () async {
@@ -121,8 +121,8 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height:24),
-                    CustomRow(
+                    const SizedBox(height: 24),
+                    ContectItem(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       text: "don't have any account?",
                       textButton: "Register Now",
@@ -130,7 +130,7 @@ class LoginPage extends StatelessWidget {
                         Navigator.pushNamed(context, CustomerPage.id);
                       },
                     ),
-                    const SizedBox(height:16),
+                    const SizedBox(height: 16),
                   ],
                 );
               }

@@ -14,7 +14,7 @@ import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
-import 'package:mrjoo/features/home/presentation/views/widgets/custom_row.dart';
+import 'package:mrjoo/features/home/presentation/views/widgets/contect_item.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +72,7 @@ class RegisterPage extends StatelessWidget {
                           BlocProvider.of<RegisterCubit>(context).displyName,
                       prefixIcon: const Icon(Icons.account_circle),
                     ),
-                    const SizedBox(height:16),
+                    const SizedBox(height: 16),
                     CustomFormField(
                       textInputType: TextInputType.emailAddress,
                       prefixIcon: const Icon(Icons.email_outlined),
@@ -80,7 +80,7 @@ class RegisterPage extends StatelessWidget {
                       hintText: "Enter Your Email",
                       controller: BlocProvider.of<RegisterCubit>(context).email,
                     ),
-                    const SizedBox(height:16),
+                    const SizedBox(height: 16),
                     CustomFormField(
                       textInputType: TextInputType.visiblePassword,
                       suffixIcon: IconButton(
@@ -101,7 +101,7 @@ class RegisterPage extends StatelessWidget {
                       controller:
                           BlocProvider.of<RegisterCubit>(context).password,
                     ),
-                    const SizedBox(height:24),
+                    const SizedBox(height: 24),
                     CustomButton(
                       color: Colors.white,
                       onPressed: () async {
@@ -119,8 +119,8 @@ class RegisterPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height:16),
-                    CustomRow(
+                    const SizedBox(height: 16),
+                    ContectItem(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       text: "already have an account",
                       textButton: "Sign In",
@@ -128,7 +128,7 @@ class RegisterPage extends StatelessWidget {
                         Navigator.pushNamed(context, LoginPage.id);
                       },
                     ),
-                    const SizedBox(height:16),
+                    const SizedBox(height: 16),
                   ],
                 ),
               );

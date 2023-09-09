@@ -3,8 +3,8 @@ import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
 
-class CustomRow extends StatelessWidget {
-  const CustomRow({
+class ContectItem extends StatelessWidget {
+  const ContectItem({
     super.key,
     required this.text,
     required this.textButton,
