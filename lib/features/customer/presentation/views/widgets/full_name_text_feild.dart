@@ -13,7 +13,7 @@ class FullNameTextFeild extends StatelessWidget {
         Expanded(
           child: CustomFormField(
             textInputType: TextInputType.name,
-            hintText: 'First name',
+            hintText: 'First Name',
             prefixIcon: const Icon(Icons.person),
             controller: BlocProvider.of<CustomerCubit>(context).fristName,
           ),
@@ -22,7 +22,7 @@ class FullNameTextFeild extends StatelessWidget {
         Expanded(
           child: CustomFormField(
             textInputType: TextInputType.name,
-            hintText: 'Last name',
+            hintText: 'Last Name',
             prefixIcon: const Icon(Icons.person),
             controller: BlocProvider.of<CustomerCubit>(context).lastName,
           ),

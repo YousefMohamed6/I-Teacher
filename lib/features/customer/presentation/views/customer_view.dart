@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
+import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/customer/presentation/views/widgets/customer_view_body.dart';
@@ -12,7 +13,11 @@ class CustomerView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const CustomText(text: "Customer"),
+        title: const CustomText(
+          text: "Customer",
+          fontFamily: kPacificoFont,
+          fontSize: 24,
+        ),
         backgroundColor: kAppBarColor,
       ),
       body: const Background(

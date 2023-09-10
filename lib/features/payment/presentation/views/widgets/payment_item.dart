@@ -25,8 +25,8 @@ class PaymentItem extends StatelessWidget {
             margin: const EdgeInsets.all(16),
             child: CustomAssetImage(
               imagePath: imagePath,
-              width: (MediaQuery.of(context).size.width * 0.42),
-              height: (MediaQuery.of(context).size.height * 0.42) / 2,
+              width: (MediaQuery.of(context).size.width * 0.4),
+              height: (MediaQuery.of(context).size.height * 0.25),
             ),
           ),
         ),

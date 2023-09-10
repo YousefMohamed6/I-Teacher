@@ -16,26 +16,20 @@ class LoginViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginViewCubit, LoginViewState>(
-      builder: (context, state) => ListView(
+      builder: (context, state) => const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 48),
-          const Avatar(image: kAvaterLogo),
-          const SizedBox(height: 48),
-          EmailTextFaild(
-            controller: BlocProvider.of<LoginViewCubit>(context).email,
-            formkey: BlocProvider.of<LoginViewCubit>(context).emailkey,
-          ),
-          const SizedBox(height: 16),
-          PasswordTextFeild(
-            controller: BlocProvider.of<LoginViewCubit>(context).password,
-            formKey: BlocProvider.of<LoginViewCubit>(context).passwordKey,
-          ),
-          const ForgetPassword(),
-          const SizedBox(height: 24),
-          const LoginButton(),
-          const SizedBox(height: 24),
-          const RegisterNow(),
-          const SizedBox(height: 16),
+          Avatar(image: kAvaterLogo),
+          SizedBox(height: 48),
+          EmailTextFaild(),
+          SizedBox(height: 16),
+          PasswordTextFeild(),
+          ForgetPassword(),
+          SizedBox(height: 24),
+          LoginButton(),
+          SizedBox(height: 24),
+          RegisterNow(),
+          SizedBox(height: 16),
         ],
       ),
     );

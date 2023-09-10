@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewBody extends StatefulWidget {
   const WebViewBody({
     super.key,
+    required this.url,
   });
-
+  final String url;
   @override
   State<WebViewBody> createState() => _WebViewBodyState();
 }
@@ -36,7 +35,7 @@ class _WebViewBodyState extends State<WebViewBody> {
           ),
         )
         ..loadRequest(
-          Uri.parse(BlocProvider.of<PaymentCubit>(context).url),
+          Uri.parse(widget.url),
         ),
     );
   }

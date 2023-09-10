@@ -48,7 +48,8 @@ class PaymentView extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 );
               } else if (state is ProcessSuccess) {
-                return const WebViewBody();
+                var url = BlocProvider.of<PaymentCubit>(context).url;
+                return WebViewBody(url: url);
               } else {
                 return const PaymentViewBody();
               }

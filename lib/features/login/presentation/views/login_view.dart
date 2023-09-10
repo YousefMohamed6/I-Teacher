@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
+import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
@@ -20,7 +21,11 @@ class LoginView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: const CustomText(text: 'Login'),
+          title: const CustomText(
+            text: 'Login',
+            fontSize: 24,
+            fontFamily: kPacificoFont,
+          ),
           backgroundColor: kAppBarColor,
         ),
         body: Background(

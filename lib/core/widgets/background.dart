@@ -7,6 +7,7 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       width: MediaQuery.sizeOf(context).width,
       height: MediaQuery.sizeOf(context).height,
       decoration: const BoxDecoration(
