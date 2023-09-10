@@ -5,7 +5,7 @@ import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
+import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class LoginView extends StatelessWidget {
               } else if (state is LoginSuccess) {
                 ShowMessage.show(context, msg: 'Login');
                 BlocProvider.of<ChatCubit>(context).fetchMessages();
-                Navigator.popAndPushNamed(context, ChatPage.id);
+                Navigator.popAndPushNamed(context, ChatView.id);
               } else if (state is LoginFialure) {
                 ShowMessage.show(
                   context,

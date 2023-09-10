@@ -20,8 +20,6 @@ class ChatCubit extends Cubit<ChatState> {
       FirebaseFirestore.instance.collection(kMessageCollection);
   Stream<QuerySnapshot<Object?>>? snapshot;
 
-  void sentMessage() async {}
-
   String get hour {
     var value = 12;
     if (value == 24) {
@@ -67,7 +65,7 @@ class ChatCubit extends Cubit<ChatState> {
     });
   }
 
-  void sendMessage() async {
+  void sendMessage({String? message}) async {
     if (formKey.currentState!.validate()) {
       await reference.add({
         kMessageField: messageCtrl.text,
@@ -75,6 +73,7 @@ class ChatCubit extends Cubit<ChatState> {
         kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
         kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
       });
+      fetchMessages();
       animateTo();
       messageCtrl.clear();
     }

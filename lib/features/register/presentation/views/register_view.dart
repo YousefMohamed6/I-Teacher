@@ -6,7 +6,7 @@ import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
 import 'package:mrjoo/features/register/data/register_cubit/register_cubit.dart';
 import 'package:mrjoo/features/register/data/register_cubit/register_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
+import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +39,7 @@ class RegisterView extends StatelessWidget {
               ShowMessage.show(context, msg: 'Success');
               BlocProvider.of<ChatCubit>(context).fetchMessages();
               BlocProvider.of<PaymentCubit>(context).invoiceId = 0;
-              Navigator.popAndPushNamed(context, ChatPage.id);
+              Navigator.popAndPushNamed(context, ChatView.id);
             } else if (state is Failure) {
               ShowMessage.show(context, msg: 'Sign Up is Faild');
             } else if (state is RegisterFailure) {

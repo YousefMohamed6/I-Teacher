@@ -1,5 +1,5 @@
-class Time {
-  Time({required this.index, required this.messagesList});
+class TimeHelper {
+  TimeHelper({required this.index, required this.messagesList});
 
   final List messagesList;
   final int index;

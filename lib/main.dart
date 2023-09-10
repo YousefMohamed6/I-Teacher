@@ -7,7 +7,7 @@ import 'package:mrjoo/features/home/data/home_cubit/home_cubit.dart';
 import 'package:mrjoo/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
+import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
 import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
@@ -55,7 +55,7 @@ class MrJoo extends StatelessWidget {
           CustomerView.id: (context) => const CustomerView(),
           PaymentView.id: (context) => const PaymentView(),
           RegisterView.id: (context) => const RegisterView(),
-          ChatPage.id: (context) => const ChatPage(),
+          ChatView.id: (context) => const ChatView(),
         },
         debugShowCheckedModeBanner: false,
         initialRoute: SplashView.id,
