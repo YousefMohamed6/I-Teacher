@@ -15,11 +15,11 @@ class PaymentButton extends StatelessWidget {
       color: kMainTextColor,
       onPressed: () {
         BlocProvider.of<PaymentCubit>(context).pay(
-            customerModel:
-                BlocProvider.of<CustomerCubit>(context).customerData);
+          customerModel: BlocProvider.of<CustomerCubit>(context).customerData,
+        );
       },
       child: const CustomText(
-        text: 'Pay',
+        text: 'Pay Now',
         color: kPrimryColor,
         fontWeight: FontWeight.bold,
       ),

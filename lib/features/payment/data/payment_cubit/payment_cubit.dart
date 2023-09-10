@@ -33,7 +33,7 @@ class PaymentCubit extends Cubit<PaymentState> {
         emit(PaymentFailure());
       }
     } catch (ex) {
-      emit(ProcessFailure());
+      emit(PaymentFailure());
     }
   }
 

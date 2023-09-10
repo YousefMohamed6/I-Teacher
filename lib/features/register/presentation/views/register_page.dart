@@ -18,8 +18,8 @@ import 'package:mrjoo/features/home/presentation/views/widgets/contect_item.dart
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
   static String id = 'RegisterPage';
 
   @override

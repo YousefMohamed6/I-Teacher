@@ -54,7 +54,7 @@ class MrJoo extends StatelessWidget {
           LoginView.id: (context) => const LoginView(),
           CustomerView.id: (context) => const CustomerView(),
           PaymentView.id: (context) => const PaymentView(),
-          RegisterPage.id: (context) => const RegisterPage(),
+          RegisterView.id: (context) => const RegisterView(),
           ChatPage.id: (context) => const ChatPage(),
         },
         debugShowCheckedModeBanner: false,
