@@ -39,7 +39,7 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ],
-        backgroundColor: kPrimryColor,
+        backgroundColor: kAppBarColor,
       ),
       body: BlocConsumer<HomeViewCubit, HomeViewState>(
         listener: (context, state) {

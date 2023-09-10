@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
+import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
 
 class PasswordTextFeild extends StatelessWidget {
   const PasswordTextFeild({
     super.key,
     required this.controller,
-    required this.obscureText,
-    required this.onSuffixIconPressed,
+  
+    
     required this.formKey,
   });
   final TextEditingController controller;
-  final bool obscureText;
-  final VoidCallback onSuffixIconPressed;
+  
   final GlobalKey<FormState> formKey;
   @override
   Widget build(BuildContext context) {
@@ -22,13 +23,15 @@ class PasswordTextFeild extends StatelessWidget {
         hintText: "Enter your Password",
         textInputType: TextInputType.visiblePassword,
         suffixIcon: IconButton(
-          onPressed: onSuffixIconPressed,
-          icon: obscureText
+          onPressed: () {
+              BlocProvider.of<LoginViewCubit>(context).changeObscureText();
+            },
+          icon: BlocProvider.of<LoginViewCubit>(context).obscuretext
               ? const Icon(Icons.visibility)
               : const Icon(Icons.visibility_off),
         ),
         prefixIcon: const Icon(Icons.lock),
-        obscureText: obscureText,
+        obscureText: BlocProvider.of<LoginViewCubit>(context).obscuretext,
         controller: controller,
       ),
     );

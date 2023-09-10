@@ -1,17 +1,18 @@
-abstract class LoginPageState {}
+abstract class LoginViewState {}
 
-class ShowPassword extends LoginPageState {}
+class ShowPassword extends LoginViewState {}
 
-class HidenPassword extends LoginPageState {}
+class HidenPassword extends LoginViewState {}
 
-class LoginLoading extends LoginPageState {}
+class LoginLoading extends LoginViewState {}
 
-class InitialState extends LoginPageState {}
+class InitialState extends LoginViewState {}
 
-class LoginSuccess extends LoginPageState {}
-class RestSuccess extends LoginPageState {}
+class LoginSuccess extends LoginViewState {}
 
-class LoginFialure extends LoginPageState {
+class RestSuccess extends LoginViewState {}
+
+class LoginFialure extends LoginViewState {
   final String errMessage;
 
   LoginFialure({required this.errMessage});

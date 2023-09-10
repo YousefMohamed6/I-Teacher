@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
@@ -15,11 +16,15 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (context) => LoginViewCubit(),
       child: Scaffold(
-        appBar: AppBar(title: const CustomText(text: 'Login')),
+        appBar: AppBar(
+          centerTitle: true,
+          title: const CustomText(text: 'Login'),
+          backgroundColor: kAppBarColor,
+        ),
         body: Background(
-          child: BlocConsumer<LoginCubit, LoginPageState>(
+          child: BlocConsumer<LoginViewCubit, LoginViewState>(
             listener: (context, state) {
               if (state is LoginLoading) {
               } else if (state is LoginSuccess) {

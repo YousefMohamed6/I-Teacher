@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/images.dart';
 import 'package:mrjoo/core/widgets/avatar.dart';
+import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
+import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
 import 'package:mrjoo/features/login/presentation/views/widgets/email_text_feild.dart';
 import 'package:mrjoo/features/login/presentation/views/widgets/forget_password.dart';
 import 'package:mrjoo/features/login/presentation/views/widgets/login_button.dart';
@@ -12,33 +15,29 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 48),
-        const Avatar(image: kAvaterLogo),
-        const SizedBox(height: 48),
-        EmailTextFaild(
-          formkey: GlobalKey<FormState>(),
-          controller: TextEditingController(),
-        ),
-        const SizedBox(height: 16),
-        PasswordTextFeild(
-          controller: TextEditingController(),
-          obscureText: false,
-          formKey: GlobalKey<FormState>(),
-          onSuffixIconPressed: () {},
-        ),
-        ForgetPassword(
-          onPressed: () {},
-        ),
-        const SizedBox(height: 24),
-        LoginButton(
-          onPressed: () {},
-        ),
-        const SizedBox(height: 24),
-        const RegisterNow(),
-        const SizedBox(height: 16),
-      ],
+    return BlocBuilder<LoginViewCubit, LoginViewState>(
+      builder: (context, state) => ListView(
+        children: [
+          const SizedBox(height: 48),
+          const Avatar(image: kAvaterLogo),
+          const SizedBox(height: 48),
+          EmailTextFaild(
+            controller: BlocProvider.of<LoginViewCubit>(context).email,
+            formkey: BlocProvider.of<LoginViewCubit>(context).emailkey,
+          ),
+          const SizedBox(height: 16),
+          PasswordTextFeild(
+            controller: BlocProvider.of<LoginViewCubit>(context).password,
+            formKey: BlocProvider.of<LoginViewCubit>(context).passwordKey,
+          ),
+          const ForgetPassword(),
+          const SizedBox(height: 24),
+          const LoginButton(),
+          const SizedBox(height: 24),
+          const RegisterNow(),
+          const SizedBox(height: 16),
+        ],
+      ),
     );
   }
 }

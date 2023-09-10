@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginCubit extends Cubit<LoginPageState> {
-  LoginCubit() : super(HidenPassword());
+class LoginViewCubit extends Cubit<LoginViewState> {
+  LoginViewCubit() : super(HidenPassword());
   var email = TextEditingController();
   var password = TextEditingController();
   var emailkey = GlobalKey<FormState>();
   var passwordKey = GlobalKey<FormState>();
   bool obscuretext = true;
- 
 
   void changeObscureText() {
     obscuretext = !obscuretext;
@@ -30,7 +29,7 @@ class LoginCubit extends Cubit<LoginPageState> {
     }
   }
 
-  Future<void> restPassword() async {
+  Future<void> sendRestPasswordLink() async {
     emit(LoginLoading());
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(
