@@ -12,42 +12,16 @@ class ChatCubit extends Cubit<ChatState> {
   final messageCtrl = TextEditingController();
   final scrollController = ScrollController();
   var formKey = GlobalKey<FormState>();
-  String? _minute;
-  String? _hour;
-  String? _timeState;
 
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kMessageCollection);
   Stream<QuerySnapshot<Object?>>? snapshot;
 
-  String get hour {
-    var value = 12;
-    if (value == 24) {
-      _hour = '12';
-      _timeState = 'Am';
-      return _hour!;
-    } else if (value > 12) {
-      _hour = (value - 12).toString();
-      _timeState = 'Pm';
-      return _hour!;
-    } else {
-      _timeState = 'Am';
-      return _hour!;
-    }
-  }
-
-  String get minute {
-    return _minute!;
-  }
-
-  String get timeState {
-    return _timeState!;
-  }
 
   void animateTo() {
     scrollController.animateTo(
       0,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 250),
       curve: Curves.fastOutSlowIn,
     );
   }
