@@ -5,8 +5,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mrjoo/features/register/data/register_cubit/register_state.dart';
 import 'package:mrjoo/core/utils/helper.dart';
 
-class RegisterCubit extends Cubit<RegisterPageState> {
-  RegisterCubit() : super(RegisterInitial());
+class RegisterViewCubit extends Cubit<RegisterViewState> {
+  RegisterViewCubit() : super(RegisterInitial());
   var formKey = GlobalKey<FormState>();
   var email = TextEditingController();
   var password = TextEditingController();

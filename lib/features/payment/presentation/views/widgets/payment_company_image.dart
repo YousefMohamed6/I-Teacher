@@ -9,7 +9,7 @@ class PaymentCompanyImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: () async {
+      onDoubleTap: () async {
         await urlLauncher(url: kFawaterakWebsite);
       },
       child: Container(

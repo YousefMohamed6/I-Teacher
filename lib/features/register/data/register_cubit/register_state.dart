@@ -1,15 +1,15 @@
-abstract class RegisterPageState {}
+abstract class RegisterViewState {}
 
-class Loading extends RegisterPageState {}
+class Loading extends RegisterViewState {}
 
-class Success extends RegisterPageState {}
+class Success extends RegisterViewState {}
 
-class Failure extends RegisterPageState {}
+class Failure extends RegisterViewState {}
 
-class RegisterFailure extends RegisterPageState {
+class RegisterFailure extends RegisterViewState {
   final String errMessage;
 
   RegisterFailure({required this.errMessage});
 }
 
-class RegisterInitial extends RegisterPageState {}
+class RegisterInitial extends RegisterViewState {}

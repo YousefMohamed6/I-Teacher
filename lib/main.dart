@@ -12,7 +12,7 @@ import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
 import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
-import 'package:mrjoo/features/register/presentation/views/register_page.dart';
+import 'package:mrjoo/features/register/presentation/views/register_view.dart';
 import 'package:mrjoo/features/splash/views/splash_view.dart';
 import 'package:mrjoo/simple_bloc_obsever.dart';
 
@@ -35,7 +35,7 @@ class MrJoo extends StatelessWidget {
           create: (context) => HomeViewCubit(),
         ),
         BlocProvider(
-          create: (context) => RegisterCubit(),
+          create: (context) => RegisterViewCubit(),
         ),
         BlocProvider(
           create: (context) => CustomerCubit(),

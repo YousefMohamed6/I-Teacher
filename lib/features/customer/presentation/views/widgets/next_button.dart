@@ -4,7 +4,7 @@ import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
-import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
+import 'package:mrjoo/features/register/presentation/views/register_view.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({super.key});
@@ -17,7 +17,7 @@ class NextButton extends StatelessWidget {
         var formKey = BlocProvider.of<CustomerCubit>(context).formKey;
         if (formKey.currentState!.validate()) {
           BlocProvider.of<CustomerCubit>(context).customer();
-          Navigator.pushNamed(context, PaymentView.id);
+          Navigator.pushNamed(context, RegisterView.id);
         }
         BlocProvider.of<CustomerCubit>(context).changeStateLoading();
       },

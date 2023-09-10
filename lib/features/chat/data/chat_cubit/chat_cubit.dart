@@ -54,7 +54,7 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-void getMessages() {
+  void fetchMessages() {
     reference
         .orderBy(kCreatedAtField, descending: true)
         .snapshots()

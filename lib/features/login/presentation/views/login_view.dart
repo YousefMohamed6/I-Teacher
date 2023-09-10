@@ -34,7 +34,7 @@ class LoginView extends StatelessWidget {
               if (state is LoginLoading) {
               } else if (state is LoginSuccess) {
                 ShowMessage.show(context, msg: 'Login');
-                BlocProvider.of<ChatCubit>(context).getMessages();
+                BlocProvider.of<ChatCubit>(context).fetchMessages();
                 Navigator.popAndPushNamed(context, ChatPage.id);
               } else if (state is LoginFialure) {
                 ShowMessage.show(
