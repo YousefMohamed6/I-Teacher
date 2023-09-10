@@ -9,7 +9,7 @@ import 'package:mrjoo/features/payment/presentation/views/widgets/check-payment_
 import 'package:mrjoo/features/payment/presentation/views/widgets/payment_view_body.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/webview.dart';
+import 'package:mrjoo/features/payment/presentation/views/widgets/webview_body.dart';
 
 class PaymentView extends StatelessWidget {
   static const String id = 'PaymentPage';
@@ -48,7 +48,7 @@ class PaymentView extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 );
               } else if (state is ProcessSuccess) {
-                return const WebView();
+                return const WebViewBody();
               } else {
                 return const PaymentViewBody();
               }

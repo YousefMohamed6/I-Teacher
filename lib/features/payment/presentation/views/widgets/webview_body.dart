@@ -3,16 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class WebView extends StatefulWidget {
-  const WebView({
+class WebViewBody extends StatefulWidget {
+  const WebViewBody({
     super.key,
   });
 
   @override
-  State<WebView> createState() => _WebViewState();
+  State<WebViewBody> createState() => _WebViewBodyState();
 }
 
-class _WebViewState extends State<WebView> {
+class _WebViewBodyState extends State<WebViewBody> {
   @override
   Widget build(BuildContext context) {
     return WebViewWidget(
@@ -26,8 +26,7 @@ class _WebViewState extends State<WebView> {
               () {};
             },
             onPageFinished: (String url) {},
-            onWebResourceError: (WebResourceError error) {
-            },
+            onWebResourceError: (WebResourceError error) {},
             onNavigationRequest: (NavigationRequest request) {
               if (request.url.startsWith('https://flutter.dev')) {
                 return NavigationDecision.prevent;
