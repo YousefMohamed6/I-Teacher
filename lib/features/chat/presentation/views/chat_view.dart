@@ -16,47 +16,50 @@ class ChatView extends StatelessWidget {
   static String id = "ChatPage";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const CustomText(
-          text: 'Group Chat',
-          fontSize: 24,
-          fontFamily: kPacificoFont,
+    return BlocProvider(
+      create: (context) => ChatCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const CustomText(
+            text: 'Group Chat',
+            fontSize: 24,
+            fontFamily: kPacificoFont,
+          ),
+          backgroundColor: kAppBarColor,
+          actions: const [
+            SignOutButton(),
+          ],
         ),
-        backgroundColor: kAppBarColor,
-        actions: const [
-          SignOutButton(),
-        ],
-      ),
-      body: Background(
-        child: BlocConsumer<ChatCubit, ChatState>(
-          listener: (context, state) {
-            if (state is SignOut) {
-              ShowMessage.show(context, msg: 'Signout');
-              Navigator.popAndPushNamed(context, LoginView.id);
-            }
-          },
-          builder: (context, state) {
-            if (state is Loading) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: Colors.white,
-                ),
-              );
-            } else if (state is Success) {
-              return ChatviewBody(
-                messages: state.messages,
-              );
-            } else {
-              return const Center(
-                child: CustomText(
-                  text: 'SomeThing Wrong',
-                  fontSize: 24,
-                ),
-              );
-            }
-          },
+        body: Background(
+          child: BlocConsumer<ChatCubit, ChatState>(
+            listener: (context, state) {
+              if (state is SignOut) {
+                ShowMessage.show(context, msg: 'Signout');
+                Navigator.popAndPushNamed(context, LoginView.id);
+              }
+            },
+            builder: (context, state) {
+              if (state is Loading) {
+                return const Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                  ),
+                );
+              } else if (state is Success) {
+                return ChatviewBody(
+                  messages: state.messages,
+                );
+              } else {
+                return const Center(
+                  child: CustomText(
+                    text: 'SomeThing Wrong',
+                    fontSize: 24,
+                  ),
+                );
+              }
+            },
+          ),
         ),
       ),
     );

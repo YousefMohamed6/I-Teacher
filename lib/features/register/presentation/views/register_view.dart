@@ -19,40 +19,43 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const CustomText(
-          text: "Register",
-          fontSize: 24,
-          fontFamily: kPacificoFont,
+    return BlocProvider(
+      create: (context) => RegisterViewCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const CustomText(
+            text: "Register",
+            fontSize: 24,
+            fontFamily: kPacificoFont,
+          ),
+          actions: const [
+            SignWithGoogleButton(),
+          ],
+          backgroundColor: kAppBarColor,
         ),
-        actions: const [
-          SignWithGoogleButton(),
-        ],
-        backgroundColor: kAppBarColor,
-      ),
-      body: Background(
-        child: BlocConsumer<RegisterViewCubit, RegisterViewState>(
-          listener: (context, state) {
-            if (state is Success) {
-              ShowMessage.show(context, msg: 'Success');
-              BlocProvider.of<ChatCubit>(context).fetchMessages();
-              BlocProvider.of<PaymentCubit>(context).invoiceId = 0;
-              Navigator.popAndPushNamed(context, ChatView.id);
-            } else if (state is Failure) {
-              ShowMessage.show(context, msg: 'Sign Up is Faild');
-            } else if (state is RegisterFailure) {
-              ShowMessage.show(context, msg: state.errMessage);
-            }
-          },
-          builder: (context, state) {
-            if (state is Loading) {
-              return const Center(child: CircularProgressIndicator());
-            } else {
-              return const RegisterViewBody();
-            }
-          },
+        body: Background(
+          child: BlocConsumer<RegisterViewCubit, RegisterViewState>(
+            listener: (context, state) {
+              if (state is Success) {
+                ShowMessage.show(context, msg: 'Success');
+                BlocProvider.of<ChatCubit>(context).fetchMessages();
+                BlocProvider.of<PaymentCubit>(context).invoiceId = 0;
+                Navigator.popAndPushNamed(context, ChatView.id);
+              } else if (state is Failure) {
+                ShowMessage.show(context, msg: 'Sign Up is Faild');
+              } else if (state is RegisterFailure) {
+                ShowMessage.show(context, msg: state.errMessage);
+              }
+            },
+            builder: (context, state) {
+              if (state is Loading) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                return const RegisterViewBody();
+              }
+            },
+          ),
         ),
       ),
     );

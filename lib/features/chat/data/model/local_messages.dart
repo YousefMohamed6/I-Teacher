@@ -1,5 +1,5 @@
-import 'package:hive_flutter/hive_flutter.dart';
-part 'local_messages.g.dart';
+import 'package:hive/hive.dart';
+part  'local_messages.g.dart';
 
 @HiveType(typeId: 0)
 class LocalMessage extends HiveObject {
