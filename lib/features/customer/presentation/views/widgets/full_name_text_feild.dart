@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
 
-class CustomerFullName extends StatelessWidget {
-  const CustomerFullName({super.key});
+class FullNameTextFeild extends StatelessWidget {
+  const FullNameTextFeild({super.key});
 
   @override
   Widget build(BuildContext context) {
