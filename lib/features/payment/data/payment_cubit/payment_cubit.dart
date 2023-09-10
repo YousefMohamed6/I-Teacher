@@ -14,9 +14,9 @@ class PaymentCubit extends Cubit<PaymentState> {
   String url = '';
   final key = UniqueKey();
 
-  void changePaymentType() {
-    isVisa = !isVisa;
-    isWallets = !isWallets;
+  void changePaymentType({required bool isVisa}) {
+    this.isVisa = isVisa;
+    isWallets = !isVisa;
     emit(PaymentInitial());
   }
 
@@ -30,7 +30,7 @@ class PaymentCubit extends Cubit<PaymentState> {
       if (paymentStatus == 'success') {
         emit(Paid());
       } else {
-        emit(PaymentFaild());
+        emit(PaymentFailure());
       }
     } catch (ex) {
       emit(ProcessFailure());

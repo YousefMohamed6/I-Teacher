@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/theme/theme_cubit.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
 import 'package:mrjoo/features/register/data/register_cubit/register_cubit.dart';
 import 'package:mrjoo/features/home/data/home_cubit/home_cubit.dart';
 import 'package:mrjoo/firebase_options.dart';
@@ -11,16 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
 import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/payment/presentation/views/payment_page.dart';
+import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
 import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
 import 'package:mrjoo/features/register/presentation/views/register_page.dart';
 import 'package:mrjoo/features/splash/views/splash_view.dart';
+import 'package:mrjoo/simple_bloc_obsever.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = SimpleBlocObServer();
   runApp(const MrJoo());
 }
 
@@ -41,9 +42,6 @@ class MrJoo extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ChatCubit(),
-        ),
-        BlocProvider(
-          create: (context) => PaymentCubit(),
         ),
         BlocProvider(
           create: (context) => ThemeCubit(),

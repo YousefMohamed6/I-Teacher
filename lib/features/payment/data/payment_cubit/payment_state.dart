@@ -2,11 +2,11 @@ abstract class PaymentState {}
 
 class PaymentInitial extends PaymentState {}
 
-class PaymentVisa extends PaymentState {}
-
 class Paid extends PaymentState {}
 
-class PaymentFaild extends PaymentState {}
+
+
+class PaymentVisa extends PaymentState {}
 
 class PaymentWellats extends PaymentState {}
 

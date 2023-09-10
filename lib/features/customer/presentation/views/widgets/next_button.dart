@@ -4,10 +4,10 @@ import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
-import 'package:mrjoo/features/payment/presentation/views/payment_page.dart';
+import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
 
-class PayButton extends StatelessWidget {
-  const PayButton({super.key});
+class NextButton extends StatelessWidget {
+  const NextButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class PayButton extends StatelessWidget {
       },
       color: kMainTextColor,
       child: const CustomText(
-        text: 'Pay Now',
+        text: 'Next',
         color: kPrimryColor,
         fontWeight: FontWeight.bold,
       ),
