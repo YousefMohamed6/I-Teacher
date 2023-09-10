@@ -15,10 +15,10 @@ import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/payment/presentation/views/widgets/payment_item.dart';
 import 'package:mrjoo/features/payment/presentation/views/widgets/webview.dart';
 
-class PaymentPage extends StatelessWidget {
+class PaymentView extends StatelessWidget {
   static const String id = 'PaymentPage';
 
-  const PaymentPage({super.key});
+  const PaymentView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,7 +73,7 @@ class PaymentPage extends StatelessWidget {
                       width: 300,
                     ),
                   ),
-                  const SizedBox(height:48),
+                  const SizedBox(height: 48),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     mainAxisSize: MainAxisSize.max,
@@ -100,7 +100,7 @@ class PaymentPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height:32),
+                  const SizedBox(height: 32),
                   CustomButton(
                     color: kMainTextColor,
                     onPressed: () {

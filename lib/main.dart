@@ -12,7 +12,7 @@ import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
 import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_page.dart';
-import 'package:mrjoo/features/customer/presentation/views/customer_page.dart';
+import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
 import 'package:mrjoo/features/register/presentation/views/register_page.dart';
 import 'package:mrjoo/features/splash/views/splash_view.dart';
 
@@ -55,7 +55,7 @@ class MrJoo extends StatelessWidget {
           HomeView.id: (context) => const HomeView(),
           LoginView.id: (context) => const LoginView(),
           CustomerView.id: (context) => const CustomerView(),
-          PaymentPage.id: (context) => const PaymentPage(),
+          PaymentView.id: (context) => const PaymentView(),
           RegisterPage.id: (context) => const RegisterPage(),
           ChatPage.id: (context) => const ChatPage(),
         },

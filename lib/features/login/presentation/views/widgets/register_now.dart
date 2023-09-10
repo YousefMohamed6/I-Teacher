@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
-import 'package:mrjoo/features/customer/presentation/views/customer_page.dart';
+import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
 
 class RegisterNow extends StatelessWidget {
   const RegisterNow({
