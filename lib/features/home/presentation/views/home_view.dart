@@ -8,7 +8,7 @@ import 'package:mrjoo/features/home/data/home_cubit/home_cubit.dart';
 import 'package:mrjoo/features/home/data/home_cubit/home_state.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
 import 'package:mrjoo/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:mrjoo/features/login/presentation/views/login_page.dart';
+import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 
@@ -47,7 +47,7 @@ class HomeView extends StatelessWidget {
             Navigator.pushNamed(context, ChatPage.id);
           }
           if (state is UserLogout) {
-            Navigator.pushNamed(context, LoginPage.id);
+            Navigator.pushNamed(context, LoginView.id);
           }
         },
         builder: (context, state) {

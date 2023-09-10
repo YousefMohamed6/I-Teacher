@@ -11,8 +11,8 @@ import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_page.dart';
 
-class CustomerPage extends StatelessWidget {
-  const CustomerPage({super.key});
+class CustomerView extends StatelessWidget {
+  const CustomerView({super.key});
   static String id = 'CustomerPage';
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
-import 'package:mrjoo/features/login/presentation/views/login_page.dart';
+import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/features/chat/presentation/views/widgets/custom_chat_page.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
@@ -32,7 +32,7 @@ class ChatPage extends StatelessWidget {
           listener: (context, state) {
             if (state is SignOut) {
               ShowMessage.show(context, msg: 'LogOut');
-              Navigator.popAndPushNamed(context, LoginPage.id);
+              Navigator.popAndPushNamed(context, LoginView.id);
             }
           },
           builder: (context, state) {

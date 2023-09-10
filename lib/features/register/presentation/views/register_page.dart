@@ -7,7 +7,7 @@ import 'package:mrjoo/features/register/data/register_cubit/register_cubit.dart'
 import 'package:mrjoo/features/register/data/register_cubit/register_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_page.dart';
-import 'package:mrjoo/features/login/presentation/views/login_page.dart';
+import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/core/widgets/asset_image.dart';
 import 'package:mrjoo/core/widgets/avatar.dart';
 import 'package:mrjoo/core/widgets/background.dart';
@@ -125,7 +125,7 @@ class RegisterPage extends StatelessWidget {
                       text: "already have an account",
                       textButton: "Sign In",
                       onPressed: () {
-                        Navigator.pushNamed(context, LoginPage.id);
+                        Navigator.pushNamed(context, LoginView.id);
                       },
                     ),
                     const SizedBox(height: 16),
