@@ -16,3 +16,4 @@ const String kFawaterakToken =
 const String kTransactionFawaterak =
     'https://staging.fawaterk.com/api/v2/getInvoiceData/';
 
+const String kFawaterakWebsite='https://fawaterk.com/arabic/';

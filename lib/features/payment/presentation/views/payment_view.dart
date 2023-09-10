@@ -5,7 +5,7 @@ import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
 import 'package:mrjoo/features/payment/data/payment_cubit/payment_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/check-payment_button.dart';
+import 'package:mrjoo/features/payment/presentation/views/widgets/check_payment_button.dart';
 import 'package:mrjoo/features/payment/presentation/views/widgets/payment_view_body.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
