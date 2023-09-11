@@ -14,41 +14,44 @@ import 'package:mrjoo/core/widgets/custom_text.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
-  static String id = "HomePage";
+  static String id = "HomeView";
   @override
   Widget build(context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const CustomText(
-          text: kAppName,
-          fontSize: 24,
-          fontFamily: kPacificoFont,
+    return BlocProvider(
+      create: (context) => HomeViewCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const CustomText(
+            text: kAppName,
+            fontSize: 24,
+            fontFamily: kPacificoFont,
+          ),
+          actions: const [
+            SignInButton(),
+          ],
+          backgroundColor: kAppBarColor,
         ),
-        actions: const [
-          SignInButton(),
-        ],
-        backgroundColor: kAppBarColor,
-      ),
-      body: BlocConsumer<HomeViewCubit, HomeViewState>(
-        listener: (context, state) {
-          if (state is UserLogin) {
-            Navigator.pushNamed(context, ChatView.id);
-          }
-          if (state is UserLogout) {
-            Navigator.pushNamed(context, LoginView.id);
-          }
-        },
-        builder: (context, state) {
-          return ListView(
-            padding: EdgeInsets.zero,
-            children: const [
-              Background(
-                child: HomeViewBody(),
-              ),
-            ],
-          );
-        },
+        body: BlocConsumer<HomeViewCubit, HomeViewState>(
+          listener: (context, state) {
+            if (state is UserLogin) {
+              Navigator.pushNamed(context, ChatView.id);
+            }
+            if (state is UserLogout) {
+              Navigator.pushNamed(context, LoginView.id);
+            }
+          },
+          builder: (context, state) {
+            return ListView(
+              padding: EdgeInsets.zero,
+              children: const [
+                Background(
+                  child: HomeViewBody(),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,31 +1,31 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'local_message.dart';
+part of 'message_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class LocalMessageModelAdapter extends TypeAdapter<LocalMessageModel> {
+class LocalMessageModelAdapter extends TypeAdapter<MessageModel> {
   @override
   final int typeId = 0;
 
   @override
-  LocalMessageModel read(BinaryReader reader) {
+  MessageModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return LocalMessageModel(
+    return MessageModel(
       content: fields[0] as String,
-      createdAt: fields[1] as String, 
+      createdAt: fields[1] as String,
       uId: fields[2] as String,
       fullName: fields[3] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, LocalMessageModel obj) {
+  void write(BinaryWriter writer, MessageModel obj) {
     writer
       ..writeByte(4)
       ..writeByte(0)

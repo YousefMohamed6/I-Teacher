@@ -2,9 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
-import 'package:mrjoo/features/chat/data/model/local_message.dart';
+import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
-import 'package:mrjoo/features/home/data/home_cubit/home_cubit.dart';
 import 'package:mrjoo/core/utils/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +23,8 @@ void main() async {
   );
   Bloc.observer = SimpleBlocObServer();
   await Hive.initFlutter();
-  Hive.registerAdapter<LocalMessageModel>(LocalMessageModelAdapter());
-  await Hive.openBox<LocalMessageModel>(kMessageBox);
+  Hive.registerAdapter<MessageModel>(LocalMessageModelAdapter());
+  await Hive.openBox<MessageModel>(kMessageBox);
   runApp(const MrJoo());
 }
 
@@ -35,9 +34,6 @@ class MrJoo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => HomeViewCubit(),
-        ),
         BlocProvider(
           create: (context) => CustomerCubit(),
         ),

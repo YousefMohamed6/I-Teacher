@@ -16,9 +16,9 @@ class LoginViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginViewCubit, LoginViewState>(
-      builder: (context, state) => const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+      builder: (context, state) => ListView(
+        children: const [
+          SizedBox(height: 48),
           Avatar(image: kAvaterLogo),
           SizedBox(height: 48),
           EmailTextFaild(),

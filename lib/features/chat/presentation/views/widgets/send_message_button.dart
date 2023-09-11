@@ -11,7 +11,7 @@ class SendMessageButton extends StatelessWidget {
     return MaterialButton(
       minWidth: 16,
       onPressed: () async {
-         BlocProvider.of<ChatCubit>(context).addMessageToLocalStorge();
+         BlocProvider.of<ChatCubit>(context).sendMessage();
       },
       child: const Icon(
         Icons.send_sharp,

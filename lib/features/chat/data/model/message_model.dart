@@ -1,24 +1,30 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hive/hive.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
+part 'message_model.g.dart';
 
-class MessageModel {
-  final String message;
-  final Timestamp createdAt;
+@HiveType(typeId: 0)
+class MessageModel extends HiveObject {
+  @HiveField(0)
+  final String content;
+  @HiveField(1)
+  final String createdAt;
+  @HiveField(2)
   final String uId;
-  final String displayName;
+  @HiveField(3)
+  final String fullName;
+
   MessageModel({
-    required this.message,
+    required this.content,
     required this.createdAt,
     required this.uId,
-    required this.displayName,
+    required this.fullName,
   });
-
   factory MessageModel.fromJsonData(dynamic jsonData) {
     return MessageModel(
-      message: jsonData[kMessageField],
-      createdAt: jsonData[kCreatedAtField],
+      content: jsonData[kMessageField],
+      createdAt: jsonData[kCreatedAtField].toDate().toString(),
       uId: jsonData[kUesrIdField],
-      displayName: jsonData[kDisplayNameField],
+      fullName: jsonData[kDisplayNameField],
     );
   }
 }

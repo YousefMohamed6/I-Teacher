@@ -5,7 +5,7 @@ import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
-import 'package:mrjoo/features/chat/data/model/local_message.dart';
+import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/chat/presentation/views/widgets/sign_out_button.dart';
 import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/core/widgets/background.dart';
@@ -43,17 +43,19 @@ class ChatView extends StatelessWidget {
               }
             },
             builder: (context, state) {
-               if (state is Failure) {
+              if (state is Failure) {
                 return const Center(
                   child: CustomText(
                     text: 'SomeThing Wrong',
                     fontSize: 24,
                   ),
                 );
+              } else if (state is Success) {
+                return ChatviewBody(messages: state.messages);
               } else {
-                var localMessage = Hive.box<LocalMessageModel>(kMessageBox);
-                return  ChatviewBody(
-                  messages: localMessage.values.toList(),
+                var messageBox = Hive.box<MessageModel>(kMessageBox);
+                return ChatviewBody(
+                  messages: messageBox.values.toList(),
                 );
               }
             },

@@ -6,7 +6,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_state.dart';
-import 'package:mrjoo/features/chat/data/model/local_message.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 
 class ChatCubit extends Cubit<ChatState> {
@@ -14,9 +13,28 @@ class ChatCubit extends Cubit<ChatState> {
   final messageCtrl = TextEditingController();
   final scrollController = ScrollController();
   var formKey = GlobalKey<FormState>();
-
+  List<MessageModel> messagesList = [];
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kMessageCollection);
+
+  void sendMessage() async {
+    var message = MessageModel(
+        content: messageCtrl.text,
+        createdAt: DateTime.now().toString(),
+        uId: FirebaseAuth.instance.currentUser?.uid ?? "whwyywyukwjwogtvhiw",
+        fullName: FirebaseAuth.instance.currentUser?.displayName ?? 'New User');
+    sendMessageToMemory(message: message);
+    fetchlocalMessage();
+    await sendMessageToFirebase(message: message);
+    fetchFirebaseMessage();
+    animateTo();
+  }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+    GoogleSignIn().signOut();
+    emit(SignOut());
+  }
 
   void animateTo() {
     scrollController.animateTo(
@@ -26,37 +44,36 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  void fetchMessages() {
-    reference
-        .orderBy(kCreatedAtField, descending: true)
-        .snapshots()
-        .listen((event) {
-      List<MessageModel> messages = [];
-      for (int i = 0; i < event.docs.length; ++i) {
-        messages.add(MessageModel.fromJsonData(event.docs[i]));
-      }
-    });
+  void fetchlocalMessage() async {
+    var messageBox = Hive.box<MessageModel>(kMessageBox);
+    messagesList.clear();
+    var messages = messageBox.values.toList();
+    emit(Success(messages: messages));
+  }
+
+  void sendMessageToMemory({required MessageModel message}) async {
+    try {
+      var messageBox = Hive.box<MessageModel>(kMessageBox);
+      await messageBox.add(message);
+      messageCtrl.clear();
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+    }
   }
 
   void fetchFirebaseMessage() {
-    var localMessage = Hive.box<LocalMessageModel>(kMessageBox);
+    var messageBox = Hive.box<MessageModel>(kMessageBox);
     reference
         .orderBy(kCreatedAtField, descending: true)
         .snapshots()
         .listen((event) async {
-      await localMessage.add(
-        LocalMessageModel.fromJsonData(event.docs.last),
+      await messageBox.add(
+        MessageModel.fromJsonData(event.docs.last.data()),
       );
     });
   }
 
-  void fetchlocalMessage() async {
-    var localMessage = Hive.box<LocalMessageModel>(kMessageBox);
-    emit(Success(messages: localMessage.values.toList()));
-  }
-
-  Future<void> sendMessageToFirebase(
-      {required LocalMessageModel message}) async {
+  Future<void> sendMessageToFirebase({required MessageModel message}) async {
     var createdAt = DateTime.parse(message.createdAt);
     await reference.add({
       kMessageField: message.content,
@@ -64,29 +81,5 @@ class ChatCubit extends Cubit<ChatState> {
       kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
       kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
     });
-  }
-
-  Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
-    GoogleSignIn().signOut();
-    emit(SignOut());
-  }
-
-  void addMessageToLocalStorge() async {
-    try {
-      var localMessage = Hive.box<LocalMessageModel>(kMessageBox);
-      var message = LocalMessageModel(
-          content: messageCtrl.text,
-          createdAt: DateTime.now().toString(),
-          uId: FirebaseAuth.instance.currentUser?.uid ?? "whwyywyukwjwogtvhiw",
-          fullName:
-              FirebaseAuth.instance.currentUser?.displayName ?? 'New User');
-      await localMessage.add(message);
-      messageCtrl.clear();
-      fetchlocalMessage();
-      await sendMessageToFirebase(message: message);
-    } on Exception catch (e) {
-      debugPrint(e.toString());
-    }
   }
 }

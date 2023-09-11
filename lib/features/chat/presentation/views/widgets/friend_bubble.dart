@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/time.dart';
-import 'package:mrjoo/features/chat/data/model/local_message.dart';
+import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/chat/presentation/views/widgets/chat_bubble.dart';
 
 class FriendBubble extends StatelessWidget {
   const FriendBubble({super.key, required this.message, required this.time});
-  final LocalMessageModel message;
+  final MessageModel message;
   final TimeHelper time;
   @override
   Widget build(BuildContext context) {

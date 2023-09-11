@@ -1,9 +1,10 @@
-import 'package:mrjoo/features/chat/data/model/local_message.dart';
+
+import 'package:mrjoo/features/chat/data/model/message_model.dart';
 
 class TimeHelper {
   TimeHelper({required this.message});
 
-  final LocalMessageModel message;
+  final MessageModel message;
 
   String timeState = '';
   String hour() {

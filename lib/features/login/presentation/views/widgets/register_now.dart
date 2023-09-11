@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
+import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
 
 class RegisterNow extends StatelessWidget {
   const RegisterNow({
@@ -24,7 +24,7 @@ class RegisterNow extends StatelessWidget {
           text: 'Register Now',
           fontWeight: FontWeight.bold,
           onPressed: () {
-            Navigator.pushNamed(context, ChatView.id);
+            Navigator.pushNamed(context, CustomerView.id);
           },
         ),
       ],
