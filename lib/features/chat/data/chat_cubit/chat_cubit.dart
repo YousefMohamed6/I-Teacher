@@ -52,20 +52,19 @@ class ChatCubit extends Cubit<ChatState> {
 
   void fetchlocalMessage() async {
     var localMessage = Hive.box<LocalMessageModel>(kMessageBox);
-    emit(Success(messages: localMessage.values.toList())); 
+    emit(Success(messages: localMessage.values.toList()));
   }
 
-  // Future<void> sendMessage() async {
-  //   if (formKey.currentState!.validate()) {
-  //     var message = await addMessageToLocalStorge();
-  //     await reference.add({
-  //       kMessageField: message.content,
-  //       kCreatedAtField: message.createdAt,
-  //       kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
-  //       kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
-  //     });
-  //   }
-  // }
+  Future<void> sendMessageToFirebase(
+      {required LocalMessageModel message}) async {
+    var createdAt = DateTime.parse(message.createdAt);
+    await reference.add({
+      kMessageField: message.content,
+      kCreatedAtField: createdAt,
+      kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
+      kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
+    });
+  }
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
@@ -84,8 +83,8 @@ class ChatCubit extends Cubit<ChatState> {
               FirebaseAuth.instance.currentUser?.displayName ?? 'New User');
       await localMessage.add(message);
       messageCtrl.clear();
-      animateTo();
       fetchlocalMessage();
+      await sendMessageToFirebase(message: message);
     } on Exception catch (e) {
       debugPrint(e.toString());
     }

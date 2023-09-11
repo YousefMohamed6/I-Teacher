@@ -14,7 +14,6 @@ class ChatListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        reverse: true,
         controller: BlocProvider.of<ChatCubit>(context).scrollController,
         itemCount: messages.length,
         itemBuilder: (context, index) {
