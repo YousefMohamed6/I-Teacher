@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
+import 'package:mrjoo/features/chat/data/model/user_model.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
 import 'package:mrjoo/core/utils/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,8 +24,10 @@ void main() async {
   );
   Bloc.observer = SimpleBlocObServer();
   await Hive.initFlutter();
-  Hive.registerAdapter<MessageModel>(LocalMessageModelAdapter());
+  Hive.registerAdapter<MessageModel>(MessageModelAdapter());
   await Hive.openBox<MessageModel>(kMessageBox);
+  Hive.registerAdapter<UserModel>(UserModelAdapter());
+  await Hive.openBox<MessageModel>(kUserBox);
   runApp(const MrJoo());
 }
 
