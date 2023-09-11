@@ -7,6 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_state.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
+import 'package:mrjoo/features/chat/data/model/user_model.dart';
 
 class ChatCubit extends Cubit<ChatState> {
   ChatCubit() : super(Initial());
@@ -18,11 +19,14 @@ class ChatCubit extends Cubit<ChatState> {
       FirebaseFirestore.instance.collection(kMessageCollection);
 
   void sendMessage() async {
+    var userBox = Hive.box<UserModel>(kUserBox);
+    var user = userBox.values.first;
     var message = MessageModel(
-        content: messageCtrl.text,
-        createdAt: DateTime.now().toString(),
-        uId: FirebaseAuth.instance.currentUser?.uid ?? "whwyywyukwjwogtvhiw",
-        fullName: FirebaseAuth.instance.currentUser?.displayName ?? 'New User');
+      content: messageCtrl.text,
+      createdAt: DateTime.now().toString(),
+      uId: FirebaseAuth.instance.currentUser?.uid ?? user.userId,
+      fullName: FirebaseAuth.instance.currentUser?.displayName ?? user.userName,
+    );
     sendMessageToMemory(message: message);
     fetchlocalMessage();
     await sendMessageToFirebase(message: message);
@@ -33,6 +37,9 @@ class ChatCubit extends Cubit<ChatState> {
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     GoogleSignIn().signOut();
+    var userBox = Hive.box<UserModel>(kUserBox);
+    var user = userBox.values.first;
+    user.delete();
     emit(SignOut());
   }
 
