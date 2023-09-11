@@ -9,4 +9,4 @@ const String kCreatedAtField = "createdAt";
 const String kUesrIdField = 'id';
 const String kDisplayNameField = 'fullName';
 const String kEmailSubject = 'Computer Corse Project';
-
+const String kMessageBox = 'MessageBox';

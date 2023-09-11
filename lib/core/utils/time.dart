@@ -1,17 +1,20 @@
-class TimeHelper {
-  TimeHelper({required this.index, required this.messagesList});
+import 'package:mrjoo/features/chat/data/model/local_message.dart';
 
-  final List messagesList;
-  final int index;
-  String timeState = 'Pm';
+class TimeHelper {
+  TimeHelper({required this.message});
+
+  final LocalMessageModel message;
+
+  String timeState = '';
   String hour() {
-    var hour = messagesList[index].time.toDate().hour;
-    if (hour == 24) {
+    var time = DateTime.parse(message.createdAt);
+    String hour = '';
+    if (time.hour == 24) {
       hour = '12';
       timeState = 'Am';
-      return hour!;
-    } else if (hour > 12) {
-      hour = hour - 12;
+      return hour;
+    } else if (time.hour > 12) {
+      hour = (time.hour - 12).toString();
       timeState = 'Pm';
       return hour.toString();
     } else {
@@ -21,7 +24,8 @@ class TimeHelper {
   }
 
   String minute() {
-    return messagesList[index].time.toDate().minute.toString();
+    var time = DateTime.parse(message.createdAt);
+    return time.minute.toString();
   }
 
   String state() {

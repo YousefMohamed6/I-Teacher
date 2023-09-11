@@ -1,8 +1,11 @@
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
+import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
+import 'package:mrjoo/features/chat/data/model/local_message.dart';
 import 'package:mrjoo/features/chat/presentation/views/widgets/sign_out_button.dart';
 import 'package:mrjoo/features/login/presentation/views/login_view.dart';
 import 'package:mrjoo/core/widgets/background.dart';
@@ -35,27 +38,22 @@ class ChatView extends StatelessWidget {
           child: BlocConsumer<ChatCubit, ChatState>(
             listener: (context, state) {
               if (state is SignOut) {
-                ShowMessage.show(context, msg: 'Signout');
+                ShowMessage.show(context, msg: 'Sign out');
                 Navigator.popAndPushNamed(context, LoginView.id);
               }
             },
             builder: (context, state) {
-              if (state is Loading) {
-                return const Center(
-                  child: CircularProgressIndicator(
-                    backgroundColor: Colors.white,
-                  ),
-                );
-              } else if (state is Success) {
-                return ChatviewBody(
-                  messages: state.messages,
-                );
-              } else {
+               if (state is Failure) {
                 return const Center(
                   child: CustomText(
                     text: 'SomeThing Wrong',
                     fontSize: 24,
                   ),
+                );
+              } else {
+                var localMessage = Hive.box<LocalMessageModel>(kMessageBox);
+                return  ChatviewBody(
+                  messages: localMessage.values.toList(),
                 );
               }
             },

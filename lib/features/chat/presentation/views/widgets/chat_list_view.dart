@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/time.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
-import 'package:mrjoo/features/chat/data/model/message_model.dart';
+import 'package:mrjoo/features/chat/data/model/local_message.dart';
 import 'package:mrjoo/features/chat/presentation/views/widgets/friend_bubble.dart';
 import 'package:mrjoo/features/chat/presentation/views/widgets/user_bubble.dart';
 
 class ChatListView extends StatelessWidget {
   const ChatListView({super.key, required this.messages});
-  final List<MessageModel> messages;
+  final List<LocalMessageModel> messages;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -19,12 +19,11 @@ class ChatListView extends StatelessWidget {
         itemCount: messages.length,
         itemBuilder: (context, index) {
           final user = FirebaseAuth.instance.currentUser;
-          TimeHelper time = TimeHelper(index: index, messagesList: messages);
-          if (user!.uid == messages[index].id) {
+          TimeHelper time = TimeHelper( message: messages[index]);
+          if (user?.uid  == messages[index].uId) {
             return UserBubble(
               message: messages[index],
               time: time,
-              user: user,
             );
           } else {
             return FriendBubble(

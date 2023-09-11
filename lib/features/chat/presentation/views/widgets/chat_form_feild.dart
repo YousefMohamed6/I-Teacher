@@ -17,7 +17,7 @@ class ChatFormField extends StatelessWidget {
         controller: BlocProvider.of<ChatCubit>(context).messageCtrl,
         hintText: 'Send',
         onFieldSubmitted: (input) {
-          BlocProvider.of<ChatCubit>(context).sendMessage();
+          BlocProvider.of<ChatCubit>(context).addMessageToLocalStorge();
         },
         suffixIcon: const SendMessageButton(),
       ),

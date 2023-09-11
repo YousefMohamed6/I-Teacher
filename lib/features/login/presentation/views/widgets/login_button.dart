@@ -12,13 +12,12 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomButton(
       color: Colors.white,
-      onPressed: () {
+      onPressed: () async {
         var emailKey = BlocProvider.of<LoginViewCubit>(context).emailkey;
         var passwordKey = BlocProvider.of<LoginViewCubit>(context).passwordKey;
+        if (passwordKey.currentState!.validate()) {}
         if (emailKey.currentState!.validate()) {
-          if (passwordKey.currentState!.validate()) {
-            BlocProvider.of<LoginViewCubit>(context).loginUser();
-          }
+        await  BlocProvider.of<LoginViewCubit>(context).loginUser();
         }
       },
       child: const CustomText(

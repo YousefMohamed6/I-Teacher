@@ -16,7 +16,7 @@ class SignWithGoogleButton extends StatelessWidget {
       onPressed: () {
         BlocProvider.of<RegisterViewCubit>(context).singInWithGoogle();
         BlocProvider.of<PaymentCubit>(context).invoiceId = 0;
-        BlocProvider.of<ChatCubit>(context).fetchMessages();
+        BlocProvider.of<ChatCubit>(context).fetchlocalMessage();
       },
       icon: const CustomAssetImage(
         imagePath: kGoogleLogo,

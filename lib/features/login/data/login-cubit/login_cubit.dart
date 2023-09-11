@@ -4,7 +4,7 @@ import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginViewCubit extends Cubit<LoginViewState> {
-  LoginViewCubit() : super(HidenPassword());
+  LoginViewCubit() : super(LoginInitial());
   var email = TextEditingController();
   var password = TextEditingController();
   var emailkey = GlobalKey<FormState>();
@@ -13,10 +13,10 @@ class LoginViewCubit extends Cubit<LoginViewState> {
 
   void changeObscureText() {
     obscuretext = !obscuretext;
-    obscuretext ? emit(HidenPassword()) : emit(ShowPassword());
+    emit(LoginInitial());
   }
 
-  void loginUser() async {
+  Future<void> loginUser() async {
     emit(LoginLoading());
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(

@@ -1,8 +1,6 @@
 abstract class LoginViewState {}
 
-class ShowPassword extends LoginViewState {}
-
-class HidenPassword extends LoginViewState {}
+class LoginInitial extends LoginViewState {}
 
 class LoginLoading extends LoginViewState {}
 

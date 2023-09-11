@@ -39,7 +39,7 @@ class RegisterView extends StatelessWidget {
             listener: (context, state) {
               if (state is Success) {
                 ShowMessage.show(context, msg: 'Success');
-                BlocProvider.of<ChatCubit>(context).fetchMessages();
+                BlocProvider.of<ChatCubit>(context).fetchlocalMessage();
                 BlocProvider.of<PaymentCubit>(context).invoiceId = 0;
                 Navigator.popAndPushNamed(context, ChatView.id);
               } else if (state is Failure) {
