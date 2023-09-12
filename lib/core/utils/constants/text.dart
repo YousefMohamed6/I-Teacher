@@ -10,4 +10,4 @@ const String kUesrIdField = 'id';
 const String kDisplayNameField = 'fullName';
 const String kEmailSubject = 'Computer Corse Project';
 const String kMessageBox = 'MessageBox';
-const String kUserBox = 'MessageBox';
+const String kUserBox = 'userBox';

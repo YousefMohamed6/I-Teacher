@@ -8,9 +8,8 @@ class PaymentViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+    return ListView(
+      children: const [
         SizedBox(height: 48),
         PaymentCompanyImage(),
         SizedBox(height: 48),

@@ -1,4 +1,3 @@
-
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 
 class TimeHelper {
@@ -9,18 +8,18 @@ class TimeHelper {
   String timeState = '';
   String hour() {
     var time = DateTime.parse(message.createdAt);
-    String hour = '';
     if (time.hour == 24) {
-      hour = '12';
       timeState = 'Am';
-      return hour;
+      return (time.hour - 12).toString();
     } else if (time.hour > 12) {
-      hour = (time.hour - 12).toString();
       timeState = 'Pm';
-      return hour.toString();
-    } else {
+      return (time.hour - 12).toString();
+    } else if (time.hour < 12) {
       timeState = 'Am';
-      return hour.toString();
+      return time.hour.toString();
+    } else {
+      timeState = 'Pm';
+      return time.hour.toString();
     }
   }
 

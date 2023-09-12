@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/links.dart';
 import 'package:mrjoo/core/utils/helper.dart';
@@ -13,7 +12,6 @@ class PaymentCubit extends Cubit<PaymentState> {
   int invoiceId = 0;
   final Api _api = Api();
   String url = '';
-  final key = UniqueKey();
 
   void changePaymentType({required bool isVisa}) {
     this.isVisa = isVisa;
@@ -29,8 +27,10 @@ class PaymentCubit extends Cubit<PaymentState> {
           token: kFawaterakToken);
       var paymentStatus = response['data']['invoice_transactions'][0]['status'];
       if (paymentStatus == 'success') {
+        invoiceId = 0;
         emit(Paid());
       } else {
+        invoiceId = 0;
         emit(PaymentFailure());
       }
     } catch (ex) {

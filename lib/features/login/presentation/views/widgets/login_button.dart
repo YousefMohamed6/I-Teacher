@@ -17,7 +17,7 @@ class LoginButton extends StatelessWidget {
         var passwordKey = BlocProvider.of<LoginViewCubit>(context).passwordKey;
         if (passwordKey.currentState!.validate()) {}
         if (emailKey.currentState!.validate()) {
-        await  BlocProvider.of<LoginViewCubit>(context).loginUser();
+          BlocProvider.of<LoginViewCubit>(context).loginUser();
         }
       },
       child: const CustomText(

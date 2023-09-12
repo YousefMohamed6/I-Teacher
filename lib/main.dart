@@ -27,7 +27,7 @@ void main() async {
   Hive.registerAdapter<MessageModel>(MessageModelAdapter());
   await Hive.openBox<MessageModel>(kMessageBox);
   Hive.registerAdapter<UserModel>(UserModelAdapter());
-  await Hive.openBox<MessageModel>(kUserBox);
+  await Hive.openBox<UserModel>(kUserBox);
   runApp(const MrJoo());
 }
 

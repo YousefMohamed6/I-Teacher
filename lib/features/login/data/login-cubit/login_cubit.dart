@@ -19,7 +19,7 @@ class LoginViewCubit extends Cubit<LoginViewState> {
     emit(LoginInitial());
   }
 
-  Future<void> loginUser() async {
+  void loginUser() async {
     emit(LoginLoading());
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(

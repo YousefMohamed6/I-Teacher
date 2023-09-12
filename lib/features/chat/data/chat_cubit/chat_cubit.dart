@@ -38,8 +38,10 @@ class ChatCubit extends Cubit<ChatState> {
     await FirebaseAuth.instance.signOut();
     GoogleSignIn().signOut();
     var userBox = Hive.box<UserModel>(kUserBox);
-    var user = userBox.values.first;
-    user.delete();
+    if (userBox.values.firstOrNull != null) {
+      var user = userBox.values.first;
+      user.delete();
+    }
     emit(SignOut());
   }
 
@@ -88,5 +90,23 @@ class ChatCubit extends Cubit<ChatState> {
       kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
       kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
     });
+  }
+
+  void sortLocalMessageByDate({required List<MessageModel> messages}) {
+    List<DateTime> messageDate = [];
+    for (int i = 0; i < messages.length; i++) {
+      var time = DateTime.parse(messages[i].createdAt);
+      messageDate.add(time);
+    }
+    messageDate.sort(
+      (a, b) => a.compareTo(b),
+    );
+    List<MessageModel> sortedMessage = [];
+    for (int i = 0; i < messageDate.length; i++) {
+      if (messages[i].createdAt == messageDate[i].toString()) {
+        sortedMessage.add(messages[i]);
+      }
+    }
+    debugPrint(sortedMessage[0].content);
   }
 }

@@ -22,7 +22,7 @@ class TeacherAccounts extends StatelessWidget {
         ),
         AccountItem(
           imagePath: kLinkedinLogo,
-          url: kLinkedinLogo,
+          url: kLinkedinUrl,
         ),
         AccountItem(
           imagePath: kGithubLogo,
