@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
+import 'package:mrjoo/core/utils/time.dart';
+import 'package:mrjoo/core/widgets/custom_text.dart';
+import 'package:mrjoo/features/chat/data/model/message_model.dart';
 
 class ChatBubble extends StatelessWidget {
   const ChatBubble({
     super.key,
-    required this.message,
     required this.alignmentMessage,
-    required this.time,
     required this.bottonRightRedius,
     required this.bottonLeftRedius,
     required this.bubbleColor,
-    required this.fullName,
+    required this.message,
+    required this.time,
   });
-
-  final String message;
-  final String fullName;
-  final String time;
+  final MessageModel message;
+  final TimeHelper time;
   final AlignmentGeometry alignmentMessage;
   final double bottonRightRedius;
   final double bottonLeftRedius;
@@ -44,14 +44,12 @@ class ChatBubble extends StatelessWidget {
               : CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              fullName,
+            CustomText(
+              text: message.fullName,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                color: kMainTextColor,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
+              color: kMainTextColor,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -62,25 +60,21 @@ class ChatBubble extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   verticalDirection: VerticalDirection.up,
                   children: [
-                    Text(
-                      time,
+                    CustomText(
+                      text: '${time.hour()} : ${time.minute()} ${time.state()}',
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: kMainTextColor,
-                        fontSize: 12,
-                        fontFamily: kFontHandjet,
-                      ),
+                      color: kMainTextColor,
+                      fontSize: 12,
+                      fontFamily: kFontHandjet,
                     ),
                   ],
                 ),
                 const SizedBox(width: 16),
-                Text(
-                  message,
+                CustomText(
+                  text: message.content,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                      color: kMainTextColor,
-                      fontSize: 20,
-                      fontStyle: FontStyle.italic),
+                  color: kMainTextColor,
+                  fontSize: 20,
                 ),
               ],
             ),

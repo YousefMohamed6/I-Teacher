@@ -15,12 +15,11 @@ class UserBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChatBubble(
-      fullName: message.fullName,
       bubbleColor: kUserColor,
       bottonLeftRedius: 24.0,
       bottonRightRedius: 0.0,
-      message: message.content,
-      time: '${time.hour()} : ${time.minute()} ${time.state()}',
+      message: message,
+      time: time,
       alignmentMessage: Alignment.topRight,
     );
   }

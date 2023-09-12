@@ -14,24 +14,25 @@ class ChatCubit extends Cubit<ChatState> {
   final messageCtrl = TextEditingController();
   final scrollController = ScrollController();
   var formKey = GlobalKey<FormState>();
-  List<MessageModel> messagesList = [];
+  List<MessageModel> messages = [];
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kMessageCollection);
+  var messageBox = Hive.box<MessageModel>(kMessageBox);
 
   void sendMessage() async {
+    messageBox.clear();
     var userBox = Hive.box<UserModel>(kUserBox);
     var user = userBox.values.first;
-    var message = MessageModel(
+    var newMessage = MessageModel(
       content: messageCtrl.text,
       createdAt: DateTime.now().toString(),
       uId: FirebaseAuth.instance.currentUser?.uid ?? user.userId,
       fullName: FirebaseAuth.instance.currentUser?.displayName ?? user.userName,
     );
-    sendMessageToMemory(message: message);
-    fetchlocalMessage();
-    await sendMessageToFirebase(message: message);
-    fetchFirebaseMessage();
-    animateTo();
+    sendMessageToMemory(message: newMessage);
+    animateToLastMessage();
+    await sendMessageToFirebase(message: newMessage);
+    fetchFirebaseMessages();
   }
 
   Future<void> signOut() async {
@@ -45,7 +46,7 @@ class ChatCubit extends Cubit<ChatState> {
     emit(SignOut());
   }
 
-  void animateTo() {
+  void animateToLastMessage() {
     scrollController.animateTo(
       0,
       duration: const Duration(milliseconds: 250),
@@ -53,33 +54,13 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  void fetchlocalMessage() async {
-    var messageBox = Hive.box<MessageModel>(kMessageBox);
-    messagesList.clear();
-    var messages = messageBox.values.toList();
-    emit(Success(messages: messages));
-  }
-
   void sendMessageToMemory({required MessageModel message}) async {
     try {
-      var messageBox = Hive.box<MessageModel>(kMessageBox);
       await messageBox.add(message);
       messageCtrl.clear();
     } on Exception catch (e) {
       debugPrint(e.toString());
     }
-  }
-
-  void fetchFirebaseMessage() {
-    var messageBox = Hive.box<MessageModel>(kMessageBox);
-    reference
-        .orderBy(kCreatedAtField, descending: true)
-        .snapshots()
-        .listen((event) async {
-      await messageBox.add(
-        MessageModel.fromJsonData(event.docs.last.data()),
-      );
-    });
   }
 
   Future<void> sendMessageToFirebase({required MessageModel message}) async {
@@ -92,21 +73,18 @@ class ChatCubit extends Cubit<ChatState> {
     });
   }
 
-  void sortLocalMessageByDate({required List<MessageModel> messages}) {
-    List<DateTime> messageDate = [];
-    for (int i = 0; i < messages.length; i++) {
-      var time = DateTime.parse(messages[i].createdAt);
-      messageDate.add(time);
-    }
-    messageDate.sort(
-      (a, b) => a.compareTo(b),
-    );
-    List<MessageModel> sortedMessage = [];
-    for (int i = 0; i < messageDate.length; i++) {
-      if (messages[i].createdAt == messageDate[i].toString()) {
-        sortedMessage.add(messages[i]);
+  void fetchFirebaseMessages() {
+    reference
+        .orderBy(kCreatedAtField, descending: true)
+        .snapshots()
+        .listen((event) async {
+      messages.clear();
+      await messageBox.clear();
+      for (int i = 0; i < event.docs.length; ++i) {
+        messages.add(MessageModel.fromJsonData(event.docs[i]));
       }
-    }
-    debugPrint(sortedMessage[0].content);
+      await messageBox.addAll(messages);
+      emit(Initial());
+    });
   }
 }

@@ -37,6 +37,9 @@ class ChatView extends StatelessWidget {
         body: Background(
           child: BlocConsumer<ChatCubit, ChatState>(
             listener: (context, state) {
+              if (state is Initial) {
+                BlocProvider.of<ChatCubit>(context).fetchFirebaseMessages();
+              }
               if (state is SignOut) {
                 ShowMessage.show(context, msg: 'Sign out');
                 Navigator.popAndPushNamed(context, LoginView.id);
@@ -50,8 +53,6 @@ class ChatView extends StatelessWidget {
                     fontSize: 24,
                   ),
                 );
-              } else if (state is Success) {
-                return ChatviewBody(messages: state.messages);
               } else {
                 var messageBox = Hive.box<MessageModel>(kMessageBox);
                 return ChatviewBody(

@@ -11,12 +11,11 @@ class FriendBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChatBubble(
-      fullName: message.fullName,
       bubbleColor: kFriendColor,
       bottonLeftRedius: 0.0,
       bottonRightRedius: 24.0,
-      message: message.content,
-      time: '${time.hour()} : ${time.minute()} ${time.state()}',
+      message: message,
+      time: time,
       alignmentMessage: Alignment.topLeft,
     );
   }
