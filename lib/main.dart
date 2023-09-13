@@ -4,6 +4,8 @@ import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/chat/data/model/user_model.dart';
+import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/corse_view.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
 import 'package:mrjoo/core/utils/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -43,6 +45,9 @@ class MrJoo extends StatelessWidget {
         BlocProvider(
           create: (context) => ChatCubit(),
         ),
+        BlocProvider(
+          create: (context) => CourseCubit(),
+        ),
       ],
       child: MaterialApp(
         routes: {
@@ -53,6 +58,7 @@ class MrJoo extends StatelessWidget {
           PaymentView.id: (context) => const PaymentView(),
           RegisterView.id: (context) => const RegisterView(),
           ChatView.id: (context) => const ChatView(),
+          CourseView.id: (context) => const CourseView(),
         },
         debugShowCheckedModeBanner: false,
         initialRoute: SplashView.id,

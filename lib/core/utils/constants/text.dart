@@ -4,6 +4,7 @@ const String kTeacherJob = 'Flutter Devolper';
 const String kPhone = '01067954536';
 const String kEmail = 'Yo7sef2002@gmail.com';
 const String kMessageCollection = "messages";
+const String kCorseCollection = "corseLink";
 const String kMessageField = "message";
 const String kCreatedAtField = "createdAt";
 const String kUesrIdField = 'id';

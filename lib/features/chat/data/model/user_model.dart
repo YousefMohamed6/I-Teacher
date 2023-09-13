@@ -1,11 +1,18 @@
 import 'package:hive_flutter/hive_flutter.dart';
 part 'user_model.g.dart';
+
 @HiveType(typeId: 1)
 class UserModel extends HiveObject {
   @HiveField(0)
-  String userId;
+  final String userId;
   @HiveField(1)
-  String userName;
+  final String userName;
+  @HiveField(2)
+  final bool isAdmin;
 
-  UserModel({required this.userId, required this.userName});
+  UserModel({
+    required this.userId,
+    required this.userName,
+    required this.isAdmin,
+  });
 }

@@ -10,8 +10,10 @@ class LoginSuccess extends LoginViewState {}
 
 class RestSuccess extends LoginViewState {}
 
-class LoginFialure extends LoginViewState {
+class RestFailure extends LoginViewState {}
+
+class LoginFailure extends LoginViewState {
   final String errMessage;
 
-  LoginFialure({required this.errMessage});
+  LoginFailure({required this.errMessage});
 }

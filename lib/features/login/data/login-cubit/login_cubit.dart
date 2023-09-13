@@ -26,15 +26,10 @@ class LoginViewCubit extends Cubit<LoginViewState> {
         email: email.text,
         password: password.text,
       );
-      var userBox = Hive.box<UserModel>(kUserBox);
-      var user = UserModel(
-        userId: FirebaseAuth.instance.currentUser!.uid,
-        userName: FirebaseAuth.instance.currentUser!.displayName!,
-      );
-      await userBox.add(user);
+      addUserToLocalStorage();
       emit(LoginSuccess());
     } on FirebaseAuthException catch (e) {
-      emit(LoginFialure(errMessage: e.code));
+      emit(LoginFailure(errMessage: e.code));
     }
   }
 
@@ -46,7 +41,21 @@ class LoginViewCubit extends Cubit<LoginViewState> {
       );
       emit(RestSuccess());
     } on Exception {
-      emit(LoginFialure(errMessage: 'Invalid Email'));
+      emit(RestFailure());
     }
+  }
+
+  void addUserToLocalStorage() async {
+    var userBox = Hive.box<UserModel>(kUserBox);
+    bool isAdmin = false;
+    if (email.text == kEmail) {
+      isAdmin = true;
+    }
+    var user = UserModel(
+      userId: FirebaseAuth.instance.currentUser!.uid,
+      userName: FirebaseAuth.instance.currentUser!.displayName!,
+      isAdmin: isAdmin,
+    );
+    await userBox.add(user);
   }
 }
