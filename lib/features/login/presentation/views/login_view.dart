@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/features/course/presentation/corse_view.dart';
+import 'package:mrjoo/features/course/presentation/course_view.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
 import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
@@ -31,8 +31,8 @@ class LoginView extends StatelessWidget {
           child: BlocConsumer<LoginViewCubit, LoginViewState>(
             listener: (context, state) {
               if (state is LoginSuccess) {
-                ShowMessage.show(context, msg: 'Sign in');
                 Navigator.popAndPushNamed(context, CourseView.id);
+                ShowMessage.show(context, msg: 'Sign in');
               }
               if (state is LoginFailure) {
                 ShowMessage.show(context, msg: state.errMessage);

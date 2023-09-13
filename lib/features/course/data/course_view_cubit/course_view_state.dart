@@ -1,5 +1,6 @@
 part of 'course_view_cubit.dart';
 
-sealed class CousreState {}
+sealed class CourseState {}
 
-final class CourseInitial extends CousreState {}
+final class CourseInitial extends CourseState {}
+final class SignOut extends CourseState {}

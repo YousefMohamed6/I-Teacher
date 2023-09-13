@@ -5,7 +5,7 @@ import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/chat/data/model/user_model.dart';
 import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
-import 'package:mrjoo/features/course/presentation/corse_view.dart';
+import 'package:mrjoo/features/course/presentation/course_view.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
 import 'package:mrjoo/core/utils/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';

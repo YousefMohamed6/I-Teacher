@@ -21,8 +21,10 @@ class CourseView extends StatelessWidget {
           fontFamily: kPacificoFont,
         ),
         backgroundColor: kAppBarColor,
-        actions: const [
-          AdminButton(),
+        actions: [
+          AdminButton(
+            user: BlocProvider.of<CourseCubit>(context).getLocalUser(),
+          ),
         ],
       ),
       body: CourseViewBody(
