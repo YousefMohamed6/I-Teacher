@@ -14,13 +14,11 @@ class ChatCubit extends Cubit<ChatState> {
   final messageCtrl = TextEditingController();
   final scrollController = ScrollController();
   var formKey = GlobalKey<FormState>();
-  List<MessageModel> messages = [];
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kMessageCollection);
   var messageBox = Hive.box<MessageModel>(kMessageBox);
 
   void sendMessage() async {
-    messageBox.clear();
     var userBox = Hive.box<UserModel>(kUserBox);
     var user = userBox.values.first;
     var newMessage = MessageModel(
@@ -29,10 +27,10 @@ class ChatCubit extends Cubit<ChatState> {
       uId: FirebaseAuth.instance.currentUser?.uid ?? user.userId,
       fullName: FirebaseAuth.instance.currentUser?.displayName ?? user.userName,
     );
-    sendMessageToMemory(message: newMessage);
+    addMessageToLocalMemory(message: newMessage);
     animateToLastMessage();
-    await sendMessageToFirebase(message: newMessage);
-    fetchFirebaseMessages();
+    await addMessageToFirebase(message: newMessage);
+    emit(Initial());
   }
 
   Future<void> signOut() async {
@@ -54,7 +52,7 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
-  void sendMessageToMemory({required MessageModel message}) async {
+  void addMessageToLocalMemory({required MessageModel message}) async {
     try {
       await messageBox.add(message);
       messageCtrl.clear();
@@ -63,7 +61,7 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
-  Future<void> sendMessageToFirebase({required MessageModel message}) async {
+  Future<void> addMessageToFirebase({required MessageModel message}) async {
     var createdAt = DateTime.parse(message.createdAt);
     await reference.add({
       kMessageField: message.content,
@@ -74,17 +72,25 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   void fetchFirebaseMessages() {
+    List<MessageModel> messages = [];
     reference
         .orderBy(kCreatedAtField, descending: true)
         .snapshots()
         .listen((event) async {
-      messages.clear();
       await messageBox.clear();
+      messages.clear();
       for (int i = 0; i < event.docs.length; ++i) {
         messages.add(MessageModel.fromJsonData(event.docs[i]));
       }
       await messageBox.addAll(messages);
       emit(Initial());
     });
+  }
+
+  void fetchLocalMessage() {
+    List<MessageModel> messagesList = [];
+    var messages = messageBox.values.toList();
+    messagesList.addAll(messages);
+    emit(Success(messages: messages));
   }
 }

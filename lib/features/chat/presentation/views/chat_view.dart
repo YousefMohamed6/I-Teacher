@@ -19,48 +19,49 @@ class ChatView extends StatelessWidget {
   static String id = "ChatPage";
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ChatCubit(),
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const CustomText(
-            text: 'Group Chat',
-            fontSize: 24,
-            fontFamily: kPacificoFont,
-          ),
-          backgroundColor: kAppBarColor,
-          actions: const [
-            SignOutButton(),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const CustomText(
+          text: 'Group Chat',
+          fontSize: 24,
+          fontFamily: kPacificoFont,
         ),
-        body: Background(
-          child: BlocConsumer<ChatCubit, ChatState>(
-            listener: (context, state) {
-              if (state is Initial) {
-                BlocProvider.of<ChatCubit>(context).fetchFirebaseMessages();
-              }
-              if (state is SignOut) {
-                ShowMessage.show(context, msg: 'Sign out');
-                Navigator.popAndPushNamed(context, LoginView.id);
-              }
-            },
-            builder: (context, state) {
-              if (state is Failure) {
-                return const Center(
-                  child: CustomText(
-                    text: 'SomeThing Wrong',
-                    fontSize: 24,
-                  ),
-                );
-              } else {
-                var messageBox = Hive.box<MessageModel>(kMessageBox);
-                return ChatviewBody(
-                  messages: messageBox.values.toList(),
-                );
-              }
-            },
-          ),
+        backgroundColor: kAppBarColor,
+        actions: const [
+          SignOutButton(),
+        ],
+      ),
+      body: Background(
+        child: BlocConsumer<ChatCubit, ChatState>(
+          listener: (context, state) {
+            if (state is SignOut) {
+              ShowMessage.show(context, msg: 'Sign out');
+              Navigator.popAndPushNamed(context, LoginView.id);
+            } else {
+              BlocProvider.of<ChatCubit>(context).fetchFirebaseMessages();
+            }
+          },
+          builder: (context, state) {
+            if (state is Failure) {
+              return const Center(
+                child: CustomText(
+                  text: 'SomeThing Wrong',
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+              );
+            } else if (state is Success) {
+              return ChatviewBody(
+                messages: state.messages,
+              );
+            } else {
+              var messageBox = Hive.box<MessageModel>(kMessageBox);
+              return ChatviewBody(
+                messages: messageBox.values.toList(),
+              );
+            }
+          },
         ),
       ),
     );

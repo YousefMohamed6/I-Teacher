@@ -39,8 +39,7 @@ class LoginView extends StatelessWidget {
                   context,
                   msg: state.errMessage,
                 );
-              }
-              if (state is RestSuccess) {
+              } else if (state is RestSuccess) {
                 ShowMessage.show(
                   context,
                   msg: 'Success Check Gmail',
