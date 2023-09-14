@@ -9,20 +9,26 @@ class UpdateUrlView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-          ),
-          child: CustomFormField(
-            controller: BlocProvider.of<CourseCubit>(context).courseCtrl,
-            hintText: 'Course Link',
-          ),
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      child: Form(
+        key: BlocProvider.of<CourseCubit>(context).formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 8),
+            CustomFormField(
+              controller: BlocProvider.of<CourseCubit>(context).courseCtrl,
+              hintText: 'Course Link',
+            ),
+            const SizedBox(height: 16),
+            const UpdateUrlButton(),
+            const SizedBox(height: 8),
+          ],
         ),
-        const SizedBox(height: 16),
-        const UpdateUrlButton()
-      ],
+      ),
     );
   }
 }

@@ -13,8 +13,8 @@ part 'course_view_state.dart';
 class CourseCubit extends Cubit<CourseState> {
   CourseCubit() : super(CourseInitial());
   final TextEditingController courseCtrl = TextEditingController();
-  String url = 'https://www.google.com';
-
+  String url = 'https://www.youtube.com';
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kCorseCollection);
 
@@ -25,33 +25,38 @@ class CourseCubit extends Cubit<CourseState> {
   }
 
   Future<void> updateUrl() async {
-    await reference.doc('corseUrl').update({'url': courseCtrl.text});
+    try {
+      reference.doc('Tbxwjacp22K3BPDaTMT8').update({'url': courseCtrl.text});
+      emit(UpdateSucees());
+    } catch (e) {
+      emit(UpdateFailure());
+    }
   }
 
-  Future<void> getUrl() async {
+  String fetchUrl() {
     reference.snapshots().listen((event) {
       url = event.docs[0]['url'] as String;
-      emit(CourseInitial());
     });
+    return url;
   }
 
   void showBottomSheet({required BuildContext context}) {
     showModalBottomSheet(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      isScrollControlled: true,
+      backgroundColor: Colors.black12,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
       context: context,
       builder: (context) => const UpdateUrlView(),
     );
-    emit(CourseInitial());
   }
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     GoogleSignIn().signOut();
     var userBox = Hive.box<UserModel>(kUserBox);
-    if (userBox.values.firstOrNull != null) {
-      var user = userBox.values.first;
-      user.delete();
-    }
+    userBox.clear();
     emit(SignOut());
   }
 }

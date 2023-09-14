@@ -27,9 +27,7 @@ class CourseView extends StatelessWidget {
           ),
         ],
       ),
-      body: CourseViewBody(
-        url: BlocProvider.of<CourseCubit>(context).url,
-      ),
+      body: const CourseViewBody(),
     );
   }
 }

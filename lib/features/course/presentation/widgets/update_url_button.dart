@@ -11,8 +11,12 @@ class UpdateUrlButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomButton(
+      color: Colors.white,
       onPressed: () {
-        BlocProvider.of<CourseCubit>(context).updateUrl();
+        var formKey = BlocProvider.of<CourseCubit>(context).formKey;
+        if (formKey.currentState!.validate()) {
+          BlocProvider.of<CourseCubit>(context).updateUrl();
+        }
       },
       child: const CustomText(
         text: 'Update',

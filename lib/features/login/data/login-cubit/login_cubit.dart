@@ -51,7 +51,7 @@ class LoginViewCubit extends Cubit<LoginViewState> {
     var user = UserModel(
       userId: FirebaseAuth.instance.currentUser!.uid,
       userName: FirebaseAuth.instance.currentUser!.displayName!,
-      isAdmin: kEmail == loginEmail ? true : false,
+      isAdmin: kAdminEmail == loginEmail ? true : false,
     );
     await userBox.add(user);
   }
