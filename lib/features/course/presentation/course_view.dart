@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
-import 'package:mrjoo/features/course/presentation/widgets/admin_button.dart';
+import 'package:mrjoo/features/course/presentation/widgets/action_buttons.dart';
 import 'package:mrjoo/features/course/presentation/widgets/course_view_body.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CourseView extends StatelessWidget {
   const CourseView({super.key});
@@ -21,10 +19,8 @@ class CourseView extends StatelessWidget {
           fontFamily: kPacificoFont,
         ),
         backgroundColor: kAppBarColor,
-        actions: [
-          AdminButton(
-            user: BlocProvider.of<CourseCubit>(context).getLocalUser(),
-          ),
+        actions: const [
+          ActionButtons(),
         ],
       ),
       body: const CourseViewBody(),

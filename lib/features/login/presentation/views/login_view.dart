@@ -1,13 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/features/course/presentation/course_view.dart';
-import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
-import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:flutter/material.dart';
+import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/course_view.dart';
+import 'package:mrjoo/features/login/data/login-cubit/login_cubit.dart';
+import 'package:mrjoo/features/login/data/login-cubit/login_state.dart';
 import 'package:mrjoo/features/login/presentation/views/widgets/login_view_body.dart';
 
 class LoginView extends StatelessWidget {
@@ -31,7 +32,8 @@ class LoginView extends StatelessWidget {
           child: BlocConsumer<LoginViewCubit, LoginViewState>(
             listener: (context, state) {
               if (state is LoginSuccess) {
-                Navigator.popAndPushNamed(context, CourseView.id);
+                BlocProvider.of<CourseCubit>(context).fetchUrl();
+                Navigator.pushReplacementNamed(context, CourseView.id);
                 ShowMessage.show(context, msg: 'Sign in');
               }
               if (state is LoginFailure) {

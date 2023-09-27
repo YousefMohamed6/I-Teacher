@@ -3,7 +3,7 @@ const String kYoutubeUrl =
     'https://www.youtube.com/channel/UC8GHCBtuDX2sIvC21_cXzcA';
 const String kLinkedinUrl =
     'https://www.linkedin.com/in/yousef-mohamed-25b772240';
-const String kGithubUrl = 'https://github.com/yo7sef-mohamed';
+const String kGithubUrl = 'https://github.com/yousefmohamed6';
 
 const String kPaymobAuthUrl = 'https://accept.paymob.com/api/auth/tokens';
 
@@ -16,4 +16,4 @@ const String kFawaterakToken =
 const String kTransactionFawaterak =
     'https://staging.fawaterk.com/api/v2/getInvoiceData/';
 
-const String kFawaterakWebsite='https://fawaterk.com/arabic/';
+const String kFawaterakWebsite = 'https://fawaterk.com/arabic/';

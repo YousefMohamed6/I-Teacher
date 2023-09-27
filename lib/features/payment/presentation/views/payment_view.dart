@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
+import 'package:mrjoo/core/widgets/webview_body.dart';
 import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
 import 'package:mrjoo/features/payment/data/payment_cubit/payment_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
@@ -9,7 +10,6 @@ import 'package:mrjoo/features/payment/presentation/views/widgets/check_payment_
 import 'package:mrjoo/features/payment/presentation/views/widgets/payment_view_body.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/webview_body.dart';
 
 class PaymentView extends StatelessWidget {
   static const String id = 'PaymentPage';

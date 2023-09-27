@@ -13,11 +13,10 @@ part 'course_view_state.dart';
 class CourseCubit extends Cubit<CourseState> {
   CourseCubit() : super(CourseInitial());
   final TextEditingController courseCtrl = TextEditingController();
-  String url = 'https://www.youtube.com';
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   CollectionReference reference =
       FirebaseFirestore.instance.collection(kCorseCollection);
-
+  String url = 'https://';
   UserModel getLocalUser() {
     var userBox = Hive.box<UserModel>(kUserBox);
     var user = userBox.values.first;
@@ -26,18 +25,24 @@ class CourseCubit extends Cubit<CourseState> {
 
   Future<void> updateUrl() async {
     try {
-      reference.doc('Tbxwjacp22K3BPDaTMT8').update({'url': courseCtrl.text});
+      await reference
+          .doc('Tbxwjacp22K3BPDaTMT8')
+          .update({'url': courseCtrl.text});
       emit(UpdateSucees());
     } catch (e) {
       emit(UpdateFailure());
     }
   }
 
-  String fetchUrl() {
-    reference.snapshots().listen((event) {
-      url = event.docs[0]['url'] as String;
+  Future<void> fetchUrl() async {
+    emit(Loading());
+    reference.snapshots().listen((event) async {
+      String url = await event.docs[0]['url'];
+      if (this.url != url) {
+        this.url = url;
+        emit(Success(url: url));
+      }
     });
-    return url;
   }
 
   void showBottomSheet({required BuildContext context}) {

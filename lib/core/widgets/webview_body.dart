@@ -9,7 +9,6 @@ class WebViewBody extends StatefulWidget {
 }
 
 class _WebViewBodyState extends State<WebViewBody> {
-  
   @override
   Widget build(BuildContext context) {
     return WebViewWidget(
@@ -32,9 +31,7 @@ class _WebViewBodyState extends State<WebViewBody> {
             },
           ),
         )
-        ..loadRequest(
-          Uri.parse(widget.url),
-        ),
+        ..loadRequest(Uri.parse(widget.url)),
     );
   }
 }

@@ -12,7 +12,7 @@ class ForgetPassword extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         CustomTextButton(
-          text: 'Forget Password',
+          text: 'Forget Your Password',
           fontWeight: FontWeight.bold,
           onPressed: () async {
             var formkey = BlocProvider.of<LoginViewCubit>(context).emailkey;

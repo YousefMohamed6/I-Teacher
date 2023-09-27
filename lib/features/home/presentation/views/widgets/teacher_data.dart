@@ -20,7 +20,7 @@ class TeacherData extends StatelessWidget {
           fontWeight: FontWeight.bold,
           color: kMainTextColor,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 16),
         const CustomText(
           text: kTeacherJob,
           textAlign: TextAlign.center,
