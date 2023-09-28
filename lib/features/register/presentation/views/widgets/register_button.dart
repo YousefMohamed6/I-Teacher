@@ -13,11 +13,11 @@ class RegisterButton extends StatelessWidget {
     return CustomButton(
       color: Colors.white,
       onPressed: () async {
-        if (BlocProvider.of<RegisterViewCubit>(context)
+        if (BlocProvider.of<RegisterCubit>(context)
             .formKey
             .currentState!
             .validate()) {
-          BlocProvider.of<RegisterViewCubit>(context).register();
+          BlocProvider.of<RegisterCubit>(context).register(context);
         }
       },
       child: const CustomText(

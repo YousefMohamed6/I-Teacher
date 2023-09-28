@@ -2,17 +2,30 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mrjoo/features/register/data/register_cubit/register_state.dart';
 import 'package:mrjoo/core/utils/helper.dart';
+import 'package:mrjoo/core/utils/show_message.dart';
+import 'package:mrjoo/features/register/data/register_cubit/register_state.dart';
 
-class RegisterViewCubit extends Cubit<RegisterViewState> {
-  RegisterViewCubit() : super(RegisterInitial());
+class RegisterCubit extends Cubit<RegisterState> {
+  RegisterCubit() : super(RegisterInitial());
   var formKey = GlobalKey<FormState>();
   var email = TextEditingController();
   var password = TextEditingController();
   var displyName = TextEditingController();
   bool _obscuretext = true;
   final bool _isLoading = false;
+  String language = 'en';
+  bool isAccept = true;
+
+  void changeAccpetTremsAndPrivacy() {
+    isAccept = !isAccept;
+    emit(RegisterInitial());
+  }
+
+  void changeLanguage({required String language}) {
+    this.language = language;
+    emit(RegisterInitial());
+  }
 
   void changeObscureText() {
     _obscuretext = !_obscuretext;
@@ -36,29 +49,37 @@ class RegisterViewCubit extends Cubit<RegisterViewState> {
     }
   }
 
-  Future<void> singInWithGoogle() async {
-    emit(Loading());
-    try {
-      plateform() ? _signInWithGoogleMobile() : _signInWithGoogleWeb();
-    } on Exception {
-      emit(Failure());
+  Future<void> singInWithGoogle(context) async {
+    if (isAccept) {
+      try {
+        emit(Loading());
+        plateform() ? _signInWithGoogleMobile() : _signInWithGoogleWeb();
+      } on Exception {
+        emit(Failure());
+      }
+    } else {
+      ShowMessage.show(context, msg: 'Please Accept Trems & Policy');
     }
   }
 
   bool get obscuretext => _obscuretext;
   bool get isLoading => _isLoading;
 
-  void register() async {
-    emit(Loading());
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email.text,
-        password: password.text,
-      );
-      FirebaseAuth.instance.currentUser!.updateDisplayName(displyName.text);
-      emit(Success());
-    } on FirebaseAuthException catch (ex) {
-      emit(RegisterFailure(errMessage: ex.code));
+  void register(context) async {
+    if (isAccept) {
+      emit(Loading());
+      try {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email.text,
+          password: password.text,
+        );
+        FirebaseAuth.instance.currentUser!.updateDisplayName(displyName.text);
+        emit(Success());
+      } on FirebaseAuthException catch (ex) {
+        emit(RegisterFailure(errMessage: ex.code));
+      }
+    } else {
+      ShowMessage.show(context, msg: 'Please Accept Trems & Policy');
     }
   }
 

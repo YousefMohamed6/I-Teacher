@@ -9,22 +9,22 @@ class PasswordFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RegisterViewCubit, RegisterViewState>(
+    return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) => CustomFormField(
         textInputType: TextInputType.visiblePassword,
         suffixIcon: IconButton(
           onPressed: () {
-            BlocProvider.of<RegisterViewCubit>(context).changeObscureText();
+            BlocProvider.of<RegisterCubit>(context).changeObscureText();
           },
-          icon: BlocProvider.of<RegisterViewCubit>(context).obscuretext
+          icon: BlocProvider.of<RegisterCubit>(context).obscuretext
               ? const Icon(Icons.visibility)
               : const Icon(Icons.visibility_off),
         ),
         prefixIcon: const Icon(Icons.security_outlined),
         lablelText: "Password",
         hintText: "Enter Your Password",
-        obscureText: BlocProvider.of<RegisterViewCubit>(context).obscuretext,
-        controller: BlocProvider.of<RegisterViewCubit>(context).password,
+        obscureText: BlocProvider.of<RegisterCubit>(context).obscuretext,
+        controller: BlocProvider.of<RegisterCubit>(context).password,
       ),
     );
   }

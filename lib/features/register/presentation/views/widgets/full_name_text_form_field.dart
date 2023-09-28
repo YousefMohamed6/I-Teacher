@@ -11,7 +11,7 @@ class FullNametextFeild extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.name,
       lablelText: 'Full Name',
-      controller: BlocProvider.of<RegisterViewCubit>(context).displyName,
+      controller: BlocProvider.of<RegisterCubit>(context).displyName,
       prefixIcon: const Icon(Icons.account_circle),
     );
   }

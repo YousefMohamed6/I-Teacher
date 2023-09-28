@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_state.dart';
 import 'package:mrjoo/features/customer/data/model/customer_model.dart';
 
-class CustomerCubit extends Cubit<CustomerPageState> {
-  CustomerCubit() : super(EnterData());
+class CustomerCubit extends Cubit<CustomerState> {
+  CustomerCubit() : super(CustomerInitial());
   var fristName = TextEditingController();
   var lastName = TextEditingController();
   var email = TextEditingController();
@@ -17,7 +19,13 @@ class CustomerCubit extends Cubit<CustomerPageState> {
     _isLoading ? emit(SendData()) : emit(EnterData());
   }
 
-  void customer() {
+  String terms = '';
+  String privacy = '';
+  // ignore: prefer_typing_uninitialized_variables
+  CollectionReference reference =
+      FirebaseFirestore.instance.collection(kTremsAndPrivacy);
+
+  void addCustomer() {
     customerData = CustomerModel.fromUser({
       'fristName': fristName.text,
       'lastName': lastName.text,
@@ -25,5 +33,23 @@ class CustomerCubit extends Cubit<CustomerPageState> {
       'phone': phone.text,
     });
     emit(SendData());
+  }
+
+  Future<void> fetchTremsAndPrivacy({required String language}) async {
+    emit(Loading());
+    try {
+      var collection = await reference.get();
+      var docs = collection.docs;
+      var doc = docs[0];
+      var enTrems = doc['termsEn'];
+      var arTrems = doc['termsAr'];
+      terms = language == 'ar' ? arTrems : enTrems;
+      var enPrivacy = doc['privacyEn'];
+      var arPrivacy = doc['privacyAr'];
+      privacy = language == 'ar' ? arPrivacy : enPrivacy;
+      emit(CustomerInitial());
+    } catch (_) {
+      emit(Failure());
+    }
   }
 }

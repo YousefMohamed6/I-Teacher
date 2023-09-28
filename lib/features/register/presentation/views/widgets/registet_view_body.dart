@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/images.dart';
 import 'package:mrjoo/core/widgets/avatar.dart';
 import 'package:mrjoo/features/register/data/register_cubit/register_cubit.dart';
+import 'package:mrjoo/features/register/presentation/views/widgets/accept_terms_row.dart';
 import 'package:mrjoo/features/register/presentation/views/widgets/email_form_feild.dart';
 import 'package:mrjoo/features/register/presentation/views/widgets/full_name_text_form_field.dart';
 import 'package:mrjoo/features/register/presentation/views/widgets/password_form_feild.dart';
 import 'package:mrjoo/features/register/presentation/views/widgets/register_button.dart';
+import 'package:mrjoo/features/register/presentation/views/widgets/sigin_row.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
@@ -14,7 +16,7 @@ class RegisterViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: BlocProvider.of<RegisterViewCubit>(context).formKey,
+      key: BlocProvider.of<RegisterCubit>(context).formKey,
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -25,8 +27,11 @@ class RegisterViewBody extends StatelessWidget {
           EmailFormFeild(),
           SizedBox(height: 8),
           PasswordFormField(),
+          AcceptTermsRow(),
           SizedBox(height: 24),
           RegisterButton(),
+          SizedBox(height: 16),
+          SignInRow(),
         ],
       ),
     );

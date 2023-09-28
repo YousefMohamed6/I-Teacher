@@ -13,7 +13,7 @@ class EmailFormFeild extends StatelessWidget {
       prefixIcon: const Icon(Icons.email_outlined),
       lablelText: "Email",
       hintText: "Enter Your Email",
-      controller: BlocProvider.of<RegisterViewCubit>(context).email,
+      controller: BlocProvider.of<RegisterCubit>(context).email,
     );
   }
 }

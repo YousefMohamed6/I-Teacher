@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
@@ -21,9 +20,12 @@ class CustomButton extends StatelessWidget {
       children: [
         MaterialButton(
           onPressed: onPressed,
-          color: color ,
+          color: color,
           height: height ?? 50,
           elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: child,
         ),
       ],

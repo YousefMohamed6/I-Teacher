@@ -16,7 +16,7 @@ class NextButton extends StatelessWidget {
         BlocProvider.of<CustomerCubit>(context).changeStateLoading();
         var formKey = BlocProvider.of<CustomerCubit>(context).formKey;
         if (formKey.currentState!.validate()) {
-          BlocProvider.of<CustomerCubit>(context).customer();
+          BlocProvider.of<CustomerCubit>(context).addCustomer();
           Navigator.pushNamed(context, PaymentView.id);
         }
         BlocProvider.of<CustomerCubit>(context).changeStateLoading();

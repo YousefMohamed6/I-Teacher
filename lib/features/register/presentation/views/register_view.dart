@@ -1,13 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/features/register/data/register_cubit/register_cubit.dart';
-import 'package:mrjoo/features/register/data/register_cubit/register_state.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:flutter/material.dart';
+import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
+import 'package:mrjoo/features/register/data/register_cubit/register_cubit.dart';
+import 'package:mrjoo/features/register/data/register_cubit/register_state.dart';
 import 'package:mrjoo/features/register/presentation/views/widgets/registet_view_body.dart';
 import 'package:mrjoo/features/register/presentation/views/widgets/sigin_with_google_button.dart';
 
@@ -18,7 +18,7 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RegisterViewCubit(),
+      create: (context) => RegisterCubit(),
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -33,7 +33,7 @@ class RegisterView extends StatelessWidget {
           backgroundColor: kAppBarColor,
         ),
         body: Background(
-          child: BlocConsumer<RegisterViewCubit, RegisterViewState>(
+          child: BlocConsumer<RegisterCubit, RegisterState>(
             listener: (context, state) {
               if (state is Success) {
                 ShowMessage.show(context, msg: 'Success');

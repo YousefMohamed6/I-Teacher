@@ -5,6 +5,7 @@ const String kPhone = '01067954536';
 const String kEmail = 'Yo7sef2002@gmail.com';
 const String kAdminEmail = 'yo7sef2002@gmail.com';
 const String kMessageCollection = "messages";
+const String kTremsAndPrivacy = "TremsAndPrivacy";
 const String kCorseCollection = "corseLink";
 const String kMessageField = "message";
 const String kCreatedAtField = "createdAt";
