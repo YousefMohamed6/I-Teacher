@@ -21,6 +21,7 @@ class RegisterView extends StatelessWidget {
       create: (context) => RegisterCubit(),
       child: Scaffold(
         appBar: AppBar(
+          leading: const SizedBox(),
           centerTitle: true,
           title: const CustomText(
             text: "Register",

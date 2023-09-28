@@ -18,7 +18,7 @@ class TremsTextButton extends StatelessWidget {
             Navigator.pushNamed(context, TermsConditionsView.id);
           },
           child: const Text(
-            'Trems & Conditons',
+            'Terms & Conditons',
             style: TextStyle(
               fontSize: 15.5,
               color: Colors.white,

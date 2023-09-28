@@ -17,20 +17,21 @@ class RegisterViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: BlocProvider.of<RegisterCubit>(context).formKey,
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+      child: ListView(
+        children: const [
+          SizedBox(height: 32),
           Avatar(image: kAvaterLogo),
-          SizedBox(height: 48),
+          SizedBox(height: 32),
           FullNametextFeild(),
           SizedBox(height: 8),
           EmailFormFeild(),
           SizedBox(height: 8),
           PasswordFormField(),
+          SizedBox(height: 8),
           AcceptTermsRow(),
           SizedBox(height: 24),
           RegisterButton(),
-          SizedBox(height: 16),
+          SizedBox(height: 4),
           SignInRow(),
         ],
       ),

@@ -15,7 +15,7 @@ class CheckPaymentButton extends StatelessWidget {
       listener: (context, state) {
         if (state is Paid) {
           ShowMessage.show(context, msg: 'Payment Success');
-          Navigator.popAndPushNamed(context, RegisterView.id);
+          Navigator.pushReplacementNamed(context, RegisterView.id);
         } else if (state is PaymentFailure) {
           ShowMessage.show(context, msg: 'You Not Register');
         }

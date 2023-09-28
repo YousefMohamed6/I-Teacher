@@ -14,7 +14,7 @@ class CustomBackground extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height * 0.75,
           width: 400,
           padding: const EdgeInsets.all(16),
-          alignment: Alignment.center,
+          alignment: Alignment.centerLeft,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(16),
