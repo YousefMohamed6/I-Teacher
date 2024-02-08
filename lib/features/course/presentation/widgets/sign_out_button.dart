@@ -9,7 +9,10 @@ class SignOutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomIconButton(
-      icon: const Icon(Icons.logout_outlined),
+      icon: const Icon(
+        Icons.logout_outlined,
+        color: Colors.white,
+      ),
       iconSize: 30,
       onPressed: () {
         BlocProvider.of<CourseCubit>(context).signOut();

@@ -2,9 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hive/hive.dart';
+import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/core/utils/helper.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/features/auth/register/data/register_cubit/register_state.dart';
+import 'package:mrjoo/features/chat/data/model/user_model.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
@@ -65,7 +68,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   bool get obscuretext => _obscuretext;
   bool get isLoading => _isLoading;
 
-  void register(context) async {
+  void register() async {
     if (isAccept) {
       emit(Loading());
       try {
@@ -74,12 +77,13 @@ class RegisterCubit extends Cubit<RegisterState> {
           password: password.text,
         );
         FirebaseAuth.instance.currentUser!.updateDisplayName(displyName.text);
+        await addUserToLocalStorage(loginEmail: email.text);
         emit(Success());
       } on FirebaseAuthException catch (ex) {
         emit(RegisterFailure(errMessage: ex.code));
       }
     } else {
-      ShowMessage.show(context, msg: 'Please Accept Trems & Policy');
+      emit(NotAcceptTermsAndPolicy());
     }
   }
 
@@ -90,9 +94,22 @@ class RegisterCubit extends Cubit<RegisterState> {
           .addScope('https://www.googleapis.com/auth/contacts.readonly');
       googleProvider.setCustomParameters({'login_hint': 'user@example.com'});
       await FirebaseAuth.instance.signInWithPopup(googleProvider);
+      await addUserToLocalStorage(
+          loginEmail: FirebaseAuth.instance.currentUser!.email!);
       emit(Success());
     } catch (ex) {
       emit(Failure());
     }
+  }
+
+  Future<void> addUserToLocalStorage({required String loginEmail}) async {
+    var userBox = Hive.box<UserModel>(kUserBox);
+
+    var user = UserModel(
+      userId: FirebaseAuth.instance.currentUser!.uid,
+      userName: displyName.text,
+      isAdmin: kAdminEmail == loginEmail ? true : false,
+    );
+    await userBox.add(user);
   }
 }

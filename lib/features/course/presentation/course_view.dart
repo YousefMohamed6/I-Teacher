@@ -17,6 +17,7 @@ class CourseView extends StatelessWidget {
           text: 'Course',
           fontSize: 24,
           fontFamily: kPacificoFont,
+          color: Colors.white,
         ),
         backgroundColor: kAppBarColor,
         actions: const [

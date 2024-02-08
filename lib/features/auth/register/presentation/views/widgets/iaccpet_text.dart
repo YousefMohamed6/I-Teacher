@@ -5,10 +5,10 @@ class IAcceptText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
+    return Text(
       'I Accept',
       style: TextStyle(
-        fontSize: 15,
+        fontSize: MediaQuery.sizeOf(context).height * 0.020,
         fontWeight: FontWeight.w500,
       ),
     );

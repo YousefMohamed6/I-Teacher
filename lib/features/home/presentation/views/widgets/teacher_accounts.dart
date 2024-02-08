@@ -14,7 +14,7 @@ class TeacherAccounts extends StatelessWidget {
         AccountItem(
           icon: FontAwesomeIcons.facebook,
           url: kFaceBookUrl,
-          iconColor: Color.fromRGBO(13, 71, 161, 1),
+          iconColor: Color.fromRGBO(15, 81, 179, 1),
         ),
         AccountItem(
           icon: FontAwesomeIcons.youtube,
@@ -24,7 +24,7 @@ class TeacherAccounts extends StatelessWidget {
         AccountItem(
           icon: FontAwesomeIcons.linkedin,
           url: kLinkedinUrl,
-          iconColor: Color.fromRGBO(13, 71, 161, 1),
+          iconColor: Color.fromRGBO(6, 85, 204, 1),
         ),
         AccountItem(
           icon: FontAwesomeIcons.github,

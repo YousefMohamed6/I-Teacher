@@ -12,15 +12,17 @@ class TremsTextButton extends StatelessWidget {
     return BlocBuilder<CustomerCubit, CustomerState>(
       builder: (context, state) {
         return TextButton(
+          style: const ButtonStyle(
+              padding: MaterialStatePropertyAll(EdgeInsets.zero)),
           onPressed: () {
             BlocProvider.of<CustomerCubit>(context)
                 .fetchTremsAndPrivacy(language: 'ar');
             Navigator.pushNamed(context, TermsConditionsView.id);
           },
-          child: const Text(
+          child: Text(
             'Terms & Conditons',
             style: TextStyle(
-              fontSize: 15.5,
+              fontSize: MediaQuery.sizeOf(context).height * 0.020,
               color: Colors.white,
             ),
           ),

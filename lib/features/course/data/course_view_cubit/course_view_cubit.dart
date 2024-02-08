@@ -23,6 +23,10 @@ class CourseCubit extends Cubit<CourseState> {
     return user;
   }
 
+  void setState() {
+    emit(CourseInitial());
+  }
+
   Future<void> updateUrl() async {
     try {
       await reference

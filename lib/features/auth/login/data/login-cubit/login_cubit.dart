@@ -33,18 +33,6 @@ class LoginViewCubit extends Cubit<LoginViewState> {
     }
   }
 
-  Future<void> sendRestPasswordLink() async {
-    emit(LoginLoading());
-    try {
-      await FirebaseAuth.instance.sendPasswordResetEmail(
-        email: email.text,
-      );
-      emit(RestSuccess());
-    } on Exception {
-      emit(RestFailure());
-    }
-  }
-
   Future<void> addUserToLocalStorage({required String loginEmail}) async {
     var userBox = Hive.box<UserModel>(kUserBox);
 

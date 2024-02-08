@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/webview_body.dart';
-import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
+import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
 
 class CourseViewBody extends StatelessWidget {
   const CourseViewBody({super.key});
@@ -21,6 +21,8 @@ class CourseViewBody extends StatelessWidget {
         } else if (state is SignOut) {
           ShowMessage.show(context, msg: 'Sign out');
           Navigator.pushReplacementNamed(context, LoginView.id);
+        } else if (state is CourseInitial) {
+          BlocProvider.of<CourseCubit>(context).setState();
         }
       },
       builder: (context, state) {

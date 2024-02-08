@@ -17,6 +17,7 @@ class CustomerView extends StatelessWidget {
           text: "Customer",
           fontFamily: kPacificoFont,
           fontSize: 24,
+          color: Colors.white,
         ),
         backgroundColor: kAppBarColor,
       ),

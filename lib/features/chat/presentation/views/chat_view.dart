@@ -25,6 +25,7 @@ class ChatView extends StatelessWidget {
           text: 'Group Chat',
           fontSize: 24,
           fontFamily: kPacificoFont,
+          color: Colors.white,
         ),
         backgroundColor: kAppBarColor,
       ),

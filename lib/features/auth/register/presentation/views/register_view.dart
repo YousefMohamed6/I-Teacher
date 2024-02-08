@@ -5,11 +5,11 @@ import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
 import 'package:mrjoo/features/auth/register/data/register_cubit/register_cubit.dart';
 import 'package:mrjoo/features/auth/register/data/register_cubit/register_state.dart';
 import 'package:mrjoo/features/auth/register/presentation/views/widgets/registet_view_body.dart';
 import 'package:mrjoo/features/auth/register/presentation/views/widgets/sigin_with_google_button.dart';
+import 'package:mrjoo/features/course/presentation/course_view.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
@@ -27,6 +27,7 @@ class RegisterView extends StatelessWidget {
             text: "Register",
             fontSize: 24,
             fontFamily: kPacificoFont,
+            color: Colors.white,
           ),
           actions: const [
             SignWithGoogleButton(),
@@ -38,11 +39,13 @@ class RegisterView extends StatelessWidget {
             listener: (context, state) {
               if (state is Success) {
                 ShowMessage.show(context, msg: 'Success');
-                Navigator.popAndPushNamed(context, ChatView.id);
+                Navigator.popAndPushNamed(context, CourseView.id);
               } else if (state is Failure) {
                 ShowMessage.show(context, msg: 'Sign Up is Faild');
               } else if (state is RegisterFailure) {
                 ShowMessage.show(context, msg: state.errMessage);
+              } else if (state is NotAcceptTermsAndPolicy) {
+                ShowMessage.show(context, msg: 'Please Accept Trems & Policy');
               }
             },
             builder: (context, state) {

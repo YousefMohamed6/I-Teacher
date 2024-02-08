@@ -13,6 +13,8 @@ class PrivacyTextButton extends StatelessWidget {
     return BlocBuilder<CustomerCubit, CustomerState>(
       builder: (context, state) {
         return TextButton(
+          style: const ButtonStyle(
+              padding: MaterialStatePropertyAll(EdgeInsets.zero)),
           onPressed: () {
             BlocProvider.of<CustomerCubit>(context)
                 .fetchTremsAndPrivacy(language: 'ar');

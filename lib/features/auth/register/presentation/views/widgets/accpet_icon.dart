@@ -11,14 +11,15 @@ class AccpetIcon extends StatelessWidget {
     return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) {
         return IconButton(
-          padding: EdgeInsets.zero,
           icon: BlocProvider.of<RegisterCubit>(context).isAccept
-              ? const Icon(
+              ? Icon(
                   Icons.check_circle,
                   color: Colors.white,
+                  size: MediaQuery.sizeOf(context).height * 0.030,
                 )
-              : const Icon(
+              : Icon(
                   Icons.check_circle_outline,
+                  size: MediaQuery.sizeOf(context).height * 0.030,
                 ),
           onPressed: () {
             BlocProvider.of<RegisterCubit>(context)

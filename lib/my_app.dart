@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/features/auth/forget_Password/view/forget_password_view.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
 import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
 import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
@@ -38,7 +37,6 @@ class MrJoo extends StatelessWidget {
           LoginView.id: (context) => const LoginView(),
           CustomerView.id: (context) => const CustomerView(),
           PaymentView.id: (context) => const PaymentView(),
-          RegisterView.id: (context) => const RegisterView(),
           ChatView.id: (context) => const ChatView(),
           CourseView.id: (context) => const CourseView(),
           TermsConditionsView.id: (context) => const TermsConditionsView(),

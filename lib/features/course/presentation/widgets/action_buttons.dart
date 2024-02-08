@@ -20,14 +20,20 @@ class ActionButtons extends StatelessWidget {
                   BlocProvider.of<CourseCubit>(context)
                       .showBottomSheet(context: context);
                 },
-                icon: const Icon(Icons.add_to_queue),
+                icon: const Icon(
+                  Icons.add_to_queue,
+                  color: Colors.white,
+                ),
               )
             : IconButton(
                 onPressed: () {
-                   BlocProvider.of<ChatCubit>(context).fetchFirebaseMessages();
+                  BlocProvider.of<ChatCubit>(context).fetchFirebaseMessages();
                   Navigator.pushNamed(context, ChatView.id);
                 },
-                icon: const Icon(Icons.chat),
+                icon: const Icon(
+                  Icons.chat,
+                  color: Colors.white,
+                ),
               ),
         const SignOutButton()
       ],

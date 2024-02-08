@@ -10,7 +10,7 @@ class AcceptTermsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         AccpetIcon(),
         IAcceptText(),

@@ -6,6 +6,8 @@ class Success extends RegisterState {}
 
 class Failure extends RegisterState {}
 
+class NotAcceptTermsAndPolicy extends RegisterState {}
+
 class RegisterFailure extends RegisterState {
   final String errMessage;
 
@@ -13,5 +15,3 @@ class RegisterFailure extends RegisterState {
 }
 
 class RegisterInitial extends RegisterState {}
-
-
