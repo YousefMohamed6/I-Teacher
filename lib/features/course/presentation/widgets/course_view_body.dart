@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/webview_body.dart';
 import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
-import 'package:mrjoo/features/login/presentation/views/login_view.dart';
+import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
 
 class CourseViewBody extends StatelessWidget {
   const CourseViewBody({super.key});

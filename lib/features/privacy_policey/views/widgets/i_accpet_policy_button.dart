@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mrjoo/core/widgets/app_button.dart';
-import 'package:mrjoo/features/register/presentation/views/register_view.dart';
+import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
 
 class IAcceptPolicy extends StatelessWidget {
   const IAcceptPolicy({super.key});
