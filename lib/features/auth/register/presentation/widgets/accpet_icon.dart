@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/auth/register/data/register_cubit/register_cubit.dart';
-import 'package:mrjoo/features/auth/register/data/register_cubit/register_state.dart';
+import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
+import 'package:mrjoo/features/auth/register/presentation/manager/register_state.dart';
 
 class AccpetIcon extends StatelessWidget {
   const AccpetIcon({super.key});

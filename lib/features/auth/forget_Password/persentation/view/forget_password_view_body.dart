@@ -6,7 +6,7 @@ import 'package:mrjoo/core/widgets/avatar.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/forget_Password/forget_password_cubit/forget_password_cubit.dart';
+import 'package:mrjoo/features/auth/forget_Password/persentation/manager/forget_password_cubit.dart';
 
 class ForgetPasswodBody extends StatelessWidget {
   const ForgetPasswodBody({super.key});

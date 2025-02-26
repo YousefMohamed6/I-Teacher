@@ -4,9 +4,9 @@ import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
 import 'package:mrjoo/features/course/presentation/course_view.dart';
-import 'package:mrjoo/features/auth/login/data/login-cubit/login_cubit.dart';
-import 'package:mrjoo/features/auth/login/data/login-cubit/login_state.dart';
-import 'package:mrjoo/features/auth/login/presentation/views/widgets/login_view_body.dart';
+import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
+import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
+import 'package:mrjoo/features/auth/login/presentation/widgets/login_view_body.dart';
 
 class CheckUserLogin extends StatelessWidget {
   const CheckUserLogin({super.key});

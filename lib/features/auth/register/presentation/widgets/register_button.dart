@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/register/data/register_cubit/register_cubit.dart';
+import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/login/data/login-cubit/login_cubit.dart';
+import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});

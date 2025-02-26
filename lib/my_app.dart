@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/auth/forget_Password/view/forget_password_view.dart';
+import 'package:mrjoo/features/auth/forget_Password/persentation/view/forget_password_view.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';

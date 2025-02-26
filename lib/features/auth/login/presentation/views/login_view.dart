@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/login/data/login-cubit/login_cubit.dart';
-import 'package:mrjoo/features/auth/login/presentation/views/widgets/check_user_login.dart';
+import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
+import 'package:mrjoo/features/auth/login/presentation/widgets/check_user_login.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});

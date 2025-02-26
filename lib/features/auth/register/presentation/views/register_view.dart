@@ -5,10 +5,10 @@ import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/register/data/register_cubit/register_cubit.dart';
-import 'package:mrjoo/features/auth/register/data/register_cubit/register_state.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/widgets/registet_view_body.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/widgets/sigin_with_google_button.dart';
+import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
+import 'package:mrjoo/features/auth/register/presentation/manager/register_state.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/registet_view_body.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/sigin_with_google_button.dart';
 import 'package:mrjoo/features/course/presentation/course_view.dart';
 
 class RegisterView extends StatelessWidget {

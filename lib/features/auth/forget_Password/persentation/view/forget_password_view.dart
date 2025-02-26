@@ -5,8 +5,8 @@ import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/forget_Password/forget_password_cubit/forget_password_cubit.dart';
-import 'package:mrjoo/features/auth/forget_Password/view/forget_password_view_body.dart';
+import 'package:mrjoo/features/auth/forget_Password/persentation/manager/forget_password_cubit.dart';
+import 'package:mrjoo/features/auth/forget_Password/persentation/view/forget_password_view_body.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   const ForgetPasswordView({super.key});

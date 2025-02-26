@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/features/chat/data/model/user_model.dart';
-import 'package:mrjoo/features/auth/login/data/login-cubit/login_state.dart';
+import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginViewCubit extends Cubit<LoginViewState> {

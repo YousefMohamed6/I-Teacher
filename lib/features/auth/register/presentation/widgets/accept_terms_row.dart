@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/widgets/accpet_icon.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/widgets/iaccpet_text.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/widgets/privacy_text_button.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/widgets/terms_text_button.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/accpet_icon.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/iaccpet_text.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/privacy_text_button.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/terms_text_button.dart';
 
 class AcceptTermsRow extends StatelessWidget {
   const AcceptTermsRow({super.key});

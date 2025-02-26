@@ -6,7 +6,7 @@ import 'package:hive/hive.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/core/utils/helper.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
-import 'package:mrjoo/features/auth/register/data/register_cubit/register_state.dart';
+import 'package:mrjoo/features/auth/register/presentation/manager/register_state.dart';
 import 'package:mrjoo/features/chat/data/model/user_model.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
