@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/links.dart';
 import 'package:mrjoo/core/utils/helper.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_state.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
 import 'package:mrjoo/core/utils/api.dart';
 import 'package:mrjoo/core/utils/fatwaterak_getway.dart';
 

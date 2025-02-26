@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
-import 'package:mrjoo/features/home/data/home_cubit/home_cubit.dart';
+import 'package:mrjoo/features/home/presentation/manager/home_cubit.dart';
 
 class SignInButton extends StatelessWidget {
   const SignInButton({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/payment_button.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/payment_company_image.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/payment_items.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/payment_button.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/payment_company_image.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/payment_items.dart';
 
 class PaymentViewBody extends StatelessWidget {
   const PaymentViewBody({super.key});

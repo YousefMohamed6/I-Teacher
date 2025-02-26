@@ -8,10 +8,10 @@ import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
 import 'package:mrjoo/features/course/presentation/views/course_view.dart';
-import 'package:mrjoo/features/home/data/home_cubit/home_cubit.dart';
-import 'package:mrjoo/features/home/data/home_cubit/home_state.dart';
-import 'package:mrjoo/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:mrjoo/features/home/presentation/views/widgets/sign_in_button.dart';
+import 'package:mrjoo/features/home/presentation/manager/home_cubit.dart';
+import 'package:mrjoo/features/home/presentation/manager/home_state.dart';
+import 'package:mrjoo/features/home/presentation/widgets/home_view_body.dart';
+import 'package:mrjoo/features/home/presentation/widgets/sign_in_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

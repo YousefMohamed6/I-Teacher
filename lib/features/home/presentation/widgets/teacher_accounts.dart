@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mrjoo/core/utils/constants/links.dart';
-import 'package:mrjoo/features/home/presentation/views/widgets/account_item.dart';
+import 'package:mrjoo/features/home/presentation/widgets/account_item.dart';
 
 class TeacherAccounts extends StatelessWidget {
   const TeacherAccounts({super.key});

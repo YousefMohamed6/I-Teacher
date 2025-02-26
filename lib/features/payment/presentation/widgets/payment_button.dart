@@ -4,7 +4,7 @@ import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
 
 class PaymentButton extends StatelessWidget {
   const PaymentButton({super.key});

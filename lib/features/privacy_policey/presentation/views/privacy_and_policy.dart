@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/language_menu.dart';
-import 'package:mrjoo/features/privacy_policey/views/widgets/privacy_and_policy_body.dart';
+import 'package:mrjoo/features/privacy_policey/presentation/widgets/privacy_and_policy_body.dart';
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});

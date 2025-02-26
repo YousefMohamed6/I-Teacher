@@ -10,7 +10,7 @@ import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart'
 import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
 import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
-import 'package:mrjoo/features/privacy_policey/views/privacy_and_policy.dart';
+import 'package:mrjoo/features/privacy_policey/presentation/views/privacy_and_policy.dart';
 import 'package:mrjoo/features/splash/views/splash_view.dart';
 import 'package:mrjoo/features/terms/views/terms_and_conditions_view.dart';
 

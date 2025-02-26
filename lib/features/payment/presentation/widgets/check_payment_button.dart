@@ -4,8 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
 import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_state.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
 
 class CheckPaymentButton extends StatelessWidget {
   const CheckPaymentButton({super.key});

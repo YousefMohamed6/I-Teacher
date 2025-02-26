@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/images.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_state.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/payment_item.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/payment_item.dart';
 
 class Visa extends StatelessWidget {
   const Visa({super.key});

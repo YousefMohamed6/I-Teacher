@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/visa_item.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/wallet_item.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/visa_item.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/wallet_item.dart';
 
 class PaymentItems extends StatelessWidget {
   const PaymentItems({super.key});

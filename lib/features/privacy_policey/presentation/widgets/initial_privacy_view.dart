@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_background.dart';
-import 'package:mrjoo/features/terms/views/widgets/i_accpet_terms_button.dart';
+import 'package:mrjoo/features/privacy_policey/presentation/widgets/i_accpet_policy_button.dart';
 
-class InitialTermsView extends StatelessWidget {
-  const InitialTermsView({super.key, required this.trems});
-  final String trems;
+class InitialPrivacyView extends StatelessWidget {
+  const InitialPrivacyView({super.key, required this.privacy});
+  final String privacy;
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -16,10 +16,10 @@ class InitialTermsView extends StatelessWidget {
           children: [
             const SizedBox(height: 16),
             CustomBackground(
-              data: trems,
+              data: privacy,
             ),
             const SizedBox(height: 8),
-            const IAcceptTerms(),
+            const IAcceptPolicy(),
             const SizedBox(height: 16),
           ],
         ),

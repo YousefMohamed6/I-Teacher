@@ -4,7 +4,7 @@ import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/utils/constants/text.dart';
 import 'package:mrjoo/core/utils/helper.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/home/presentation/views/widgets/contect_item.dart';
+import 'package:mrjoo/features/home/presentation/widgets/contect_item.dart';
 
 class TeacherData extends StatelessWidget {
   const TeacherData({super.key});

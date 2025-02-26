@@ -6,10 +6,10 @@ import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/webview_body.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_cubit.dart';
-import 'package:mrjoo/features/payment/data/payment_cubit/payment_state.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/check_payment_button.dart';
-import 'package:mrjoo/features/payment/presentation/views/widgets/payment_view_body.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
+import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/check_payment_button.dart';
+import 'package:mrjoo/features/payment/presentation/widgets/payment_view_body.dart';
 
 class PaymentView extends StatelessWidget {
   static const String id = 'PaymentPage';
