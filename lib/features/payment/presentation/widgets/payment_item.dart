@@ -33,7 +33,7 @@ class PaymentItem extends StatelessWidget {
         select
             ? const Icon(
                 Icons.add_task,
-                color: kMainTextColor,
+                color: AppColors.kMainTextColor,
               )
             : const SizedBox(),
       ],

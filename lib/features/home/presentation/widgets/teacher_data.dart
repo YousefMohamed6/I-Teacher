@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
-import 'package:mrjoo/core/utils/helper.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
+import 'package:mrjoo/core/utils/services/url_launcher.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/home/presentation/widgets/contect_item.dart';
 
@@ -14,36 +14,38 @@ class TeacherData extends StatelessWidget {
     return Column(
       children: [
         const CustomText(
-          text: kTeacherName,
+          text: AppKeys.kTeacherName,
           textAlign: TextAlign.center,
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: kMainTextColor,
+          color: AppColors.kMainTextColor,
         ),
         const SizedBox(height: 16),
         const CustomText(
-          text: kTeacherJob,
+          text: AppKeys.kTeacherJob,
           textAlign: TextAlign.center,
           fontSize: 24,
-          fontFamily: kPacificoFont,
+          fontFamily: AppFonts.kPacificoFont,
           fontWeight: FontWeight.bold,
-          color: kMainTextColor,
+          color: AppColors.kMainTextColor,
         ),
         const SizedBox(height: 5),
-        ContectItem(
+        ContactItem(
           mainAxisAlignment: MainAxisAlignment.center,
           text: "Phone Number : ",
-          textButton: kPhone,
+          textButton: AppKeys.kPhone,
           onPressed: () async {
-            await urlLauncher(url: 'tel:$kPhone');
+            await UrlLauncher.launcher(url: 'tel:${AppKeys.kPhone}');
           },
         ),
-        ContectItem(
+        ContactItem(
           mainAxisAlignment: MainAxisAlignment.center,
           text: "Email Address : ",
-          textButton: kEmail,
+          textButton: AppKeys.kEmail,
           onPressed: () async {
-            await urlLauncher(url: 'mailto:$kEmail?subject=$kEmailSubject');
+            await UrlLauncher.launcher(
+                url:
+                    'mailto:${AppKeys.kEmail}?subject=${AppKeys.kEmailSubject}');
           },
         ),
         const SizedBox(height: 32),

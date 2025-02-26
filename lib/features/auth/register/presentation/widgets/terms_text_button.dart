@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
-import 'package:mrjoo/features/customer/data/customer_cubit/customer_state.dart';
+import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
+import 'package:mrjoo/features/customer/presentation/manager/customer_state.dart';
 import 'package:mrjoo/features/terms/presentation/views/terms_and_conditions_view.dart';
 
 class TremsTextButton extends StatelessWidget {

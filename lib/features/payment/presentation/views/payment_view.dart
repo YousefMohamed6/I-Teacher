@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/show_message.dart';
+import 'package:mrjoo/core/utils/services/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/webview_body.dart';
@@ -21,11 +21,11 @@ class PaymentView extends StatelessWidget {
       create: (context) => PaymentCubit(),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: kAppBarColor,
+          backgroundColor: AppColors.kAppBarColor,
           centerTitle: true,
           title: const CustomText(
             text: "Payment",
-            fontFamily: kPacificoFont,
+            fontFamily: AppFonts.kPacificoFont,
             fontSize: 24,
             color: Colors.white,
           ),

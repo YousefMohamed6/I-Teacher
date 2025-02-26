@@ -17,7 +17,7 @@ class Wallet extends StatelessWidget {
             isVisa: false,
           );
         },
-        imagePath: kWalletLogo,
+        imagePath: AppImages.kWalletLogo,
         select: BlocProvider.of<PaymentCubit>(context).isWallets,
       ),
     );

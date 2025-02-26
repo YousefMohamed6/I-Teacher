@@ -18,7 +18,7 @@ class ForgetPasswodBody extends StatelessWidget {
       child: ListView(
         children: [
           const SizedBox(height: 84),
-          const Avatar(image: kAvaterLogo),
+          const Avatar(image: AppImages.kAvaterLogo),
           const SizedBox(height: 54),
           CustomFormField(
             controller: BlocProvider.of<ForgetPasswordCubit>(context).email,
@@ -44,7 +44,7 @@ class ForgetPasswodBody extends StatelessWidget {
             },
             child: const CustomText(
               text: "Rest",
-              color: kPrimryColor,
+              color: AppColors.kPrimryColor,
             ),
           ),
         ],

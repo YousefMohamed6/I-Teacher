@@ -21,7 +21,7 @@ class RegisterButton extends StatelessWidget {
       child: const CustomText(
         text: 'Register',
         fontSize: 16,
-        color: kPrimryColor,
+        color: AppColors.kPrimryColor,
         fontWeight: FontWeight.bold,
       ),
     );

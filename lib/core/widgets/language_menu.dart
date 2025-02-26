@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/language_text.dart';
-import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
+import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
 
 class LanguageMenu extends StatelessWidget {
   const LanguageMenu({super.key});

@@ -20,7 +20,7 @@ class RegisterViewBody extends StatelessWidget {
       child: ListView(
         children: const [
           SizedBox(height: 32),
-          Avatar(image: kAvaterLogo),
+          Avatar(image: AppImages.kAvaterLogo),
           SizedBox(height: 32),
           FullNametextFeild(),
           SizedBox(height: 8),

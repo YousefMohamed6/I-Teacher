@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
-import 'package:mrjoo/core/utils/show_message.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
+import 'package:mrjoo/core/utils/services/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
@@ -23,10 +23,10 @@ class ChatView extends StatelessWidget {
         title: const CustomText(
           text: 'Group Chat',
           fontSize: 24,
-          fontFamily: kPacificoFont,
+          fontFamily: AppFonts.kPacificoFont,
           color: Colors.white,
         ),
-        backgroundColor: kAppBarColor,
+        backgroundColor: AppColors.kAppBarColor,
       ),
       body: Background(
         child: BlocConsumer<ChatCubit, ChatState>(
@@ -50,7 +50,7 @@ class ChatView extends StatelessWidget {
                 messages: state.messages,
               );
             } else {
-              var messageBox = Hive.box<MessageModel>(kMessageBox);
+              var messageBox = Hive.box<MessageModel>(AppKeys.kMessageBox);
               return ChatviewBody(
                 messages: messageBox.values.toList(),
               );

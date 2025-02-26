@@ -13,22 +13,22 @@ class TeacherAccounts extends StatelessWidget {
       children: [
         AccountItem(
           icon: FontAwesomeIcons.facebook,
-          url: kFaceBookUrl,
+          url: AppUrls.kFaceBookUrl,
           iconColor: Color.fromRGBO(15, 81, 179, 1),
         ),
         AccountItem(
           icon: FontAwesomeIcons.youtube,
-          url: kYoutubeUrl,
+          url: AppUrls.kYoutubeUrl,
           iconColor: Color.fromRGBO(198, 40, 40, 1),
         ),
         AccountItem(
           icon: FontAwesomeIcons.linkedin,
-          url: kLinkedinUrl,
+          url: AppUrls.kLinkedinUrl,
           iconColor: Color.fromRGBO(6, 85, 204, 1),
         ),
         AccountItem(
           icon: FontAwesomeIcons.github,
-          url: kGithubUrl,
+          url: AppUrls.kGithubUrl,
           iconColor: Colors.black,
         ),
       ],

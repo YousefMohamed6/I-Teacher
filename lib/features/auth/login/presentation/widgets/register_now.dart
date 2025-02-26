@@ -16,7 +16,7 @@ class RegisterNow extends StatelessWidget {
       children: [
         const CustomText(
           text: "don't have any account?",
-          color: kMainTextColor,
+          color: AppColors.kMainTextColor,
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),

@@ -15,7 +15,7 @@ class LoginViewBody extends StatelessWidget {
     return ListView(
       children: const [
         SizedBox(height: 48),
-        Avatar(image: kAvaterLogo),
+        Avatar(image: AppImages.kAvaterLogo),
         SizedBox(height: 48),
         EmailTextFaild(),
         SizedBox(height: 16),

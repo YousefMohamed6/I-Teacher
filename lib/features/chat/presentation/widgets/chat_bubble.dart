@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/time.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 
@@ -16,7 +16,7 @@ class ChatBubble extends StatelessWidget {
     required this.time,
   });
   final MessageModel message;
-  final TimeHelper time;
+  final DateTime time;
   final AlignmentGeometry alignmentMessage;
   final double bottonRightRedius;
   final double bottonLeftRedius;
@@ -47,7 +47,7 @@ class ChatBubble extends StatelessWidget {
             CustomText(
               text: message.fullName,
               overflow: TextOverflow.ellipsis,
-              color: kMainTextColor,
+              color: AppColors.kMainTextColor,
               fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
@@ -61,11 +61,11 @@ class ChatBubble extends StatelessWidget {
                   verticalDirection: VerticalDirection.up,
                   children: [
                     CustomText(
-                      text: '${time.hour()} : ${time.minute()} ${time.state()}',
+                      text: DateFormat('hh:mm a').format(time),
                       overflow: TextOverflow.ellipsis,
-                      color: kMainTextColor,
+                      color: AppColors.kMainTextColor,
                       fontSize: 12,
-                      fontFamily: kFontHandjet,
+                      fontFamily: AppFonts.kFontHandjet,
                     ),
                   ],
                 ),
@@ -73,7 +73,7 @@ class ChatBubble extends StatelessWidget {
                 CustomText(
                   text: message.content,
                   overflow: TextOverflow.ellipsis,
-                  color: kMainTextColor,
+                  color: AppColors.kMainTextColor,
                   fontSize: 20,
                 ),
               ],

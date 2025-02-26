@@ -13,7 +13,7 @@ class PrivacyPolicyView extends StatelessWidget {
         title: const Text(
           "Privacy & Policy",
         ),
-        backgroundColor: kAppBarColor,
+        backgroundColor: AppColors.kAppBarColor,
         actions: const [
           LanguageMenu(),
         ],

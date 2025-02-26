@@ -16,10 +16,10 @@ class CourseView extends StatelessWidget {
         title: const CustomText(
           text: 'Course',
           fontSize: 24,
-          fontFamily: kPacificoFont,
+          fontFamily: AppFonts.kPacificoFont,
           color: Colors.white,
         ),
-        backgroundColor: kAppBarColor,
+        backgroundColor: AppColors.kAppBarColor,
         actions: const [
           ActionButtons(),
         ],

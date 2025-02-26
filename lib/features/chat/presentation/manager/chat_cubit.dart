@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/chat/data/model/user_model.dart';
 
@@ -16,11 +16,11 @@ class ChatCubit extends Cubit<ChatState> {
   final scrollController = ScrollController();
   var formKey = GlobalKey<FormState>();
   CollectionReference reference =
-      FirebaseFirestore.instance.collection(kMessageCollection);
-  var messageBox = Hive.box<MessageModel>(kMessageBox);
+      FirebaseFirestore.instance.collection(AppKeys.kMessageCollection);
+  var messageBox = Hive.box<MessageModel>(AppKeys.kMessageBox);
 
   void sendMessage() async {
-    var userBox = Hive.box<UserModel>(kUserBox);
+    var userBox = Hive.box<UserModel>(AppKeys.kUserBox);
     var user = userBox.values.first;
     var newMessage = MessageModel(
       content: messageCtrl.text,
@@ -37,7 +37,7 @@ class ChatCubit extends Cubit<ChatState> {
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     GoogleSignIn().signOut();
-    var userBox = Hive.box<UserModel>(kUserBox);
+    var userBox = Hive.box<UserModel>(AppKeys.kUserBox);
     if (userBox.values.firstOrNull != null) {
       var user = userBox.values.first;
       user.delete();
@@ -65,17 +65,17 @@ class ChatCubit extends Cubit<ChatState> {
   Future<void> addMessageToFirebase({required MessageModel message}) async {
     var createdAt = DateTime.parse(message.createdAt);
     await reference.add({
-      kMessageField: message.content,
-      kCreatedAtField: createdAt,
-      kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
-      kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
+      AppKeys.kMessageField: message.content,
+      AppKeys.kCreatedAtField: createdAt,
+      AppKeys.kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
+      AppKeys.kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
     });
   }
 
   void fetchFirebaseMessages() {
     List<MessageModel> messages = [];
     reference
-        .orderBy(kCreatedAtField, descending: true)
+        .orderBy(AppKeys.kCreatedAtField, descending: true)
         .snapshots()
         .listen((event) async {
       await messageBox.clear();

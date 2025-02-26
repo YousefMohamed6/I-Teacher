@@ -1,16 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/links.dart';
-import 'package:mrjoo/core/utils/helper.dart';
+import 'package:mrjoo/core/utils/services/api.dart';
+import 'package:mrjoo/core/utils/services/fatwaterak_getway.dart';
+import 'package:mrjoo/core/utils/services/url_launcher.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
-import 'package:mrjoo/core/utils/api.dart';
-import 'package:mrjoo/core/utils/fatwaterak_getway.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
   PaymentCubit() : super(PaymentInitial());
   bool isVisa = true;
   bool isWallets = false;
   int invoiceId = 0;
-  final Api _api = Api();
+  final ApiService _api = ApiService();
   String url = '';
 
   void changePaymentType({required bool isVisa}) {
@@ -23,8 +25,8 @@ class PaymentCubit extends Cubit<PaymentState> {
     emit(PaymentLoading());
     try {
       var response = await _api.get(
-          url: kTransactionFawaterak + invoiceId.toString(),
-          token: kFawaterakToken);
+          url: AppUrls.kTransactionFawaterak + invoiceId.toString(),
+          token: AppUrls.kFawaterakToken);
       var paymentStatus = response['data']['invoice_transactions'][0]['status'];
       if (paymentStatus == 'success') {
         invoiceId = 0;
@@ -53,10 +55,10 @@ class PaymentCubit extends Cubit<PaymentState> {
       );
       invoiceId = data['invoiceId'];
       url = data['url'];
-      if (plateform()) {
+      if (Platform.isAndroid || Platform.isIOS) {
         emit(ProcessSuccess());
       } else {
-        urlLauncher(url: url);
+        UrlLauncher.launcher(url: url);
         emit(PaymentInitial());
       }
     } catch (ex) {
@@ -73,10 +75,10 @@ class PaymentCubit extends Cubit<PaymentState> {
       );
       invoiceId = data['invoiceId'];
       url = data['url'];
-      if (plateform()) {
+      if (Platform.isAndroid || Platform.isIOS) {
         emit(ProcessSuccess());
       } else {
-        urlLauncher(url: url);
+        UrlLauncher.launcher(url: url);
         emit(PaymentInitial());
       }
     } catch (ex) {

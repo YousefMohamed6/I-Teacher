@@ -15,7 +15,7 @@ class SendMessageButton extends StatelessWidget {
       },
       child: const Icon(
         Icons.send_sharp,
-        color: kMainTextColor,
+        color: AppColors.kMainTextColor,
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/show_message.dart';
+import 'package:mrjoo/core/utils/services/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';

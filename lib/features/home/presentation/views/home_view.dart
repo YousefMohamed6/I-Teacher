@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
@@ -24,15 +24,15 @@ class HomeView extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: const CustomText(
-            text: kAppName,
+            text: AppKeys.kAppName,
             fontSize: 24,
-            fontFamily: kPacificoFont,
+            fontFamily: AppFonts.kPacificoFont,
             color: Colors.white,
           ),
           actions: const [
             SignInButton(),
           ],
-          backgroundColor: kAppBarColor,
+          backgroundColor: AppColors.kAppBarColor,
         ),
         body: BlocConsumer<HomeViewCubit, HomeViewState>(
           listener: (context, state) {

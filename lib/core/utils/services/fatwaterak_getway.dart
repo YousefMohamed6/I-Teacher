@@ -1,12 +1,14 @@
 import 'package:mrjoo/core/utils/constants/links.dart';
-import 'package:mrjoo/core/utils/api.dart';
-import '../../features/customer/data/model/customer_model.dart';
+import 'package:mrjoo/core/utils/services/api.dart';
+
+import '../../../features/customer/data/model/customer_model.dart';
 
 class Fawaterk {
-  static final Api _api = Api();
+  static final ApiService _api = ApiService();
 
   Future<dynamic> fetchPaymentMethods() async {
-    var body = await _api.get(url: kFawaterakAuthUrl, token: kFawaterakToken);
+    var body = await _api.get(
+        url: AppUrls.kFawaterakAuthUrl, token: AppUrls.kFawaterakToken);
     return body;
   }
 
@@ -40,9 +42,9 @@ class Fawaterk {
     };
 
     dynamic responseBody = await _api.post(
-      url: kFawaterakPayUrl,
+      url: AppUrls.kFawaterakPayUrl,
       body: body,
-      token: kFawaterakToken,
+      token: AppUrls.kFawaterakToken,
     );
     var url = responseBody['data']['payment_data']['redirectTo'];
     var invoiceId = responseBody['data']['invoice_id'];

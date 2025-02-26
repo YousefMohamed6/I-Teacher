@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
+
 part 'message_model.g.dart';
 
 @HiveType(typeId: 0)
@@ -21,10 +22,10 @@ class MessageModel extends HiveObject {
   });
   factory MessageModel.fromJsonData(dynamic jsonData) {
     return MessageModel(
-      content: jsonData[kMessageField],
-      createdAt: jsonData[kCreatedAtField].toDate().toString(),
-      uId: jsonData[kUesrIdField],
-      fullName: jsonData[kDisplayNameField],
+      content: jsonData[AppKeys.kMessageField],
+      createdAt: jsonData[AppKeys.kCreatedAtField].toDate().toString(),
+      uId: jsonData[AppKeys.kUesrIdField],
+      fullName: jsonData[AppKeys.kDisplayNameField],
     );
   }
 }

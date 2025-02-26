@@ -22,7 +22,7 @@ class LoginButton extends StatelessWidget {
       },
       child: const CustomText(
         text: 'Login',
-        color: kPrimryColor,
+        color: AppColors.kPrimryColor,
         fontWeight: FontWeight.bold,
       ),
     );

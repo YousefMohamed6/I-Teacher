@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
-import 'package:mrjoo/features/customer/data/customer_cubit/customer_state.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
 import 'package:mrjoo/features/customer/data/model/customer_model.dart';
+import 'package:mrjoo/features/customer/presentation/manager/customer_state.dart';
 
 class CustomerCubit extends Cubit<CustomerState> {
   CustomerCubit() : super(CustomerInitial());
@@ -23,7 +23,7 @@ class CustomerCubit extends Cubit<CustomerState> {
   String privacy = '';
   // ignore: prefer_typing_uninitialized_variables
   CollectionReference reference =
-      FirebaseFirestore.instance.collection(kTremsAndPrivacy);
+      FirebaseFirestore.instance.collection(AppKeys.kTremsAndPrivacy);
 
   void addCustomer() {
     customerData = CustomerModel.fromUser({

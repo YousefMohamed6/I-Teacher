@@ -22,7 +22,7 @@ class CustomTextButton extends StatelessWidget {
         text: text,
         fontSize: 16,
         fontWeight: fontWeight,
-        color: color ?? kTextButton[900],
+        color: color ?? AppColors.kTextButton[900],
       ),
     );
   }

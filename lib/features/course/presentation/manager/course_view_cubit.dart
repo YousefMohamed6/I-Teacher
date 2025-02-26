@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
 import 'package:mrjoo/features/chat/data/model/user_model.dart';
 import 'package:mrjoo/features/course/presentation/widgets/update_url_view.dart';
 
@@ -15,10 +15,10 @@ class CourseCubit extends Cubit<CourseState> {
   final TextEditingController courseCtrl = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   CollectionReference reference =
-      FirebaseFirestore.instance.collection(kCorseCollection);
+      FirebaseFirestore.instance.collection(AppKeys.kCorseCollection);
   String url = 'https://';
   UserModel getLocalUser() {
-    var userBox = Hive.box<UserModel>(kUserBox);
+    var userBox = Hive.box<UserModel>(AppKeys.kUserBox);
     var user = userBox.values.first;
     return user;
   }
@@ -64,7 +64,7 @@ class CourseCubit extends Cubit<CourseState> {
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     GoogleSignIn().signOut();
-    var userBox = Hive.box<UserModel>(kUserBox);
+    var userBox = Hive.box<UserModel>(AppKeys.kUserBox);
     userBox.clear();
     emit(SignOut());
   }

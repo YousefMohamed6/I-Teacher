@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:mrjoo/core/utils/constants/text.dart';
-import 'package:mrjoo/features/chat/data/model/user_model.dart';
-import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:mrjoo/core/utils/constants/keys.dart';
+import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
+import 'package:mrjoo/features/chat/data/model/user_model.dart';
 
 class LoginViewCubit extends Cubit<LoginViewState> {
   LoginViewCubit() : super(LoginInitial());
@@ -34,12 +34,12 @@ class LoginViewCubit extends Cubit<LoginViewState> {
   }
 
   Future<void> addUserToLocalStorage({required String loginEmail}) async {
-    var userBox = Hive.box<UserModel>(kUserBox);
+    var userBox = Hive.box<UserModel>(AppKeys.kUserBox);
 
     var user = UserModel(
       userId: FirebaseAuth.instance.currentUser!.uid,
       userName: FirebaseAuth.instance.currentUser!.displayName!,
-      isAdmin: kAdminEmail == loginEmail ? true : false,
+      isAdmin: AppKeys.kAdminEmail == loginEmail ? true : false,
     );
     await userBox.add(user);
   }

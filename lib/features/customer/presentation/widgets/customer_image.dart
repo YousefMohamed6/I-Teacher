@@ -8,7 +8,7 @@ class CustomerImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomAssetImage(
-      imagePath: kCustomerLogo,
+      imagePath: AppImages.kCustomerLogo,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.35,
     );

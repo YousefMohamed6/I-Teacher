@@ -19,7 +19,7 @@ class AppButton extends StatelessWidget {
         text,
         style: const TextStyle(
           fontSize: 18,
-          color: kPrimryColor,
+          color: AppColors.kPrimryColor,
         ),
       ),
     );

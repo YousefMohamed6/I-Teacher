@@ -12,7 +12,7 @@ class HomeViewBody extends StatelessWidget {
     return const Column(
       children: [
         SizedBox(height: 84),
-        Avatar(image: kAvaterLogo),
+        Avatar(image: AppImages.kAvaterLogo),
         SizedBox(height: 56),
         TeacherData(),
         TeacherAccounts(),

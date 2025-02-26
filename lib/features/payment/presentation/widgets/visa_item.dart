@@ -17,7 +17,7 @@ class Visa extends StatelessWidget {
             isVisa: true,
           );
         },
-        imagePath: kVisaLogo,
+        imagePath: AppImages.kVisaLogo,
         select: BlocProvider.of<PaymentCubit>(context).isVisa,
       ),
     );

@@ -11,7 +11,7 @@ class TermsConditionsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Trems & Condition'),
-        backgroundColor: kAppBarColor,
+        backgroundColor: AppColors.kAppBarColor,
         actions: const [
           LanguageMenu(),
         ],

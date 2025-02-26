@@ -19,10 +19,10 @@ class LoginView extends StatelessWidget {
           title: const CustomText(
             text: 'Login',
             fontSize: 24,
-            fontFamily: kPacificoFont,
+            fontFamily:AppFonts. kPacificoFont,
             color: Colors.white,
           ),
-          backgroundColor: kAppBarColor,
+          backgroundColor: AppColors.kAppBarColor,
         ),
         body: const CheckUserLogin(),
       ),

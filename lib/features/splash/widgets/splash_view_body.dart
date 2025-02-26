@@ -13,7 +13,7 @@ class SplashViewBody extends StatelessWidget {
         Background(),
         Center(
           child: CustomAssetImage(
-            imagePath: kSplashLogo,
+            imagePath: AppImages.kSplashLogo,
           ),
         )
       ],

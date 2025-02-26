@@ -20,7 +20,7 @@ class UpdateUrlButton extends StatelessWidget {
       },
       child: const CustomText(
         text: 'Update',
-        color: kAppBarColor,
+        color:AppColors. kAppBarColor,
       ),
     );
   }

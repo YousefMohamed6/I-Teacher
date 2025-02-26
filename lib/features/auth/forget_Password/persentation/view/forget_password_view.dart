@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/show_message.dart';
+import 'package:mrjoo/core/utils/services/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/forget_Password/persentation/manager/forget_password_cubit.dart';
@@ -21,10 +21,10 @@ class ForgetPasswordView extends StatelessWidget {
           title: const CustomText(
             text: 'Forget Password',
             fontSize: 24,
-            fontFamily: kPacificoFont,
+            fontFamily: AppFonts.kPacificoFont,
             color: Colors.white,
           ),
-          backgroundColor: kAppBarColor,
+          backgroundColor: AppColors.kAppBarColor,
         ),
         body: BlocListener<ForgetPasswordCubit, ForgetPasswordState>(
           listener: (context, state) {

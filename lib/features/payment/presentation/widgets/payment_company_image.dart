@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/images.dart';
 import 'package:mrjoo/core/utils/constants/links.dart';
-import 'package:mrjoo/core/utils/helper.dart';
+import 'package:mrjoo/core/utils/services/url_launcher.dart';
 
 class PaymentCompanyImage extends StatelessWidget {
   const PaymentCompanyImage({super.key});
@@ -10,7 +10,7 @@ class PaymentCompanyImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        await urlLauncher(url: kFawaterakWebsite);
+        await UrlLauncher.launcher(url: AppUrls.kFawaterakWebsite);
       },
       child: Container(
         width: (MediaQuery.of(context).size.width * 0.45),
@@ -20,7 +20,7 @@ class PaymentCompanyImage extends StatelessWidget {
           color: Colors.white,
           image: const DecorationImage(
             image: AssetImage(
-              kFawaterakLogo,
+              AppImages.kFawaterakLogo,
             ),
           ),
         ),

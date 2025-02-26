@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/time.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/widgets/friend_bubble.dart';
@@ -19,7 +18,7 @@ class ChatListView extends StatelessWidget {
         itemCount: messages.length,
         itemBuilder: (context, index) {
           final user = FirebaseAuth.instance.currentUser;
-          TimeHelper time = TimeHelper(message: messages[index]);
+          DateTime time = DateTime.parse(messages[index].createdAt);
           if (user?.uid == messages[index].uId) {
             return UserBubble(
               message: messages[index],

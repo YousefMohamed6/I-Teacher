@@ -15,7 +15,7 @@ class SignWithGoogleButton extends StatelessWidget {
         BlocProvider.of<RegisterCubit>(context).singInWithGoogle(context);
       },
       icon: const CustomAssetImage(
-        imagePath: kGoogleLogo,
+        imagePath: AppImages.kGoogleLogo,
         height: 32,
       ),
       iconSize: 50,

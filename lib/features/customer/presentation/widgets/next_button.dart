@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
+import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
 
 class NextButton extends StatelessWidget {
@@ -21,10 +21,10 @@ class NextButton extends StatelessWidget {
         }
         BlocProvider.of<CustomerCubit>(context).changeStateLoading();
       },
-      color: kMainTextColor,
+      color: AppColors.kMainTextColor,
       child: const CustomText(
         text: 'Next',
-        color: kPrimryColor,
+        color: AppColors.kPrimryColor,
         fontWeight: FontWeight.bold,
       ),
     );

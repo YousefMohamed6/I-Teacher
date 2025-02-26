@@ -3,7 +3,7 @@ import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/constants/fonts.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/customer/presentation/views/widgets/customer_view_body.dart';
+import 'package:mrjoo/features/customer/presentation/widgets/customer_view_body.dart';
 
 class CustomerView extends StatelessWidget {
   const CustomerView({super.key});
@@ -15,11 +15,11 @@ class CustomerView extends StatelessWidget {
         centerTitle: true,
         title: const CustomText(
           text: "Customer",
-          fontFamily: kPacificoFont,
+          fontFamily: AppFonts.kPacificoFont,
           fontSize: 24,
           color: Colors.white,
         ),
-        backgroundColor: kAppBarColor,
+        backgroundColor: AppColors.kAppBarColor,
       ),
       body: const Background(
         child: CustomerViewBody(),

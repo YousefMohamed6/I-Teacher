@@ -3,8 +3,8 @@ import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
 
-class ContectItem extends StatelessWidget {
-  const ContectItem({
+class ContactItem extends StatelessWidget {
+  const ContactItem({
     super.key,
     required this.text,
     required this.textButton,
@@ -22,7 +22,7 @@ class ContectItem extends StatelessWidget {
       children: [
         CustomText(
           text: text,
-          color: kMainTextColor,
+          color: AppColors.kMainTextColor,
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),

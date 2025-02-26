@@ -1,11 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mrjoo/core/utils/helper.dart';
-import '../widgets/custom_text.dart';
+
+import '../../widgets/custom_text.dart';
 
 class ShowMessage {
   static void show(context, {required msg}) {
-    plateform()
+    Platform.isAndroid || Platform.isIOS
         ? ShowMessage._toast(msg: msg)
         : ShowMessage._snackBar(context, msg: msg);
   }
