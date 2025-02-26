@@ -1,15 +1,23 @@
 import 'package:mrjoo/core/utils/constants/links.dart';
 import 'package:mrjoo/core/utils/services/api_service.dart';
+import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
 
 import '../../../features/customer/data/model/customer_model.dart';
 
 class Fawaterk {
   static final ApiService _api = ApiService();
 
-  Future<dynamic> fetchPaymentMethods() async {
-    var body = await _api.get(
-        url: AppUrls.kFawaterakAuthUrl, token: AppUrls.kFawaterakToken);
-    return body;
+  Future<List<PaymentMethodsModel>> fetchPaymentMethods() async {
+    final body = await _api.get(
+      url: AppUrls.kFawaterakAuthUrl,
+      token: AppUrls.kFawaterakToken,
+    );
+    final List data = body['data'];
+    List<PaymentMethodsModel> paymentMethods = [];
+    for (var element in data) {
+      paymentMethods.add(PaymentMethodsModel.fromJson(element));
+    }
+    return paymentMethods;
   }
 
   Future<dynamic> sendPaymentRequest({
