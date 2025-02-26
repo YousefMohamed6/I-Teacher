@@ -9,7 +9,7 @@ import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit
 import 'package:mrjoo/features/auth/register/presentation/manager/register_state.dart';
 import 'package:mrjoo/features/auth/register/presentation/widgets/registet_view_body.dart';
 import 'package:mrjoo/features/auth/register/presentation/widgets/sigin_with_google_button.dart';
-import 'package:mrjoo/features/course/presentation/course_view.dart';
+import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});

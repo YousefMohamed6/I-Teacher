@@ -4,8 +4,8 @@ import 'package:mrjoo/features/auth/forget_Password/persentation/view/forget_pas
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
-import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
-import 'package:mrjoo/features/course/presentation/course_view.dart';
+import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 import 'package:mrjoo/features/customer/data/customer_cubit/customer_cubit.dart';
 import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
 import 'package:mrjoo/features/home/presentation/views/home_view.dart';

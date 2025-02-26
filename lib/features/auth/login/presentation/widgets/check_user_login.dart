@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
-import 'package:mrjoo/features/course/presentation/course_view.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
 import 'package:mrjoo/features/auth/login/presentation/widgets/login_view_body.dart';
+import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 
 class CheckUserLogin extends StatelessWidget {
   const CheckUserLogin({super.key});

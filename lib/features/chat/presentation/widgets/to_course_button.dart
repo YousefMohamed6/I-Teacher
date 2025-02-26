@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
-import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
-import 'package:mrjoo/features/course/presentation/course_view.dart';
+import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 
 class ToCourseButton extends StatelessWidget {
   const ToCourseButton({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
-import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
 import 'package:mrjoo/features/course/presentation/widgets/update_url_button.dart';
 
 class UpdateUrlView extends StatelessWidget {
