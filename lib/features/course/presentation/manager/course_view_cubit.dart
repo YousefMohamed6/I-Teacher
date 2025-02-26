@@ -15,7 +15,7 @@ class CourseCubit extends Cubit<CourseState> {
   final TextEditingController courseCtrl = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   CollectionReference reference =
-      FirebaseFirestore.instance.collection(AppKeys.kCorseCollection);
+      FirebaseFirestore.instance.collection(AppKeys.kCourseCollection);
   String url = 'https://';
   UserModel getLocalUser() {
     var userBox = Hive.box<UserModel>(AppKeys.kUserBox);

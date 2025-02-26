@@ -1,5 +1,5 @@
 import 'package:mrjoo/core/utils/constants/links.dart';
-import 'package:mrjoo/core/utils/services/api.dart';
+import 'package:mrjoo/core/utils/services/api_service.dart';
 
 import '../../../features/customer/data/model/customer_model.dart';
 
