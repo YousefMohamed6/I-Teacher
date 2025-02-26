@@ -12,7 +12,7 @@ import 'package:mrjoo/features/home/presentation/views/home_view.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
 import 'package:mrjoo/features/privacy_policey/presentation/views/privacy_and_policy.dart';
 import 'package:mrjoo/features/splash/views/splash_view.dart';
-import 'package:mrjoo/features/terms/views/terms_and_conditions_view.dart';
+import 'package:mrjoo/features/terms/presentation/views/terms_and_conditions_view.dart';
 
 class MrJoo extends StatelessWidget {
   const MrJoo({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_background.dart';
-import 'package:mrjoo/features/terms/widgets/i_accpet_terms_button.dart';
+import 'package:mrjoo/features/terms/presentation/widgets/i_accpet_terms_button.dart';
 
 class InitialTermsView extends StatelessWidget {
   const InitialTermsView({super.key, required this.trems});
