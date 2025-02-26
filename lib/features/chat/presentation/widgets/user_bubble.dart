@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/utils/time.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
-import 'package:mrjoo/features/chat/presentation/views/widgets/chat_bubble.dart';
+import 'package:mrjoo/features/chat/presentation/widgets/chat_bubble.dart';
 
 class UserBubble extends StatelessWidget {
   const UserBubble({

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/features/auth/forget_Password/view/forget_password_view.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
+import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
 import 'package:mrjoo/features/course/data/course_view_cubit/course_view_cubit.dart';
 import 'package:mrjoo/features/course/presentation/course_view.dart';

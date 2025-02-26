@@ -8,10 +8,9 @@ import 'package:mrjoo/core/utils/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
-import 'package:mrjoo/features/chat/data/chat_cubit/chat_state.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
-import 'package:mrjoo/features/chat/presentation/views/widgets/chat_view_body.dart';
+import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:mrjoo/features/chat/presentation/widgets/chat_view_body.dart';
 
 class ChatView extends StatelessWidget {
   const ChatView({super.key});

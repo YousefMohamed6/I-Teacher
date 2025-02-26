@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/utils/time.dart';
-import 'package:mrjoo/features/chat/data/chat_cubit/chat_cubit.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
-import 'package:mrjoo/features/chat/presentation/views/widgets/friend_bubble.dart';
-import 'package:mrjoo/features/chat/presentation/views/widgets/user_bubble.dart';
+import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:mrjoo/features/chat/presentation/widgets/friend_bubble.dart';
+import 'package:mrjoo/features/chat/presentation/widgets/user_bubble.dart';
 
 class ChatListView extends StatelessWidget {
   const ChatListView({super.key, required this.messages});

@@ -1,6 +1,8 @@
-import 'package:mrjoo/features/chat/data/model/message_model.dart';
+part of 'chat_cubit.dart';
 
-abstract class ChatState {}
+
+
+sealed class ChatState {}
 
 class Initial extends ChatState {}
 

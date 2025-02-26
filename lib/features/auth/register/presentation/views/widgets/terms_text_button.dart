@@ -13,7 +13,7 @@ class TremsTextButton extends StatelessWidget {
       builder: (context, state) {
         return TextButton(
           style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(EdgeInsets.zero)),
+              padding: WidgetStatePropertyAll(EdgeInsets.zero)),
           onPressed: () {
             BlocProvider.of<CustomerCubit>(context)
                 .fetchTremsAndPrivacy(language: 'ar');

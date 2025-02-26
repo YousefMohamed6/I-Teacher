@@ -18,7 +18,9 @@ class _SplashViewState extends State<SplashView> {
 
   Future<void> _navigatortoHomepage() async {
     await Future.delayed(const Duration(seconds: 3), () {
-      Navigator.popAndPushNamed(context, HomeView.id);
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, HomeView.id);
+      }
     });
   }
 
