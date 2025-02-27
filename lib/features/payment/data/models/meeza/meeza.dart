@@ -16,6 +16,7 @@ class Meeza {
         paymentData: json['payment_data'] == null
             ? null
             : MeezaPaymentData.fromJson(
-                json['payment_data'] as Map<String, dynamic>),
+                json['payment_data'] as Map<String, dynamic>,
+              ),
       );
 }
