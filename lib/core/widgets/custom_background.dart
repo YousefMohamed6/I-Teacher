@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_state.dart';
+import 'package:mrjoo/features/student_data/presentation/manager/customer_cubit.dart';
+import 'package:mrjoo/features/student_data/presentation/manager/customer_state.dart';
 
 class CustomBackground extends StatelessWidget {
   const CustomBackground({super.key, required this.data});

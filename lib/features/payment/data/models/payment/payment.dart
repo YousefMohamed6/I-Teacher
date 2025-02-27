@@ -1,18 +1,18 @@
 import 'cart_item.dart';
-import 'customer.dart';
+import '../../../../student_data/data/model/customer_model.dart';
 import 'redirection_urls.dart';
 
 class PaymentModel {
-  int? paymentMethodId;
+  int paymentMethodId;
   String? cartTotal;
   String? currency;
   String? invoiceNumber;
-  Customer? customer;
+  CustomerModel? customer;
   RedirectionUrls? redirectionUrls;
   List<CartItem>? cartItems;
 
   PaymentModel({
-    this.paymentMethodId,
+    required this.paymentMethodId,
     this.cartTotal,
     this.currency,
     this.invoiceNumber,
@@ -22,13 +22,13 @@ class PaymentModel {
   });
 
   factory PaymentModel.fromJson(Map<String, dynamic> json) => PaymentModel(
-        paymentMethodId: json['payment_method_id'] as int?,
+        paymentMethodId: json['payment_method_id'] as int,
         cartTotal: json['cartTotal'] as String?,
         currency: json['currency'] as String?,
         invoiceNumber: json['invoice_number'] as String?,
         customer: json['customer'] == null
             ? null
-            : Customer.fromJson(json['customer'] as Map<String, dynamic>),
+            : CustomerModel.fromJson(json['customer'] as Map<String, dynamic>),
         redirectionUrls: json['redirectionUrls'] == null
             ? null
             : RedirectionUrls.fromJson(

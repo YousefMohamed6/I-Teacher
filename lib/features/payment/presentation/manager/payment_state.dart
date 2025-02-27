@@ -1,21 +1,9 @@
-abstract class PaymentState {}
+part of 'payment_cubit.dart';
 
-class PaymentInitial extends PaymentState {}
-
-class Paid extends PaymentState {}
-
-
-
-class PaymentVisa extends PaymentState {}
-
-class PaymentWellats extends PaymentState {}
-
-class PaymentLoading extends PaymentState {}
-
-class ProcessSuccess extends PaymentState {}
-
-class ProcessFailure extends PaymentState {}
-
-class PaymentSuccess extends PaymentState {}
-
-class PaymentFailure extends PaymentState {}
+@freezed
+class PaymentState<T> with _$PaymentState<T> {
+  const factory PaymentState.initial() = Initial;
+  const factory PaymentState.loading() = Loading;
+  const factory PaymentState.success(T data) = Success;
+  const factory PaymentState.failure(String message) = Failure;
+}

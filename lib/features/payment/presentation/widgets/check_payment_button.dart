@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mrjoo/core/utils/services/show_message.dart';
+import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
 import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
-import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
 
 class CheckPaymentButton extends StatelessWidget {
   const CheckPaymentButton({super.key});
@@ -14,7 +13,7 @@ class CheckPaymentButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<PaymentCubit, PaymentState>(
       listener: (context, state) {
-        if (state is Paid) {
+        if (state is Success) {
           ShowMessage.show(context, msg: 'Payment Success');
           Navigator.pushAndRemoveUntil(
             context,
@@ -23,7 +22,7 @@ class CheckPaymentButton extends StatelessWidget {
             ),
             (route) => false,
           );
-        } else if (state is PaymentFailure) {
+        } else if (state is Success) {
           ShowMessage.show(context, msg: 'You Not Register');
         }
       },

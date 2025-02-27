@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_state.dart';
+import 'package:mrjoo/features/privacy_policey/presentation/manager/privacy_policy_cubit.dart';
 import 'package:mrjoo/features/terms/presentation/widgets/initial_trems_view.dart';
 
 class TermsConditionsBody extends StatelessWidget {
@@ -9,22 +8,22 @@ class TermsConditionsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CustomerCubit, CustomerState>(
+    return BlocBuilder<PrivacyPolicyCubit, PrivacyPolicyState>(
       builder: (context, state) {
         if (state is Loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (state is Failure) {
-          return const Center(
+        } else if (state is Error) {
+          return Center(
             child: Text(
-              'Some Thing Wrong ',
+              state.message,
               style: TextStyle(fontSize: 24),
             ),
           );
         } else {
           return InitialTermsView(
-            trems: BlocProvider.of<CustomerCubit>(context).terms,
+            trems: BlocProvider.of<PrivacyPolicyCubit>(context).terms,
           );
         }
       },

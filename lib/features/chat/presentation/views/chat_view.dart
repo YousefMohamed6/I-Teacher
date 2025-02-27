@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
-import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/constants/keys.dart';
-import 'package:mrjoo/core/utils/services/show_message.dart';
+import 'package:mrjoo/core/services/show_message.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/chat/data/model/message_model.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/widgets/chat_view_body.dart';
 
@@ -33,7 +30,7 @@ class ChatView extends StatelessWidget {
           listener: (context, state) {
             if (state is SignOut) {
               ShowMessage.show(context, msg: 'Sign out');
-              Navigator.pushReplacementNamed(context, LoginView.id);
+              Navigator.pushReplacementNamed(context, LoginView.routeName);
             }
           },
           builder: (context, state) {
@@ -50,10 +47,7 @@ class ChatView extends StatelessWidget {
                 messages: state.messages,
               );
             } else {
-              var messageBox = Hive.box<MessageModel>(AppKeys.kMessageBox);
-              return ChatviewBody(
-                messages: messageBox.values.toList(),
-              );
+              return SizedBox();
             }
           },
         ),

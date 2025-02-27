@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
-import 'package:mrjoo/core/utils/constants/fonts.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 

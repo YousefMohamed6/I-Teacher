@@ -1,61 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
-import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/services/show_message.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mrjoo/core/services/show_message.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:mrjoo/core/utils/constants/app_fonts.dart';
+import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/core/widgets/webview_body.dart';
+import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
-import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
-import 'package:mrjoo/features/payment/presentation/widgets/check_payment_button.dart';
 import 'package:mrjoo/features/payment/presentation/widgets/payment_view_body.dart';
+import 'package:mrjoo/generated/app_localizations.dart';
 
 class PaymentView extends StatelessWidget {
-  static const String id = 'PaymentPage';
-
   const PaymentView({super.key});
+  static const String routeName = '/PaymentPage';
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => PaymentCubit(),
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.kAppBarColor,
-          centerTitle: true,
-          title: const CustomText(
-            text: "Payment",
-            fontFamily: AppFonts.kPacificoFont,
-            fontSize: 24,
-            color: Colors.white,
-          ),
-          actions: const [
-            CheckPaymentButton(),
-          ],
+    return Scaffold(
+      drawer: CustomDrawer(),
+      appBar: AppBar(
+        backgroundColor: AppColors.kAppBarColor,
+        centerTitle: true,
+        title: CustomText(
+          text: AppLocalizations.of(context)!.payment,
+          fontFamily: AppFonts.kPacificoFont,
+          fontSize: 20.sp,
+          color: Colors.white,
         ),
-        body: Background(
-          child: BlocConsumer<PaymentCubit, PaymentState>(
-            listener: (context, state) {
-              if (state is ProcessSuccess) {
-                ShowMessage.show(context, msg: 'Follow Steps');
-              } else if (state is ProcessFailure) {
-                ShowMessage.show(context,
-                    msg: 'SomeThing Wrong Check your data');
-              }
-            },
-            builder: (context, state) {
-              if (state is PaymentLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state is ProcessSuccess) {
-                var url = BlocProvider.of<PaymentCubit>(context).url;
-                return WebViewBody(url: url);
-              } else {
-                return const PaymentViewBody();
-              }
-            },
-          ),
+      ),
+      body: Background(
+        child: BlocConsumer<PaymentCubit, PaymentState>(
+          listener: (context, state) {
+            if (state is Success) {
+              ShowMessage.show(context, msg: 'Follow Steps');
+            } else if (state is Failure) {
+              ShowMessage.show(context, msg: 'SomeThing Wrong Check your data');
+            }
+          },
+          builder: (context, state) {
+            if (state is Loading<List<PaymentMethodsModel>>) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is Success<List<PaymentMethodsModel>>) {
+              return const PaymentViewBody();
+            } else {
+              return const PaymentViewBody();
+            }
+          },
         ),
       ),
     );

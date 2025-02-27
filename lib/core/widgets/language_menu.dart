@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/widgets/language_text.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
+import 'package:mrjoo/features/privacy_policey/presentation/views/privacy_and_policy.dart';
 
 class LanguageMenu extends StatelessWidget {
   const LanguageMenu({super.key});
@@ -19,8 +19,7 @@ class LanguageMenu extends StatelessWidget {
         ),
       ],
       onSelected: (value) {
-        BlocProvider.of<CustomerCubit>(context)
-            .fetchTremsAndPrivacy(language: value);
+        context.pushNamed(PrivacyPolicyView.id);
       },
       child: const LanguageText(),
     );

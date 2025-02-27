@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/images.dart';
+import 'package:mrjoo/core/utils/constants/app_images.dart';
 import 'package:mrjoo/core/widgets/asset_image.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 

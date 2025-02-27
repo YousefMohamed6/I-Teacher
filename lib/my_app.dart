@@ -1,51 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/auth/forget_Password/persentation/view/forget_password_view.dart';
-import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_View.dart';
-import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
-import 'package:mrjoo/features/course/presentation/views/course_view.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
-import 'package:mrjoo/features/customer/presentation/views/customer_view.dart';
-import 'package:mrjoo/features/home/presentation/views/home_view.dart';
-import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
-import 'package:mrjoo/features/privacy_policey/presentation/views/privacy_and_policy.dart';
-import 'package:mrjoo/features/splash/views/splash_view.dart';
-import 'package:mrjoo/features/terms/presentation/views/terms_and_conditions_view.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mrjoo/core/services/router_manager.dart';
+import 'package:mrjoo/core/services/theme_service.dart';
+import 'package:mrjoo/features/settings/presentation/manager/setting_bloc.dart';
+import 'package:mrjoo/generated/app_localizations.dart';
 
-class MrJoo extends StatelessWidget {
-  const MrJoo({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp._();
+  static const instance = MyApp._();
+  factory MyApp() => instance;
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => CustomerCubit(),
-        ),
-        BlocProvider(
-          create: (context) => ChatCubit(),
-        ),
-        BlocProvider(
-          create: (context) => CourseCubit(),
-        ),
-      ],
-      child: MaterialApp(
-        routes: {
-          SplashView.id: (context) => const SplashView(),
-          HomeView.id: (context) => const HomeView(),
-          LoginView.id: (context) => const LoginView(),
-          CustomerView.id: (context) => const CustomerView(),
-          PaymentView.id: (context) => const PaymentView(),
-          ChatView.id: (context) => const ChatView(),
-          CourseView.id: (context) => const CourseView(),
-          TermsConditionsView.id: (context) => const TermsConditionsView(),
-          PrivacyPolicyView.id: (context) => const PrivacyPolicyView(),
-          ForgetPasswordView.id: (context) => const ForgetPasswordView(),
+    return BlocProvider(
+      create: (context) => SettingsBloc()
+        ..add(GetTheme())
+        ..add(GetLocalization()),
+      child: ScreenUtilInit(
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return CustomMaterialApp();
         },
-        debugShowCheckedModeBanner: false,
-        initialRoute: SplashView.id,
       ),
+    );
+  }
+}
+
+class CustomMaterialApp extends StatelessWidget {
+  const CustomMaterialApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SettingsBloc, SettingsState>(
+      builder: (context, state) {
+        final SettingsBloc bloc = context.watch<SettingsBloc>();
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          locale: Locale(bloc.local),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          themeMode: bloc.isDark ? ThemeMode.dark : ThemeMode.light,
+          theme: bloc.isDark ? ThemeService.dark() : ThemeService.light(),
+          routerConfig: RouterManager.routConfig,
+        );
+      },
     );
   }
 }

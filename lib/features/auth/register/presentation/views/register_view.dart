@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
-import 'package:mrjoo/core/utils/constants/fonts.dart';
-import 'package:mrjoo/core/utils/services/show_message.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mrjoo/core/services/show_message.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
@@ -23,9 +24,9 @@ class RegisterView extends StatelessWidget {
         appBar: AppBar(
           leading: const SizedBox(),
           centerTitle: true,
-          title: const CustomText(
+          title: CustomText(
             text: "Register",
-            fontSize: 24,
+            fontSize: 20.sp,
             fontFamily: AppFonts.kPacificoFont,
             color: Colors.white,
           ),
@@ -39,7 +40,7 @@ class RegisterView extends StatelessWidget {
             listener: (context, state) {
               if (state is Success) {
                 ShowMessage.show(context, msg: 'Success');
-                Navigator.popAndPushNamed(context, CourseView.id);
+                Navigator.popAndPushNamed(context, CourseView.routeView);
               } else if (state is Failure) {
                 ShowMessage.show(context, msg: 'Sign Up is Faild');
               } else if (state is RegisterFailure) {

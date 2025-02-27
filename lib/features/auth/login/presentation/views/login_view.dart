@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
-import 'package:mrjoo/core/utils/constants/fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:mrjoo/core/utils/constants/app_fonts.dart';
+import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
-import 'package:mrjoo/features/auth/login/presentation/widgets/check_user_login.dart';
+import 'package:mrjoo/features/auth/login/presentation/widgets/login_view_body.dart';
+import 'package:mrjoo/generated/app_localizations.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
-  static String id = "LoginView";
+  static String routeName = "/LoginView";
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginViewCubit(),
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const CustomText(
-            text: 'Login',
-            fontSize: 24,
-            fontFamily:AppFonts. kPacificoFont,
-            color: Colors.white,
-          ),
-          backgroundColor: AppColors.kAppBarColor,
+    return Scaffold(
+      drawer: CustomDrawer(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: CustomText(
+          text: AppLocalizations.of(context)!.login,
+          fontSize: 20.sp,
+          fontFamily: AppFonts.kPacificoFont,
+          color: AppColors.kMainTextColor,
         ),
-        body: const CheckUserLogin(),
+        backgroundColor: AppColors.kAppBarColor,
       ),
+      body: const LoginViewBody(),
     );
   }
 }

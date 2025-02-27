@@ -14,7 +14,7 @@ class ToCourseButton extends StatelessWidget {
       iconSize: 30,
       onPressed: () {
         BlocProvider.of<CourseCubit>(context).fetchUrl();
-        Navigator.pushNamed(context, CourseView.id);
+        Navigator.pushNamed(context, CourseView.routeView);
       },
     );
   }

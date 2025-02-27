@@ -21,7 +21,6 @@ mixin _$PrivacyPolicyState<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +29,6 @@ mixin _$PrivacyPolicyState<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +37,6 @@ mixin _$PrivacyPolicyState<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -49,7 +46,6 @@ mixin _$PrivacyPolicyState<T> {
     required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
     required TResult Function(Error<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,7 +54,6 @@ mixin _$PrivacyPolicyState<T> {
     TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
     TResult? Function(Error<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +62,6 @@ mixin _$PrivacyPolicyState<T> {
     TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) =>
@@ -75,23 +69,24 @@ mixin _$PrivacyPolicyState<T> {
 }
 
 /// @nodoc
-abstract class $MapsStateCopyWith<T, $Res> {
-  factory $MapsStateCopyWith(PrivacyPolicyState<T> value,
+abstract class $PrivacyPolicyStateCopyWith<T, $Res> {
+  factory $PrivacyPolicyStateCopyWith(PrivacyPolicyState<T> value,
           $Res Function(PrivacyPolicyState<T>) then) =
-      _$MapsStateCopyWithImpl<T, $Res, PrivacyPolicyState<T>>;
+      _$PrivacyPolicyStateCopyWithImpl<T, $Res, PrivacyPolicyState<T>>;
 }
 
 /// @nodoc
-class _$MapsStateCopyWithImpl<T, $Res, $Val extends PrivacyPolicyState<T>>
-    implements $MapsStateCopyWith<T, $Res> {
-  _$MapsStateCopyWithImpl(this._value, this._then);
+class _$PrivacyPolicyStateCopyWithImpl<T, $Res,
+        $Val extends PrivacyPolicyState<T>>
+    implements $PrivacyPolicyStateCopyWith<T, $Res> {
+  _$PrivacyPolicyStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -104,13 +99,13 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$MapsStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$PrivacyPolicyStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -121,7 +116,7 @@ class _$InitialImpl<T> implements Initial<T> {
 
   @override
   String toString() {
-    return 'MapsState<$T>.initial()';
+    return 'PrivacyPolicyState<$T>.initial()';
   }
 
   @override
@@ -139,7 +134,6 @@ class _$InitialImpl<T> implements Initial<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -151,7 +145,6 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -163,7 +156,6 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -179,7 +171,6 @@ class _$InitialImpl<T> implements Initial<T> {
     required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
     required TResult Function(Error<T> value) error,
   }) {
     return initial(this);
@@ -191,7 +182,6 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
     TResult? Function(Error<T> value)? error,
   }) {
     return initial?.call(this);
@@ -203,7 +193,6 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -227,13 +216,13 @@ abstract class _$$LoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$MapsStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
+    extends _$PrivacyPolicyStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
     implements _$$LoadingImplCopyWith<T, $Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -244,7 +233,7 @@ class _$LoadingImpl<T> implements Loading<T> {
 
   @override
   String toString() {
-    return 'MapsState<$T>.loading()';
+    return 'PrivacyPolicyState<$T>.loading()';
   }
 
   @override
@@ -262,7 +251,6 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -274,7 +262,6 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -286,7 +273,6 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -302,7 +288,6 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
     required TResult Function(Error<T> value) error,
   }) {
     return loading(this);
@@ -314,7 +299,6 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
     TResult? Function(Error<T> value)? error,
   }) {
     return loading?.call(this);
@@ -326,7 +310,6 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -352,13 +335,13 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$MapsStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
+    extends _$PrivacyPolicyStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
     implements _$$SuccessImplCopyWith<T, $Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -384,7 +367,7 @@ class _$SuccessImpl<T> implements Success<T> {
 
   @override
   String toString() {
-    return 'MapsState<$T>.success(data: $data)';
+    return 'PrivacyPolicyState<$T>.success(data: $data)';
   }
 
   @override
@@ -399,7 +382,7 @@ class _$SuccessImpl<T> implements Success<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -413,7 +396,6 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
     required TResult Function(String message) error,
   }) {
     return success(data);
@@ -425,7 +407,6 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
     TResult? Function(String message)? error,
   }) {
     return success?.call(data);
@@ -437,7 +418,6 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -453,7 +433,6 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
     required TResult Function(Error<T> value) error,
   }) {
     return success(this);
@@ -465,7 +444,6 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
     TResult? Function(Error<T> value)? error,
   }) {
     return success?.call(this);
@@ -477,7 +455,6 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -493,168 +470,10 @@ abstract class Success<T> implements PrivacyPolicyState<T> {
 
   T get data;
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$FailureImplCopyWith<T, $Res> {
-  factory _$$FailureImplCopyWith(
-          _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
-      __$$FailureImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$FailureImplCopyWithImpl<T, $Res>
-    extends _$MapsStateCopyWithImpl<T, $Res, _$FailureImpl<T>>
-    implements _$$FailureImplCopyWith<T, $Res> {
-  __$$FailureImplCopyWithImpl(
-      _$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MapsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$FailureImpl<T>(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FailureImpl<T> implements Failure<T> {
-  const _$FailureImpl(this.message);
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    return 'MapsState<$T>.failure(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FailureImpl<T> &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  /// Create a copy of MapsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
-      __$$FailureImplCopyWithImpl<T, _$FailureImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(T data) success,
-    required TResult Function(String message) failure,
-    required TResult Function(String message) error,
-  }) {
-    return failure(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
-    TResult? Function(String message)? error,
-  }) {
-    return failure?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(T data)? success,
-    TResult Function(String message)? failure,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
-    required TResult Function(Error<T> value) error,
-  }) {
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
-    TResult? Function(Error<T> value)? error,
-  }) {
-    return failure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
-    TResult Function(Error<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Failure<T> implements PrivacyPolicyState<T> {
-  const factory Failure(final String message) = _$FailureImpl<T>;
-
-  String get message;
-
-  /// Create a copy of MapsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -669,13 +488,13 @@ abstract class _$$ErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<T, $Res>
-    extends _$MapsStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
+    extends _$PrivacyPolicyStateCopyWithImpl<T, $Res, _$ErrorImpl<T>>
     implements _$$ErrorImplCopyWith<T, $Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl<T> _value, $Res Function(_$ErrorImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -701,7 +520,7 @@ class _$ErrorImpl<T> implements Error<T> {
 
   @override
   String toString() {
-    return 'MapsState<$T>.error(message: $message)';
+    return 'PrivacyPolicyState<$T>.error(message: $message)';
   }
 
   @override
@@ -715,7 +534,7 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -729,7 +548,6 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
-    required TResult Function(String message) failure,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -741,7 +559,6 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
-    TResult? Function(String message)? failure,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -753,7 +570,6 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
-    TResult Function(String message)? failure,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -769,7 +585,6 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Initial<T> value) initial,
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
-    required TResult Function(Failure<T> value) failure,
     required TResult Function(Error<T> value) error,
   }) {
     return error(this);
@@ -781,7 +596,6 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
-    TResult? Function(Failure<T> value)? failure,
     TResult? Function(Error<T> value)? error,
   }) {
     return error?.call(this);
@@ -793,7 +607,6 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
-    TResult Function(Failure<T> value)? failure,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -809,7 +622,7 @@ abstract class Error<T> implements PrivacyPolicyState<T> {
 
   String get message;
 
-  /// Create a copy of MapsState
+  /// Create a copy of PrivacyPolicyState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
