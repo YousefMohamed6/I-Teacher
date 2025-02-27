@@ -1,7 +1,5 @@
 part of 'chat_cubit.dart';
 
-
-
 sealed class ChatState {}
 
 class Initial extends ChatState {}

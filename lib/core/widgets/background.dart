@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
 
 class Background extends StatelessWidget {
   const Background({super.key, this.child});
@@ -14,7 +14,7 @@ class Background extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [AppColors.kPrimryColor,AppColors. kSecondColor],
+          colors: [AppColors.kPrimryColor, AppColors.kSecondColor],
         ),
       ),
       child: child,

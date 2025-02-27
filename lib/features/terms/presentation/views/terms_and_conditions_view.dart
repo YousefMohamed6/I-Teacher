@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/widgets/language_menu.dart';
 import 'package:mrjoo/features/terms/presentation/widgets/terms_condition_view_body.dart';
 

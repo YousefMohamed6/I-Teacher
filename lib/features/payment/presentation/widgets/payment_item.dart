@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
 import 'package:mrjoo/core/widgets/asset_image.dart';
+import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
 
 class PaymentItem extends StatelessWidget {
-  const PaymentItem(
-      {super.key,
-      required this.imagePath,
-      required this.select,
-      required this.onTap});
-  final String imagePath;
-  final bool select;
+  const PaymentItem({
+    super.key,
+    required this.paymentMethodsModel,
+    required this.onTap,
+  });
   final VoidCallback onTap;
+  final PaymentMethodsModel paymentMethodsModel;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,18 +23,12 @@ class PaymentItem extends StatelessWidget {
             ),
             margin: const EdgeInsets.all(16),
             child: CustomAssetImage(
-              imagePath: imagePath,
+              imagePath: paymentMethodsModel.logo,
               width: (MediaQuery.of(context).size.width * 0.4),
               height: (MediaQuery.of(context).size.height * 0.25),
             ),
           ),
         ),
-        select
-            ? const Icon(
-                Icons.add_task,
-                color: AppColors.kMainTextColor,
-              )
-            : const SizedBox(),
       ],
     );
   }

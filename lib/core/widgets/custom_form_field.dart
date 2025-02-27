@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:mrjoo/core/utils/constants/app_fonts.dart';
+import 'package:mrjoo/generated/app_localizations.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
@@ -45,15 +48,25 @@ class CustomFormField extends StatelessWidget {
             ),
           ),
           focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
+            borderSide: BorderSide(color: AppColors.kMainTextColor),
             borderRadius: BorderRadius.all(
               Radius.circular(8),
             ),
           ),
+          errorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.kPrimryColor),
+            borderRadius: BorderRadius.all(
+              Radius.circular(8),
+            ),
+          ),
+          errorStyle: TextStyle(
+            fontFamily: AppFonts.kFontHandjet,
+            color: AppColors.kMainTextColor,
+          ),
           labelText: lablelText,
-          labelStyle: const TextStyle(fontSize: 16, color: Colors.white),
+          labelStyle: TextStyle(fontSize: 16, color: Colors.white),
           hintText: hintText,
-          hintStyle: const TextStyle(fontSize: 16, color: Colors.white),
+          hintStyle: TextStyle(fontSize: 16, color: Colors.white),
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
           prefixIconColor: Colors.white,
@@ -64,7 +77,7 @@ class CustomFormField extends StatelessWidget {
         obscureText: obscureText ?? false,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return "This Field is Requird";
+            return AppLocalizations.of(context)!.required_field;
           }
           return null;
         },

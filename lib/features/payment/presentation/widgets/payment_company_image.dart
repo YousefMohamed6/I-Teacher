@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/images.dart';
-import 'package:mrjoo/core/utils/constants/links.dart';
-import 'package:mrjoo/core/utils/services/url_launcher.dart';
+import 'package:mrjoo/core/services/url_launcher.dart';
+import 'package:mrjoo/core/utils/constants/app_images.dart';
+import 'package:mrjoo/core/utils/constants/urls.dart';
 
 class PaymentCompanyImage extends StatelessWidget {
   const PaymentCompanyImage({super.key});

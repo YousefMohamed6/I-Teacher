@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/colors.dart';
+import 'package:mrjoo/core/utils/constants/app_colors.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({super.key, required this.onPressed, required this.text});

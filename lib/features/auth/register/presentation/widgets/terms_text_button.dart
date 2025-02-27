@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_cubit.dart';
-import 'package:mrjoo/features/customer/presentation/manager/customer_state.dart';
-import 'package:mrjoo/features/terms/presentation/views/terms_and_conditions_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mrjoo/features/student_data/presentation/manager/customer_cubit.dart';
+import 'package:mrjoo/features/student_data/presentation/manager/customer_state.dart';
+import 'package:mrjoo/features/privacy_policey/presentation/views/privacy_and_policy.dart';
 
 class TremsTextButton extends StatelessWidget {
   const TremsTextButton({super.key});
@@ -15,9 +16,7 @@ class TremsTextButton extends StatelessWidget {
           style: const ButtonStyle(
               padding: WidgetStatePropertyAll(EdgeInsets.zero)),
           onPressed: () {
-            BlocProvider.of<CustomerCubit>(context)
-                .fetchTremsAndPrivacy(language: 'ar');
-            Navigator.pushNamed(context, TermsConditionsView.id);
+            context.pushNamed(PrivacyPolicyView.id);
           },
           child: Text(
             'Terms & Conditons',

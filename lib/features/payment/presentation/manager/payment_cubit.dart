@@ -1,88 +1,33 @@
-import 'dart:io';
+import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
+import 'package:mrjoo/features/payment/domain/use_cases/fetch_payment_methods_use_case.dart';
+import 'package:mrjoo/features/student_data/data/model/customer_model.dart';
 
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/constants/links.dart';
-import 'package:mrjoo/core/utils/services/api_service.dart';
-import 'package:mrjoo/core/utils/services/fatwaterak_getway.dart';
-import 'package:mrjoo/core/utils/services/url_launcher.dart';
-import 'package:mrjoo/features/payment/presentation/manager/payment_state.dart';
+part 'payment_cubit.freezed.dart';
+part 'payment_state.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
-  PaymentCubit() : super(PaymentInitial());
-  bool isVisa = true;
-  bool isWallets = false;
-  int invoiceId = 0;
-  final ApiService _api = ApiService();
-  String url = '';
-
-  void changePaymentType({required bool isVisa}) {
-    this.isVisa = isVisa;
-    isWallets = !isVisa;
-    emit(PaymentInitial());
+  final FetchPaymentMethodsUseCase _fetchPaymentMethodsUseCase;
+  PaymentCubit(
+    this._fetchPaymentMethodsUseCase,
+  ) : super(PaymentState.initial());
+  late CustomerModel customerModel;
+  void initState(CustomerModel customer) {
+    customerModel = customer;
   }
 
-  Future<void> checkPayment() async {
-    emit(PaymentLoading());
+  List<PaymentMethodsModel> paymentMethods = [];
+  Future<void> fetchPaymentMethods() async {
     try {
-      var response = await _api.get(
-          url: AppUrls.kTransactionFawaterak + invoiceId.toString(),
-          token: AppUrls.kFawaterakToken);
-      var paymentStatus = response['data']['invoice_transactions'][0]['status'];
-      if (paymentStatus == 'success') {
-        invoiceId = 0;
-        emit(Paid());
-      } else {
-        invoiceId = 0;
-        emit(PaymentFailure());
-      }
-    } catch (ex) {
-      emit(PaymentFailure());
+      emit(PaymentState<List<PaymentMethodsModel>>.loading());
+      final paymentMethods = await _fetchPaymentMethodsUseCase.execute();
+      emit(PaymentState<List<PaymentMethodsModel>>.success(paymentMethods));
+    } catch (e) {
+      emit(PaymentState<List<PaymentMethodsModel>>.failure(e.toString()));
     }
   }
 
-  Future<dynamic> pay({required customerModel}) async {
-    isVisa
-        ? await _visa(customerModel: customerModel)
-        : await _wellats(customerModel: customerModel);
-  }
-
-  Future<dynamic> _visa({required customerModel}) async {
-    emit(PaymentLoading());
-    try {
-      var data = await Fawaterk().sendPaymentRequest(
-        customerData: customerModel,
-        paymentMethodId: 2,
-      );
-      invoiceId = data['invoiceId'];
-      url = data['url'];
-      if (Platform.isAndroid || Platform.isIOS) {
-        emit(ProcessSuccess());
-      } else {
-        UrlLauncher.launcher(url: url);
-        emit(PaymentInitial());
-      }
-    } catch (ex) {
-      emit(ProcessFailure());
-    }
-  }
-
-  Future<dynamic> _wellats({required customerModel}) async {
-    emit(PaymentLoading());
-    try {
-      var data = await Fawaterk().sendPaymentRequest(
-        customerData: customerModel,
-        paymentMethodId: 4,
-      );
-      invoiceId = data['invoiceId'];
-      url = data['url'];
-      if (Platform.isAndroid || Platform.isIOS) {
-        emit(ProcessSuccess());
-      } else {
-        UrlLauncher.launcher(url: url);
-        emit(PaymentInitial());
-      }
-    } catch (ex) {
-      emit(ProcessFailure());
-    }
-  }
+  Future<void> createPayment() async {}
+  Future<void> checkPayment() async {}
 }

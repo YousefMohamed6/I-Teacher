@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
+import 'package:mrjoo/features/chat/data/model/user_model.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
 import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
 import 'package:mrjoo/features/course/presentation/widgets/sign_out_button.dart';
 
 class ActionButtons extends StatelessWidget {
-  const ActionButtons({super.key});
-
+  const ActionButtons({super.key, required this.user});
+  final UserModel user;
   @override
   Widget build(BuildContext context) {
-    var user = BlocProvider.of<CourseCubit>(context).getLocalUser();
     return Row(
       children: [
         user.isAdmin
