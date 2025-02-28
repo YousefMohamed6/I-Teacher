@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
@@ -11,7 +12,7 @@ import 'package:mrjoo/features/chat/presentation/widgets/chat_view_body.dart';
 
 class ChatView extends StatelessWidget {
   const ChatView({super.key});
-  static String id = "ChatPage";
+  static String routeName = "/ChatPage";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +31,7 @@ class ChatView extends StatelessWidget {
           listener: (context, state) {
             if (state is SignOut) {
               ShowMessage.show(context, msg: 'Sign out');
-              Navigator.pushReplacementNamed(context, LoginView.routeName);
+              context.pushReplacementNamed(LoginView.routeName);
             }
           },
           builder: (context, state) {

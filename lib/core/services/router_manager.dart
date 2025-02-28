@@ -5,7 +5,10 @@ import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart'
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
 import 'package:mrjoo/features/auth/rest_Password/persentation/view/rest_password_view.dart';
+import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
+import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 import 'package:mrjoo/features/payment/di/payment_service.dart';
 import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
@@ -93,10 +96,23 @@ abstract class RouterManager {
         },
       ),
       GoRoute(
-        path: ChatView.id,
-        name: ChatView.id,
+        path: ChatView.routeName,
+        name: ChatView.routeName,
         builder: (context, state) {
-          return ChatView();
+          return BlocProvider(
+            create: (context) => ChatCubit(),
+            child: ChatView(),
+          );
+        },
+      ),
+      GoRoute(
+        path: CourseView.routeName,
+        name: CourseView.routeName,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => CourseCubit(),
+            child: CourseView(),
+          );
         },
       ),
     ],

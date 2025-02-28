@@ -4,17 +4,17 @@ import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/features/student_data/presentation/manager/customer_cubit.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
 
-class EmailTextFeild extends StatelessWidget {
-  const EmailTextFeild({super.key});
+class PhoneTextField extends StatelessWidget {
+  const PhoneTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CustomFormField(
-      textInputType: TextInputType.emailAddress,
-      lablelText: AppLocalizations.of(context)!.email,
-      hintText: AppLocalizations.of(context)!.email,
-      prefixIcon: const Icon(Icons.email),
-      controller: BlocProvider.of<CustomerCubit>(context).email,
+      textInputType: TextInputType.number,
+      lablelText: AppLocalizations.of(context)!.phone,
+      hintText: AppLocalizations.of(context)!.enter_phone,
+      prefixIcon: const Icon(Icons.phone),
+      controller: BlocProvider.of<CustomerCubit>(context).phoneTextController,
     );
   }
 }

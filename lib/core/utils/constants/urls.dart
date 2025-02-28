@@ -12,8 +12,6 @@ class AppUrls {
       'https://staging.fawaterk.com/api/v2/getPaymentmethods';
   static const String kFawaterakPayUrl =
       'https://staging.fawaterk.com/api/v2/invoiceInitPay';
-  static const String kFawaterakToken =
-      '727198e8f33bef30a39212aaf169f98dda2aff6489b00636a8';
   static const String kTransactionFawaterak =
       'https://staging.fawaterk.com/api/v2/getInvoiceData/';
   static const String kFawaterakWebsite = 'https://fawaterk.com';

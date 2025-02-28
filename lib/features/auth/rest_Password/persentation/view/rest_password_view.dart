@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
@@ -32,7 +33,7 @@ class RestPasswordView extends StatelessWidget {
         listener: (context, state) {
           if (state is RestPasswordSucess) {
             ShowMessage.show(context, msg: "Success check Gmail");
-            Navigator.pop(context);
+            context.pop();
           }
           if (state is RestPasswordFailure) {
             ShowMessage.show(context, msg: state.errorMessage);

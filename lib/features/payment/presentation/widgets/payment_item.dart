@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/widgets/asset_image.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mrjoo/core/widgets/network_image.dart';
 import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
 
 class PaymentItem extends StatelessWidget {
@@ -18,14 +19,14 @@ class PaymentItem extends StatelessWidget {
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(32),
+              borderRadius: BorderRadius.circular(8.r),
               color: Colors.white,
             ),
             margin: const EdgeInsets.all(16),
-            child: CustomAssetImage(
-              imagePath: paymentMethodsModel.logo,
-              width: (MediaQuery.of(context).size.width * 0.4),
-              height: (MediaQuery.of(context).size.height * 0.25),
+            child: CustomNetworkImage(
+              imageUrl: paymentMethodsModel.logo,
+              width: (MediaQuery.of(context).size.width * 0.25).w,
+              height: (MediaQuery.of(context).size.height * 0.2).h,
             ),
           ),
         ),

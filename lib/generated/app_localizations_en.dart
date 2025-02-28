@@ -40,10 +40,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get user_name => 'User Name';
 
   @override
-  String get email => 'E-Mail';
+  String get email => 'EMail';
 
   @override
-  String get enter_email => 'Enter Your E-Mail';
+  String get enter_email => 'Enter Your EMail';
 
   @override
   String get password => 'Password';
@@ -70,7 +70,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get last_name => 'Last Name';
 
   @override
+  String get address => 'address';
+
+  @override
+  String get enter_address => 'Enter Your Address';
+
+  @override
   String get phone => 'Phone';
+
+  @override
+  String get enter_phone => 'Enter Your Phone';
 
   @override
   String get student_data => 'Student Data';

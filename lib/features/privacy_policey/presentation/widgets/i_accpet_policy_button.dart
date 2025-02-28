@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/widgets/app_button.dart';
 import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
 
@@ -10,7 +11,7 @@ class IAcceptPolicy extends StatelessWidget {
     return AppButton(
       text: 'I Accept',
       onPressed: () {
-        Navigator.pushNamed(context, RegisterView.id);
+        context.pushNamed(RegisterView.id);
       },
     );
   }

@@ -5,10 +5,11 @@ import 'package:mrjoo/features/student_data/presentation/manager/customer_state.
 
 class CustomerCubit extends Cubit<CustomerState> {
   CustomerCubit() : super(CustomerInitial());
-  final fristName = TextEditingController();
-  final lastName = TextEditingController();
-  final email = TextEditingController();
-  final phone = TextEditingController();
+  final fristNameTextController = TextEditingController();
+  final lastNameTextController = TextEditingController();
+  final emailTextController = TextEditingController();
+  final phoneTextController = TextEditingController();
+  final address = TextEditingController();
   final formKey = GlobalKey<FormState>();
   CustomerModel? customerData;
   bool _isLoading = false;
@@ -18,12 +19,13 @@ class CustomerCubit extends Cubit<CustomerState> {
   }
 
   void addCustomer() {
-    customerData = CustomerModel.fromJson({
-      'fristName': fristName.text,
-      'lastName': lastName.text,
-      'email': email.text,
-      'phone': phone.text,
-    });
+    customerData = CustomerModel(
+      firstName: fristNameTextController.text,
+      lastName: lastNameTextController.text,
+      email: emailTextController.text,
+      phone: phoneTextController.text,
+      address: address.text,
+    );
     emit(SendData());
   }
 }

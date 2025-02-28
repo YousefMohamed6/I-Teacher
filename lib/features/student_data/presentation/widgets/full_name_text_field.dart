@@ -4,8 +4,8 @@ import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/features/student_data/presentation/manager/customer_cubit.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
 
-class FullNameTextFeild extends StatelessWidget {
-  const FullNameTextFeild({super.key});
+class FullNameTextField extends StatelessWidget {
+  const FullNameTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +14,20 @@ class FullNameTextFeild extends StatelessWidget {
         Expanded(
           child: CustomFormField(
             textInputType: TextInputType.name,
-            hintText: AppLocalizations.of(context)!.frist_name,
+            lablelText: AppLocalizations.of(context)!.frist_name,
             prefixIcon: const Icon(Icons.person),
-            controller: BlocProvider.of<CustomerCubit>(context).fristName,
+            controller:
+                BlocProvider.of<CustomerCubit>(context).fristNameTextController,
           ),
         ),
         const SizedBox(width: 8),
         Expanded(
           child: CustomFormField(
             textInputType: TextInputType.name,
-            hintText: AppLocalizations.of(context)!.last_name,
+            lablelText: AppLocalizations.of(context)!.last_name,
             prefixIcon: const Icon(Icons.person),
-            controller: BlocProvider.of<CustomerCubit>(context).lastName,
+            controller:
+                BlocProvider.of<CustomerCubit>(context).lastNameTextController,
           ),
         ),
       ],

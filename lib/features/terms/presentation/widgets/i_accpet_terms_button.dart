@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/widgets/app_button.dart';
 
 class IAcceptTerms extends StatelessWidget {
@@ -9,7 +10,7 @@ class IAcceptTerms extends StatelessWidget {
     return AppButton(
       text: "I Accept",
       onPressed: () {
-        Navigator.pop(context);
+        context.pop();
       },
     );
   }

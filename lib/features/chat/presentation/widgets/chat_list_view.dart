@@ -19,7 +19,7 @@ class ChatListView extends StatelessWidget {
         itemBuilder: (context, index) {
           final user = FirebaseAuth.instance.currentUser;
           DateTime time = DateTime.parse(messages[index].createdAt);
-          if (user?.uid == messages[index].uId) {
+          if (user?.uid == messages[index].userId) {
             return UserBubble(
               message: messages[index],
               time: time,

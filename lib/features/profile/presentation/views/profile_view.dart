@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/utils/constants/keys.dart';
@@ -7,7 +8,6 @@ import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
 import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 import 'package:mrjoo/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:mrjoo/features/profile/presentation/manager/profile_state.dart';
@@ -33,11 +33,10 @@ class ProfileView extends StatelessWidget {
       body: BlocConsumer<ProfileCubit, ProfileState>(
         listener: (context, state) {
           if (state is UserLogin) {
-            BlocProvider.of<CourseCubit>(context).fetchUrl();
-            Navigator.pushNamed(context, CourseView.routeView);
+            context.pushNamed(CourseView.routeName);
           }
           if (state is UserLogout) {
-            Navigator.pushNamed(context, LoginView.routeName);
+            context.pushNamed(LoginView.routeName);
           }
         },
         builder: (context, state) {

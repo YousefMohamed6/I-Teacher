@@ -45,7 +45,7 @@ class ChatBubble extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             CustomText(
-              text: message.fullName,
+              text: message.displayName,
               overflow: TextOverflow.ellipsis,
               color: AppColors.kMainTextColor,
               fontSize: 15,

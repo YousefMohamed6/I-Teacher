@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/core/utils/constants/keys.dart';
+import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 
 part 'privacy_policy_cubit.freezed.dart';
 part 'privacy_policy_state.dart';
@@ -9,7 +9,7 @@ part 'privacy_policy_state.dart';
 class PrivacyPolicyCubit extends Cubit<PrivacyPolicyState> {
   PrivacyPolicyCubit() : super(PrivacyPolicyState.initial());
   final CollectionReference reference =
-      FirebaseFirestore.instance.collection(AppKeys.kTremsAndPrivacy);
+      FirebaseFirestore.instance.collection(DashBoardKeys.kDashboardCollection);
   String terms = '';
   String privacy = '';
   Future<void> fetchTremsAndPrivacy({
