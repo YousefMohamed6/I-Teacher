@@ -10,7 +10,7 @@ class CustomerImage extends StatelessWidget {
     return CustomAssetImage(
       imagePath: AppImages.kCustomerLogo,
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.35,
+      height: MediaQuery.of(context).size.height * 0.30,
     );
   }
 }

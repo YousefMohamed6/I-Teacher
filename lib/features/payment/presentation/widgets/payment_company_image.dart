@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mrjoo/core/services/url_launcher.dart';
 import 'package:mrjoo/core/utils/constants/app_images.dart';
 import 'package:mrjoo/core/utils/constants/urls.dart';
@@ -13,8 +14,8 @@ class PaymentCompanyImage extends StatelessWidget {
         await UrlLauncher.launcher(url: AppUrls.kFawaterakWebsite);
       },
       child: Container(
-        width: (MediaQuery.of(context).size.width * 0.45),
-        height: (MediaQuery.of(context).size.height * 0.25),
+        width: (MediaQuery.of(context).size.width * 0.75).w,
+        height: (MediaQuery.of(context).size.height * 0.20).h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32),
           color: Colors.white,

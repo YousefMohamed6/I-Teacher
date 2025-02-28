@@ -4,6 +4,7 @@ import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
+import 'package:mrjoo/mr_joo.dart';
 
 class PaymentButton extends StatelessWidget {
   const PaymentButton({super.key});
@@ -13,10 +14,10 @@ class PaymentButton extends StatelessWidget {
     return CustomButton(
       color: AppColors.kMainTextColor,
       onPressed: () {
-        BlocProvider.of<PaymentCubit>(context).createPayment();
+        context.read<PaymentCubit>().getCoursePrice();
       },
-      child: const CustomText(
-        text: 'Pay Now',
+      child: CustomText(
+        text: AppLocalizations.of(context)!.pay_now,
         color: AppColors.kPrimryColor,
         fontWeight: FontWeight.bold,
       ),

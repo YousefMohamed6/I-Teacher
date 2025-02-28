@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
@@ -16,7 +17,7 @@ class LoginViewBody extends StatelessWidget {
       child: BlocConsumer<LoginCubit, LoginViewState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
-            Navigator.pushReplacementNamed(context, CourseView.routeView);
+            context.pushReplacementNamed(CourseView.routeName);
             ShowMessage.show(context, msg: 'Sign in');
           }
           if (state is LoginFailure) {

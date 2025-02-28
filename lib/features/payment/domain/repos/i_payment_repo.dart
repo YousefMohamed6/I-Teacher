@@ -6,4 +6,5 @@ abstract class IPaymentRepo {
   Future<List<PaymentMethodsModel>> getPaymentMethods();
   Future<PaymentStatus> sendPaymentRequest(
       {required PaymentModel paymentModel});
+  Future<String> getPrice();
 }

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
+import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 import 'package:mrjoo/features/splash/widgets/splash_view_body.dart';
 
 class SplashView extends StatefulWidget {
@@ -24,7 +25,7 @@ class _SplashViewState extends State<SplashView> {
       if (mounted) {
         final User? user = FirebaseAuth.instance.currentUser;
         user != null
-            ? context.pushReplacementNamed(LoginView.routeName)
+            ? context.pushReplacementNamed(CourseView.routeName)
             : context.pushReplacementNamed(LoginView.routeName);
       }
     });

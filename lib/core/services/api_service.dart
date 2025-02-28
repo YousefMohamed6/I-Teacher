@@ -1,18 +1,23 @@
 import 'package:dio/dio.dart';
 
 class ApiService {
-  Dio get _dio => Dio();
+  final Dio _dio = Dio();
+
   Future<dynamic> get({
     Map<String, String>? headers,
     required String url,
     String? token,
   }) async {
+    Map<String, String> defaultHeaders = {
+      'Content-Type': 'application/json',
+    };
+    defaultHeaders.addAll(headers ?? {});
     if (token != null) {
-      headers?.addAll({'Authorization': 'Bearer $token'});
+      defaultHeaders.addAll({'Authorization': 'Bearer $token'});
     }
     Response response = await _dio.get(
       url,
-      options: Options(headers: headers),
+      options: Options(headers: defaultHeaders),
     );
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.data;
@@ -28,13 +33,17 @@ class ApiService {
     String? token,
     Map<String, String>? headers,
   }) async {
+    Map<String, String> defaultHeaders = {
+      'Content-Type': 'application/json',
+    };
+    defaultHeaders.addAll(headers ?? {});
     if (token != null) {
-      headers?.addAll({'Authorization': 'Bearer $token'});
+      defaultHeaders.addAll({'Authorization': 'Bearer $token'});
     }
     Response response = await _dio.post(
       url,
       data: body,
-      options: Options(headers: headers),
+      options: Options(headers: defaultHeaders),
     );
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.data;
@@ -50,11 +59,18 @@ class ApiService {
     String? token,
     Map<String, String>? headers,
   }) async {
+    Map<String, String> defaultHeaders = {
+      'Content-Type': 'application/json',
+    };
+    defaultHeaders.addAll(headers ?? {});
     if (token != null) {
-      headers?.addAll({'Authorization': 'Bearer $token'});
+      defaultHeaders.addAll({'Authorization': 'Bearer $token'});
     }
-    Response response =
-        await _dio.put(url, data: body, options: Options(headers: headers));
+    Response response = await _dio.put(
+      url,
+      data: body,
+      options: Options(headers: defaultHeaders),
+    );
     if (response.statusCode == 200) {
       return response.data;
     } else {

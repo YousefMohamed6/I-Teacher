@@ -1,49 +1,84 @@
 {
   "project_info": {
-    "project_number": "99788243357",
-    "firebase_url": "https://mr-joo--course-default-rtdb.firebaseio.com",
-    "project_id": "mr-joo--course",
-    "storage_bucket": "mr-joo--course.appspot.com"
+    "project_number": "483758448499",
+    "project_id": "i-teacher-96035",
+    "storage_bucket": "i-teacher-96035.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:99788243357:android:7f056326f9478b8a9e2f74",
+        "mobilesdk_app_id": "1:483758448499:android:3bbc53439c3c7d4c3eaf06",
         "android_client_info": {
           "package_name": "com.example.mr_joo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "99788243357-0vfqd9s3hlrgpvr8084rg95n46dglh8v.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.mr_joo",
-            "certificate_hash": "8fe92ad924db848504c90993c7a22584a3022858"
-          }
-        },
-        {
-          "client_id": "99788243357-ago2v0gogqkgi6grf0h0s0nojbkgcbaa.apps.googleusercontent.com",
+          "client_id": "483758448499-kd5h20kbr2riobi112seftt593vcrlab.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBIAmCaceeD5i2eooCydP2tBsG4vnBL2_A"
+          "current_key": "AIzaSyDmvJ4krGJxFKxn7O4dhNAtvhjjuPHKaAE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "99788243357-ago2v0gogqkgi6grf0h0s0nojbkgcbaa.apps.googleusercontent.com",
+              "client_id": "483758448499-kd5h20kbr2riobi112seftt593vcrlab.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "99788243357-1ipiutd9tuhc54muol76rgm122h3hsln.apps.googleusercontent.com",
+              "client_id": "483758448499-0div1bph7v0gu93cj00j33o1q74rp0so.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.mrJoo"
+                "bundle_id": "com.example.mrjoo"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483758448499:android:e8f98b0308e304b13eaf06",
+        "android_client_info": {
+          "package_name": "com.mrJoo.ITeacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483758448499-2juaamtbcvdni1lp5b4lf4v8p6l2bh42.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mrJoo.ITeacher",
+            "certificate_hash": "b3d90b266a0e8ed9cc9b41fbdb63b933796013be"
+          }
+        },
+        {
+          "client_id": "483758448499-kd5h20kbr2riobi112seftt593vcrlab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmvJ4krGJxFKxn7O4dhNAtvhjjuPHKaAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483758448499-kd5h20kbr2riobi112seftt593vcrlab.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483758448499-0div1bph7v0gu93cj00j33o1q74rp0so.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mrjoo"
               }
             }
           ]

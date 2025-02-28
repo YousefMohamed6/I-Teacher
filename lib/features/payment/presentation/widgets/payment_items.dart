@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:mrjoo/features/payment/presentation/widgets/payment_item.dart';
 
@@ -9,11 +10,11 @@ class PaymentItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final paymentCubit = context.watch<PaymentCubit>();
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        ListView.builder(
+    return BlocBuilder<PaymentCubit, PaymentState>(
+      buildWhen: (previous, current) =>
+          current is Success<List<PaymentMethodsModel>>,
+      builder: (context, state) {
+        return ListView.builder(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
           itemCount: paymentCubit.paymentMethods.length,
@@ -21,8 +22,8 @@ class PaymentItems extends StatelessWidget {
             paymentMethodsModel: paymentCubit.paymentMethods[index],
             onTap: () {},
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 }

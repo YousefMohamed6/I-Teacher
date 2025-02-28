@@ -70,7 +70,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get last_name => 'الاسم الاخير';
 
   @override
+  String get address => 'العنوان';
+
+  @override
+  String get enter_address => 'ادخل العنوان';
+
+  @override
   String get phone => 'رقم الهاتف';
+
+  @override
+  String get enter_phone => 'ادخل رقم الهاتف';
 
   @override
   String get student_data => 'بيانات الطالب';
@@ -85,7 +94,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get rest => 'اعادة الضبط';
 
   @override
-  String get payment => 'منصةالدفع';
+  String get payment => 'منصة الدفع';
 
   @override
   String get pay_now => 'ادفع الان';

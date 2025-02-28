@@ -164,13 +164,13 @@ abstract class AppLocalizations {
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
-  /// **'E-Mail'**
+  /// **'EMail'**
   String get email;
 
   /// No description provided for @enter_email.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your E-Mail'**
+  /// **'Enter Your EMail'**
   String get enter_email;
 
   /// No description provided for @password.
@@ -221,11 +221,29 @@ abstract class AppLocalizations {
   /// **'Last Name'**
   String get last_name;
 
+  /// No description provided for @address.
+  ///
+  /// In en, this message translates to:
+  /// **'address'**
+  String get address;
+
+  /// No description provided for @enter_address.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Address'**
+  String get enter_address;
+
   /// No description provided for @phone.
   ///
   /// In en, this message translates to:
   /// **'Phone'**
   String get phone;
+
+  /// No description provided for @enter_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Phone'**
+  String get enter_phone;
 
   /// No description provided for @student_data.
   ///

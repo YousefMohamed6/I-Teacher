@@ -1,7 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CustomAssetImage extends StatelessWidget {
-  const CustomAssetImage({
+class CustomNetworkImage extends StatelessWidget {
+  const CustomNetworkImage({
     super.key,
     required this.imageUrl,
     this.width,
@@ -12,8 +13,8 @@ class CustomAssetImage extends StatelessWidget {
   final double? height;
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      imageUrl,
+    return CachedNetworkImage(
+      imageUrl: imageUrl,
       width: width,
       height: height,
     );

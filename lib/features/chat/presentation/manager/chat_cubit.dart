@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mrjoo/core/utils/constants/keys.dart';
+import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/chat/data/model/message_model.dart';
 
 part 'chat_state.dart';
@@ -14,14 +14,14 @@ class ChatCubit extends Cubit<ChatState> {
   final scrollController = ScrollController();
   final formKey = GlobalKey<FormState>();
   final CollectionReference reference =
-      FirebaseFirestore.instance.collection(AppKeys.kMessageCollection);
+      FirebaseFirestore.instance.collection(ChatKeys.kChatCollection);
 
   void sendMessage() async {
     var newMessage = MessageModel(
       content: messageCtrl.text,
       createdAt: DateTime.now().toString(),
-      uId: FirebaseAuth.instance.currentUser?.uid ?? '',
-      fullName: FirebaseAuth.instance.currentUser?.displayName ?? '',
+      userId: FirebaseAuth.instance.currentUser?.uid ?? '',
+      displayName: FirebaseAuth.instance.currentUser?.displayName ?? '',
     );
     animateToLastMessage();
     await addMessageToFirebase(message: newMessage);
@@ -45,17 +45,21 @@ class ChatCubit extends Cubit<ChatState> {
   Future<void> addMessageToFirebase({required MessageModel message}) async {
     var createdAt = DateTime.parse(message.createdAt);
     await reference.add({
-      AppKeys.kMessageField: message.content,
-      AppKeys.kCreatedAtField: createdAt,
-      AppKeys.kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
-      AppKeys.kDisplayNameField: FirebaseAuth.instance.currentUser!.displayName,
+      ChatKeys.kContentField: message.content,
+      ChatKeys.kCreatedAtField: createdAt,
+      ChatKeys.kUesrIdField: FirebaseAuth.instance.currentUser!.uid,
+      ChatKeys.kDisplayNameField:
+          FirebaseAuth.instance.currentUser!.displayName,
     });
   }
 
   void fetchFirebaseMessages() {
     List<MessageModel> messages = [];
     reference
-        .orderBy(AppKeys.kCreatedAtField, descending: true)
+        .orderBy(
+          ChatKeys.kCreatedAtField,
+          descending: true,
+        )
         .snapshots()
         .listen((event) async {
       messages.clear();

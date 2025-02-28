@@ -1,16 +1,1 @@
-{
-  "hosting": {
-    "public": "build/web",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
+{"flutter":{"platforms":{"android":{"default":{"projectId":"i-teacher-96035","appId":"1:483758448499:android:3bbc53439c3c7d4c3eaf06","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"i-teacher-96035","configurations":{"android":"1:483758448499:android:3bbc53439c3c7d4c3eaf06","ios":"1:483758448499:ios:45dcf49b63b3fe763eaf06"}}}}}}

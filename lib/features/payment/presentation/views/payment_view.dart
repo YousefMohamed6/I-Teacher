@@ -29,27 +29,36 @@ class PaymentView extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      body: Background(
-        child: BlocConsumer<PaymentCubit, PaymentState>(
-          listener: (context, state) {
-            if (state is Success) {
-              ShowMessage.show(context, msg: 'Follow Steps');
-            } else if (state is Failure) {
-              ShowMessage.show(context, msg: 'SomeThing Wrong Check your data');
-            }
-          },
-          builder: (context, state) {
-            if (state is Loading<List<PaymentMethodsModel>>) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is Success<List<PaymentMethodsModel>>) {
-              return const PaymentViewBody();
-            } else {
-              return const PaymentViewBody();
-            }
-          },
-        ),
+      body: MyWidget(),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Background(
+      child: BlocConsumer<PaymentCubit, PaymentState>(
+        listener: (context, state) {
+          if (state is Success) {
+            ShowMessage.show(context, msg: 'Follow Steps');
+          } else if (state is Failure) {
+            ShowMessage.show(context, msg: state.message);
+          }
+        },
+        builder: (context, state) {
+          if (state is Loading<List<PaymentMethodsModel>>) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is Success<List<PaymentMethodsModel>>) {
+            return const PaymentViewBody();
+          } else {
+            return const PaymentViewBody();
+          }
+        },
       ),
     );
   }
