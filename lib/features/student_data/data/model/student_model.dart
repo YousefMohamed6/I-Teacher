@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/payment/data/models/payment/customer_model.dart';
 
@@ -7,8 +8,8 @@ class StudentModel {
   final String email;
   final String phone;
   final String address;
-  final String expiryDate;
-  final String subscriptionDate;
+  final DateTime expiryDate;
+  final DateTime subscriptionDate;
   final String teacherId;
 
   StudentModel({
@@ -28,8 +29,9 @@ class StudentModel {
       email: json[StudentKeys.kEmailField],
       phone: json[StudentKeys.kPhoneField],
       address: json[StudentKeys.kStudentAddress],
-      expiryDate: json[StudentKeys.kExpiryDate],
-      subscriptionDate: json[StudentKeys.kSubscriptionDate],
+      expiryDate: (json[StudentKeys.kExpiryDate] as Timestamp).toDate(),
+      subscriptionDate:
+          (json[StudentKeys.kSubscriptionDate] as Timestamp).toDate(),
       teacherId: json[StudentKeys.kTeacherIdField],
     );
   }

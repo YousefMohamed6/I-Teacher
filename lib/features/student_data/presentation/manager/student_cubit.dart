@@ -28,8 +28,8 @@ class StudentCubit extends Cubit<StudentState> {
         phone: phoneTextController.text.trim(),
         address: addressTextController.text.trim(),
         teacherId: teacherIdTextController.text.trim(),
-        expiryDate: DateTime.now().add(Duration(days: 30)).toIso8601String(),
-        subscriptionDate: DateTime.now().toIso8601String(),
+        expiryDate: DateTime.now().add(Duration(days: 30)),
+        subscriptionDate: DateTime.now(),
       );
   Future<void> checkTeacherId() async {
     try {

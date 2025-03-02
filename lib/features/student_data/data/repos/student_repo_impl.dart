@@ -9,7 +9,7 @@ class StudentRepoImpl implements IStudentRepo {
   @override
   Future<List<String>> getTeachersIds() async {
     final response = await firebaseFirestoreService.getCollection(
-      collectionId: TeacherKeys.kTeacherCollection,
+      collectionId: TeacherKeys.kTeachersCollection,
     );
     List<TeacherModel> teachers = [];
     for (var document in response) {

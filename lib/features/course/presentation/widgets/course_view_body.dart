@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/services/show_message.dart';
+import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/webview_body.dart';
-import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
+import 'package:mrjoo/features/course/presentation/manager/course_cubit.dart';
+import 'package:mrjoo/mr_joo.dart';
 
 class CourseViewBody extends StatelessWidget {
   const CourseViewBody({super.key});
@@ -12,26 +13,23 @@ class CourseViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<CourseCubit, CourseState>(
       listener: (context, state) {
-        if (state is UpdateSucees) {
-          context.pop();
-          ShowMessage.show(context, msg: 'Success');
-        } else if (state is UpdateFailure) {
-          context.pop();
-          ShowMessage.show(context, msg: 'Faild');
-        } else if (state is CourseInitial) {
-          BlocProvider.of<CourseCubit>(context).setState();
+        if (state is Failure) {
+          ShowMessage.show(context, msg: AppLocalizations.of(context)!.fail);
         }
       },
       builder: (context, state) {
-        if (State is Loading) {
-          return const Center(
+        return state.when(
+          initial: () => SizedBox(),
+          loading: () => const Center(
             child: CircularProgressIndicator(),
-          );
-        } else if (state is Success) {
-          return WebViewBody(url: state.url);
-        } else {
-          return WebViewBody(url: BlocProvider.of<CourseCubit>(context).url);
-        }
+          ),
+          success: (url) => WebViewBody(url: url),
+          failure: (message) => Center(
+            child: CustomText(
+              text: AppLocalizations.of(context)!.no_data,
+            ),
+          ),
+        );
       },
     );
   }

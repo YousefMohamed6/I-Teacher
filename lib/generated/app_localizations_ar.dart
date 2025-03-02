@@ -128,4 +128,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalid_email => 'البريد الالكتروني غير صحيح';
+
+  @override
+  String get no_data => 'لا يوجد بيانات';
 }
