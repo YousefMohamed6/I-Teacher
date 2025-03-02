@@ -40,10 +40,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get user_name => 'User Name';
 
   @override
-  String get email => 'EMail';
+  String get email => 'Email';
 
   @override
-  String get enter_email => 'Enter Your EMail';
+  String get enter_email => 'Enter Your Email';
 
   @override
   String get password => 'Password';
@@ -64,7 +64,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get required_field => 'This Field Is Required';
 
   @override
-  String get frist_name => 'Frist Name';
+  String get first_name => 'first Name';
 
   @override
   String get last_name => 'Last Name';
@@ -80,6 +80,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enter_phone => 'Enter Your Phone';
+
+  @override
+  String get teacher_id => 'Teacher Identifier';
+
+  @override
+  String get enter_teacher_id => 'Enter Teacher Identifier';
+
+  @override
+  String get unfound_id => 'unFound Identifier';
 
   @override
   String get student_data => 'Student Data';
@@ -98,4 +107,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pay_now => 'Pay Now';
+
+  @override
+  String get register => 'Register';
+
+  @override
+  String get i_accept => 'I Accept';
+
+  @override
+  String get terms_and_conditions => 'Terms And Conditions';
 }

@@ -5,15 +5,12 @@ class Data {
 
   Data({this.url, this.invoiceKey, this.invoiceId});
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory Data.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      Data(
         url: json['url'] as String?,
-        invoiceKey: json['invoiceKey'] as String?,
-        invoiceId: json['invoiceId'] as int?,
+        invoiceKey: json['invoice_Key'] as String?,
+        invoiceId: json['invoice_Id'] as int?,
       );
-
-  Map<String, dynamic> toJson() => {
-        'url': url,
-        'invoiceKey': invoiceKey,
-        'invoiceId': invoiceId,
-      };
 }

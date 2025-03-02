@@ -11,4 +11,5 @@ class AppImages {
   static const String kFawaterakLogo = 'assets/images/payment/fawaterak.png';
   static const String kWalletLogo = 'assets/images/payment/wallets.png';
   static const String kVisaLogo = 'assets/images/payment/visa.png';
+  static const String kProfileLogo = 'assets/images/payment/profile.png';
 }

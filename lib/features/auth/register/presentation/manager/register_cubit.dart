@@ -4,27 +4,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/features/auth/register/presentation/manager/register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
-  final formKey = GlobalKey<FormState>();
-  final email = TextEditingController();
-  final password = TextEditingController();
-  final displyName = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController emailTextController = TextEditingController();
+  final TextEditingController passwordTextController = TextEditingController();
+  final TextEditingController displyNameTextController =
+      TextEditingController();
   bool _obscuretext = true;
-  final bool _isLoading = false;
-  String language = 'en';
   bool isAccept = true;
-
+  bool get obscuretext => _obscuretext;
   void changeAccpetTremsAndPrivacy() {
     isAccept = !isAccept;
-    emit(RegisterInitial());
-  }
-
-  void changeLanguage({required String language}) {
-    this.language = language;
     emit(RegisterInitial());
   }
 
@@ -61,22 +54,20 @@ class RegisterCubit extends Cubit<RegisterState> {
         emit(Failure());
       }
     } else {
-      ShowMessage.show(context, msg: 'Please Accept Trems & Policy');
+      throw Exception("");
     }
   }
-
-  bool get obscuretext => _obscuretext;
-  bool get isLoading => _isLoading;
 
   void register() async {
     if (isAccept) {
       emit(Loading());
       try {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email.text,
-          password: password.text,
+          email: emailTextController.text,
+          password: passwordTextController.text,
         );
-        FirebaseAuth.instance.currentUser!.updateDisplayName(displyName.text);
+        FirebaseAuth.instance.currentUser!
+            .updateDisplayName(displyNameTextController.text);
         emit(Success());
       } on FirebaseAuthException catch (ex) {
         emit(RegisterFailure(errMessage: ex.code));

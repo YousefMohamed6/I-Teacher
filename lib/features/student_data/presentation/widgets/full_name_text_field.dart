@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
-import 'package:mrjoo/features/student_data/presentation/manager/customer_cubit.dart';
+import 'package:mrjoo/features/student_data/presentation/manager/student_cubit.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
 
 class FullNameTextField extends StatelessWidget {
@@ -14,10 +14,10 @@ class FullNameTextField extends StatelessWidget {
         Expanded(
           child: CustomFormField(
             textInputType: TextInputType.name,
-            lablelText: AppLocalizations.of(context)!.frist_name,
+            lablelText: AppLocalizations.of(context)!.first_name,
             prefixIcon: const Icon(Icons.person),
             controller:
-                BlocProvider.of<CustomerCubit>(context).fristNameTextController,
+                BlocProvider.of<StudentCubit>(context).firstNameTextController,
           ),
         ),
         const SizedBox(width: 8),
@@ -27,7 +27,7 @@ class FullNameTextField extends StatelessWidget {
             lablelText: AppLocalizations.of(context)!.last_name,
             prefixIcon: const Icon(Icons.person),
             controller:
-                BlocProvider.of<CustomerCubit>(context).lastNameTextController,
+                BlocProvider.of<StudentCubit>(context).lastNameTextController,
           ),
         ),
       ],

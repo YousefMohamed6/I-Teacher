@@ -1,29 +1,33 @@
-import 'package:dio/dio.dart';
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 
 class ApiService {
-  final Dio _dio = Dio();
-
   Future<dynamic> get({
-    Map<String, String>? headers,
     required String url,
+    Map<String, String>? headers,
     String? token,
   }) async {
     Map<String, String> defaultHeaders = {
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
     };
     defaultHeaders.addAll(headers ?? {});
     if (token != null) {
-      defaultHeaders.addAll({'Authorization': 'Bearer $token'});
+      defaultHeaders.addAll(
+        {
+          'Authorization': 'Bearer $token',
+        },
+      );
     }
-    Response response = await _dio.get(
-      url,
-      options: Options(headers: defaultHeaders),
+    final http.Response response = await http.get(
+      Uri.parse(url),
+      headers: defaultHeaders,
     );
     if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.data;
+      return json.decode(response.body);
     } else {
-      throw Exception(
-          'there is problem with Status Code ${response.statusCode}');
+      throw Exception('${response.reasonPhrase} ${response.statusCode}');
     }
   }
 
@@ -34,22 +38,22 @@ class ApiService {
     Map<String, String>? headers,
   }) async {
     Map<String, String> defaultHeaders = {
-      'Content-Type': 'application/json',
+      "Accept": "application/json",
+      "Content-Type": "application/json",
     };
     defaultHeaders.addAll(headers ?? {});
     if (token != null) {
-      defaultHeaders.addAll({'Authorization': 'Bearer $token'});
+      defaultHeaders.addAll({"Authorization": "Bearer $token"});
     }
-    Response response = await _dio.post(
-      url,
-      data: body,
-      options: Options(headers: defaultHeaders),
+    var response = await http.post(
+      body: json.encode(body),
+      Uri.parse(url),
+      headers: defaultHeaders,
     );
     if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.data;
+      return response.body;
     } else {
-      throw Exception(
-          'there is problem with Status Code ${response.statusCode}');
+      throw Exception('${response.reasonPhrase} ${response.statusCode}');
     }
   }
 
@@ -61,21 +65,21 @@ class ApiService {
   }) async {
     Map<String, String> defaultHeaders = {
       'Content-Type': 'application/json',
+      "Accept": "application/json"
     };
     defaultHeaders.addAll(headers ?? {});
     if (token != null) {
       defaultHeaders.addAll({'Authorization': 'Bearer $token'});
     }
-    Response response = await _dio.put(
-      url,
-      data: body,
-      options: Options(headers: defaultHeaders),
+    http.Response response = await http.put(
+      Uri.parse(url),
+      body: json.encode(body),
+      headers: defaultHeaders,
     );
     if (response.statusCode == 200) {
-      return response.data;
+      return json.decode(response.body);
     } else {
-      throw Exception(
-          'there is problem with Status code ${response.statusCode}');
+      throw Exception('${response.reasonPhrase} ${response.statusCode}');
     }
   }
 }

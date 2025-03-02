@@ -11,7 +11,7 @@ class AppUrls {
   static const String kFawaterakAuthUrl =
       'https://staging.fawaterk.com/api/v2/getPaymentmethods';
   static const String kFawaterakPayUrl =
-      'https://staging.fawaterk.com/api/v2/invoiceInitPay';
+      'https://staging.fawaterk.com/api/v2/createInvoiceLink';
   static const String kTransactionFawaterak =
       'https://staging.fawaterk.com/api/v2/getInvoiceData/';
   static const String kFawaterakWebsite = 'https://fawaterk.com';
