@@ -116,4 +116,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get terms_and_conditions => 'الشروط والاحكام';
+
+  @override
+  String get success => 'تم بنجاح';
+
+  @override
+  String get fail => 'فشل';
+
+  @override
+  String get must_accept_terms => 'يجب الموافقة على الشروط والاحكام';
+
+  @override
+  String get invalid_email => 'البريد الالكتروني غير صحيح';
 }

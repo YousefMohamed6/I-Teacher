@@ -1,92 +1,77 @@
-import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mrjoo/features/auth/register/presentation/manager/register_state.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mrjoo/core/exceptions/not_accept_terms.dart';
+import 'package:mrjoo/features/auth/register/domain/use_case/create_user_with_email_and_password.dart';
+import 'package:mrjoo/features/auth/register/domain/use_case/sign_in_use_google.dart';
+
+part 'register_cubit.freezed.dart';
+part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit() : super(RegisterInitial());
+  final SignInUseGoogleUseCase _signInUseGoogle;
+  final CreateUserWithEmailAndPasswordUseCase _createUserWithEmailAndPassword;
+  RegisterCubit(
+    this._signInUseGoogle,
+    this._createUserWithEmailAndPassword,
+  ) : super(RegisterState.initial());
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailTextController = TextEditingController();
   final TextEditingController passwordTextController = TextEditingController();
-  final TextEditingController displyNameTextController =
+  final TextEditingController displayNameTextController =
       TextEditingController();
   bool _obscuretext = true;
   bool isAccept = true;
   bool get obscuretext => _obscuretext;
-  void changeAccpetTremsAndPrivacy() {
+  void changeAccpetTermsAndPrivacy() {
     isAccept = !isAccept;
-    emit(RegisterInitial());
+    setState();
   }
 
   void changeObscureText() {
     _obscuretext = !_obscuretext;
-    emit(RegisterInitial());
+    setState();
   }
 
-  Future<void> _signInWithGoogleMobile() async {
+  void setState() {
+    emit(RegisterState.initial());
+    emit(RegisterState.updateUI());
+  }
+
+  Future<void> singInWithGoogle() async {
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication? googleAuth =
-          await googleUser?.authentication;
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-      await FirebaseAuth.instance.signInWithCredential(credential);
-      await GoogleSignIn().signOut();
-      emit(Success());
-    } catch (ex) {
-      emit(Failure());
-    }
-  }
-
-  Future<void> singInWithGoogle(context) async {
-    if (isAccept) {
-      try {
-        emit(Loading());
-        Platform.isAndroid || Platform.isIOS
-            ? _signInWithGoogleMobile()
-            : _signInWithGoogleWeb();
-      } on Exception {
-        emit(Failure());
+      emit(RegisterState<bool>.loading());
+      if (isAccept) {
+        await _signInUseGoogle.execute();
+        emit(RegisterState<bool>.success(true));
+      } else {
+        throw NotAcceptTermsException();
       }
-    } else {
-      throw Exception("");
+    } on NotAcceptTermsException catch (e) {
+      emit(RegisterState<NotAcceptTermsException>.failure(e.toString()));
+    } catch (e) {
+      emit(RegisterState<String>.failure(e.toString()));
     }
   }
 
-  void register() async {
-    if (isAccept) {
-      emit(Loading());
-      try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      emit(RegisterState.loading());
+      if (isAccept) {
+        await _createUserWithEmailAndPassword.execute(
           email: emailTextController.text,
           password: passwordTextController.text,
+          displyName: displayNameTextController.text,
         );
-        FirebaseAuth.instance.currentUser!
-            .updateDisplayName(displyNameTextController.text);
-        emit(Success());
-      } on FirebaseAuthException catch (ex) {
-        emit(RegisterFailure(errMessage: ex.code));
+        emit(RegisterState<bool>.success(true));
+      } else {
+        throw NotAcceptTermsException();
       }
-    } else {
-      emit(NotAcceptTermsAndPolicy());
-    }
-  }
-
-  Future<void> _signInWithGoogleWeb() async {
-    try {
-      GoogleAuthProvider googleProvider = GoogleAuthProvider();
-      googleProvider
-          .addScope('https://www.googleapis.com/auth/contacts.readonly');
-      googleProvider.setCustomParameters({'login_hint': 'user@example.com'});
-      await FirebaseAuth.instance.signInWithPopup(googleProvider);
-      emit(Success());
-    } catch (ex) {
-      emit(Failure());
+    } on FirebaseAuthException catch (e) {
+      emit(RegisterState.failure(e.code));
+    } on NotAcceptTermsException catch (e) {
+      emit(RegisterState<NotAcceptTermsException>.failure(e.toString()));
     }
   }
 }

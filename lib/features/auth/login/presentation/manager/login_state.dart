@@ -1,3 +1,4 @@
+part of 'login_cubit.dart';
 abstract class LoginViewState {}
 
 class LoginInitial extends LoginViewState {}

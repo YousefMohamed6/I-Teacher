@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
+import 'package:mrjoo/features/auth/register/di/register_service.dart';
 import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
 import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
 import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
@@ -131,8 +132,9 @@ abstract class RouterManager {
         path: RegisterView.routeName,
         name: RegisterView.routeName,
         builder: (context, state) {
+          RegisterService().initDi();
           return BlocProvider(
-            create: (context) => RegisterCubit(),
+            create: (context) => GetIt.instance<RegisterCubit>(),
             child: RegisterView(),
           );
         },

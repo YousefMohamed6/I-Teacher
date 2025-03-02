@@ -13,7 +13,7 @@ class SignWithGoogleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomIconButton(
       onPressed: () {
-        BlocProvider.of<RegisterCubit>(context).singInWithGoogle(context);
+        BlocProvider.of<RegisterCubit>(context).singInWithGoogle();
       },
       icon: CustomAssetImage(
         imagePath: AppImages.kGoogleLogo,

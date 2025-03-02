@@ -35,5 +35,9 @@
   "pay_now": "ادفع الان",
   "register": "انشاء حساب",
   "i_accept": "اوافق على ",
-  "terms_and_conditions": "الشروط والاحكام"
+  "terms_and_conditions": "الشروط والاحكام",
+  "success": "تم بنجاح",
+  "fail": "فشل",
+  "must_accept_terms":"يجب الموافقة على الشروط والاحكام",
+  "invalid_email": "البريد الالكتروني غير صحيح"
 }

@@ -18,7 +18,7 @@ class EmailTextFaild extends StatelessWidget {
         prefixIcon: const Icon(Icons.email),
         lablelText: AppLocalizations.of(context)!.email,
         hintText: AppLocalizations.of(context)!.enter_email,
-        controller: BlocProvider.of<LoginCubit>(context).email,
+        controller: BlocProvider.of<LoginCubit>(context).emailTextController,
       ),
     );
   }

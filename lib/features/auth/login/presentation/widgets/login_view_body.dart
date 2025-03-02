@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
-import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
 import 'package:mrjoo/features/auth/login/presentation/widgets/login_view_form.dart';
 import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 
