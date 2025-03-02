@@ -34,8 +34,10 @@
   "payment": "Payment",
   "pay_now": "Pay Now",
   "register": "Register",
-  "i_accept":"I Accept",
-  "terms_and_conditions": "Terms And Conditions"
-
-
+  "i_accept": "I Accept",
+  "terms_and_conditions": "Terms And Conditions",
+  "success": "Success",
+  "fail": "Fail",
+  "must_accept_terms": "You Must Accept Terms And Conditions",
+  "invalid_email": "Invalid Email"
 }

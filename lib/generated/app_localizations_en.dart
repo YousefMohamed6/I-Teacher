@@ -116,4 +116,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get terms_and_conditions => 'Terms And Conditions';
+
+  @override
+  String get success => 'Success';
+
+  @override
+  String get fail => 'Fail';
+
+  @override
+  String get must_accept_terms => 'You Must Accept Terms And Conditions';
+
+  @override
+  String get invalid_email => 'Invalid Email';
 }

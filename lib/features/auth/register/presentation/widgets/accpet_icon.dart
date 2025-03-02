@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
-import 'package:mrjoo/features/auth/register/presentation/manager/register_state.dart';
 
 class AccpetIcon extends StatelessWidget {
   const AccpetIcon({super.key});
@@ -23,7 +22,7 @@ class AccpetIcon extends StatelessWidget {
                   size: MediaQuery.sizeOf(context).height * 0.030,
                 ),
           onPressed: () {
-            cubit.changeAccpetTremsAndPrivacy();
+            cubit.changeAccpetTermsAndPrivacy();
           },
         );
       },

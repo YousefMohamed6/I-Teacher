@@ -316,6 +316,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Terms And Conditions'**
   String get terms_and_conditions;
+
+  /// No description provided for @success.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get success;
+
+  /// No description provided for @fail.
+  ///
+  /// In en, this message translates to:
+  /// **'Fail'**
+  String get fail;
+
+  /// No description provided for @must_accept_terms.
+  ///
+  /// In en, this message translates to:
+  /// **'You Must Accept Terms And Conditions'**
+  String get must_accept_terms;
+
+  /// No description provided for @invalid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Email'**
+  String get invalid_email;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

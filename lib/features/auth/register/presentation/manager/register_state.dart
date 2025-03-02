@@ -1,17 +1,10 @@
-abstract class RegisterState {}
+part of 'register_cubit.dart';
 
-class Loading extends RegisterState {}
-
-class Success extends RegisterState {}
-
-class Failure extends RegisterState {}
-
-class NotAcceptTermsAndPolicy extends RegisterState {}
-
-class RegisterFailure extends RegisterState {
-  final String errMessage;
-
-  RegisterFailure({required this.errMessage});
+@freezed
+class RegisterState<T> with _$RegisterState<T> {
+  const factory RegisterState.initial() = Initial;
+  const factory RegisterState.updateUI() = UpdateUI;
+  const factory RegisterState.loading() = Loading;
+  const factory RegisterState.success(T data) = Success;
+  const factory RegisterState.failure(String message) = Failure;
 }
-
-class RegisterInitial extends RegisterState {}

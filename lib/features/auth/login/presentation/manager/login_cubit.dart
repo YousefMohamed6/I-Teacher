@@ -1,14 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
+
+part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginViewState> {
   LoginCubit() : super(LoginInitial());
-  var email = TextEditingController();
-  var password = TextEditingController();
-  var emailkey = GlobalKey<FormState>();
-  var passwordKey = GlobalKey<FormState>();
+  final emailTextController = TextEditingController();
+  final passwordTextControlle = TextEditingController();
+  final emailkey = GlobalKey<FormState>();
+  final passwordKey = GlobalKey<FormState>();
   bool obscuretext = true;
 
   void changeObscureText() {
@@ -20,8 +21,8 @@ class LoginCubit extends Cubit<LoginViewState> {
     emit(LoginLoading());
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email.text,
-        password: password.text,
+        email: emailTextController.text,
+        password: passwordTextControlle.text,
       );
       emit(LoginSuccess());
     } on FirebaseAuthException catch (e) {

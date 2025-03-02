@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
-import 'package:mrjoo/features/auth/login/presentation/manager/login_state.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
 
 class PasswordTextFeild extends StatelessWidget {
@@ -27,7 +26,8 @@ class PasswordTextFeild extends StatelessWidget {
           ),
           prefixIcon: const Icon(Icons.lock),
           obscureText: BlocProvider.of<LoginCubit>(context).obscuretext,
-          controller: BlocProvider.of<LoginCubit>(context).password,
+          controller:
+              BlocProvider.of<LoginCubit>(context).passwordTextControlle,
         ),
       ),
     );
