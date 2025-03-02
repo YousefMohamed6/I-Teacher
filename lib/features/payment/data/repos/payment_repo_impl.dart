@@ -27,7 +27,7 @@ class PaymentRepoImpl implements IPaymentRepo {
   @override
   Future<TeacherModel> getTeacherData({required String teacherId}) async {
     final response = await firebaseFirestoreService.getDocument(
-      collectionId: TeacherKeys.kTeacherCollection,
+      collectionId: TeacherKeys.kTeachersCollection,
       documentId: teacherId,
     );
     return TeacherModel.fromJson(response.data() as Map<String, dynamic>);

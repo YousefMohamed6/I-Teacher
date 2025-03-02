@@ -23,6 +23,6 @@ class FawaterkService {
       body: paymentModel.toJson(),
       token: AppKeys.kFawaterakToken,
     );
-    return JsonHander.toJson(body: body);
+    return JsonHandler.toJson(body: body);
   }
 }

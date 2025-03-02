@@ -10,7 +10,9 @@ import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_pass
 import 'package:mrjoo/features/auth/rest_Password/persentation/view/rest_password_view.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
-import 'package:mrjoo/features/course/presentation/manager/course_view_cubit.dart';
+import 'package:mrjoo/features/course/di/course_service.dart';
+import 'package:mrjoo/features/course/domain/repos/I_course_repo.dart';
+import 'package:mrjoo/features/course/presentation/manager/course_cubit.dart';
 import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 import 'package:mrjoo/features/payment/di/payment_service.dart';
 import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
@@ -122,9 +124,14 @@ abstract class RouterManager {
         path: CourseView.routeName,
         name: CourseView.routeName,
         builder: (context, state) {
-          return BlocProvider(
-            create: (context) => CourseCubit(),
-            child: CourseView(),
+          CourseService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<ICourseRepo>(),
+            child: BlocProvider(
+              create: (context) =>
+                  GetIt.instance<CourseCubit>()..fetchCourseLink(),
+              child: CourseView(),
+            ),
           );
         },
       ),

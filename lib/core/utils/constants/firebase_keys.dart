@@ -7,7 +7,7 @@ sealed class DashBoardKeys {
 }
 
 sealed class TeacherKeys {
-  static const String kTeacherCollection = "teacher";
+  static const String kTeachersCollection = "teacher";
   static const String kTeacherIdField = 'teacherId';
   static const String kfirstNameField = 'firstName';
   static const String kLastNameField = 'lastName';
@@ -33,8 +33,8 @@ sealed class StudentKeys {
   static const String kEmailField = 'email';
   static const String kPhoneField = 'phone';
   static const String kStudentAddress = 'address';
-  static const String kExpiryDate = 'expiryDate';
-  static const String kSubscriptionDate = 'subscriptionDate';
+  static const String kExpiryDate = 'expiry_date';
+  static const String kSubscriptionDate = 'subscription_date';
   static const String kTeacherIdField = 'teacherId';
 }
 
