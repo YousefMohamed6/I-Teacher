@@ -64,7 +64,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get required_field => 'هذا الحقل مطلوب';
 
   @override
-  String get frist_name => 'الاسم الاول';
+  String get first_name => 'الاسم الاول';
 
   @override
   String get last_name => 'الاسم الاخير';
@@ -80,6 +80,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enter_phone => 'ادخل رقم الهاتف';
+
+  @override
+  String get teacher_id => 'معرف المدرس';
+
+  @override
+  String get enter_teacher_id => 'ادخل معرف المدرس';
+
+  @override
+  String get unfound_id => 'معرف غير موجود';
 
   @override
   String get student_data => 'بيانات الطالب';
@@ -98,4 +107,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pay_now => 'ادفع الان';
+
+  @override
+  String get register => 'انشاء حساب';
+
+  @override
+  String get i_accept => 'اوافق على ';
+
+  @override
+  String get terms_and_conditions => 'الشروط والاحكام';
 }

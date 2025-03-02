@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mrjoo/core/utils/constants/app_images.dart';
 import 'package:mrjoo/core/widgets/asset_image.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
@@ -14,11 +15,11 @@ class SignWithGoogleButton extends StatelessWidget {
       onPressed: () {
         BlocProvider.of<RegisterCubit>(context).singInWithGoogle(context);
       },
-      icon: const CustomAssetImage(
+      icon: CustomAssetImage(
         imagePath: AppImages.kGoogleLogo,
-        height: 32,
+        height: 32.h,
       ),
-      iconSize: 50,
+      iconSize: 50.sw,
     );
   }
 }

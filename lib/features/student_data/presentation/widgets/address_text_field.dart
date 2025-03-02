@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_form_field.dart';
-import 'package:mrjoo/features/student_data/presentation/manager/customer_cubit.dart';
+import 'package:mrjoo/features/student_data/presentation/manager/student_cubit.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
 
 class AddressTextField extends StatelessWidget {
@@ -14,7 +14,7 @@ class AddressTextField extends StatelessWidget {
       lablelText: AppLocalizations.of(context)!.address,
       hintText: AppLocalizations.of(context)!.enter_address,
       prefixIcon: const Icon(Icons.email),
-      controller: BlocProvider.of<CustomerCubit>(context).address,
+      controller: BlocProvider.of<StudentCubit>(context).addressTextController,
     );
   }
 }

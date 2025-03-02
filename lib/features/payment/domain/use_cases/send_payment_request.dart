@@ -7,7 +7,11 @@ class SendPaymentRequestUseCase {
 
   SendPaymentRequestUseCase(this.paymentRepo);
 
-  Future<PaymentStatus> execute({required PaymentModel paymentModel}) async {
-    return await paymentRepo.sendPaymentRequest(paymentModel: paymentModel);
+  Future<PaymentStatus> execute({
+    required PaymentModel paymentModel,
+  }) async {
+    return await paymentRepo.sendPaymentRequest(
+      paymentModel: paymentModel,
+    );
   }
 }

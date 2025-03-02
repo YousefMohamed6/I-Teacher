@@ -1,69 +1,106 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mrjoo/features/payment/data/models/data_base_payments.dart';
+import 'package:mrjoo/features/payment/data/models/payment/cart_item.dart';
 import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
 import 'package:mrjoo/features/payment/data/models/payment/redirection_urls.dart';
-import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
 import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
-import 'package:mrjoo/features/payment/domain/use_cases/fetch_payment_methods_use_case.dart';
 import 'package:mrjoo/features/payment/domain/use_cases/get_course_price_use_case.dart';
+import 'package:mrjoo/features/payment/domain/use_cases/save_success_payment.dart';
 import 'package:mrjoo/features/payment/domain/use_cases/send_payment_request.dart';
-import 'package:mrjoo/features/student_data/data/model/customer_model.dart';
+import 'package:mrjoo/features/student_data/data/model/student_model.dart';
+import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 part 'payment_cubit.freezed.dart';
 part 'payment_state.dart';
 
 class PaymentCubit extends Cubit<PaymentState> {
-  final FetchPaymentMethodsUseCase _fetchPaymentMethodsUseCase;
   final SendPaymentRequestUseCase _sendPaymentRequestUseCase;
-  final GetCoursePriceUseCase _getCoursePriceUseCase;
+  final GetTeacherDataUseCase _getTeacherDataUseCase;
+  final SaveSuccessPaymentUseCase _saveSuccessPaymentUseCase;
   PaymentCubit(
-    this._fetchPaymentMethodsUseCase,
     this._sendPaymentRequestUseCase,
-    this._getCoursePriceUseCase,
+    this._getTeacherDataUseCase,
+    this._saveSuccessPaymentUseCase,
   ) : super(PaymentState.initial());
-  late CustomerModel customerModel;
-  void initState(CustomerModel customer) {
-    customerModel = customer;
+  int selectIndex = 0;
+  late StudentModel studentModel;
+  late TeacherModel teacherModel;
+  void initState(StudentModel student) {
+    studentModel = student;
   }
 
-  List<PaymentMethodsModel> paymentMethods = [];
-  Future<void> fetchPaymentMethods() async {
-    try {
-      emit(PaymentState<List<PaymentMethodsModel>>.loading());
-      paymentMethods = await _fetchPaymentMethodsUseCase.execute();
-      emit(PaymentState<List<PaymentMethodsModel>>.success(paymentMethods));
-    } catch (e) {
-      emit(PaymentState<List<PaymentMethodsModel>>.failure(e.toString()));
-    }
+  void selectPaymentMethod(int index) {
+    emit(PaymentState.initial());
+    selectIndex = index;
+    emit(PaymentState<int>.success(index));
   }
 
-  Future<void> createPayment({required int paymentMethodId}) async {
-    try {
-      emit(PaymentState<PaymentStatus>.loading());
-      final String courePrice = await getCoursePrice();
-      final paymentStatus = await _sendPaymentRequestUseCase.execute(
-        paymentModel: PaymentModel(
-          paymentMethodId: paymentMethodId,
-          cartTotal: courePrice,
-          customer: customerModel,
-          redirectionUrls: RedirectionUrls.fromJson(
-            {
-              'successUrl': 'https://dev.fawaterk.com/success',
-              'failUrl': 'https://dev.fawaterk.com/fail',
-              'pendingUrl': 'https://dev.fawaterk.com/pending',
-            },
+  Future<PaymentStatus> createPayment({required String courePrice}) async {
+    final PaymentStatus paymentStatus =
+        await _sendPaymentRequestUseCase.execute(
+      paymentModel: PaymentModel(
+        cartTotal: courePrice,
+        currency: "EGP",
+        cartItems: [
+          CartItem(
+            name: "Online Course",
+            price: courePrice,
+            quantity: "1",
           ),
+        ],
+        customer: studentModel.toCustomer(),
+        redirectionUrls: RedirectionUrls.fromJson(
+          {
+            "successUrl": "https://dev.fawaterk.com/success",
+            "failUrl": "https://dev.fawaterk.com/fail",
+            "pendingUrl": "https://dev.fawaterk.com/pending"
+          },
         ),
-      );
-      emit(PaymentState<PaymentStatus>.success(paymentStatus));
+      ),
+    );
+    emit(PaymentState<PaymentStatus>.success(paymentStatus));
+    return paymentStatus;
+  }
+
+  Future<void> pay() async {
+    try {
+      emit(PaymentState<String>.loading());
+      final PaymentStatus paymentStatus =
+          await createPayment(courePrice: teacherModel.coursePrice);
+      emit(PaymentState<String>.success(paymentStatus.data?.url ?? ""));
     } catch (e) {
-      emit(PaymentState<PaymentStatus>.failure(e.toString()));
+      emit(PaymentState<String>.failure(e.toString()));
     }
   }
 
-  Future<String> getCoursePrice() async {
-    return await _getCoursePriceUseCase.execute();
+  Future<void> getTeacherData() async {
+    try {
+      emit(PaymentState<TeacherModel>.loading());
+      teacherModel = await _getTeacherDataUseCase.execute(
+          teacherId: studentModel.teacherId);
+      emit(PaymentState<TeacherModel>.success(teacherModel));
+    } on Exception catch (e) {
+      emit(PaymentState<TeacherModel>.failure(e.toString()));
+    }
   }
 
-  Future<void> checkPayment() async {}
+  Future<void> checkPayment(UrlChange url) async {
+    if (url.url!.contains("https://dev.fawaterk.com/success")) {
+      final String invoiceId =
+          Uri.parse(url.url!).queryParameters['invoice_id'] ?? "";
+      final DatabasePaymentModel opration = DatabasePaymentModel(
+        invoiceId: invoiceId,
+        paymentStatus: 'success',
+        paymentDate: DateTime.now().toString(),
+        firstName: studentModel.firstName,
+        lastName: studentModel.lastName,
+        email: studentModel.email,
+        phone: studentModel.phone,
+      );
+      await _saveSuccessPaymentUseCase.execute(databasePaymentModel: opration);
+      emit(PaymentState<bool>.success(true));
+    }
+  }
 }

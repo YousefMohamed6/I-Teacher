@@ -8,10 +8,11 @@ class AccpetIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.watch<RegisterCubit>();
     return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) {
         return IconButton(
-          icon: BlocProvider.of<RegisterCubit>(context).isAccept
+          icon: cubit.isAccept
               ? Icon(
                   Icons.check_circle,
                   color: Colors.white,
@@ -22,8 +23,7 @@ class AccpetIcon extends StatelessWidget {
                   size: MediaQuery.sizeOf(context).height * 0.030,
                 ),
           onPressed: () {
-            BlocProvider.of<RegisterCubit>(context)
-                .changeAccpetTremsAndPrivacy();
+            cubit.changeAccpetTremsAndPrivacy();
           },
         );
       },

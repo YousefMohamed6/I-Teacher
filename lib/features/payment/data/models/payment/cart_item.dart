@@ -11,9 +11,6 @@ class CartItem {
         quantity: json['quantity'] as String?,
       );
 
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'price': price,
-        'quantity': quantity,
-      };
+  Map<String, dynamic> toJson() =>
+      {"name": name, "price": price, "quantity": quantity};
 }

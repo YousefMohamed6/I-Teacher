@@ -164,13 +164,13 @@ abstract class AppLocalizations {
   /// No description provided for @email.
   ///
   /// In en, this message translates to:
-  /// **'EMail'**
+  /// **'Email'**
   String get email;
 
   /// No description provided for @enter_email.
   ///
   /// In en, this message translates to:
-  /// **'Enter Your EMail'**
+  /// **'Enter Your Email'**
   String get enter_email;
 
   /// No description provided for @password.
@@ -209,11 +209,11 @@ abstract class AppLocalizations {
   /// **'This Field Is Required'**
   String get required_field;
 
-  /// No description provided for @frist_name.
+  /// No description provided for @first_name.
   ///
   /// In en, this message translates to:
-  /// **'Frist Name'**
-  String get frist_name;
+  /// **'first Name'**
+  String get first_name;
 
   /// No description provided for @last_name.
   ///
@@ -244,6 +244,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter Your Phone'**
   String get enter_phone;
+
+  /// No description provided for @teacher_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher Identifier'**
+  String get teacher_id;
+
+  /// No description provided for @enter_teacher_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Teacher Identifier'**
+  String get enter_teacher_id;
+
+  /// No description provided for @unfound_id.
+  ///
+  /// In en, this message translates to:
+  /// **'unFound Identifier'**
+  String get unfound_id;
 
   /// No description provided for @student_data.
   ///
@@ -280,6 +298,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pay Now'**
   String get pay_now;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @i_accept.
+  ///
+  /// In en, this message translates to:
+  /// **'I Accept'**
+  String get i_accept;
+
+  /// No description provided for @terms_and_conditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms And Conditions'**
+  String get terms_and_conditions;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

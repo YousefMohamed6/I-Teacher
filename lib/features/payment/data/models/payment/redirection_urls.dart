@@ -13,9 +13,6 @@ class RedirectionUrls {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        'successUrl': successUrl,
-        'failUrl': failUrl,
-        'pendingUrl': pendingUrl,
-      };
+  Map<String, dynamic> toJson() =>
+      {"successUrl": successUrl, "failUrl": failUrl, "pendingUrl": pendingUrl};
 }

@@ -14,7 +14,7 @@ class PaymentButton extends StatelessWidget {
     return CustomButton(
       color: AppColors.kMainTextColor,
       onPressed: () {
-        context.read<PaymentCubit>().getCoursePrice();
+        context.read<PaymentCubit>().pay();
       },
       child: CustomText(
         text: AppLocalizations.of(context)!.pay_now,

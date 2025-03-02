@@ -2,9 +2,9 @@ import 'package:mrjoo/core/services/fatwaterak_service.dart';
 import 'package:mrjoo/core/services/firebase_service.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
-import 'package:mrjoo/features/payment/data/models/payment_methods/payment_methods.dart';
 import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
 import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
+import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
 
 class PaymentRepoImpl implements IPaymentRepo {
   final FawaterkService fawaterkService;
@@ -13,33 +13,23 @@ class PaymentRepoImpl implements IPaymentRepo {
       {required this.fawaterkService, required this.firebaseFirestoreService});
 
   @override
-  Future<List<PaymentMethodsModel>> getPaymentMethods() async {
-    final data = await fawaterkService.fetchPaymentMethods();
-    List<PaymentMethodsModel> paymentMethods = [];
-    for (var json in data) {
-      paymentMethods.add(PaymentMethodsModel.fromJson(json));
-    }
-    return paymentMethods;
-  }
-
-  @override
   Future<PaymentStatus> sendPaymentRequest({
     required PaymentModel paymentModel,
   }) async {
     final body = await fawaterkService.sendPaymentRequest(
       paymentModel: paymentModel,
-      paymentMethodId: paymentModel.paymentMethodId,
     );
-    return PaymentStatus.fromJson(body);
+    return PaymentStatus.fromJson(
+      body,
+    );
   }
 
   @override
-  Future<String> getPrice() async {
+  Future<TeacherModel> getTeacherData({required String teacherId}) async {
     final response = await firebaseFirestoreService.getDocument(
       collectionId: TeacherKeys.kTeacherCollection,
-      documentId: TeacherKeys.kCoursePriceField,
+      documentId: teacherId,
     );
-    final String price = response[TeacherKeys.kCoursePriceField];
-    return price;
+    return TeacherModel.fromJson(response.data() as Map<String, dynamic>);
   }
 }
