@@ -370,6 +370,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Send'**
   String get send;
+
+  /// No description provided for @userNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'User Not Found'**
+  String get userNotFound;
+
+  /// No description provided for @invalidEmailorPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Email Or Password'**
+  String get invalidEmailorPassword;
+
+  /// No description provided for @weakPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Weak Password'**
+  String get weakPassword;
+
+  /// No description provided for @emailAlreadyInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Already In Use'**
+  String get emailAlreadyInUse;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Email'**
+  String get invalidEmail;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something Went Wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @networkRequestFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Network Request Failed'**
+  String get networkRequestFailed;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

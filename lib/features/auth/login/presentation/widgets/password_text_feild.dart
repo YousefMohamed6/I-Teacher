@@ -11,7 +11,7 @@ class PasswordTextFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       key: BlocProvider.of<LoginCubit>(context).passwordKey,
-      child: BlocBuilder<LoginCubit, LoginViewState>(
+      child: BlocBuilder<LoginCubit, LoginState>(
         builder: (context, state) => CustomFormField(
           lablelText: AppLocalizations.of(context)!.password,
           hintText: AppLocalizations.of(context)!.enter_password,

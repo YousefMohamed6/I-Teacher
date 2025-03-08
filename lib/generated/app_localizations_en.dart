@@ -143,4 +143,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get send => 'Send';
+
+  @override
+  String get userNotFound => 'User Not Found';
+
+  @override
+  String get invalidEmailorPassword => 'Invalid Email Or Password';
+
+  @override
+  String get weakPassword => 'Weak Password';
+
+  @override
+  String get emailAlreadyInUse => 'Email Already In Use';
+
+  @override
+  String get invalidEmail => 'Invalid Email';
+
+  @override
+  String get somethingWentWrong => 'Something Went Wrong';
+
+  @override
+  String get networkRequestFailed => 'Network Request Failed';
 }

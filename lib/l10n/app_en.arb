@@ -44,5 +44,12 @@
   "course": "Course",
   "chat_group": "Chat Group",
   "chat": "Chat",
-  "send":"Send"
+  "send":"Send",
+  "userNotFound":"User Not Found",
+  "invalidEmailorPassword":"Invalid Email Or Password",
+  "weakPassword":"Weak Password",
+  "emailAlreadyInUse":"Email Already In Use",
+  "invalidEmail":"Invalid Email",
+  "somethingWentWrong":"Something Went Wrong",
+  "networkRequestFailed":"Network Request Failed"
 }

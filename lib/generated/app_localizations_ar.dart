@@ -143,4 +143,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get send => 'ارسال';
+
+  @override
+  String get userNotFound => 'مستخدم غير موجود';
+
+  @override
+  String get invalidEmailorPassword => 'البريد الالكتروني او كلمة المرور غير صحيحة';
+
+  @override
+  String get weakPassword => 'كلمة المرور ضعيفة';
+
+  @override
+  String get emailAlreadyInUse => 'البريد الالكتروني مستخدم بالفعل';
+
+  @override
+  String get invalidEmail => 'البريد الالكتروني غير صحيح';
+
+  @override
+  String get somethingWentWrong => 'حدث خطأ ما';
+
+  @override
+  String get networkRequestFailed => 'فشل الاتصال بالانترنت';
 }

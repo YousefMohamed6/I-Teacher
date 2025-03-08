@@ -1,11 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'login_cubit.freezed.dart';
 part 'login_state.dart';
 
-class LoginCubit extends Cubit<LoginViewState> {
-  LoginCubit() : super(LoginInitial());
+class LoginCubit extends Cubit<LoginState> {
+  LoginCubit() : super(LoginState.initial());
   final emailTextController = TextEditingController();
   final passwordTextControlle = TextEditingController();
   final emailkey = GlobalKey<FormState>();
@@ -13,20 +15,24 @@ class LoginCubit extends Cubit<LoginViewState> {
   bool obscuretext = true;
 
   void changeObscureText() {
+    emit(LoginState.initial());
     obscuretext = !obscuretext;
-    emit(LoginInitial());
+    emit(LoginState.updateUI());
   }
 
-  void loginUser() async {
-    emit(LoginLoading());
+  Future<void> login() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailTextController.text,
-        password: passwordTextControlle.text,
-      );
-      emit(LoginSuccess());
+      if (emailkey.currentState!.validate() &&
+          passwordKey.currentState!.validate()) {
+        emit(LoginState.loading());
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailTextController.text,
+          password: passwordTextControlle.text,
+        );
+        emit(LoginState<bool>.success(true));
+      }
     } on FirebaseAuthException catch (e) {
-      emit(LoginFailure(errMessage: e.code));
+      emit(LoginState.failure(errMessage: e.code));
     }
   }
 }

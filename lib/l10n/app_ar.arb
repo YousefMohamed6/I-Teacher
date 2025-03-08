@@ -44,6 +44,13 @@
   "course": "الدورة",
   "chat_group": "مجموعة الدردشة",
   "chat": "دردشة",
-  "send": "ارسال"
+  "send": "ارسال",
+  "userNotFound":"مستخدم غير موجود",
+  "invalidEmailorPassword":"البريد الالكتروني او كلمة المرور غير صحيحة",
+  "weakPassword":"كلمة المرور ضعيفة",
+  "emailAlreadyInUse":"البريد الالكتروني مستخدم بالفعل",
+  "invalidEmail":"البريد الالكتروني غير صحيح",
+  "somethingWentWrong":"حدث خطأ ما",
+  "networkRequestFailed":"فشل الاتصال بالانترنت"
 
 }
