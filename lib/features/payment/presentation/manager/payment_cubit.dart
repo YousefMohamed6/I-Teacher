@@ -19,12 +19,12 @@ part 'payment_state.dart';
 class PaymentCubit extends Cubit<PaymentState> {
   final SendPaymentRequestUseCase _sendPaymentRequestUseCase;
   final GetTeacherDataUseCase _getTeacherDataUseCase;
-  final SaveSuccessPaymentUseCase _saveSuccessPaymentUseCase;
+  final SavePaymentStatusUseCase _savePaymentStatusUseCase;
   final AddStudentUseCase _addStudentUseCase;
   PaymentCubit(
     this._sendPaymentRequestUseCase,
     this._getTeacherDataUseCase,
-    this._saveSuccessPaymentUseCase,
+    this._savePaymentStatusUseCase,
     this._addStudentUseCase,
   ) : super(PaymentState.initial());
   int selectIndex = 0;
@@ -89,28 +89,38 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
 
+  DatabasePaymentModel get paymentOpration => DatabasePaymentModel(
+        invoiceId: '',
+        paymentStatus: '',
+        paymentDate: DateTime.now().toString(),
+        firstName: studentModel.firstName,
+        lastName: studentModel.lastName,
+        email: studentModel.email,
+        phone: studentModel.phone,
+      );
   Future<void> checkPayment(UrlChange url) async {
-    if (url.url!.contains("https://dev.fawaterk.com/success")) {
-      try {
+    final String invoiceId =
+        Uri.parse(url.url!).queryParameters['invoice_id'] ?? "";
+    try {
+      if (url.url!.contains("https://dev.fawaterk.com/success")) {
         emit(PaymentState.loading());
-        final String invoiceId =
-            Uri.parse(url.url!).queryParameters['invoice_id'] ?? "";
-        final DatabasePaymentModel opration = DatabasePaymentModel(
-          invoiceId: invoiceId,
-          paymentStatus: 'success',
-          paymentDate: DateTime.now().toString(),
-          firstName: studentModel.firstName,
-          lastName: studentModel.lastName,
-          email: studentModel.email,
-          phone: studentModel.phone,
+        await _savePaymentStatusUseCase.execute(
+          databasePaymentModel: paymentOpration
+            ..invoiceId = invoiceId
+            ..paymentStatus = 'success',
         );
         await addStudent();
-        await _saveSuccessPaymentUseCase.execute(
-            databasePaymentModel: opration);
         emit(PaymentState<bool>.success(true));
-      } catch (e) {
-        emit(PaymentState<String>.failure(e.toString()));
+      } else if (url.url!.contains("https://dev.fawaterk.com/fail")) {
+        await _savePaymentStatusUseCase.execute(
+          databasePaymentModel: paymentOpration
+            ..invoiceId = invoiceId
+            ..paymentStatus = 'fail',
+        );
+        emit(PaymentState<bool>.failure(''));
       }
+    } catch (e) {
+      emit(PaymentState<String>.failure(e.toString()));
     }
   }
 

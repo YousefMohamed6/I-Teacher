@@ -5,8 +5,8 @@ class DatabasePaymentModel {
   final String lastName;
   final String email;
   final String phone;
-  final String invoiceId;
-  final String paymentStatus;
+  String invoiceId;
+  String paymentStatus;
   final String paymentDate;
 
   DatabasePaymentModel({

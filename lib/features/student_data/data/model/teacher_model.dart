@@ -6,6 +6,8 @@ class TeacherModel {
   final String email;
   final String phone;
   final String department;
+  final String description;
+
   final String coursePrice;
   final String courseLink;
   final String teacherId;
@@ -17,6 +19,7 @@ class TeacherModel {
     required this.phone,
     required this.department,
     required this.coursePrice,
+    required this.description,
     required this.courseLink,
     required this.teacherId,
   });
@@ -27,6 +30,7 @@ class TeacherModel {
       email: json[TeacherKeys.kEmailField],
       phone: json[TeacherKeys.kPhoneField],
       department: json[TeacherKeys.kDepartmentField],
+      description: json[TeacherKeys.kDescriptionField],
       coursePrice: json[TeacherKeys.kCoursePriceField],
       courseLink: json[TeacherKeys.kCourseLinkField],
       teacherId: json[TeacherKeys.kTeacherIdField],
@@ -39,6 +43,7 @@ class TeacherModel {
       TeacherKeys.kEmailField: email,
       TeacherKeys.kPhoneField: phone,
       TeacherKeys.kDepartmentField: department,
+      TeacherKeys.kDescriptionField: description,
       TeacherKeys.kCoursePriceField: coursePrice,
       TeacherKeys.kCourseLinkField: courseLink,
       TeacherKeys.kTeacherIdField: teacherId,

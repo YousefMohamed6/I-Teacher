@@ -16,7 +16,7 @@ class LoginViewForm extends StatelessWidget {
     return ListView(
       children: [
         SizedBox(height: 24.h),
-        Avatar(image: AppImages.kAvaterLogo),
+        Avatar(imagePath: AppImages.kAvaterLogo),
         SizedBox(height: 32.h),
         EmailTextFaild(),
         SizedBox(height: 16.h),

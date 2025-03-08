@@ -46,7 +46,7 @@ class RegisterViewBody extends StatelessWidget {
               child: ListView(
                 children: [
                   SizedBox(height: 32.h),
-                  Avatar(image: AppImages.kAvaterLogo),
+                  Avatar(imagePath: AppImages.kAvaterLogo),
                   SizedBox(height: 32.h),
                   EmailFormFeild(),
                   SizedBox(height: 16.h),

@@ -48,13 +48,13 @@ class CustomFormField extends StatelessWidget {
             ),
           ),
           focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.kMainTextColor),
+            borderSide: BorderSide(color: AppColors.kPrimryColor),
             borderRadius: BorderRadius.all(
               Radius.circular(8),
             ),
           ),
           errorBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.kPrimryColor),
+            borderSide: BorderSide(color: Colors.red),
             borderRadius: BorderRadius.all(
               Radius.circular(8),
             ),

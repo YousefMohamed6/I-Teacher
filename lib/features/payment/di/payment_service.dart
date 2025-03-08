@@ -31,8 +31,8 @@ class PaymentService {
     sl.registerLazySingletonSafely<GetTeacherDataUseCase>(
       () => GetTeacherDataUseCase(sl()),
     );
-    sl.registerLazySingletonSafely<SaveSuccessPaymentUseCase>(
-      () => SaveSuccessPaymentUseCase(sl()),
+    sl.registerLazySingletonSafely<SavePaymentStatusUseCase>(
+      () => SavePaymentStatusUseCase(sl()),
     );
     sl.registerLazySingletonSafely<AddStudentUseCase>(
       () => AddStudentUseCase(sl()),

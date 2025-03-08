@@ -13,7 +13,7 @@ class PhoneTextField extends StatelessWidget {
       textInputType: TextInputType.number,
       lablelText: AppLocalizations.of(context)!.phone,
       hintText: AppLocalizations.of(context)!.enter_phone,
-      prefixIcon: const Icon(Icons.phone),
+      prefixIcon: const Icon(Icons.phone_outlined),
       controller: BlocProvider.of<StudentCubit>(context).phoneTextController,
     );
   }

@@ -15,7 +15,7 @@ class FullNameTextField extends StatelessWidget {
           child: CustomFormField(
             textInputType: TextInputType.name,
             lablelText: AppLocalizations.of(context)!.first_name,
-            prefixIcon: const Icon(Icons.person),
+            prefixIcon: const Icon(Icons.person_outline),
             controller:
                 BlocProvider.of<StudentCubit>(context).firstNameTextController,
           ),
@@ -25,7 +25,7 @@ class FullNameTextField extends StatelessWidget {
           child: CustomFormField(
             textInputType: TextInputType.name,
             lablelText: AppLocalizations.of(context)!.last_name,
-            prefixIcon: const Icon(Icons.person),
+            prefixIcon: const Icon(Icons.person_2_outlined),
             controller:
                 BlocProvider.of<StudentCubit>(context).lastNameTextController,
           ),

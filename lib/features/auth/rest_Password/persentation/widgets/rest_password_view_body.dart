@@ -35,7 +35,7 @@ class ForgetPasswodBody extends StatelessWidget {
           child: ListView(
             children: [
               SizedBox(height: 84.h),
-              Avatar(image: AppImages.kAvaterLogo),
+              Avatar(imagePath: AppImages.kAvaterLogo),
               SizedBox(height: 54.h),
               RestPasswordEmailFeild(),
               SizedBox(height: 32.h),

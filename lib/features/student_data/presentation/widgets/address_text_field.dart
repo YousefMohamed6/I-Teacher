@@ -13,7 +13,7 @@ class AddressTextField extends StatelessWidget {
       textInputType: TextInputType.streetAddress,
       lablelText: AppLocalizations.of(context)!.address,
       hintText: AppLocalizations.of(context)!.enter_address,
-      prefixIcon: const Icon(Icons.email),
+      prefixIcon: const Icon(Icons.directions_outlined),
       controller: BlocProvider.of<StudentCubit>(context).addressTextController,
     );
   }

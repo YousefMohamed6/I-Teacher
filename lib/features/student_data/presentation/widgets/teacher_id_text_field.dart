@@ -13,7 +13,7 @@ class TeacherIdTextField extends StatelessWidget {
       textInputType: TextInputType.streetAddress,
       lablelText: AppLocalizations.of(context)!.teacher_id,
       hintText: AppLocalizations.of(context)!.enter_teacher_id,
-      prefixIcon: const Icon(Icons.email),
+      prefixIcon: const Icon(Icons.info_outline),
       controller:
           BlocProvider.of<StudentCubit>(context).teacherIdTextController,
     );

@@ -14,6 +14,7 @@ sealed class TeacherKeys {
   static const String kEmailField = 'email';
   static const String kPhoneField = 'phone';
   static const String kDepartmentField = 'department';
+  static const String kDescriptionField = 'description';
   static const String kCourseLinkField = "courseLink";
   static const String kCoursePriceField = "coursePrice";
 }
