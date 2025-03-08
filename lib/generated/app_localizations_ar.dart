@@ -131,4 +131,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get no_data => 'لا يوجد بيانات';
+
+  @override
+  String get course => 'الدورة';
+
+  @override
+  String get chat_group => 'مجموعة الدردشة';
+
+  @override
+  String get chat => 'دردشة';
+
+  @override
+  String get send => 'ارسال';
 }

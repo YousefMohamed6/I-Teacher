@@ -8,6 +8,8 @@ import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit
 import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
 import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
 import 'package:mrjoo/features/auth/rest_Password/persentation/view/rest_password_view.dart';
+import 'package:mrjoo/features/chat/di/chat_service.dart';
+import 'package:mrjoo/features/chat/domin/repos/i_chat_repo.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
 import 'package:mrjoo/features/course/di/course_service.dart';
@@ -21,7 +23,7 @@ import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
 import 'package:mrjoo/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:mrjoo/features/profile/presentation/views/profile_view.dart';
 import 'package:mrjoo/features/settings/presentation/views/setting_view.dart';
-import 'package:mrjoo/features/splash/views/splash_view.dart';
+import 'package:mrjoo/features/splash/presentation/views/splash_view.dart';
 import 'package:mrjoo/features/student_data/data/model/student_model.dart';
 import 'package:mrjoo/features/student_data/di/student_service.dart';
 import 'package:mrjoo/features/student_data/domain/repos/i_student_repo.dart';
@@ -34,10 +36,10 @@ import 'package:mrjoo/features/terms_and_conditions/presentation/views/terms_and
 
 abstract class RouterManager {
   static GoRouter routConfig = GoRouter(
-    initialLocation: SplashView.path,
+    initialLocation: SplashView.routeName,
     routes: [
       GoRoute(
-        path: SplashView.path,
+        path: SplashView.routeName,
         builder: (context, state) {
           return SplashView();
         },
@@ -114,9 +116,14 @@ abstract class RouterManager {
         path: ChatView.routeName,
         name: ChatView.routeName,
         builder: (context, state) {
-          return BlocProvider(
-            create: (context) => ChatCubit(),
-            child: ChatView(),
+          ChatService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IChatRepo>(),
+            child: BlocProvider(
+              create: (context) =>
+                  GetIt.instance<ChatCubit>()..fetchFirebaseMessages(),
+              child: ChatView(),
+            ),
           );
         },
       ),

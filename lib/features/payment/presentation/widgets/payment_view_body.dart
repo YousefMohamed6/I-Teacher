@@ -28,7 +28,10 @@ class PaymentViewBody extends StatelessWidget {
           ShowMessage.show(context, msg: state.message);
         }
         if (state is Success<bool> && state.data) {
-          context.pushReplacementNamed(RegisterView.routeName);
+          context.pushReplacementNamed(
+            RegisterView.routeName,
+            extra: cubit.studentModel,
+          );
         }
       },
       buildWhen: (previous, current) =>

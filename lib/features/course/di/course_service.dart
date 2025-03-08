@@ -4,8 +4,8 @@ import 'package:mrjoo/core/services/firebase_service.dart';
 import 'package:mrjoo/features/course/data/repos/course_repo_impl.dart';
 import 'package:mrjoo/features/course/domain/repos/I_course_repo.dart';
 import 'package:mrjoo/features/course/domain/use_case/get_student_data_use_case.dart';
+import 'package:mrjoo/features/course/domain/use_case/get_teacher_data_use_case.dart';
 import 'package:mrjoo/features/course/presentation/manager/course_cubit.dart';
-import 'package:mrjoo/features/payment/domain/use_cases/get_course_price_use_case.dart';
 
 class CourseService {
   final sl = GetIt.instance;

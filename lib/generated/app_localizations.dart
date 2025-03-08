@@ -346,6 +346,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No Data'**
   String get no_data;
+
+  /// No description provided for @course.
+  ///
+  /// In en, this message translates to:
+  /// **'Course'**
+  String get course;
+
+  /// No description provided for @chat_group.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat Group'**
+  String get chat_group;
+
+  /// No description provided for @chat.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chat;
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

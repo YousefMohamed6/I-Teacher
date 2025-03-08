@@ -1,0 +1,1 @@
+class AcceptTermsException implements Exception {}

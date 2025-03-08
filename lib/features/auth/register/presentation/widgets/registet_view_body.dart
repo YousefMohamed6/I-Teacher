@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/exceptions/not_accept_terms.dart';
+import 'package:mrjoo/core/exceptions/accept_terms.dart';
 import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/core/utils/constants/app_images.dart';
 import 'package:mrjoo/core/widgets/avatar.dart';
@@ -29,7 +29,7 @@ class RegisterViewBody extends StatelessWidget {
             context.pushReplacementNamed(CourseView.routeName);
           } else if (state is Failure<String>) {
             ShowMessage.show(context, msg: AppLocalizations.of(context)!.fail);
-          } else if (state is Failure<NotAcceptTermsException>) {
+          } else if (state is Failure<AcceptTermsException>) {
             ShowMessage.show(context,
                 msg: AppLocalizations.of(context)!.must_accept_terms);
           }

@@ -131,4 +131,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no_data => 'No Data';
+
+  @override
+  String get course => 'Course';
+
+  @override
+  String get chat_group => 'Chat Group';
+
+  @override
+  String get chat => 'Chat';
+
+  @override
+  String get send => 'Send';
 }

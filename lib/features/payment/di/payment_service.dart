@@ -34,10 +34,10 @@ class PaymentService {
     sl.registerLazySingletonSafely<SaveSuccessPaymentUseCase>(
       () => SaveSuccessPaymentUseCase(sl()),
     );
-     sl.registerLazySingletonSafely<AddStudentUseCase>(
+    sl.registerLazySingletonSafely<AddStudentUseCase>(
       () => AddStudentUseCase(sl()),
     );
-    sl.registerFactorySafely<PaymentCubit>(
+    sl.registerLazySingletonSafely<PaymentCubit>(
       () => PaymentCubit(
         sl(),
         sl(),

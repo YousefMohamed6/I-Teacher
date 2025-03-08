@@ -6,7 +6,7 @@ class AppColors {
   static const kFriendColor = Color(0xff11496A);
   static const kChatColor = Color(0xff1F2C34);
   static const kPrimryColor = Color(0xff11496A);
-  static const kSecondColor = Colors.grey;
+  static const kSecondryColor = Colors.grey;
   static const kMainTextColor = Colors.white;
   static const kTextButton = Colors.blue; //Colors.blue[900]
 }

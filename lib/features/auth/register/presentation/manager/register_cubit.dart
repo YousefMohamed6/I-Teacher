@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/core/exceptions/not_accept_terms.dart';
+import 'package:mrjoo/core/exceptions/accept_terms.dart';
 import 'package:mrjoo/features/auth/register/domain/use_case/create_user_with_email_and_password.dart';
 import 'package:mrjoo/features/auth/register/domain/use_case/sign_in_use_google.dart';
 
@@ -46,10 +46,10 @@ class RegisterCubit extends Cubit<RegisterState> {
         await _signInUseGoogle.execute();
         emit(RegisterState<bool>.success(true));
       } else {
-        throw NotAcceptTermsException();
+        throw AcceptTermsException();
       }
-    } on NotAcceptTermsException catch (e) {
-      emit(RegisterState<NotAcceptTermsException>.failure(e.toString()));
+    } on AcceptTermsException catch (e) {
+      emit(RegisterState<AcceptTermsException>.failure(e.toString()));
     } catch (e) {
       emit(RegisterState<String>.failure(e.toString()));
     }
@@ -66,12 +66,12 @@ class RegisterCubit extends Cubit<RegisterState> {
         );
         emit(RegisterState<bool>.success(true));
       } else {
-        throw NotAcceptTermsException();
+        throw AcceptTermsException();
       }
     } on FirebaseAuthException catch (e) {
       emit(RegisterState.failure(e.code));
-    } on NotAcceptTermsException catch (e) {
-      emit(RegisterState<NotAcceptTermsException>.failure(e.toString()));
+    } on AcceptTermsException catch (e) {
+      emit(RegisterState<AcceptTermsException>.failure(e.toString()));
     }
   }
 }

@@ -1,11 +1,11 @@
-import 'package:mrjoo/features/course/domain/repos/I_course_repo.dart';
+import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
 import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
 
 class GetTeacherDataUseCase {
-  final ICourseRepo _courseRepo;
+  final IPaymentRepo _paymentRepo;
 
-  GetTeacherDataUseCase(this._courseRepo);
+  GetTeacherDataUseCase(this._paymentRepo);
   Future<TeacherModel> execute({required String teacherId}) async {
-    return await _courseRepo.getTeacherData(teacherId: teacherId);
+    return await _paymentRepo.getTeacherData(teacherId: teacherId);
   }
 }
