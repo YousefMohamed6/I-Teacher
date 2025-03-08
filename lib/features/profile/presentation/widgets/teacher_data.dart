@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:mrjoo/core/utils/helper/url_launcher.dart';
 import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/utils/constants/keys.dart';
-import 'package:mrjoo/core/services/url_launcher.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/profile/presentation/widgets/contect_item.dart';
+import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
 
 class TeacherData extends StatelessWidget {
-  const TeacherData({super.key});
-
+  const TeacherData({super.key, required this.teacherModel});
+  final TeacherModel teacherModel;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const CustomText(
-          text: AppKeys.kTeacherName,
+        CustomText(
+          text: '${teacherModel.firstName} ${teacherModel.lastName}',
           textAlign: TextAlign.center,
           fontSize: 20,
           fontWeight: FontWeight.bold,
           color: AppColors.kMainTextColor,
         ),
         const SizedBox(height: 16),
-        const CustomText(
-          text: AppKeys.kTeacherJob,
+        CustomText(
+          text: teacherModel.department,
           textAlign: TextAlign.center,
           fontSize: 24,
           fontFamily: AppFonts.kPacificoFont,
@@ -33,19 +34,19 @@ class TeacherData extends StatelessWidget {
         ContactItem(
           mainAxisAlignment: MainAxisAlignment.center,
           text: "Phone Number : ",
-          textButton: AppKeys.kPhone,
+          textButton: teacherModel.phone,
           onPressed: () async {
-            await UrlLauncher.launcher(url: 'tel:${AppKeys.kPhone}');
+            await UrlLauncher.launcher(url: 'tel:${teacherModel.phone}');
           },
         ),
         ContactItem(
           mainAxisAlignment: MainAxisAlignment.center,
           text: "Email Address : ",
-          textButton: AppKeys.kEmail,
+          textButton: teacherModel.email,
           onPressed: () async {
             await UrlLauncher.launcher(
                 url:
-                    'mailto:${AppKeys.kEmail}?subject=${AppKeys.kEmailSubject}');
+                    'mailto:${teacherModel.email}?subject=${AppKeys.kEmailSubject}');
           },
         ),
         const SizedBox(height: 32),

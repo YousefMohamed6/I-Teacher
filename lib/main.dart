@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mrjoo/core/services/firebase_options.dart';
 import 'package:mrjoo/core/services/sf_service.dart';
-import 'package:mrjoo/core/services/simple_bloc_obsever.dart';
+import 'package:mrjoo/core/utils/helper/simple_bloc_obsever.dart';
 import 'package:mrjoo/my_app.dart';
 
 void main() async {

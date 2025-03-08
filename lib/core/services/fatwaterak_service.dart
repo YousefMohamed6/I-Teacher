@@ -1,7 +1,7 @@
 import 'package:mrjoo/core/services/api_service.dart';
 import 'package:mrjoo/core/utils/constants/keys.dart';
 import 'package:mrjoo/core/utils/constants/app_urls.dart';
-import 'package:mrjoo/core/utils/json_hander.dart';
+import 'package:mrjoo/core/utils/helper/json_handler.dart';
 import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
 
 class FawaterkService {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/services/show_message.dart';
+import 'package:mrjoo/core/utils/helper/show_message.dart';
 import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';

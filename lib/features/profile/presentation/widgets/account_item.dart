@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/services/url_launcher.dart';
+import 'package:mrjoo/core/utils/helper/url_launcher.dart';
 import 'package:mrjoo/core/widgets/custom_icon_button.dart';
 
 class AccountItem extends StatelessWidget {

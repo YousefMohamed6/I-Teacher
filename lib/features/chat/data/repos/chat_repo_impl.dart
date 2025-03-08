@@ -1,5 +1,5 @@
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
-import 'package:mrjoo/core/services/firebase_service.dart';
+import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/chat/domin/repos/i_chat_repo.dart';
 

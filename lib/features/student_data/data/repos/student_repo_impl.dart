@@ -1,4 +1,4 @@
-import 'package:mrjoo/core/services/firebase_service.dart';
+import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
 import 'package:mrjoo/features/student_data/domain/repos/i_student_repo.dart';

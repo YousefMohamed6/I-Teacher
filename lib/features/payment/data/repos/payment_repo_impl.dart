@@ -1,5 +1,5 @@
 import 'package:mrjoo/core/services/fatwaterak_service.dart';
-import 'package:mrjoo/core/services/firebase_service.dart';
+import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
 import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';

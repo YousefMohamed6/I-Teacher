@@ -25,6 +25,7 @@ import 'package:mrjoo/features/profile/presentation/views/profile_view.dart';
 import 'package:mrjoo/features/settings/presentation/views/setting_view.dart';
 import 'package:mrjoo/features/splash/presentation/views/splash_view.dart';
 import 'package:mrjoo/features/student_data/data/model/student_model.dart';
+import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
 import 'package:mrjoo/features/student_data/di/student_service.dart';
 import 'package:mrjoo/features/student_data/domain/repos/i_student_repo.dart';
 import 'package:mrjoo/features/student_data/presentation/manager/student_cubit.dart';
@@ -55,8 +56,10 @@ abstract class RouterManager {
         path: ProfileView.routeName,
         name: ProfileView.routeName,
         builder: (context, state) {
+          final teacherModel = state.extra as TeacherModel;
           return BlocProvider(
-            create: (context) => ProfileCubit(),
+            create: (context) =>
+                ProfileCubit()..initState(teacherModel: teacherModel),
             child: ProfileView(),
           );
         },

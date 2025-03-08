@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/utils/error_handler/auth_error_handler.dart';
-import 'package:mrjoo/core/services/show_message.dart';
+import 'package:mrjoo/core/utils/helper/show_message.dart';
 import 'package:mrjoo/core/utils/constants/app_images.dart';
 import 'package:mrjoo/core/widgets/avatar.dart';
 import 'package:mrjoo/core/widgets/background.dart';

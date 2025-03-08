@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:mrjoo/core/extentions/getit_extension.dart';
-import 'package:mrjoo/core/services/firebase_service.dart';
+import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/features/course/data/repos/course_repo_impl.dart';
 import 'package:mrjoo/features/course/domain/repos/I_course_repo.dart';
 import 'package:mrjoo/features/course/domain/use_case/get_student_data_use_case.dart';

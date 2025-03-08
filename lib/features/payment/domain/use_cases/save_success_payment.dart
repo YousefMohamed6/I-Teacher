@@ -1,4 +1,4 @@
-import 'package:mrjoo/core/services/firebase_service.dart';
+import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/payment/data/models/data_base_payments.dart';
 
