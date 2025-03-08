@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/error_handler/auth_error_handler.dart';
+import 'package:mrjoo/core/utils/error_handler/auth_error_handler.dart';
 import 'package:mrjoo/core/services/show_message.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';

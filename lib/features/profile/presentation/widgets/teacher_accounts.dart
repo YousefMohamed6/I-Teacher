@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mrjoo/core/utils/constants/urls.dart';
+import 'package:mrjoo/core/utils/constants/app_urls.dart';
 import 'package:mrjoo/features/profile/presentation/widgets/account_item.dart';
 
 class TeacherAccounts extends StatelessWidget {
