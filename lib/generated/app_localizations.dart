@@ -412,6 +412,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Network Request Failed'**
   String get networkRequestFailed;
+
+  /// No description provided for @student.
+  ///
+  /// In en, this message translates to:
+  /// **'student'**
+  String get student;
+
+  /// No description provided for @teacherProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher Profile'**
+  String get teacherProfile;
+
+  /// No description provided for @unfound_user.
+  ///
+  /// In en, this message translates to:
+  /// **'unFound User'**
+  String get unfound_user;
+
+  /// No description provided for @course_link.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Link'**
+  String get course_link;
+
+  /// No description provided for @course_price.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Price'**
+  String get course_price;
+
+  /// No description provided for @course_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Description'**
+  String get course_description;
+
+  /// No description provided for @department.
+  ///
+  /// In en, this message translates to:
+  /// **'Department'**
+  String get department;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get copied;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

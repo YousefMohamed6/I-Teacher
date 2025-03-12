@@ -12,12 +12,12 @@ class StudentCubit extends Cubit<StudentState> {
   StudentCubit(
     this._getTeachersIdsUseCase,
   ) : super(StudentState.initial());
-  final firstNameTextController = TextEditingController();
-  final lastNameTextController = TextEditingController();
-  final emailTextController = TextEditingController();
-  final phoneTextController = TextEditingController();
-  final addressTextController = TextEditingController();
-  final teacherIdTextController = TextEditingController();
+  final firstNameTextController = TextEditingController(text: 'Yousef');
+  final lastNameTextController = TextEditingController(text: 'Mohamed');
+  final emailTextController = TextEditingController(text: 'Yousef@gmail.com');
+  final phoneTextController = TextEditingController(text: '+201067954536');
+  final addressTextController = TextEditingController(text: 'Cairo');
+  final teacherIdTextController = TextEditingController(text: '1');
 
   final formKey = GlobalKey<FormState>();
 
@@ -40,5 +40,16 @@ class StudentCubit extends Cubit<StudentState> {
     } catch (e) {
       emit(StudentState.failure(e.toString()));
     }
+  }
+
+  @override
+  Future<void> close() async {
+    firstNameTextController.dispose();
+    lastNameTextController.dispose();
+    emailTextController.dispose();
+    phoneTextController.dispose();
+    addressTextController.dispose();
+    teacherIdTextController.dispose();
+    super.close();
   }
 }

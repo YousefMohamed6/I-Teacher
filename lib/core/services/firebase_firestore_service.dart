@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseFirestoreService {
-   Future<List<QueryDocumentSnapshot>> getCollection({
+  Future<List<QueryDocumentSnapshot>> getCollection({
     required String collectionId,
     String? orderByField,
     bool descending = false,
@@ -22,7 +22,32 @@ class FirebaseFirestoreService {
     }
   }
 
-   Future<DocumentSnapshot> getDocument({
+  Future<List<QueryDocumentSnapshot>> getSubCollection({
+    required String collectionId,
+    required String documentId,
+    required String subCollectionId,
+    String? orderByField,
+    bool descending = false,
+  }) async {
+    final CollectionReference reference = FirebaseFirestore.instance
+        .collection(collectionId)
+        .doc(documentId)
+        .collection(subCollectionId);
+    if (orderByField != null) {
+      final querySnapshot = await reference
+          .orderBy(
+            orderByField,
+            descending: descending,
+          )
+          .get();
+      return querySnapshot.docs;
+    } else {
+      final querySnapshot = await reference.get();
+      return querySnapshot.docs;
+    }
+  }
+
+  Future<DocumentSnapshot> getDocument({
     required String collectionId,
     required String documentId,
   }) async {
@@ -33,7 +58,7 @@ class FirebaseFirestoreService {
     return querySnapshot;
   }
 
-   Future<void> updateDocument({
+  Future<void> updateDocument({
     required String collectionId,
     required String documentId,
     required Map<String, dynamic> data,
@@ -43,7 +68,7 @@ class FirebaseFirestoreService {
     await reference.doc(documentId).update(data);
   }
 
-   Future<void> deleteDocument({
+  Future<void> deleteDocument({
     required String collectionId,
     required String documentId,
   }) async {
@@ -52,7 +77,7 @@ class FirebaseFirestoreService {
     await reference.doc(documentId).delete();
   }
 
-   Future<void> addDocument({
+  Future<void> addDocument({
     required String collectionId,
     required Map<String, dynamic> data,
   }) async {
@@ -61,7 +86,7 @@ class FirebaseFirestoreService {
     await reference.add(data);
   }
 
-   Future<void> addDocumentUsingId({
+  Future<void> addDocumentUsingId({
     required String collectionId,
     required String documentId,
     required Map<String, dynamic> data,

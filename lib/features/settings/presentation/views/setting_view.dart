@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/settings/presentation/widgets/setting_view_body.dart';
@@ -17,9 +17,8 @@ class SettingsView extends StatelessWidget {
             title: CustomText(
               text: AppLocalizations.of(context)!.settings,
               fontFamily: AppFonts.kPacificoFont,
-              color: AppColors.kMainTextColor,
+              fontSize: 20.sp,
             ),
-            centerTitle: true,
           ),
           body: SettingsViewBody()),
     );

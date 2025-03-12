@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
 import 'package:mrjoo/features/student_data/presentation/views/student_view.dart';
@@ -18,15 +17,12 @@ class RegisterNow extends StatelessWidget {
       children: [
         CustomText(
           text: AppLocalizations.of(context)!.donot_have_account,
-          color: AppColors.kMainTextColor,
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
         CustomTextButton(
           text: AppLocalizations.of(context)!.register_now,
-          fontWeight: FontWeight.bold,
           onPressed: () {
-            context.goNamed(StudentView.routeName);
+            context.pushNamed(StudentView.routeName);
           },
         ),
       ],

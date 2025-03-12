@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mrjoo/features/course/domain/use_case/get_student_data_use_case.dart';
 import 'package:mrjoo/features/course/domain/use_case/get_teacher_data_use_case.dart';
 import 'package:mrjoo/features/student_data/data/model/student_model.dart';
-import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
+import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
 
 part 'course_cubit.freezed.dart';
 part 'course_state.dart';

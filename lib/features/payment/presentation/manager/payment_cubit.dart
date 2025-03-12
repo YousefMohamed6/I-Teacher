@@ -6,11 +6,11 @@ import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
 import 'package:mrjoo/features/payment/data/models/payment/redirection_urls.dart';
 import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
 import 'package:mrjoo/features/payment/domain/use_cases/add_student_use_case.dart';
-import 'package:mrjoo/features/payment/domain/use_cases/get_course_price_use_case.dart';
+import 'package:mrjoo/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
 import 'package:mrjoo/features/payment/domain/use_cases/save_success_payment.dart';
 import 'package:mrjoo/features/payment/domain/use_cases/send_payment_request.dart';
+import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
 import 'package:mrjoo/features/student_data/data/model/student_model.dart';
-import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 part 'payment_cubit.freezed.dart';

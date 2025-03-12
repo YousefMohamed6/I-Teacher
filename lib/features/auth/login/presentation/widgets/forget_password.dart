@@ -14,7 +14,6 @@ class ForgetPassword extends StatelessWidget {
       children: [
         CustomTextButton(
           text: AppLocalizations.of(context)!.forget_password,
-          fontWeight: FontWeight.bold,
           onPressed: () {
             context.pushNamed(RestPasswordView.routeName);
           },

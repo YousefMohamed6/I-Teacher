@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mrjoo/features/auth/login/data/repos/login_repo_impl.dart';
+import 'package:mrjoo/features/auth/login/di/login_service.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
 import 'package:mrjoo/features/auth/register/di/register_service.dart';
@@ -20,16 +22,20 @@ import 'package:mrjoo/features/payment/di/payment_service.dart';
 import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
+import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
 import 'package:mrjoo/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:mrjoo/features/profile/presentation/views/profile_view.dart';
 import 'package:mrjoo/features/settings/presentation/views/setting_view.dart';
 import 'package:mrjoo/features/splash/presentation/views/splash_view.dart';
 import 'package:mrjoo/features/student_data/data/model/student_model.dart';
-import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
 import 'package:mrjoo/features/student_data/di/student_service.dart';
 import 'package:mrjoo/features/student_data/domain/repos/i_student_repo.dart';
 import 'package:mrjoo/features/student_data/presentation/manager/student_cubit.dart';
 import 'package:mrjoo/features/student_data/presentation/views/student_view.dart';
+import 'package:mrjoo/features/teacher_profile/di/teacher_profile_service.dart';
+import 'package:mrjoo/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:mrjoo/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:mrjoo/features/teacher_profile/presentation/views/teacher_profile_view.dart';
 import 'package:mrjoo/features/terms_and_conditions/di/terms_and_conditions_service.dart';
 import 'package:mrjoo/features/terms_and_conditions/domain/repos/i_terms_and_conditions.dart';
 import 'package:mrjoo/features/terms_and_conditions/presentation/manager/terms_and_conditions_cubit.dart';
@@ -68,9 +74,13 @@ abstract class RouterManager {
         path: LoginView.routeName,
         name: LoginView.routeName,
         builder: (context, state) {
-          return BlocProvider(
-            create: (context) => LoginCubit(),
-            child: LoginView(),
+          LoginService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.I<LoginRepoImpl>(),
+            child: BlocProvider(
+              create: (context) => GetIt.I<LoginCubit>(),
+              child: LoginView(),
+            ),
           );
         },
       ),
@@ -167,6 +177,21 @@ abstract class RouterManager {
               create: (context) => GetIt.instance<TermsAndConditionsCubit>()
                 ..fetchTermsAndConditions(),
               child: TermsAndConditionsView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: TeacherProfileView.routeName,
+        name: TeacherProfileView.routeName,
+        builder: (context, state) {
+          TeacherProfileService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<ITeacherProfileRepo>(),
+            child: BlocProvider(
+              create: (context) =>
+                  GetIt.instance<TeacherProfileCubit>()..fetchTeacherData(),
+              child: TeacherProfileView(),
             ),
           );
         },

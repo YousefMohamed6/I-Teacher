@@ -4,8 +4,8 @@ import 'package:mrjoo/core/widgets/custom_form_field.dart';
 import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
 import 'package:mrjoo/mr_joo.dart';
 
-class EmailFormFeild extends StatelessWidget {
-  const EmailFormFeild({super.key});
+class EmailFormField extends StatelessWidget {
+  const EmailFormField({super.key});
 
   @override
   Widget build(BuildContext context) {

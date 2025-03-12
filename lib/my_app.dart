@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mrjoo/core/services/router_manager.dart';
-import 'package:mrjoo/core/services/theme_service.dart';
+import 'package:mrjoo/core/theme/theme_data/dark_theme.dart';
+import 'package:mrjoo/core/theme/theme_data/light_theme.dart';
 import 'package:mrjoo/features/settings/presentation/manager/setting_bloc.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
 
@@ -40,8 +41,7 @@ class CustomMaterialApp extends StatelessWidget {
           locale: Locale(bloc.local),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          themeMode: bloc.isDark ? ThemeMode.dark : ThemeMode.light,
-          theme: bloc.isDark ? ThemeService.dark() : ThemeService.light(),
+          theme: bloc.isDark ? darkTheme : lightTheme,
           routerConfig: RouterManager.routConfig,
         );
       },

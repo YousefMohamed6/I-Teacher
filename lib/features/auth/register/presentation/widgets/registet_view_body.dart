@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/exceptions/accept_terms.dart';
-import 'package:mrjoo/core/utils/helper/show_message.dart';
+import 'package:mrjoo/core/exceptions/accept_terms_exception.dart';
 import 'package:mrjoo/core/utils/constants/app_images.dart';
+import 'package:mrjoo/core/utils/helper/show_message.dart';
 import 'package:mrjoo/core/widgets/avatar.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
 import 'package:mrjoo/features/auth/register/presentation/widgets/accept_terms_row.dart';
-import 'package:mrjoo/features/auth/register/presentation/widgets/email_form_feild.dart';
-import 'package:mrjoo/features/auth/register/presentation/widgets/password_form_feild.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/email_form_field.dart';
+import 'package:mrjoo/features/auth/register/presentation/widgets/password_form_field.dart';
 import 'package:mrjoo/features/auth/register/presentation/widgets/register_button.dart';
 import 'package:mrjoo/features/course/presentation/views/course_view.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
@@ -48,7 +48,7 @@ class RegisterViewBody extends StatelessWidget {
                   SizedBox(height: 32.h),
                   Avatar(imagePath: AppImages.kAvaterLogo),
                   SizedBox(height: 32.h),
-                  EmailFormFeild(),
+                  EmailFormField(),
                   SizedBox(height: 16.h),
                   PasswordFormField(),
                   SizedBox(height: 16.h),

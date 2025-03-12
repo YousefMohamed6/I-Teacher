@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
@@ -16,14 +15,12 @@ class CourseView extends StatelessWidget {
     return Scaffold(
       drawer: const CustomDrawer(),
       appBar: AppBar(
-        centerTitle: true,
-        title:  CustomText(
+        title: CustomText(
           text: AppLocalizations.of(context)!.course,
           fontSize: 24,
           fontFamily: AppFonts.kPacificoFont,
           color: Colors.white,
         ),
-        backgroundColor: AppColors.kAppBarColor,
         actions: [
           IconButton(
             onPressed: () {

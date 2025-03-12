@@ -4,7 +4,8 @@ import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
 import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
 import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
-import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
+import 'package:mrjoo/features/profile/data/model/account_model.dart';
+import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
 
 class PaymentRepoImpl implements IPaymentRepo {
   final FawaterkService fawaterkService;
@@ -26,10 +27,24 @@ class PaymentRepoImpl implements IPaymentRepo {
 
   @override
   Future<TeacherModel> getTeacherData({required String teacherId}) async {
-    final response = await firebaseFirestoreService.getDocument(
+    final response = await firebaseFirestoreService.getCollection(
       collectionId: TeacherKeys.kTeachersCollection,
-      documentId: teacherId,
     );
-    return TeacherModel.fromJson(response.data() as Map<String, dynamic>);
+    List<TeacherModel> teachers = response
+        .map((e) => TeacherModel.fromJson(e.data() as Map<String, dynamic>))
+        .toList();
+    final teacher =
+        teachers.firstWhere((element) => element.teacherId == teacherId);
+    final accounts = await firebaseFirestoreService.getSubCollection(
+      collectionId: TeacherKeys.kTeachersCollection,
+      documentId: teacher.email,
+      subCollectionId: AccountsKeys.kAccountsCollection,
+    );
+    List<AccountModel> accountsList = accounts
+        .map((account) =>
+            AccountModel.fromJson(account.data() as Map<String, dynamic>))
+        .toList();
+    teacher.accounts = accountsList;
+    return teacher;
   }
 }

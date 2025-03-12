@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/utils/constants/keys.dart';
 import 'package:mrjoo/core/widgets/app_drawer.dart';
@@ -15,14 +14,11 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
-        centerTitle: true,
         title: const CustomText(
           text: AppKeys.kAppName,
           fontSize: 24,
           fontFamily: AppFonts.kPacificoFont,
-          color: AppColors.kMainTextColor,
         ),
-        backgroundColor: AppColors.kAppBarColor,
       ),
       body: ListView(
         padding: EdgeInsets.zero,

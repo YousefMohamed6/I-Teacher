@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
@@ -15,14 +14,12 @@ class RestPasswordView extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
-        centerTitle: true,
         title: CustomText(
           text: AppLocalizations.of(context)!.rest_password,
           fontSize: 20.sp,
           fontFamily: AppFonts.kPacificoFont,
           color: Colors.white,
         ),
-        backgroundColor: AppColors.kAppBarColor,
       ),
       body: ForgetPasswodBody(),
     );

@@ -1,12 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mrjoo/core/enums/user_role.dart';
+import 'package:mrjoo/core/models/user_model.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/payment/data/models/payment/customer_model.dart';
 
-class StudentModel {
+class StudentModel implements UserModel {
+  @override
   final String firstName;
+  @override
   final String lastName;
+  @override
   final String email;
+  @override
   final String phone;
+  @override
+  final UserRole userRole = UserRole.student;
   final String address;
   final DateTime expiryDate;
   final DateTime subscriptionDate;
@@ -43,7 +51,7 @@ class StudentModel {
       StudentKeys.kPhoneField: phone,
       StudentKeys.kStudentAddress: address,
       StudentKeys.kExpiryDate: expiryDate,
-      StudentKeys.kSubscriptionDate: expiryDate,
+      StudentKeys.kSubscriptionDate: subscriptionDate,
       StudentKeys.kTeacherIdField: teacherId,
     };
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/custom_text_button.dart';
 
@@ -22,13 +22,11 @@ class ContactItem extends StatelessWidget {
       children: [
         CustomText(
           text: text,
-          color: AppColors.kMainTextColor,
-          fontSize: 16,
+          fontSize: 16.sp,
           fontWeight: FontWeight.bold,
         ),
         CustomTextButton(
           text: textButton,
-          fontWeight: FontWeight.bold,
           onPressed: onPressed,
         ),
       ],

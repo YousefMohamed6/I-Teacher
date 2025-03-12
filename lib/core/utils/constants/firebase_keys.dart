@@ -17,6 +17,14 @@ sealed class TeacherKeys {
   static const String kDescriptionField = 'description';
   static const String kCourseLinkField = "courseLink";
   static const String kCoursePriceField = "coursePrice";
+  static const String kTeacherImageField = "image";
+}
+
+sealed class AccountsKeys {
+  static const String kAccountsCollection = "accounts";
+  static const String kIconField = "icon";
+  static const String kUrlField = "url";
+  static const String kNameField = "name";
 }
 
 sealed class ChatKeys {

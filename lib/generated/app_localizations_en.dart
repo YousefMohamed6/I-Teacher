@@ -164,4 +164,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get networkRequestFailed => 'Network Request Failed';
+
+  @override
+  String get student => 'student';
+
+  @override
+  String get teacherProfile => 'Teacher Profile';
+
+  @override
+  String get unfound_user => 'unFound User';
+
+  @override
+  String get course_link => 'Course Link';
+
+  @override
+  String get course_price => 'Course Price';
+
+  @override
+  String get course_description => 'Course Description';
+
+  @override
+  String get department => 'Department';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get copied => 'Copied';
+
+  @override
+  String get edit => 'Edit';
 }

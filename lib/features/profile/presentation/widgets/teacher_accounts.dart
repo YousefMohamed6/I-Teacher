@@ -1,37 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mrjoo/core/utils/constants/app_urls.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mrjoo/features/profile/data/model/account_model.dart';
 import 'package:mrjoo/features/profile/presentation/widgets/account_item.dart';
 
 class TeacherAccounts extends StatelessWidget {
-  const TeacherAccounts({super.key});
-
+  const TeacherAccounts({super.key, required this.accounts});
+  final List<AccountModel> accounts;
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        AccountItem(
-          icon: FontAwesomeIcons.facebook,
-          url: AppUrls.kFaceBookUrl,
-          iconColor: Color.fromRGBO(15, 81, 179, 1),
-        ),
-        AccountItem(
-          icon: FontAwesomeIcons.youtube,
-          url: AppUrls.kYoutubeUrl,
-          iconColor: Color.fromRGBO(198, 40, 40, 1),
-        ),
-        AccountItem(
-          icon: FontAwesomeIcons.linkedin,
-          url: AppUrls.kLinkedinUrl,
-          iconColor: Color.fromRGBO(6, 85, 204, 1),
-        ),
-        AccountItem(
-          icon: FontAwesomeIcons.github,
-          url: AppUrls.kGithubUrl,
-          iconColor: Colors.black,
-        ),
-      ],
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.1,
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: accounts.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.all(8.0.sw),
+            child: AccountItem(
+              account: accounts[index],
+            ),
+          );
+        },
+      ),
     );
   }
 }

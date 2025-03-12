@@ -164,4 +164,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get networkRequestFailed => 'فشل الاتصال بالانترنت';
+
+  @override
+  String get student => 'طالب';
+
+  @override
+  String get teacherProfile => 'تعديل بيانات المدرس';
+
+  @override
+  String get unfound_user => 'مستخدم غير موجود';
+
+  @override
+  String get course_link => 'رابط الدورة';
+
+  @override
+  String get course_price => 'سعر الدورة';
+
+  @override
+  String get course_description => 'وصف الدورة';
+
+  @override
+  String get department => 'التخصص';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get copied => 'تم النسخ';
+
+  @override
+  String get edit => 'تعديل';
 }

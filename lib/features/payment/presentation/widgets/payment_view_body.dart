@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/utils/helper/show_message.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/webview_body.dart';
@@ -12,7 +11,7 @@ import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:mrjoo/features/payment/presentation/widgets/payment_button.dart';
 import 'package:mrjoo/features/payment/presentation/widgets/payment_company_image.dart';
 import 'package:mrjoo/features/payment/presentation/widgets/teacher_item.dart';
-import 'package:mrjoo/features/student_data/data/model/teacher_model.dart';
+import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
 import 'package:mrjoo/generated/app_localizations.dart';
 
 class PaymentViewBody extends StatelessWidget {
@@ -44,9 +43,9 @@ class PaymentViewBody extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => SizedBox(),
-          loading: () => const Center(
+          loading: () => Center(
             child: CircularProgressIndicator(
-              color: AppColors.kPrimryColor,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           success: (paymentStatus) {

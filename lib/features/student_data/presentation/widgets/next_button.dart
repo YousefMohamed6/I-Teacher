@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mrjoo/core/utils/helper/show_message.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
@@ -33,10 +32,9 @@ class NextButton extends StatelessWidget {
             BlocProvider.of<StudentCubit>(context).checkTeacherId();
           }
         },
-        color: AppColors.kMainTextColor,
         child: CustomText(
           text: AppLocalizations.of(context)!.next,
-          color: AppColors.kPrimryColor,
+          color: Theme.of(context).primaryColor,
           fontWeight: FontWeight.bold,
         ),
       ),

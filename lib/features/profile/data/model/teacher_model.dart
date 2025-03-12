@@ -1,16 +1,26 @@
+import 'package:mrjoo/core/enums/user_role.dart';
+import 'package:mrjoo/core/models/user_model.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
+import 'package:mrjoo/features/profile/data/model/account_model.dart';
 
-class TeacherModel {
+class TeacherModel implements UserModel {
+  @override
   final String firstName;
+  @override
   final String lastName;
+  @override
   final String email;
+  @override
   final String phone;
+  @override
+  final UserRole userRole = UserRole.teacher;
   final String department;
   final String description;
-
   final String coursePrice;
   final String courseLink;
   final String teacherId;
+  String imageBase64;
+  List<AccountModel> accounts;
 
   TeacherModel({
     required this.firstName,
@@ -22,6 +32,8 @@ class TeacherModel {
     required this.description,
     required this.courseLink,
     required this.teacherId,
+    required this.accounts,
+    required this.imageBase64,
   });
   factory TeacherModel.fromJson(Map<String, dynamic> json) {
     return TeacherModel(
@@ -34,6 +46,11 @@ class TeacherModel {
       coursePrice: json[TeacherKeys.kCoursePriceField],
       courseLink: json[TeacherKeys.kCourseLinkField],
       teacherId: json[TeacherKeys.kTeacherIdField],
+      imageBase64: json[TeacherKeys.kTeacherImageField],
+      accounts: (json[AccountsKeys.kAccountsCollection] as List<dynamic>)
+          .map((account) =>
+              AccountModel.fromJson(account.data() as Map<String, dynamic>))
+          .toList(),
     );
   }
   Map<String, dynamic> toJson() {
@@ -46,6 +63,7 @@ class TeacherModel {
       TeacherKeys.kDescriptionField: description,
       TeacherKeys.kCoursePriceField: coursePrice,
       TeacherKeys.kCourseLinkField: courseLink,
+      TeacherKeys.kTeacherImageField: imageBase64,
       TeacherKeys.kTeacherIdField: teacherId,
     };
   }

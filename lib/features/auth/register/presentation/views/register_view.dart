@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
@@ -17,7 +16,6 @@ class RegisterView extends StatelessWidget {
     return Scaffold(
       drawer: const CustomDrawer(),
       appBar: AppBar(
-        centerTitle: true,
         title: CustomText(
           text: AppLocalizations.of(context)!.register,
           fontSize: 20.sp,
@@ -27,7 +25,6 @@ class RegisterView extends StatelessWidget {
         actions: const [
           SignWithGoogleButton(),
         ],
-        backgroundColor: AppColors.kAppBarColor,
       ),
       body: const RegisterViewBody(),
     );

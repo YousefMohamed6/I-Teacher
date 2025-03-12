@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
-import 'package:mrjoo/core/utils/constants/app_fonts.dart';
 import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/background.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
@@ -15,14 +13,9 @@ class StudentView extends StatelessWidget {
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
-        centerTitle: true,
         title: CustomText(
           text: AppLocalizations.of(context)!.student_data,
-          fontFamily: AppFonts.kPacificoFont,
-          fontSize: 24,
-          color: Colors.white,
         ),
-        backgroundColor: AppColors.kAppBarColor,
       ),
       body: const Background(
         child: StudentViewBody(),

@@ -18,8 +18,8 @@ class PasswordFormField extends StatelessWidget {
             cubit.changeObscureText();
           },
           icon: cubit.obscuretext
-              ? const Icon(Icons.visibility)
-              : const Icon(Icons.visibility_off),
+              ? const Icon(Icons.visibility_outlined)
+              : const Icon(Icons.visibility_off_outlined),
         ),
         prefixIcon: const Icon(Icons.security_outlined),
         lablelText: AppLocalizations.of(context)!.password,

@@ -5,7 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 
 class ShowMessage {
-  static void show(context, {required msg}) {
+  static void show(context, {required String msg}) {
     Platform.isAndroid || Platform.isIOS
         ? ShowMessage._toast(msg: msg)
         : ShowMessage._snackBar(context, msg: msg);

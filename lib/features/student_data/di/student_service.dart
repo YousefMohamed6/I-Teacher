@@ -22,7 +22,7 @@ class StudentService {
         sl(),
       ),
     );
-    sl.registerLazySingletonSafely<StudentCubit>(
+    sl.registerFactorySafely<StudentCubit>(
       () => StudentCubit(
         sl(),
       ),
