@@ -166,7 +166,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get networkRequestFailed => 'Network Request Failed';
 
   @override
-  String get student => 'student';
+  String get student => 'Student';
+
+  @override
+  String get teacher => 'Teacher';
 
   @override
   String get teacherProfile => 'Teacher Profile';

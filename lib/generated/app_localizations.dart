@@ -416,8 +416,14 @@ abstract class AppLocalizations {
   /// No description provided for @student.
   ///
   /// In en, this message translates to:
-  /// **'student'**
+  /// **'Student'**
   String get student;
+
+  /// No description provided for @teacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher'**
+  String get teacher;
 
   /// No description provided for @teacherProfile.
   ///

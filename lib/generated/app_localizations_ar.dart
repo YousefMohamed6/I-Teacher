@@ -169,6 +169,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get student => 'طالب';
 
   @override
+  String get teacher => 'مدرس';
+
+  @override
   String get teacherProfile => 'تعديل بيانات المدرس';
 
   @override

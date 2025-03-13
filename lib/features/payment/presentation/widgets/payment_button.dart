@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
-import 'package:mrjoo/mr_joo.dart';
+import 'package:mrjoo/l10n.dart';
 
 class PaymentButton extends StatelessWidget {
   const PaymentButton({super.key});

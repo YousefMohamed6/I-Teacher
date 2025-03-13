@@ -21,7 +21,10 @@ class TeacherItem extends StatelessWidget {
           padding: EdgeInsets.all(16.h),
           child: Column(
             children: [
-              CustomBase64Image(base64: teacherModel.imageBase64),
+              CustomBase64Image(
+                base64: teacherModel.imageBase64,
+                radius: 80.r,
+              ),
               ListTile(
                 title: CustomText(
                     text: '${teacherModel.firstName} ${teacherModel.lastName}'),

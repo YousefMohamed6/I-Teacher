@@ -53,6 +53,7 @@
   "somethingWentWrong": "حدث خطأ ما",
   "networkRequestFailed": "فشل الاتصال بالانترنت",
   "student": "طالب",
+  "teacher": "مدرس",
   "teacherProfile": "تعديل بيانات المدرس",
   "unfound_user": "مستخدم غير موجود",
   "course_link": "رابط الدورة",

@@ -4,7 +4,7 @@ import 'package:mrjoo/core/utils/helper/show_message.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/core/widgets/webview_body.dart';
 import 'package:mrjoo/features/course/presentation/manager/course_cubit.dart';
-import 'package:mrjoo/mr_joo.dart';
+import 'package:mrjoo/l10n.dart';
 
 class CourseViewBody extends StatelessWidget {
   const CourseViewBody({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/terms_and_conditions/presentation/widgets/terms_and_conditions_body.dart';
-import 'package:mrjoo/mr_joo.dart';
+import 'package:mrjoo/l10n.dart';
 
 class TermsAndConditionsView extends StatelessWidget {
   const TermsAndConditionsView({super.key});

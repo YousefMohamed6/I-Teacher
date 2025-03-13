@@ -5,7 +5,7 @@ import 'package:mrjoo/core/widgets/app_drawer.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/register/presentation/widgets/registet_view_body.dart';
 import 'package:mrjoo/features/auth/register/presentation/widgets/sigin_with_google_button.dart';
-import 'package:mrjoo/mr_joo.dart';
+import 'package:mrjoo/l10n.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});

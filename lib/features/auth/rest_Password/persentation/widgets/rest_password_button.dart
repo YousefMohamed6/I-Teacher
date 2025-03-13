@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mrjoo/core/widgets/custom_button.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
-import 'package:mrjoo/mr_joo.dart';
+import 'package:mrjoo/l10n.dart';
 
 class RestPasswordButtom extends StatelessWidget {
   const RestPasswordButtom({super.key});
