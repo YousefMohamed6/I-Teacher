@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/utils/constants/app_images.dart';
-import 'package:mrjoo/core/widgets/avatar.dart';
+import 'package:mrjoo/core/widgets/base64_image.dart';
 import 'package:mrjoo/core/widgets/custom_text.dart';
 import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
 import 'package:mrjoo/features/profile/presentation/views/profile_view.dart';
@@ -17,15 +16,12 @@ class TeacherItem extends StatelessWidget {
         context.pushNamed(ProfileView.routeName, extra: teacherModel);
       },
       child: Card(
-        margin: EdgeInsets.all(16.w),
+        margin: EdgeInsets.all(16.h),
         child: Padding(
-          padding: EdgeInsets.all(10.h),
+          padding: EdgeInsets.all(16.h),
           child: Column(
             children: [
-              Avatar(
-                imagePath: AppImages.kProfileLogo,
-                radius: 48.r,
-              ),
+              CustomBase64Image(base64: teacherModel.imageBase64),
               ListTile(
                 title: CustomText(
                     text: '${teacherModel.firstName} ${teacherModel.lastName}'),

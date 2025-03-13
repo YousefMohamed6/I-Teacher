@@ -61,5 +61,10 @@
   "department": "Department",
   "save": "Save",
   "copied": "Copied",
-  "edit": "Edit"
+  "edit": "Edit",
+  "add": "Add",
+  "social_account":"Social Media Account",
+  "account_name": "Account Name",
+  "account_link": "Account Link",
+  "account_icon": "Account Icon"
 }

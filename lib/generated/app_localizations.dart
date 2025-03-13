@@ -472,6 +472,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edit'**
   String get edit;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @social_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Social Media Account'**
+  String get social_account;
+
+  /// No description provided for @account_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Name'**
+  String get account_name;
+
+  /// No description provided for @account_link.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Link'**
+  String get account_link;
+
+  /// No description provided for @account_icon.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Icon'**
+  String get account_icon;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

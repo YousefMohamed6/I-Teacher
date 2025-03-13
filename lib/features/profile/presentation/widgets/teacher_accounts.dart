@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mrjoo/features/profile/data/model/account_model.dart';
+import 'package:mrjoo/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:mrjoo/features/profile/presentation/widgets/account_item.dart';
 
 class TeacherAccounts extends StatelessWidget {
-  const TeacherAccounts({super.key, required this.accounts});
-  final List<AccountModel> accounts;
+  const TeacherAccounts({super.key});
   @override
   Widget build(BuildContext context) {
+    final List<AccountModel> accounts =
+        context.read<ProfileCubit>().teacherModel.accounts;
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.1,
+      height: MediaQuery.of(context).size.height * 0.25,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
@@ -17,7 +20,7 @@ class TeacherAccounts extends StatelessWidget {
         itemCount: accounts.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: EdgeInsets.all(8.0.sw),
+            padding: EdgeInsets.all(16.h),
             child: AccountItem(
               account: accounts[index],
             ),

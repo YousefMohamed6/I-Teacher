@@ -194,4 +194,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get edit => 'تعديل';
+
+  @override
+  String get add => 'اضافة';
+
+  @override
+  String get social_account => 'حساب التواصل الاجتماعي';
+
+  @override
+  String get account_name => 'اسم الحساب';
+
+  @override
+  String get account_link => 'رابط الحساب';
+
+  @override
+  String get account_icon => 'ايقونة الحساب';
 }

@@ -68,6 +68,22 @@ class FirebaseFirestoreService {
     await reference.doc(documentId).update(data);
   }
 
+  Future<void> updateSubCollectionDocument({
+    required String collectionId,
+    required String subCollectionId,
+    required String documentId,
+    required String subDocumentId,
+    required Map<String, dynamic> data,
+  }) async {
+    final CollectionReference reference =
+        FirebaseFirestore.instance.collection(collectionId);
+    await reference
+        .doc(documentId)
+        .collection(subCollectionId)
+        .doc(subDocumentId)
+        .update(data);
+  }
+
   Future<void> deleteDocument({
     required String collectionId,
     required String documentId,
@@ -75,6 +91,21 @@ class FirebaseFirestoreService {
     final CollectionReference reference =
         FirebaseFirestore.instance.collection(collectionId);
     await reference.doc(documentId).delete();
+  }
+
+  Future<void> deleteSubCollectionDocument({
+    required String collectionId,
+    required String documentId,
+    required String subDocumentId,
+    required String subCollectionId,
+  }) async {
+    final CollectionReference reference =
+        FirebaseFirestore.instance.collection(collectionId);
+    await reference
+        .doc(documentId)
+        .collection(subCollectionId)
+        .doc(subDocumentId)
+        .delete();
   }
 
   Future<void> addDocument({
@@ -94,5 +125,21 @@ class FirebaseFirestoreService {
     final CollectionReference reference =
         FirebaseFirestore.instance.collection(collectionId);
     await reference.doc(documentId).set(data);
+  }
+
+  Future<void> addSubDocumentUsingId({
+    required String collectionId,
+    required String subCollectionId,
+    required String documentId,
+    required String subDocumentId,
+    required Map<String, dynamic> data,
+  }) async {
+    final CollectionReference reference =
+        FirebaseFirestore.instance.collection(collectionId);
+    await reference
+        .doc(documentId)
+        .collection(subCollectionId)
+        .doc(subDocumentId)
+        .set(data);
   }
 }

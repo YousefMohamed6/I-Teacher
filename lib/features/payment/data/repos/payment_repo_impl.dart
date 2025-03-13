@@ -30,9 +30,11 @@ class PaymentRepoImpl implements IPaymentRepo {
     final response = await firebaseFirestoreService.getCollection(
       collectionId: TeacherKeys.kTeachersCollection,
     );
-    List<TeacherModel> teachers = response
-        .map((e) => TeacherModel.fromJson(e.data() as Map<String, dynamic>))
-        .toList();
+    List<TeacherModel> teachers = response.map((e) {
+      var json = e.data() as Map<String, dynamic>;
+      json.addAll({AccountsKeys.kAccountsCollection: []});
+      return TeacherModel.fromJson(json);
+    }).toList();
     final teacher =
         teachers.firstWhere((element) => element.teacherId == teacherId);
     final accounts = await firebaseFirestoreService.getSubCollection(

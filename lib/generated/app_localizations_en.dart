@@ -194,4 +194,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get edit => 'Edit';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get social_account => 'Social Media Account';
+
+  @override
+  String get account_name => 'Account Name';
+
+  @override
+  String get account_link => 'Account Link';
+
+  @override
+  String get account_icon => 'Account Icon';
 }

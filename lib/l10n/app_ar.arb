@@ -61,5 +61,10 @@
   "department": "التخصص",
   "save": "حفظ",
   "copied": "تم النسخ",
-  "edit": "تعديل"
+  "edit": "تعديل",
+  "add": "اضافة",
+  "social_account":"حساب التواصل الاجتماعي",
+  "account_name": "اسم الحساب",
+  "account_link": "رابط الحساب",
+  "account_icon": "ايقونة الحساب"
 }

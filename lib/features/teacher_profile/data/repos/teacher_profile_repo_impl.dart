@@ -1,6 +1,7 @@
 import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/services/image_picker_service.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
+import 'package:mrjoo/features/profile/data/model/account_model.dart';
 import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
 import 'package:mrjoo/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
 
@@ -40,5 +41,44 @@ class TeacherProfileRepoImpl implements ITeacherProfileRepo {
   @override
   Future<String> pickTeacherImage() async {
     return await _imagePickerService.pickImageAsBase64FromGallery();
+  }
+
+  @override
+  Future<void> addAccount(
+      {required AccountModel account, required String email}) async {
+    return _firebaseFirestoreService.addSubDocumentUsingId(
+      collectionId: TeacherKeys.kTeachersCollection,
+      subCollectionId: AccountsKeys.kAccountsCollection,
+      documentId: email,
+      subDocumentId: account.name,
+      data: account.toJson(),
+    );
+  }
+
+  @override
+  Future<void> editAccount({
+    required AccountModel account,
+    required String email,
+  }) async {
+    await _firebaseFirestoreService.updateSubCollectionDocument(
+      collectionId: TeacherKeys.kTeachersCollection,
+      subCollectionId: AccountsKeys.kAccountsCollection,
+      documentId: email,
+      subDocumentId: account.name,
+      data: account.toJson(),
+    );
+  }
+
+  @override
+  Future<void> deleteAccount({
+    required AccountModel account,
+    required String email,
+  }) async {
+    await _firebaseFirestoreService.deleteSubCollectionDocument(
+      collectionId: TeacherKeys.kTeachersCollection,
+      subCollectionId: AccountsKeys.kAccountsCollection,
+      documentId: email,
+      subDocumentId: account.name,
+    );
   }
 }

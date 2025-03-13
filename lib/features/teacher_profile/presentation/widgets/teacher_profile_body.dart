@@ -17,7 +17,8 @@ class TeacherProfileBody extends StatelessWidget {
     return Background(
       child: BlocConsumer<TeacherProfileCubit, TeacherProfileState>(
         buildWhen: (previous, current) =>
-            current is UpdateUI<TeacherModel> || current is Loading,
+            current is UpdateUI<TeacherModel> ||
+            current is Loading<TeacherModel>,
         listener: (context, state) {
           if (state is Success<TeacherModel>) {
             ShowMessage.show(context,

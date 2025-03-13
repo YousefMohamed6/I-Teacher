@@ -20,59 +20,59 @@ class PaymentViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<PaymentCubit>();
-    return BlocConsumer<PaymentCubit, PaymentState>(
-      listener: (context, state) {
-        if (state is Success<bool> && state.data) {
-          context.pushReplacementNamed(
-            RegisterView.routeName,
-            extra: cubit.studentModel,
-          );
-        } else if (state is Failure<bool>) {
-          ShowMessage.show(context, msg: AppLocalizations.of(context)!.fail);
-        } else if (state is Failure) {
-          ShowMessage.show(context, msg: state.message);
-        }
-      },
-      buildWhen: (previous, current) =>
-          current is Loading<PaymentStatus> ||
-          current is Success<PaymentStatus> ||
-          current is Failure<PaymentStatus> ||
-          current is Loading<TeacherModel> ||
-          current is Success<TeacherModel> ||
-          current is Failure<TeacherModel>,
-      builder: (context, state) {
-        return state.when(
-          initial: () => SizedBox(),
-          loading: () => Center(
-            child: CircularProgressIndicator(
-              color: Theme.of(context).primaryColor,
+    return Background(
+      child: BlocConsumer<PaymentCubit, PaymentState>(
+        listener: (context, state) {
+          if (state is Success<bool> && state.data) {
+            context.pushReplacementNamed(
+              RegisterView.routeName,
+              extra: cubit.studentModel,
+            );
+          } else if (state is Failure<bool>) {
+            ShowMessage.show(context, msg: AppLocalizations.of(context)!.fail);
+          } else if (state is Failure) {
+            ShowMessage.show(context, msg: state.message);
+          }
+        },
+        buildWhen: (previous, current) =>
+            current is Loading<PaymentStatus> ||
+            current is Success<PaymentStatus> ||
+            current is Failure<PaymentStatus> ||
+            current is Loading<TeacherModel> ||
+            current is Success<TeacherModel> ||
+            current is Failure<TeacherModel>,
+        builder: (context, state) {
+          return state.when(
+            initial: () => SizedBox(),
+            loading: () => Center(
+              child: CircularProgressIndicator(
+                color: Theme.of(context).primaryColor,
+              ),
             ),
-          ),
-          success: (paymentStatus) {
-            if (paymentStatus is PaymentStatus) {
-              return WebViewBody(
-                url: paymentStatus.data!.url!,
-                onUrlChange: cubit.checkPayment,
-              );
-            }
-            return Background(
-              child: Column(
+            success: (paymentStatus) {
+              if (paymentStatus is PaymentStatus) {
+                return WebViewBody(
+                  url: paymentStatus.data!.url!,
+                  onUrlChange: cubit.checkPayment,
+                );
+              }
+              return Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   PaymentCompanyImage(),
                   TeacherItem(teacherModel: cubit.teacherModel),
                   PaymentButton(),
                 ],
+              );
+            },
+            failure: (errorMessage) => Center(
+              child: CustomText(
+                text: errorMessage,
               ),
-            );
-          },
-          failure: (errorMessage) => Center(
-            child: CustomText(
-              text: errorMessage,
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

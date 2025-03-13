@@ -4,6 +4,9 @@ import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/services/image_picker_service.dart';
 import 'package:mrjoo/features/teacher_profile/data/repos/teacher_profile_repo_impl.dart';
 import 'package:mrjoo/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:mrjoo/features/teacher_profile/domin/use_cases/add_account_use_case.dart';
+import 'package:mrjoo/features/teacher_profile/domin/use_cases/delete_account_use_case.dart';
+import 'package:mrjoo/features/teacher_profile/domin/use_cases/edit_account_data_use_case.dart';
 import 'package:mrjoo/features/teacher_profile/domin/use_cases/get_teacher_data_use_case.dart';
 import 'package:mrjoo/features/teacher_profile/domin/use_cases/get_user_email_use_case.dart';
 import 'package:mrjoo/features/teacher_profile/domin/use_cases/pick_teacher_image.dart';
@@ -37,8 +40,20 @@ class TeacherProfileService {
     sl.registerLazySingletonSafely<PickTeacherImageUseCase>(
       () => PickTeacherImageUseCase(sl()),
     );
+    sl.registerLazySingletonSafely<AddAccountUseCase>(
+      () => AddAccountUseCase(sl()),
+    );
+    sl.registerLazySingletonSafely<EditAccountUseCase>(
+      () => EditAccountUseCase(sl()),
+    );
+    sl.registerLazySingletonSafely<DeleteAccountUseCase>(
+      () => DeleteAccountUseCase(sl()),
+    );
     sl.registerFactorySafely<TeacherProfileCubit>(
       () => TeacherProfileCubit(
+        sl(),
+        sl(),
+        sl(),
         sl(),
         sl(),
         sl(),
