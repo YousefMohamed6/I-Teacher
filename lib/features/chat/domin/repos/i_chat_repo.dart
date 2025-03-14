@@ -1,6 +1,6 @@
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:mrjoo/features/chat/data/models/message_model/message_model.dart';
 
 abstract class IChatRepo {
-  Future<List<types.Message>> getAllMessages();
-  Future<void> sendMessage(types.Message message);
+  Future<List<MessageModel>> getAllMessages();
+  Future<void> sendMessage(MessageModel message);
 }

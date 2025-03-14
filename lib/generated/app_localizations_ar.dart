@@ -212,4 +212,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get account_icon => 'ايقونة الحساب';
+
+  @override
+  String get file => 'ملف';
+
+  @override
+  String get photo => 'صورة';
+
+  @override
+  String get cancel => 'الغاء';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get confirm => 'تاكيد';
+
+  @override
+  String get sure => 'هل انت متاكد؟';
+
+  @override
+  String get yes => 'نعم';
+
+  @override
+  String get no => 'لا';
+
+  @override
+  String get file_picker_error => 'خطاء في اختيار الملف';
+
+  @override
+  String get file_picker_premission_error => 'ليس لديك صلاحية للقيام بذلك';
+
+  @override
+  String get no_internet => 'No Internet Connection';
+
+  @override
+  String get message => 'رسالة';
 }

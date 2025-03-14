@@ -182,7 +182,7 @@ abstract class AppLocalizations {
   /// No description provided for @forget_password.
   ///
   /// In en, this message translates to:
-  /// **'Forget Your Password?'**
+  /// **'Forgetten Password?'**
   String get forget_password;
 
   /// No description provided for @enter_password.
@@ -508,6 +508,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Account Icon'**
   String get account_icon;
+
+  /// No description provided for @file.
+  ///
+  /// In en, this message translates to:
+  /// **'File'**
+  String get file;
+
+  /// No description provided for @photo.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get photo;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'delete'**
+  String get delete;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'confirm'**
+  String get confirm;
+
+  /// No description provided for @sure.
+  ///
+  /// In en, this message translates to:
+  /// **'are you sure'**
+  String get sure;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'no'**
+  String get no;
+
+  /// No description provided for @file_picker_error.
+  ///
+  /// In en, this message translates to:
+  /// **'File Picker Error'**
+  String get file_picker_error;
+
+  /// No description provided for @file_picker_premission_error.
+  ///
+  /// In en, this message translates to:
+  /// **'File Picker Premission Error'**
+  String get file_picker_premission_error;
+
+  /// No description provided for @no_internet.
+  ///
+  /// In en, this message translates to:
+  /// **'No Internet Connection'**
+  String get no_internet;
+
+  /// No description provided for @message.
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get message;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

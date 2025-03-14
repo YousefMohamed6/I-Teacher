@@ -9,8 +9,8 @@ class TermsAndConditionsRepoImpl implements ITermsAndConditionsRepo {
   @override
   Future<TermsAndConditionsModel> fetchTermsAndConditions() async {
     final response = await firebaseFirestoreService.getDocument(
-      collectionId: DashBoardKeys.kDashboardCollection,
-      documentId: DashBoardKeys.kDashboardCollection,
+      collectionId: DashboardKeys.kDashboardCollection,
+      documentId: DashboardKeys.kDashboardCollection,
     );
     return TermsAndConditionsModel.fromJson(
         response.data() as Map<String, dynamic>);

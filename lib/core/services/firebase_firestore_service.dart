@@ -47,6 +47,20 @@ class FirebaseFirestoreService {
     }
   }
 
+  void listenToCollection({
+    required Function(List<QueryDocumentSnapshot>) onChange,
+    required String collectionId,
+    required String orderByField,
+    bool descending = false,
+  }) {
+    final CollectionReference reference =
+        FirebaseFirestore.instance.collection(collectionId);
+    reference
+        .orderBy(orderByField, descending: descending)
+        .snapshots()
+        .listen((event) => onChange(event.docs));
+  }
+
   Future<DocumentSnapshot> getDocument({
     required String collectionId,
     required String documentId,

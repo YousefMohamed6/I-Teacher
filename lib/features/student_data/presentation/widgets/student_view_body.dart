@@ -7,6 +7,7 @@ import 'package:mrjoo/features/student_data/presentation/widgets/email_text_fiel
 import 'package:mrjoo/features/student_data/presentation/widgets/full_name_text_field.dart';
 import 'package:mrjoo/features/student_data/presentation/widgets/next_button.dart';
 import 'package:mrjoo/features/student_data/presentation/widgets/phone_text_field.dart';
+import 'package:mrjoo/features/student_data/presentation/widgets/student_image.dart';
 import 'package:mrjoo/features/student_data/presentation/widgets/teacher_id_text_field.dart';
 
 class StudentViewBody extends StatelessWidget {
@@ -19,14 +20,15 @@ class StudentViewBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 8.h,
           children: [
+            StudentImage(),
+            SizedBox(height: 24.h),
             FullNameTextField(),
             EmailTextField(),
             PhoneTextField(),
             AddressTextField(),
             TeacherIdTextField(),
-            SizedBox(height: 16.h),
+            SizedBox(height: 24.h),
             NextButton(),
           ],
         ),

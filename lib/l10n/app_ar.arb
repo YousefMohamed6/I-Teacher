@@ -64,8 +64,20 @@
   "copied": "تم النسخ",
   "edit": "تعديل",
   "add": "اضافة",
-  "social_account":"حساب التواصل الاجتماعي",
+  "social_account": "حساب التواصل الاجتماعي",
   "account_name": "اسم الحساب",
   "account_link": "رابط الحساب",
-  "account_icon": "ايقونة الحساب"
+  "account_icon": "ايقونة الحساب",
+  "file": "ملف",
+  "photo": "صورة",
+  "cancel": "الغاء",
+  "delete": "حذف",
+  "confirm": "تاكيد",
+  "sure": "هل انت متاكد؟",
+  "yes": "نعم",
+  "no": "لا",
+  "file_picker_error": "خطاء في اختيار الملف",
+  "file_picker_premission_error": "ليس لديك صلاحية للقيام بذلك",
+  "no_internet_connection": "لا يوجد اتصال بالانترنت",
+  "message": "رسالة"
 }

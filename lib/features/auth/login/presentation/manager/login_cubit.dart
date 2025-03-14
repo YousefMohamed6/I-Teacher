@@ -6,7 +6,7 @@ import 'package:mrjoo/core/enums/user_role.dart';
 import 'package:mrjoo/core/exceptions/unfound_user.dart';
 import 'package:mrjoo/core/models/user_model.dart';
 import 'package:mrjoo/features/auth/login/domain/use_cases/get_use_data_use_case.dart';
-import 'package:mrjoo/features/auth/login/domain/use_cases/save_user_role_use_case%20copy.dart';
+import 'package:mrjoo/features/auth/login/domain/use_cases/save_user_email_use_case.dart';
 import 'package:mrjoo/features/auth/login/domain/use_cases/save_user_role_use_case.dart';
 
 part 'login_cubit.freezed.dart';

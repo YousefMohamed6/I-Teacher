@@ -1,8 +1,9 @@
 import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/course/domain/repos/I_course_repo.dart';
-import 'package:mrjoo/features/student_data/data/model/student_model.dart';
+import 'package:mrjoo/features/profile/data/model/account_model.dart';
 import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
+import 'package:mrjoo/features/student_data/data/model/student_model.dart';
 
 class CourseRepoImpl implements ICourseRepo {
   final FirebaseFirestoreService firebaseFirestoreService;
@@ -20,10 +21,26 @@ class CourseRepoImpl implements ICourseRepo {
 
   @override
   Future<TeacherModel> getTeacherData({required String teacherId}) async {
-    final response = await firebaseFirestoreService.getDocument(
+    final response = await firebaseFirestoreService.getCollection(
       collectionId: TeacherKeys.kTeachersCollection,
-      documentId: teacherId,
     );
-    return TeacherModel.fromJson(response.data() as Map<String, dynamic>);
+    List<TeacherModel> teachers = response.map((e) {
+      var json = e.data() as Map<String, dynamic>;
+      json.addAll({AccountsKeys.kAccountsCollection: []});
+      return TeacherModel.fromJson(json);
+    }).toList();
+    final teacher =
+        teachers.firstWhere((element) => element.teacherId == teacherId);
+    final accounts = await firebaseFirestoreService.getSubCollection(
+      collectionId: TeacherKeys.kTeachersCollection,
+      documentId: teacher.email,
+      subCollectionId: AccountsKeys.kAccountsCollection,
+    );
+    List<AccountModel> accountsList = accounts
+        .map((account) =>
+            AccountModel.fromJson(account.data() as Map<String, dynamic>))
+        .toList();
+    teacher.accounts = accountsList;
+    return teacher;
   }
 }

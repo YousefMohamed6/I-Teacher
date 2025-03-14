@@ -19,6 +19,7 @@ class TeacherModel implements UserModel {
   final String coursePrice;
   final String courseLink;
   final String teacherId;
+  @override
   String imageBase64;
   List<AccountModel> accounts;
 
@@ -35,6 +36,7 @@ class TeacherModel implements UserModel {
     required this.accounts,
     required this.imageBase64,
   });
+  @override
   factory TeacherModel.fromJson(Map<String, dynamic> json) {
     return TeacherModel(
       firstName: json[TeacherKeys.kfirstNameField],
@@ -53,6 +55,8 @@ class TeacherModel implements UserModel {
           .toList(),
     );
   }
+
+  @override
   Map<String, dynamic> toJson() {
     return {
       TeacherKeys.kfirstNameField: firstName,

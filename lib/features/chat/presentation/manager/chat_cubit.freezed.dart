@@ -15,13 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ChatState {
+mixin _$ChatState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<types.Message> messages) success,
+    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function() updateUI,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +30,8 @@ mixin _$ChatState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<types.Message> messages)? success,
+    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function()? updateUI,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,46 +39,51 @@ mixin _$ChatState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<types.Message> messages)? success,
+    TResult Function(List<MessageModel> messages)? success,
+    TResult Function()? updateUI,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Failure<T> value) failure,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(UpdateUI<T> value) updateUI,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(UpdateUI<T> value)? updateUI,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Success<T> value)? success,
+    TResult Function(UpdateUI<T> value)? updateUI,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChatStateCopyWith<$Res> {
-  factory $ChatStateCopyWith(ChatState value, $Res Function(ChatState) then) =
-      _$ChatStateCopyWithImpl<$Res, ChatState>;
+abstract class $ChatStateCopyWith<T, $Res> {
+  factory $ChatStateCopyWith(
+          ChatState<T> value, $Res Function(ChatState<T>) then) =
+      _$ChatStateCopyWithImpl<T, $Res, ChatState<T>>;
 }
 
 /// @nodoc
-class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
-    implements $ChatStateCopyWith<$Res> {
+class _$ChatStateCopyWithImpl<T, $Res, $Val extends ChatState<T>>
+    implements $ChatStateCopyWith<T, $Res> {
   _$ChatStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -89,18 +96,18 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<T, $Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
+      __$$InitialImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
+class __$$InitialImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of ChatState
@@ -109,18 +116,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements Initial {
+class _$InitialImpl<T> implements Initial<T> {
   const _$InitialImpl();
 
   @override
   String toString() {
-    return 'ChatState.initial()';
+    return 'ChatState<$T>.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
   }
 
   @override
@@ -132,7 +139,8 @@ class _$InitialImpl implements Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<types.Message> messages) success,
+    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function() updateUI,
   }) {
     return initial();
   }
@@ -143,7 +151,8 @@ class _$InitialImpl implements Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<types.Message> messages)? success,
+    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function()? updateUI,
   }) {
     return initial?.call();
   }
@@ -154,7 +163,8 @@ class _$InitialImpl implements Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<types.Message> messages)? success,
+    TResult Function(List<MessageModel> messages)? success,
+    TResult Function()? updateUI,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -166,10 +176,11 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Failure<T> value) failure,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(UpdateUI<T> value) updateUI,
   }) {
     return initial(this);
   }
@@ -177,10 +188,11 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(UpdateUI<T> value)? updateUI,
   }) {
     return initial?.call(this);
   }
@@ -188,10 +200,11 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Success<T> value)? success,
+    TResult Function(UpdateUI<T> value)? updateUI,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,23 +214,23 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements ChatState {
-  const factory Initial() = _$InitialImpl;
+abstract class Initial<T> implements ChatState<T> {
+  const factory Initial() = _$InitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
+abstract class _$$LoadingImplCopyWith<T, $Res> {
   factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+          _$LoadingImpl<T> value, $Res Function(_$LoadingImpl<T>) then) =
+      __$$LoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
+class __$$LoadingImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
+    implements _$$LoadingImplCopyWith<T, $Res> {
   __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of ChatState
@@ -226,18 +239,18 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements Loading {
+class _$LoadingImpl<T> implements Loading<T> {
   const _$LoadingImpl();
 
   @override
   String toString() {
-    return 'ChatState.loading()';
+    return 'ChatState<$T>.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl<T>);
   }
 
   @override
@@ -249,7 +262,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<types.Message> messages) success,
+    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function() updateUI,
   }) {
     return loading();
   }
@@ -260,7 +274,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<types.Message> messages)? success,
+    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function()? updateUI,
   }) {
     return loading?.call();
   }
@@ -271,7 +286,8 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<types.Message> messages)? success,
+    TResult Function(List<MessageModel> messages)? success,
+    TResult Function()? updateUI,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -283,10 +299,11 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Failure<T> value) failure,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(UpdateUI<T> value) updateUI,
   }) {
     return loading(this);
   }
@@ -294,10 +311,11 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(UpdateUI<T> value)? updateUI,
   }) {
     return loading?.call(this);
   }
@@ -305,10 +323,11 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Success<T> value)? success,
+    TResult Function(UpdateUI<T> value)? updateUI,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -318,25 +337,25 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements ChatState {
-  const factory Loading() = _$LoadingImpl;
+abstract class Loading<T> implements ChatState<T> {
+  const factory Loading() = _$LoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<$Res> {
+abstract class _$$FailureImplCopyWith<T, $Res> {
   factory _$$FailureImplCopyWith(
-          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+          _$FailureImpl<T> value, $Res Function(_$FailureImpl<T>) then) =
+      __$$FailureImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$FailureImpl>
-    implements _$$FailureImplCopyWith<$Res> {
+class __$$FailureImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$FailureImpl<T>>
+    implements _$$FailureImplCopyWith<T, $Res> {
   __$$FailureImplCopyWithImpl(
-      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
+      _$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of ChatState
@@ -346,7 +365,7 @@ class __$$FailureImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$FailureImpl(
+    return _then(_$FailureImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -357,7 +376,7 @@ class __$$FailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FailureImpl implements Failure {
+class _$FailureImpl<T> implements Failure<T> {
   const _$FailureImpl(this.message);
 
   @override
@@ -365,14 +384,14 @@ class _$FailureImpl implements Failure {
 
   @override
   String toString() {
-    return 'ChatState.failure(message: $message)';
+    return 'ChatState<$T>.failure(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FailureImpl &&
+            other is _$FailureImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -384,8 +403,8 @@ class _$FailureImpl implements Failure {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
-      __$$FailureImplCopyWithImpl<_$FailureImpl>(this, _$identity);
+  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
+      __$$FailureImplCopyWithImpl<T, _$FailureImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -393,7 +412,8 @@ class _$FailureImpl implements Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<types.Message> messages) success,
+    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function() updateUI,
   }) {
     return failure(message);
   }
@@ -404,7 +424,8 @@ class _$FailureImpl implements Failure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<types.Message> messages)? success,
+    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function()? updateUI,
   }) {
     return failure?.call(message);
   }
@@ -415,7 +436,8 @@ class _$FailureImpl implements Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<types.Message> messages)? success,
+    TResult Function(List<MessageModel> messages)? success,
+    TResult Function()? updateUI,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -427,10 +449,11 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Failure<T> value) failure,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(UpdateUI<T> value) updateUI,
   }) {
     return failure(this);
   }
@@ -438,10 +461,11 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(UpdateUI<T> value)? updateUI,
   }) {
     return failure?.call(this);
   }
@@ -449,10 +473,11 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Success<T> value)? success,
+    TResult Function(UpdateUI<T> value)? updateUI,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -462,33 +487,33 @@ class _$FailureImpl implements Failure {
   }
 }
 
-abstract class Failure implements ChatState {
-  const factory Failure(final String message) = _$FailureImpl;
+abstract class Failure<T> implements ChatState<T> {
+  const factory Failure(final String message) = _$FailureImpl<T>;
 
   String get message;
 
   /// Create a copy of ChatState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+  _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
+abstract class _$$SuccessImplCopyWith<T, $Res> {
   factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+          _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
+      __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({List<types.Message> messages});
+  $Res call({List<MessageModel> messages});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
+class __$$SuccessImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
+    implements _$$SuccessImplCopyWith<T, $Res> {
   __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+      _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
       : super(_value, _then);
 
   /// Create a copy of ChatState
@@ -498,24 +523,24 @@ class __$$SuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? messages = null,
   }) {
-    return _then(_$SuccessImpl(
+    return _then(_$SuccessImpl<T>(
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<types.Message>,
+              as List<MessageModel>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SuccessImpl implements Success {
-  const _$SuccessImpl({required final List<types.Message> messages})
+class _$SuccessImpl<T> implements Success<T> {
+  const _$SuccessImpl({required final List<MessageModel> messages})
       : _messages = messages;
 
-  final List<types.Message> _messages;
+  final List<MessageModel> _messages;
   @override
-  List<types.Message> get messages {
+  List<MessageModel> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
@@ -523,14 +548,14 @@ class _$SuccessImpl implements Success {
 
   @override
   String toString() {
-    return 'ChatState.success(messages: $messages)';
+    return 'ChatState<$T>.success(messages: $messages)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
+            other is _$SuccessImpl<T> &&
             const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
@@ -543,8 +568,8 @@ class _$SuccessImpl implements Success {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
+      __$$SuccessImplCopyWithImpl<T, _$SuccessImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -552,7 +577,8 @@ class _$SuccessImpl implements Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<types.Message> messages) success,
+    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function() updateUI,
   }) {
     return success(messages);
   }
@@ -563,7 +589,8 @@ class _$SuccessImpl implements Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<types.Message> messages)? success,
+    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function()? updateUI,
   }) {
     return success?.call(messages);
   }
@@ -574,7 +601,8 @@ class _$SuccessImpl implements Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<types.Message> messages)? success,
+    TResult Function(List<MessageModel> messages)? success,
+    TResult Function()? updateUI,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -586,10 +614,11 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Failure<T> value) failure,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(UpdateUI<T> value) updateUI,
   }) {
     return success(this);
   }
@@ -597,10 +626,11 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(UpdateUI<T> value)? updateUI,
   }) {
     return success?.call(this);
   }
@@ -608,10 +638,11 @@ class _$SuccessImpl implements Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Success<T> value)? success,
+    TResult Function(UpdateUI<T> value)? updateUI,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -621,15 +652,138 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements ChatState {
-  const factory Success({required final List<types.Message> messages}) =
-      _$SuccessImpl;
+abstract class Success<T> implements ChatState<T> {
+  const factory Success({required final List<MessageModel> messages}) =
+      _$SuccessImpl<T>;
 
-  List<types.Message> get messages;
+  List<MessageModel> get messages;
 
   /// Create a copy of ChatState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+  _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateUIImplCopyWith<T, $Res> {
+  factory _$$UpdateUIImplCopyWith(
+          _$UpdateUIImpl<T> value, $Res Function(_$UpdateUIImpl<T>) then) =
+      __$$UpdateUIImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$UpdateUIImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$UpdateUIImpl<T>>
+    implements _$$UpdateUIImplCopyWith<T, $Res> {
+  __$$UpdateUIImplCopyWithImpl(
+      _$UpdateUIImpl<T> _value, $Res Function(_$UpdateUIImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UpdateUIImpl<T> implements UpdateUI<T> {
+  const _$UpdateUIImpl();
+
+  @override
+  String toString() {
+    return 'ChatState<$T>.updateUI()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UpdateUIImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(String message) failure,
+    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function() updateUI,
+  }) {
+    return updateUI();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(String message)? failure,
+    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function()? updateUI,
+  }) {
+    return updateUI?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(String message)? failure,
+    TResult Function(List<MessageModel> messages)? success,
+    TResult Function()? updateUI,
+    required TResult orElse(),
+  }) {
+    if (updateUI != null) {
+      return updateUI();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Failure<T> value) failure,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(UpdateUI<T> value) updateUI,
+  }) {
+    return updateUI(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Failure<T> value)? failure,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(UpdateUI<T> value)? updateUI,
+  }) {
+    return updateUI?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Failure<T> value)? failure,
+    TResult Function(Success<T> value)? success,
+    TResult Function(UpdateUI<T> value)? updateUI,
+    required TResult orElse(),
+  }) {
+    if (updateUI != null) {
+      return updateUI(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateUI<T> implements ChatState<T> {
+  const factory UpdateUI() = _$UpdateUIImpl<T>;
 }

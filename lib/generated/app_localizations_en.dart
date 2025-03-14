@@ -49,7 +49,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
-  String get forget_password => 'Forget Your Password?';
+  String get forget_password => 'Forgetten Password?';
 
   @override
   String get enter_password => 'Enter Your Password';
@@ -212,4 +212,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get account_icon => 'Account Icon';
+
+  @override
+  String get file => 'File';
+
+  @override
+  String get photo => 'Photo';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'delete';
+
+  @override
+  String get confirm => 'confirm';
+
+  @override
+  String get sure => 'are you sure';
+
+  @override
+  String get yes => 'yes';
+
+  @override
+  String get no => 'no';
+
+  @override
+  String get file_picker_error => 'File Picker Error';
+
+  @override
+  String get file_picker_premission_error => 'File Picker Premission Error';
+
+  @override
+  String get no_internet => 'No Internet Connection';
+
+  @override
+  String get message => 'Message';
 }

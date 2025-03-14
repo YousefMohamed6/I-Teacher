@@ -129,12 +129,14 @@ abstract class RouterManager {
         path: ChatView.routeName,
         name: ChatView.routeName,
         builder: (context, state) {
+          final student = state.extra as StudentModel;
           ChatService().initDi();
           return RepositoryProvider(
             create: (context) => GetIt.instance<IChatRepo>(),
             child: BlocProvider(
-              create: (context) =>
-                  GetIt.instance<ChatCubit>()..fetchFirebaseMessages(),
+              create: (context) => GetIt.instance<ChatCubit>()
+                ..user = student
+                ..listenToMessages(),
               child: ChatView(),
             ),
           );

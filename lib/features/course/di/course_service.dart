@@ -25,7 +25,7 @@ class CourseService {
     sl.registerLazySingletonSafely<GetTeacherDataUseCase>(
       () => GetTeacherDataUseCase(sl()),
     );
-    sl.registerLazySingletonSafely<CourseCubit>(
+    sl.registerFactorySafely<CourseCubit>(
       () => CourseCubit(sl(), sl()),
     );
   }

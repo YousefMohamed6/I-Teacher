@@ -14,6 +14,8 @@ class StudentModel implements UserModel {
   @override
   final String phone;
   @override
+  final String imageBase64;
+  @override
   final UserRole userRole = UserRole.student;
   final String address;
   final DateTime expiryDate;
@@ -26,6 +28,7 @@ class StudentModel implements UserModel {
     required this.email,
     required this.phone,
     required this.address,
+    required this.imageBase64,
     required this.expiryDate,
     required this.subscriptionDate,
     required this.teacherId,
@@ -41,8 +44,11 @@ class StudentModel implements UserModel {
       subscriptionDate:
           (json[StudentKeys.kSubscriptionDate] as Timestamp).toDate(),
       teacherId: json[StudentKeys.kTeacherIdField],
+      imageBase64: json[StudentKeys.kStudentImageField],
     );
   }
+
+  @override
   Map<String, dynamic> toJson() {
     return {
       StudentKeys.kfirstNameField: firstName,
@@ -50,9 +56,11 @@ class StudentModel implements UserModel {
       StudentKeys.kEmailField: email,
       StudentKeys.kPhoneField: phone,
       StudentKeys.kStudentAddress: address,
+      StudentKeys.kStudentImageField: imageBase64,
       StudentKeys.kExpiryDate: expiryDate,
       StudentKeys.kSubscriptionDate: subscriptionDate,
       StudentKeys.kTeacherIdField: teacherId,
+      StudentKeys.kStudentRoleField: userRole.name,
     };
   }
 
