@@ -64,7 +64,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get required_field => 'This Field Is Required';
 
   @override
-  String get first_name => 'first Name';
+  String get first_name => 'First Name';
 
   @override
   String get last_name => 'Last Name';
@@ -88,7 +88,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_teacher_id => 'Enter Teacher Identifier';
 
   @override
-  String get unfound_id => 'unFound Identifier';
+  String get unfound_id => 'unfound Identifier';
 
   @override
   String get student_data => 'Student Data';
@@ -248,4 +248,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get message => 'Message';
+
+  @override
+  String get chatbot => 'ChatBot';
+
+  @override
+  String get write_message => 'Write your message here';
 }

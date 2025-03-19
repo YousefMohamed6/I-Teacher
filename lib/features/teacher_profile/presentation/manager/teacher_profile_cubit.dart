@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mrjoo/core/exceptions/pick_image_exception.dart';
 import 'package:mrjoo/features/profile/data/model/account_model.dart';
@@ -11,6 +11,7 @@ import 'package:mrjoo/features/teacher_profile/domin/use_cases/get_teacher_data_
 import 'package:mrjoo/features/teacher_profile/domin/use_cases/get_user_email_use_case.dart';
 import 'package:mrjoo/features/teacher_profile/domin/use_cases/pick_teacher_image.dart';
 import 'package:mrjoo/features/teacher_profile/domin/use_cases/save_teache_data_use_case.dart';
+import 'package:mrjoo/features/teacher_profile/presentation/views/social_media_account_view.dart';
 
 part 'teacher_profile_cubit.freezed.dart';
 part 'teacher_profile_state.dart';
@@ -43,6 +44,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
   final departmentTextController = TextEditingController();
   final descriptionTextController = TextEditingController();
   late TeacherModel teacher;
+  Set<AccountModel> accounts = {};
   TeacherModel get newTeacher => TeacherModel(
         firstName: firstNameTextController.text,
         lastName: lastNameTextController.text,
@@ -90,28 +92,50 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
     teacherIdTextController.text = teacher.teacherId;
   }
 
-  Future<void> pickTeacherImage() async {
+  void navigateToEditAccountView({
+    required AccountModel account,
+    required BuildContext context,
+  }) async {
+    updateAccount(account: account);
+    await showModalBottomSheet(
+      context: context,
+      useSafeArea: true,
+      isScrollControlled: true,
+      builder: (_) => BlocProvider.value(
+        value: this,
+        child: SocialMediaAccountView(),
+      ),
+    );
+  }
+
+  void updateAccount({
+    required AccountModel account,
+  }) {
+    accountIconTextController.text = account.icon;
+    accountNameTextController.text = account.name;
+    accountUrlTextController.text = account.url;
+  }
+
+  Future<String> pickImage() async {
     try {
-      emit(TeacherProfileState.initial());
-      final image = await _pickTeacherImage.execute();
-      teacher.imageBase64 = image;
-      emit(TeacherProfileState<TeacherModel>.updateUI());
+      return await _pickTeacherImage.execute();
     } catch (e) {
       emit(
           TeacherProfileState<PickGalleryImageException>.failure(e.toString()));
+      return '';
     }
   }
 
+  Future<void> pickTeacherImage() async {
+    emit(TeacherProfileState.initial());
+    teacher.imageBase64 = await pickImage();
+    emit(TeacherProfileState<TeacherModel>.updateUI());
+  }
+
   Future<void> pickAccountImage() async {
-    try {
-      emit(TeacherProfileState.initial());
-      final image = await _pickTeacherImage.execute();
-      accountIconTextController.text = image;
-      emit(TeacherProfileState<TeacherModel>.updateUI());
-    } catch (e) {
-      emit(
-          TeacherProfileState<PickGalleryImageException>.failure(e.toString()));
-    }
+    emit(TeacherProfileState.initial());
+    accountIconTextController.text = await pickImage();
+    emit(TeacherProfileState<TeacherModel>.updateUI());
   }
 
   Future<void> saveData() async {
@@ -136,6 +160,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
           email: teacher.email,
         );
         emit(TeacherProfileState<AccountModel>.success(newAccount));
+        await fetchTeacherData();
       }
     } catch (e) {
       emit(TeacherProfileState.failure(e.toString()));
@@ -163,6 +188,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
         email: teacher.email,
       );
       clearData();
+      await fetchTeacherData();
       emit(TeacherProfileState<AccountModel>.success(newAccount));
     } catch (e) {
       emit(TeacherProfileState.failure(e.toString()));
@@ -170,9 +196,11 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
   }
 
   void clearData() {
+    emit(TeacherProfileState.initial());
     accountIconTextController.clear();
     accountNameTextController.clear();
     accountUrlTextController.clear();
+    emit(TeacherProfileState.updateUI());
   }
 
   @override

@@ -21,7 +21,7 @@ class TeacherModel implements UserModel {
   final String teacherId;
   @override
   String imageBase64;
-  List<AccountModel> accounts;
+  Set<AccountModel> accounts;
 
   TeacherModel({
     required this.firstName,
@@ -52,7 +52,7 @@ class TeacherModel implements UserModel {
       accounts: (json[AccountsKeys.kAccountsCollection] as List<dynamic>)
           .map((account) =>
               AccountModel.fromJson(account.data() as Map<String, dynamic>))
-          .toList(),
+          .toSet(),
     );
   }
 

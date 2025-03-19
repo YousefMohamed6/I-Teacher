@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
-import 'package:mrjoo/core/services/file_service.dart';
+import 'package:mrjoo/core/services/file_manager_service.dart';
 
 class DownloadFilesUseCase {
-  final FileService _fileService;
+  final FileManagerService _fileService;
 
   DownloadFilesUseCase(this._fileService);
   Future<void> execute({

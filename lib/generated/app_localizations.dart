@@ -212,7 +212,7 @@ abstract class AppLocalizations {
   /// No description provided for @first_name.
   ///
   /// In en, this message translates to:
-  /// **'first Name'**
+  /// **'First Name'**
   String get first_name;
 
   /// No description provided for @last_name.
@@ -260,7 +260,7 @@ abstract class AppLocalizations {
   /// No description provided for @unfound_id.
   ///
   /// In en, this message translates to:
-  /// **'unFound Identifier'**
+  /// **'unfound Identifier'**
   String get unfound_id;
 
   /// No description provided for @student_data.
@@ -580,6 +580,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Message'**
   String get message;
+
+  /// No description provided for @chatbot.
+  ///
+  /// In en, this message translates to:
+  /// **'ChatBot'**
+  String get chatbot;
+
+  /// No description provided for @write_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your message here'**
+  String get write_message;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

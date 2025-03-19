@@ -10,6 +10,7 @@ import 'package:mrjoo/features/teacher_profile/presentation/widgets/edit_teacher
 import 'package:mrjoo/features/teacher_profile/presentation/widgets/first_name_text_field.dart';
 import 'package:mrjoo/features/teacher_profile/presentation/widgets/last_name_text_field.dart';
 import 'package:mrjoo/features/teacher_profile/presentation/widgets/phone_text_field.dart';
+import 'package:mrjoo/features/teacher_profile/presentation/widgets/teacher_accounts.dart';
 import 'package:mrjoo/features/teacher_profile/presentation/widgets/teacher_id_text_field.dart';
 
 class TeacherProfileForm extends StatelessWidget {
@@ -36,6 +37,8 @@ class TeacherProfileForm extends StatelessWidget {
           CoursePriceTextField(),
           DepartmentTextField(),
           DescriptionTextField(),
+          SizedBox(height: 8.h),
+          TeacherSocialMediaAccounts(),
         ],
       ),
     );

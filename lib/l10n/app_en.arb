@@ -18,7 +18,7 @@
   "register_now": "Register Now",
   "donot_have_account": "don't have any account?",
   "required_field": "This Field Is Required",
-  "first_name": "first Name",
+  "first_name": "First Name",
   "last_name": "Last Name",
   "address": "address",
   "enter_address": "Enter Your Address",
@@ -26,7 +26,7 @@
   "enter_phone": "Enter Your Phone",
   "teacher_id": "Teacher Identifier",
   "enter_teacher_id": "Enter Teacher Identifier",
-  "unfound_id": "unFound Identifier",
+  "unfound_id": "unfound Identifier",
   "student_data": "Student Data",
   "next": "Next",
   "rest_password": "Rest Password",
@@ -79,5 +79,7 @@
   "file_picker_error": "File Picker Error",
   "file_picker_premission_error": "File Picker Premission Error",
   "no_internet": "No Internet Connection",
-  "message": "Message"
+  "message": "Message",
+  "chatbot": "ChatBot",
+  "write_message": "Write your message here"
 }

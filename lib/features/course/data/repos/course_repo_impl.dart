@@ -36,10 +36,10 @@ class CourseRepoImpl implements ICourseRepo {
       documentId: teacher.email,
       subCollectionId: AccountsKeys.kAccountsCollection,
     );
-    List<AccountModel> accountsList = accounts
+    Set<AccountModel> accountsList = accounts
         .map((account) =>
             AccountModel.fromJson(account.data() as Map<String, dynamic>))
-        .toList();
+        .toSet();
     teacher.accounts = accountsList;
     return teacher;
   }

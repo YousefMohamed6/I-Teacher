@@ -78,6 +78,8 @@
   "no": "لا",
   "file_picker_error": "خطاء في اختيار الملف",
   "file_picker_premission_error": "ليس لديك صلاحية للقيام بذلك",
-  "no_internet_connection": "لا يوجد اتصال بالانترنت",
-  "message": "رسالة"
+  "no_internet": "لا يوجد اتصال بالانترنت",
+  "message": "رسالة",
+  "chatbot": "بوت الدردشة",
+  "write_message": "اكتب رسالتك هنا"
 }

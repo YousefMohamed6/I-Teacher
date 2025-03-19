@@ -7,5 +7,5 @@ abstract class ILoginRepo {
     required String email,
   });
   Future<void> saveUserRole({required UserRole userRole});
-   Future<void> saveUserEmail({required String email});
+  Future<void> saveUserEmail({required String email});
 }

@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:mrjoo/core/exceptions/pick_file_exception.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class FileService {
+class FileManagerService {
   Future<File> pickFile() async {
     final grantedPermission = await requestStoragePermission();
     if (grantedPermission) {

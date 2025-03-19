@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:mrjoo/core/extentions/getit_extension.dart';
 import 'package:mrjoo/core/services/audio_recorder_service.dart';
-import 'package:mrjoo/core/services/file_service.dart';
+import 'package:mrjoo/core/services/file_manager_service.dart';
 import 'package:mrjoo/core/services/firebase_firestore_service.dart';
 import 'package:mrjoo/core/services/image_picker_service.dart';
 import 'package:mrjoo/features/chat/data/repos/chat_repo_impl.dart';
@@ -21,8 +21,8 @@ class ChatService {
     sl.registerLazySingletonSafely<FirebaseFirestoreService>(
       () => FirebaseFirestoreService(),
     );
-    sl.registerLazySingletonSafely<FileService>(
-      () => FileService(),
+    sl.registerLazySingletonSafely<FileManagerService>(
+      () => FileManagerService(),
     );
     sl.registerLazySingletonSafely<ImagePickerService>(
       () => ImagePickerService(),

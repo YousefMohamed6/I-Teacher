@@ -12,7 +12,8 @@ abstract class ITeacherProfileRepo {
   Future<void> editAccount({
     required AccountModel account,
     required String email,
-  });Future<void> deleteAccount({
+  });
+  Future<void> deleteAccount({
     required AccountModel account,
     required String email,
   });

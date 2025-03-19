@@ -244,8 +244,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get file_picker_premission_error => 'ليس لديك صلاحية للقيام بذلك';
 
   @override
-  String get no_internet => 'No Internet Connection';
+  String get no_internet => 'لا يوجد اتصال بالانترنت';
 
   @override
   String get message => 'رسالة';
+
+  @override
+  String get chatbot => 'بوت الدردشة';
+
+  @override
+  String get write_message => 'اكتب رسالتك هنا';
 }

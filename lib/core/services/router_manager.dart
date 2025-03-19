@@ -14,6 +14,10 @@ import 'package:mrjoo/features/chat/di/chat_service.dart';
 import 'package:mrjoo/features/chat/domin/repos/i_chat_repo.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
+import 'package:mrjoo/features/chatbot/di/chatbot_service.dart';
+import 'package:mrjoo/features/chatbot/domin/repos/i_chatbot_repo.dart';
+import 'package:mrjoo/features/chatbot/presentation/manager/chatbot_cubit.dart';
+import 'package:mrjoo/features/chatbot/presentation/views/chatbot_view.dart';
 import 'package:mrjoo/features/course/di/course_service.dart';
 import 'package:mrjoo/features/course/domain/repos/I_course_repo.dart';
 import 'package:mrjoo/features/course/presentation/manager/course_cubit.dart';
@@ -194,6 +198,20 @@ abstract class RouterManager {
               create: (context) =>
                   GetIt.instance<TeacherProfileCubit>()..fetchTeacherData(),
               child: TeacherProfileView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: ChatbotView.routeName,
+        name: ChatbotView.routeName,
+        builder: (context, state) {
+          ChatbotService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IChatbotRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<ChatbotCubit>(),
+              child: ChatbotView(),
             ),
           );
         },
