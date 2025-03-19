@@ -7,7 +7,7 @@ class GeminiService {
   final _baseUrl =
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
   Future<Map<String, dynamic>> askGemini({required String question}) async {
-    final apiKey = 'AIzaSyCnAXaAQ0INOQexO2NUsnTcz-xRoENHYW8';
+    final apiKey = '';
     final headers = {'Content-Type': 'application/json'};
     final response = await _api.post(
       url: _baseUrl + apiKey,
