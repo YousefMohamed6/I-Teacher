@@ -7,6 +7,7 @@ import 'package:mrjoo/core/services/image_picker_service.dart';
 import 'package:mrjoo/features/chat/data/repos/chat_repo_impl.dart';
 import 'package:mrjoo/features/chat/domin/repos/i_chat_repo.dart';
 import 'package:mrjoo/features/chat/domin/use_cases/download_files_use_case.dart';
+import 'package:mrjoo/features/chat/domin/use_cases/get_all_teachers.dart';
 import 'package:mrjoo/features/chat/domin/use_cases/handle_audio_message_use_case.dart';
 import 'package:mrjoo/features/chat/domin/use_cases/handle_file_selection.dart';
 import 'package:mrjoo/features/chat/domin/use_cases/handle_image_selection.dart';
@@ -33,7 +34,10 @@ class ChatService {
     sl.registerLazySingletonSafely<IChatRepo>(
       () => ChatRepoImpl(sl()),
     );
-    sl.registerLazySingletonSafely<ListenToMessagesUseCase>(
+    sl.registerLazySingletonSafely<GetAllTeachersUseCase>(
+      () => GetAllTeachersUseCase(sl()),
+    );
+    sl.registerFactorySafely<ListenToMessagesUseCase>(
       () => ListenToMessagesUseCase(sl()),
     );
     sl.registerLazySingletonSafely<SendMessageUseCase>(
@@ -53,6 +57,7 @@ class ChatService {
     );
     sl.registerFactorySafely<ChatCubit>(
       () => ChatCubit(
+        sl(),
         sl(),
         sl(),
         sl(),

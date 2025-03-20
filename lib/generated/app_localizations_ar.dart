@@ -136,7 +136,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get course => 'الدورة';
 
   @override
-  String get chat_group => 'مجموعة الدردشة';
+  String get chats => 'المحادثات';
 
   @override
   String get chat => 'دردشة';
@@ -254,4 +254,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get write_message => 'اكتب رسالتك هنا';
+
+  @override
+  String get search => 'بحث';
 }

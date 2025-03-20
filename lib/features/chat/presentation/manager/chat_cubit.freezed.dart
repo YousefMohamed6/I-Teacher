@@ -21,7 +21,7 @@ mixin _$ChatState<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function(T data) success,
     required TResult Function() updateUI,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ mixin _$ChatState<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function(T data)? success,
     TResult? Function()? updateUI,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ mixin _$ChatState<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<MessageModel> messages)? success,
+    TResult Function(T data)? success,
     TResult Function()? updateUI,
     required TResult orElse(),
   }) =>
@@ -139,7 +139,7 @@ class _$InitialImpl<T> implements Initial<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function(T data) success,
     required TResult Function() updateUI,
   }) {
     return initial();
@@ -151,7 +151,7 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function(T data)? success,
     TResult? Function()? updateUI,
   }) {
     return initial?.call();
@@ -163,7 +163,7 @@ class _$InitialImpl<T> implements Initial<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<MessageModel> messages)? success,
+    TResult Function(T data)? success,
     TResult Function()? updateUI,
     required TResult orElse(),
   }) {
@@ -262,7 +262,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function(T data) success,
     required TResult Function() updateUI,
   }) {
     return loading();
@@ -274,7 +274,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function(T data)? success,
     TResult? Function()? updateUI,
   }) {
     return loading?.call();
@@ -286,7 +286,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<MessageModel> messages)? success,
+    TResult Function(T data)? success,
     TResult Function()? updateUI,
     required TResult orElse(),
   }) {
@@ -412,7 +412,7 @@ class _$FailureImpl<T> implements Failure<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function(T data) success,
     required TResult Function() updateUI,
   }) {
     return failure(message);
@@ -424,7 +424,7 @@ class _$FailureImpl<T> implements Failure<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function(T data)? success,
     TResult? Function()? updateUI,
   }) {
     return failure?.call(message);
@@ -436,7 +436,7 @@ class _$FailureImpl<T> implements Failure<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<MessageModel> messages)? success,
+    TResult Function(T data)? success,
     TResult Function()? updateUI,
     required TResult orElse(),
   }) {
@@ -505,7 +505,7 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
           _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({List<MessageModel> messages});
+  $Res call({T data});
 }
 
 /// @nodoc
@@ -521,13 +521,13 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? messages = null,
+    Object? data = freezed,
   }) {
     return _then(_$SuccessImpl<T>(
-      messages: null == messages
-          ? _value._messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<MessageModel>,
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
@@ -535,20 +535,14 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl({required final List<MessageModel> messages})
-      : _messages = messages;
+  const _$SuccessImpl(this.data);
 
-  final List<MessageModel> _messages;
   @override
-  List<MessageModel> get messages {
-    if (_messages is EqualUnmodifiableListView) return _messages;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_messages);
-  }
+  final T data;
 
   @override
   String toString() {
-    return 'ChatState<$T>.success(messages: $messages)';
+    return 'ChatState<$T>.success(data: $data)';
   }
 
   @override
@@ -556,12 +550,12 @@ class _$SuccessImpl<T> implements Success<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other._messages, _messages));
+            const DeepCollectionEquality().equals(other.data, data));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_messages));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
   /// Create a copy of ChatState
   /// with the given fields replaced by the non-null parameter values.
@@ -577,10 +571,10 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function(T data) success,
     required TResult Function() updateUI,
   }) {
-    return success(messages);
+    return success(data);
   }
 
   @override
@@ -589,10 +583,10 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function(T data)? success,
     TResult? Function()? updateUI,
   }) {
-    return success?.call(messages);
+    return success?.call(data);
   }
 
   @override
@@ -601,12 +595,12 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<MessageModel> messages)? success,
+    TResult Function(T data)? success,
     TResult Function()? updateUI,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(messages);
+      return success(data);
     }
     return orElse();
   }
@@ -653,10 +647,9 @@ class _$SuccessImpl<T> implements Success<T> {
 }
 
 abstract class Success<T> implements ChatState<T> {
-  const factory Success({required final List<MessageModel> messages}) =
-      _$SuccessImpl<T>;
+  const factory Success(final T data) = _$SuccessImpl<T>;
 
-  List<MessageModel> get messages;
+  T get data;
 
   /// Create a copy of ChatState
   /// with the given fields replaced by the non-null parameter values.
@@ -709,7 +702,7 @@ class _$UpdateUIImpl<T> implements UpdateUI<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) failure,
-    required TResult Function(List<MessageModel> messages) success,
+    required TResult Function(T data) success,
     required TResult Function() updateUI,
   }) {
     return updateUI();
@@ -721,7 +714,7 @@ class _$UpdateUIImpl<T> implements UpdateUI<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? failure,
-    TResult? Function(List<MessageModel> messages)? success,
+    TResult? Function(T data)? success,
     TResult? Function()? updateUI,
   }) {
     return updateUI?.call();
@@ -733,7 +726,7 @@ class _$UpdateUIImpl<T> implements UpdateUI<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? failure,
-    TResult Function(List<MessageModel> messages)? success,
+    TResult Function(T data)? success,
     TResult Function()? updateUI,
     required TResult orElse(),
   }) {

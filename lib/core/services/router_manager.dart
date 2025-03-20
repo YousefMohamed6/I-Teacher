@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/auth/login/data/repos/login_repo_impl.dart';
 import 'package:mrjoo/features/auth/login/di/login_service.dart';
 import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
@@ -14,6 +15,7 @@ import 'package:mrjoo/features/chat/di/chat_service.dart';
 import 'package:mrjoo/features/chat/domin/repos/i_chat_repo.dart';
 import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
+import 'package:mrjoo/features/chat/presentation/views/chats_view.dart';
 import 'package:mrjoo/features/chatbot/di/chatbot_service.dart';
 import 'package:mrjoo/features/chatbot/domin/repos/i_chatbot_repo.dart';
 import 'package:mrjoo/features/chatbot/presentation/manager/chatbot_cubit.dart';
@@ -45,7 +47,7 @@ import 'package:mrjoo/features/terms_and_conditions/domain/repos/i_terms_and_con
 import 'package:mrjoo/features/terms_and_conditions/presentation/manager/terms_and_conditions_cubit.dart';
 import 'package:mrjoo/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
 
-abstract class RouterManager {
+sealed class RouterManager {
   static GoRouter routConfig = GoRouter(
     initialLocation: SplashView.routeName,
     routes: [
@@ -134,14 +136,34 @@ abstract class RouterManager {
         name: ChatView.routeName,
         builder: (context, state) {
           final student = state.extra as StudentModel;
-          ChatService().initDi();
+          final String reciverId =
+              state.uri.queryParameters[ChatKeys.kReciverField] ?? '';
           return RepositoryProvider(
             create: (context) => GetIt.instance<IChatRepo>(),
             child: BlocProvider(
               create: (context) => GetIt.instance<ChatCubit>()
                 ..user = student
+                ..reciverId = reciverId
                 ..listenToMessages(),
               child: ChatView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: ChatsView.routeName,
+        name: ChatsView.routeName,
+        builder: (context, state) {
+          final student = state.extra as StudentModel;
+
+          ChatService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IChatRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<ChatCubit>()
+                ..getAllTeachers()
+                ..user = student,
+              child: ChatsView(),
             ),
           );
         },

@@ -353,11 +353,11 @@ abstract class AppLocalizations {
   /// **'Course'**
   String get course;
 
-  /// No description provided for @chat_group.
+  /// No description provided for @chats.
   ///
   /// In en, this message translates to:
-  /// **'Chat Group'**
-  String get chat_group;
+  /// **'Chats'**
+  String get chats;
 
   /// No description provided for @chat.
   ///
@@ -592,6 +592,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Write your message here'**
   String get write_message;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

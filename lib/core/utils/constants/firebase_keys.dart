@@ -34,6 +34,7 @@ sealed class ChatKeys {
   static const String kCreatedAtField = "createdAt";
   static const String kUesrIdField = 'userId';
   static const String kDisplayNameField = 'displayName';
+  static const String kReciverField = 'reciverId';
 }
 
 sealed class StudentKeys {

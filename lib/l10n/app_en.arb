@@ -42,7 +42,7 @@
   "invalid_email": "Invalid Email",
   "no_data": "No Data",
   "course": "Course",
-  "chat_group": "Chat Group",
+  "chats": "Chats",
   "chat": "Chat",
   "send": "Send",
   "userNotFound": "User Not Found",
@@ -81,5 +81,6 @@
   "no_internet": "No Internet Connection",
   "message": "Message",
   "chatbot": "ChatBot",
-  "write_message": "Write your message here"
+  "write_message": "Write your message here",
+  "search": "Search"
 }

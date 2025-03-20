@@ -30,4 +30,8 @@ class AudioRecorderService {
     isRecording = false;
     audioPath = null;
   }
+
+  Future<void> dispose() async {
+    await _audioRecorder.dispose();
+  }
 }

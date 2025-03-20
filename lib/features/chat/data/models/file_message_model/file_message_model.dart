@@ -1,4 +1,5 @@
 import 'package:mrjoo/core/models/user_model.dart';
+import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/chat/data/models/message_model/message_model.dart';
 
 class FileMessageModel implements MessageModel {
@@ -8,12 +9,15 @@ class FileMessageModel implements MessageModel {
   @override
   final String createdAt;
   final String fileName;
+  @override
+  final String reciverId;
 
   FileMessageModel({
     required this.fileBase64,
     required this.userModel,
     required this.createdAt,
     required this.fileName,
+    required this.reciverId,
   });
   @override
   factory FileMessageModel.fromJson(Map<String, dynamic> json) {
@@ -22,6 +26,7 @@ class FileMessageModel implements MessageModel {
       userModel: UserModel.fromJson(json['user']),
       createdAt: json['createdAt'],
       fileName: json['fileName'],
+      reciverId: json[ChatKeys.kReciverField],
     );
   }
 
@@ -32,6 +37,7 @@ class FileMessageModel implements MessageModel {
         'createdAt': createdAt,
         'type': type,
         'fileName': fileName,
+        ChatKeys.kReciverField: reciverId
       };
 
   @override

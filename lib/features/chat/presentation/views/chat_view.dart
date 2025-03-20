@@ -13,7 +13,7 @@ class ChatView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: CustomText(
-          text: AppLocalizations.of(context)!.chat_group,
+          text: AppLocalizations.of(context)!.chat,
           fontSize: 20.sp,
           fontFamily: AppFonts.kPacificoFont,
           color: Colors.white,

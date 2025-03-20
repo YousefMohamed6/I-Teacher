@@ -136,7 +136,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get course => 'Course';
 
   @override
-  String get chat_group => 'Chat Group';
+  String get chats => 'Chats';
 
   @override
   String get chat => 'Chat';
@@ -254,4 +254,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get write_message => 'Write your message here';
+
+  @override
+  String get search => 'Search';
 }

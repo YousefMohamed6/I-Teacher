@@ -1,4 +1,5 @@
 import 'package:mrjoo/core/models/user_model.dart';
+import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
 import 'package:mrjoo/features/chat/data/models/message_model/message_model.dart';
 
 class ImageMessageModel implements MessageModel {
@@ -7,11 +8,13 @@ class ImageMessageModel implements MessageModel {
   final UserModel userModel;
   @override
   final String createdAt;
-  ImageMessageModel({
-    required this.imageBase64,
-    required this.userModel,
-    required this.createdAt,
-  });
+  @override
+  final String reciverId;
+  ImageMessageModel(
+      {required this.imageBase64,
+      required this.userModel,
+      required this.createdAt,
+      required this.reciverId});
 
   @override
   factory ImageMessageModel.fromJson(Map<String, dynamic> json) {
@@ -19,6 +22,7 @@ class ImageMessageModel implements MessageModel {
       imageBase64: json['imageBase64'],
       userModel: UserModel.fromJson(json['user']),
       createdAt: json['createdAt'],
+      reciverId: json[ChatKeys.kReciverField],
     );
   }
 
@@ -28,7 +32,8 @@ class ImageMessageModel implements MessageModel {
       'imageBase64': imageBase64,
       'user': userModel.toJson(),
       'createdAt': createdAt,
-      'type': type
+      'type': type,
+      ChatKeys.kReciverField: reciverId
     };
   }
 

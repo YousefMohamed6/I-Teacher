@@ -6,12 +6,16 @@ class HandleImageSelectionUseCase {
   final ImagePickerService _imagePickerService;
 
   HandleImageSelectionUseCase(this._imagePickerService);
-  Future<ImageMessageModel> execute({required UserModel userModel}) async {
+  Future<ImageMessageModel> execute({
+    required UserModel userModel,
+    required String reciverId,
+  }) async {
     final image = await _imagePickerService.pickImageAsBase64FromGallery();
     final message = ImageMessageModel(
       userModel: userModel,
       imageBase64: image,
       createdAt: DateTime.now().toString(),
+      reciverId: reciverId,
     );
     return message;
   }
