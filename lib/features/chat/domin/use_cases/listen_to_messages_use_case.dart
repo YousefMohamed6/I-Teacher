@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mrjoo/core/services/firebase_firestore_service.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/core/services/firebase_firestore_service.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 
 class ListenToMessagesUseCase {
   final FirebaseFirestoreService _firebaseFirestoreService;

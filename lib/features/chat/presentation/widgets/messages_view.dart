@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:mrjoo/features/chat/presentation/widgets/messages/custom_message_widget.dart';
+import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:iteacher/features/chat/presentation/widgets/messages/custom_message_widget.dart';
 
 class MessagesView extends StatelessWidget {
   const MessagesView({super.key});

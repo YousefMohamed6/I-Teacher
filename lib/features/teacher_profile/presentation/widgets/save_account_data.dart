@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/widgets/custom_button.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/widgets/custom_button.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class SaveAccountDataButton extends StatelessWidget {
   const SaveAccountDataButton({super.key});

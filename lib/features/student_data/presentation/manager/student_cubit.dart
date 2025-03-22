@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/core/exceptions/pick_image_exception.dart';
-import 'package:mrjoo/features/student_data/data/model/student_model.dart';
-import 'package:mrjoo/features/student_data/domain/use_cases/get_teachers_ids_use_case.dart';
-import 'package:mrjoo/features/student_data/domain/use_cases/pick_student_image_use_case.dart';
+import 'package:iteacher/core/exceptions/pick_image_exception.dart';
+import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/student_data/domain/use_cases/get_teachers_ids_use_case.dart';
+import 'package:iteacher/features/student_data/domain/use_cases/pick_student_image_use_case.dart';
 
 part 'student_cubit.freezed.dart';
 part 'student_state.dart';

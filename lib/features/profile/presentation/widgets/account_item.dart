@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/widgets/base64_image.dart';
-import 'package:mrjoo/features/profile/data/model/account_model.dart';
+import 'package:iteacher/core/widgets/base64_image.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
 
 class AccountItem extends StatelessWidget {
   const AccountItem({

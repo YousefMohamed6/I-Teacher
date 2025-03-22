@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/utils/constants/app_fonts.dart';
-import 'package:mrjoo/core/utils/constants/keys.dart';
-import 'package:mrjoo/core/utils/helper/url_launcher.dart';
-import 'package:mrjoo/core/widgets/base64_image.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/profile/presentation/manager/profile_cubit.dart';
-import 'package:mrjoo/features/profile/presentation/widgets/contect_item.dart';
-import 'package:mrjoo/features/profile/presentation/widgets/teacher_accounts.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/utils/constants/keys.dart';
+import 'package:iteacher/core/utils/helper/url_launcher.dart';
+import 'package:iteacher/core/widgets/base64_image.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/profile/presentation/manager/profile_cubit.dart';
+import 'package:iteacher/features/profile/presentation/widgets/contect_item.dart';
+import 'package:iteacher/features/profile/presentation/widgets/teacher_accounts.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class TeacherData extends StatelessWidget {
   const TeacherData({

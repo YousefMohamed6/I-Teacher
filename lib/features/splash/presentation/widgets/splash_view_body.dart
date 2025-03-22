@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/core/services/sf_service.dart';
-import 'package:mrjoo/core/utils/constants/app_images.dart';
-import 'package:mrjoo/core/utils/constants/sf_keys.dart';
-import 'package:mrjoo/core/widgets/asset_image.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/course/presentation/views/course_view.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/views/teacher_profile_view.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/services/sf_service.dart';
+import 'package:iteacher/core/utils/constants/app_images.dart';
+import 'package:iteacher/core/utils/constants/sf_keys.dart';
+import 'package:iteacher/core/widgets/asset_image.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
+import 'package:iteacher/features/course/presentation/views/course_view.dart';
+import 'package:iteacher/features/teacher_profile/presentation/views/teacher_profile_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -63,7 +63,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         children: [
           Center(
             child: CustomAssetImage(
-              imagePath: AppImages.kSplashLogo,
+              imagePath: AppImages.kAppLogo,
             ),
           )
         ],

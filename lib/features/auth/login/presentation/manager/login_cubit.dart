@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/core/exceptions/unfound_user.dart';
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/features/auth/login/domain/use_cases/get_use_data_use_case.dart';
-import 'package:mrjoo/features/auth/login/domain/use_cases/save_user_email_use_case.dart';
-import 'package:mrjoo/features/auth/login/domain/use_cases/save_user_role_use_case.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/exceptions/unfound_user.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/features/auth/login/domain/use_cases/get_use_data_use_case.dart';
+import 'package:iteacher/features/auth/login/domain/use_cases/save_user_email_use_case.dart';
+import 'package:iteacher/features/auth/login/domain/use_cases/save_user_role_use_case.dart';
 
 part 'login_cubit.freezed.dart';
 part 'login_state.dart';

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/utils/helper/show_message.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/core/widgets/webview_body.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
-import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
-import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
-import 'package:mrjoo/features/payment/presentation/widgets/payment_button.dart';
-import 'package:mrjoo/features/payment/presentation/widgets/payment_company_image.dart';
-import 'package:mrjoo/features/payment/presentation/widgets/teacher_item.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/core/widgets/webview_body.dart';
+import 'package:iteacher/features/auth/register/presentation/views/register_view.dart';
+import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
+import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
+import 'package:iteacher/features/payment/presentation/widgets/payment_button.dart';
+import 'package:iteacher/features/payment/presentation/widgets/payment_company_image.dart';
+import 'package:iteacher/features/payment/presentation/widgets/teacher_item.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class PaymentViewBody extends StatelessWidget {
   const PaymentViewBody({super.key});

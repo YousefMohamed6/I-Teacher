@@ -1,4 +1,4 @@
-import 'package:mrjoo/features/chatbot/domin/repos/i_chatbot_repo.dart';
+import 'package:iteacher/features/chatbot/domin/repos/i_chatbot_repo.dart';
 
 class AskGeminiUseCase {
   final IChatbotRepo _chatbotRepo;

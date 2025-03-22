@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/widgets/app_drawer.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/student_data/presentation/widgets/student_view_body.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/student_data/presentation/widgets/student_view_body.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class StudentView extends StatelessWidget {
   const StudentView({super.key});
@@ -11,7 +10,6 @@ class StudentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
       appBar: AppBar(
         title: CustomText(
           text: AppLocalizations.of(context)!.student_data,

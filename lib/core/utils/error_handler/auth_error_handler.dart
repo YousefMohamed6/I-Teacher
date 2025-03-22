@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 sealed class AuthErrorHandler {
   static String getErrorMessage({

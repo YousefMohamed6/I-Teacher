@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_fonts.dart';
-import 'package:mrjoo/core/widgets/app_drawer.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/course/presentation/widgets/course_view_body.dart';
-import 'package:mrjoo/features/course/presentation/widgets/navigate_to_chat_button.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/widgets/app_drawer.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/course/presentation/widgets/course_view_body.dart';
+import 'package:iteacher/features/course/presentation/widgets/navigate_to_chat_button.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class CourseView extends StatelessWidget {
   const CourseView({super.key});

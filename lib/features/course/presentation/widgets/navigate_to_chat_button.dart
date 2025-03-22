@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/features/chat/presentation/views/chats_view.dart';
-import 'package:mrjoo/features/course/presentation/manager/course_cubit.dart';
+import 'package:iteacher/features/chat/presentation/views/chats_view.dart';
+import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
 
 class NavigateToChatButton extends StatelessWidget {
   const NavigateToChatButton({super.key});

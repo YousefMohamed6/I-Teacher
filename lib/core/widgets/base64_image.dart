@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/utils/constants/app_images.dart';
+import 'package:iteacher/core/utils/constants/app_images.dart';
 
 class CustomBase64Image extends StatelessWidget {
   const CustomBase64Image({

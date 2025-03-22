@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/services/router_manager.dart';
-import 'package:mrjoo/core/theme/theme_data/dark_theme.dart';
-import 'package:mrjoo/core/theme/theme_data/light_theme.dart';
-import 'package:mrjoo/features/settings/presentation/manager/setting_bloc.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/services/router_manager.dart';
+import 'package:iteacher/core/theme/theme_data/dark_theme.dart';
+import 'package:iteacher/core/theme/theme_data/light_theme.dart';
+import 'package:iteacher/features/settings/presentation/manager/setting_bloc.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp._();

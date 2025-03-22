@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/utils/error_handler/auth_error_handler.dart';
-import 'package:mrjoo/core/utils/helper/show_message.dart';
-import 'package:mrjoo/core/utils/constants/app_images.dart';
-import 'package:mrjoo/core/widgets/avatar.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
-import 'package:mrjoo/features/auth/rest_Password/persentation/widgets/email_form_feild.dart';
-import 'package:mrjoo/features/auth/rest_Password/persentation/widgets/rest_password_button.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/error_handler/auth_error_handler.dart';
+import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/constants/app_images.dart';
+import 'package:iteacher/core/widgets/avatar.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
+import 'package:iteacher/features/auth/rest_Password/persentation/widgets/email_form_feild.dart';
+import 'package:iteacher/features/auth/rest_Password/persentation/widgets/rest_password_button.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class ForgetPasswodBody extends StatelessWidget {
   const ForgetPasswodBody({super.key});
@@ -35,7 +35,7 @@ class ForgetPasswodBody extends StatelessWidget {
           child: ListView(
             children: [
               SizedBox(height: 84.h),
-              Avatar(imagePath: AppImages.kAvaterLogo),
+              Avatar(imagePath: AppImages.kAppLogo),
               SizedBox(height: 54.h),
               RestPasswordEmailFeild(),
               SizedBox(height: 32.h),

@@ -1,6 +1,6 @@
-import 'package:mrjoo/core/services/gemini_service.dart';
-import 'package:mrjoo/features/chatbot/data/model/gemini_model/gemini_model.dart';
-import 'package:mrjoo/features/chatbot/domin/repos/i_chatbot_repo.dart';
+import 'package:iteacher/core/services/gemini_service.dart';
+import 'package:iteacher/features/chatbot/data/model/gemini_model/gemini_model.dart';
+import 'package:iteacher/features/chatbot/domin/repos/i_chatbot_repo.dart';
 
 class ChatbotRepoImpl implements IChatbotRepo {
   final GeminiService geminiService;

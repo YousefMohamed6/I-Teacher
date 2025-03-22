@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/features/chatbot/presentation/manager/chatbot_cubit.dart';
-import 'package:mrjoo/features/chatbot/presentation/widgets/chatbot_text_field.dart';
-import 'package:mrjoo/features/chatbot/presentation/widgets/custom_chat_bubble.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/features/chatbot/presentation/manager/chatbot_cubit.dart';
+import 'package:iteacher/features/chatbot/presentation/widgets/chatbot_text_field.dart';
+import 'package:iteacher/features/chatbot/presentation/widgets/custom_chat_bubble.dart';
 
 class ChatbotBody extends StatelessWidget {
   const ChatbotBody({super.key});

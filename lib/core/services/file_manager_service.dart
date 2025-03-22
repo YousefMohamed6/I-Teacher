@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
-import 'package:mrjoo/core/exceptions/pick_file_exception.dart';
+import 'package:iteacher/core/exceptions/pick_file_exception.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class FileManagerService {

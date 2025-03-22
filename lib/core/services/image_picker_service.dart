@@ -3,8 +3,8 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:image_picker/image_picker.dart';
-import 'package:mrjoo/core/exceptions/convert_image_base_64_exception.dart';
-import 'package:mrjoo/core/exceptions/pick_image_exception.dart';
+import 'package:iteacher/core/exceptions/convert_image_base_64_exception.dart';
+import 'package:iteacher/core/exceptions/pick_image_exception.dart';
 
 class ImagePickerService {
   final ImagePicker _picker = ImagePicker();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/utils/helper/show_message.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:mrjoo/features/chat/presentation/widgets/custom_chat_view.dart';
+import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:iteacher/features/chat/presentation/widgets/custom_chat_view.dart';
 
 class ChatviewBody extends StatelessWidget {
   const ChatviewBody({super.key});

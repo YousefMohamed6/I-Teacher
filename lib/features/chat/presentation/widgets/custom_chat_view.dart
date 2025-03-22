@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/features/chat/presentation/widgets/chat_text_field.dart';
-import 'package:mrjoo/features/chat/presentation/widgets/messages_view.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/features/chat/presentation/widgets/chat_text_field.dart';
+import 'package:iteacher/features/chat/presentation/widgets/messages_view.dart';
 
 class CustomChatView extends StatelessWidget {
   const CustomChatView({super.key});

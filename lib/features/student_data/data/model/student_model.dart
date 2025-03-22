@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/features/payment/data/models/payment/customer_model.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/payment/data/models/payment/customer_model.dart';
 
 class StudentModel implements UserModel {
   @override

@@ -1,6 +1,6 @@
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/core/services/image_picker_service.dart';
-import 'package:mrjoo/features/chat/data/models/image_message_model/image_message_model.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/core/services/image_picker_service.dart';
+import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
 
 class HandleImageSelectionUseCase {
   final ImagePickerService _imagePickerService;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/theme/app_colors/light_mode_colors.dart';
-import 'package:mrjoo/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/theme/app_colors/light_mode_colors.dart';
+import 'package:iteacher/core/utils/constants/app_fonts.dart';
 
 ThemeData get lightTheme => ThemeData(
       brightness: Brightness.light,

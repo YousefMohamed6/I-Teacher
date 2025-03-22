@@ -7,53 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:483758448499:android:3bbc53439c3c7d4c3eaf06",
+        "mobilesdk_app_id": "1:483758448499:android:d146ca92a9abcdac3eaf06",
         "android_client_info": {
-          "package_name": "com.example.mr_joo"
+          "package_name": "com.eljoker.iteacher"
         }
       },
       "oauth_client": [
         {
-          "client_id": "483758448499-kd5h20kbr2riobi112seftt593vcrlab.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDmvJ4krGJxFKxn7O4dhNAtvhjjuPHKaAE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "483758448499-kd5h20kbr2riobi112seftt593vcrlab.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "483758448499-0div1bph7v0gu93cj00j33o1q74rp0so.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.mrjoo"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:483758448499:android:e8f98b0308e304b13eaf06",
-        "android_client_info": {
-          "package_name": "com.mrJoo.ITeacher"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "483758448499-2juaamtbcvdni1lp5b4lf4v8p6l2bh42.apps.googleusercontent.com",
+          "client_id": "483758448499-b6io0sm19movbu6gf1ne50negtvtfgsl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.mrJoo.ITeacher",
+            "package_name": "com.eljoker.iteacher",
             "certificate_hash": "b3d90b266a0e8ed9cc9b41fbdb63b933796013be"
           }
         },

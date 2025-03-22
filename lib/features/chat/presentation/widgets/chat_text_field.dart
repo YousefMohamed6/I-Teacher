@@ -1,8 +1,8 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:mrjoo/features/chat/presentation/widgets/record_audio_button.dart';
+import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:iteacher/features/chat/presentation/widgets/record_audio_button.dart';
 
 class CustomChatTextField extends StatelessWidget {
   const CustomChatTextField({super.key});

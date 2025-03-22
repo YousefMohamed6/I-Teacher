@@ -1,8 +1,8 @@
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/features/chat/data/models/audio_message_model/audio_message_model.dart';
-import 'package:mrjoo/features/chat/data/models/file_message_model/file_message_model.dart';
-import 'package:mrjoo/features/chat/data/models/image_message_model/image_message_model.dart';
-import 'package:mrjoo/features/chat/data/models/text_message_model/text_message_model.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/features/chat/data/models/audio_message_model/audio_message_model.dart';
+import 'package:iteacher/features/chat/data/models/file_message_model/file_message_model.dart';
+import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
+import 'package:iteacher/features/chat/data/models/text_message_model/text_message_model.dart';
 
 abstract class MessageModel {
   final UserModel userModel;

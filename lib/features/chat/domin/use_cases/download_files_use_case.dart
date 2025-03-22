@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:mrjoo/core/services/file_manager_service.dart';
+import 'package:iteacher/core/services/file_manager_service.dart';
 
 class DownloadFilesUseCase {
   final FileManagerService _fileService;

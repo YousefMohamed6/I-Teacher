@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/exceptions/pick_file_exception.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/exceptions/pick_file_exception.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 sealed class FilePikerErrorHandler {
   static String getErrorMessage({

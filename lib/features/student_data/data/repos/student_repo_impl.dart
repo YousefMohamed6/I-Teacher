@@ -1,7 +1,7 @@
-import 'package:mrjoo/core/services/firebase_firestore_service.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/features/student_data/domain/repos/i_student_repo.dart';
+import 'package:iteacher/core/services/firebase_firestore_service.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/student_data/domain/repos/i_student_repo.dart';
 
 class StudentRepoImpl implements IStudentRepo {
   final FirebaseFirestoreService firebaseFirestoreService;

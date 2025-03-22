@@ -1,6 +1,6 @@
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/student_data/data/model/student_model.dart';
 
 abstract class UserModel {
   final String firstName;

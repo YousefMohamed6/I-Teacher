@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/widgets/custom_form_field.dart';
-import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/widgets/custom_form_field.dart';
+import 'package:iteacher/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class RestPasswordEmailFeild extends StatelessWidget {
   const RestPasswordEmailFeild({super.key});

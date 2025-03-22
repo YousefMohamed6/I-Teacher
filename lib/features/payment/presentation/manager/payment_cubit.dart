@@ -1,16 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/features/payment/data/models/data_base_payments.dart';
-import 'package:mrjoo/features/payment/data/models/payment/cart_item.dart';
-import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
-import 'package:mrjoo/features/payment/data/models/payment/redirection_urls.dart';
-import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
-import 'package:mrjoo/features/payment/domain/use_cases/add_student_use_case.dart';
-import 'package:mrjoo/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
-import 'package:mrjoo/features/payment/domain/use_cases/save_success_payment.dart';
-import 'package:mrjoo/features/payment/domain/use_cases/send_payment_request.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/payment/data/models/data_base_payments.dart';
+import 'package:iteacher/features/payment/data/models/payment/cart_item.dart';
+import 'package:iteacher/features/payment/data/models/payment/payment.dart';
+import 'package:iteacher/features/payment/data/models/payment/redirection_urls.dart';
+import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
+import 'package:iteacher/features/payment/domain/use_cases/add_student_use_case.dart';
+import 'package:iteacher/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
+import 'package:iteacher/features/payment/domain/use_cases/save_success_payment.dart';
+import 'package:iteacher/features/payment/domain/use_cases/send_payment_request.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/student_data/data/model/student_model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 part 'payment_cubit.freezed.dart';

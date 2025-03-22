@@ -1,4 +1,4 @@
-import 'package:mrjoo/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:iteacher/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
 
 class PickTeacherImageUseCase {
   final ITeacherProfileRepo _repo;

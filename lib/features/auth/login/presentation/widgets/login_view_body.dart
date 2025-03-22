@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/core/exceptions/unfound_user.dart';
-import 'package:mrjoo/core/utils/error_handler/auth_error_handler.dart';
-import 'package:mrjoo/core/utils/helper/show_message.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
-import 'package:mrjoo/features/auth/login/presentation/widgets/login_view_form.dart';
-import 'package:mrjoo/features/course/presentation/views/course_view.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/views/teacher_profile_view.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/exceptions/unfound_user.dart';
+import 'package:iteacher/core/utils/error_handler/auth_error_handler.dart';
+import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
+import 'package:iteacher/features/auth/login/presentation/widgets/login_view_form.dart';
+import 'package:iteacher/features/course/presentation/views/course_view.dart';
+import 'package:iteacher/features/teacher_profile/presentation/views/teacher_profile_view.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class LoginViewBody extends StatelessWidget {
   const LoginViewBody({super.key});

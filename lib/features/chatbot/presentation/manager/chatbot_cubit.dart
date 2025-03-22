@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/features/chatbot/data/model/chatboot_model/chatboot_model.dart';
-import 'package:mrjoo/features/chatbot/domin/use_cases/ask_gemini_use_case.dart';
+import 'package:iteacher/features/chatbot/data/model/chatboot_model/chatboot_model.dart';
+import 'package:iteacher/features/chatbot/domin/use_cases/ask_gemini_use_case.dart';
 
 part 'chatbot_cubit.freezed.dart';
 part 'chatbot_state.dart';

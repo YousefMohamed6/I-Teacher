@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
-import 'package:mrjoo/l10n.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
+import 'package:iteacher/l10n.dart';
 
 class TremsTextButton extends StatelessWidget {
   const TremsTextButton({super.key});

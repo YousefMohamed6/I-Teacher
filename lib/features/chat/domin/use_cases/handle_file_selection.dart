@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/core/services/file_manager_service.dart';
-import 'package:mrjoo/features/chat/data/models/file_message_model/file_message_model.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/core/services/file_manager_service.dart';
+import 'package:iteacher/features/chat/data/models/file_message_model/file_message_model.dart';
 
 class HandleFileSelectionUseCase {
   final FileManagerService _filePickerService;

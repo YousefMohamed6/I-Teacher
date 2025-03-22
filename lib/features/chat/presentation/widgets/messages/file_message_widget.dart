@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/chat/data/models/file_message_model/file_message_model.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:iteacher/features/chat/data/models/file_message_model/file_message_model.dart';
+import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 
 class FileMessageWidget extends StatelessWidget {
   const FileMessageWidget({super.key, required this.message});

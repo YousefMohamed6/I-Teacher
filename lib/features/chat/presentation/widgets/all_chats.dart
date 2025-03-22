@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:mrjoo/features/chat/presentation/widgets/chat_item.dart';
+import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:iteacher/features/chat/presentation/widgets/chat_item.dart';
 
 class AllChats extends StatelessWidget {
   const AllChats({

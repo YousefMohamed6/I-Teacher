@@ -1,5 +1,5 @@
-import 'package:mrjoo/features/profile/data/model/account_model.dart';
-import 'package:mrjoo/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
 
 class AddAccountUseCase {
   final ITeacherProfileRepo _repo;

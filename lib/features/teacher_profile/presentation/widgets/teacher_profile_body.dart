@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/utils/helper/show_message.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/widgets/teacher_profile_form.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/teacher_profile_form.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class TeacherProfileBody extends StatelessWidget {
   const TeacherProfileBody({super.key});

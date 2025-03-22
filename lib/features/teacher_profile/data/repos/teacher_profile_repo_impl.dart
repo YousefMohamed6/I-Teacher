@@ -1,9 +1,9 @@
-import 'package:mrjoo/core/services/firebase_firestore_service.dart';
-import 'package:mrjoo/core/services/image_picker_service.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/features/profile/data/model/account_model.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:iteacher/core/services/firebase_firestore_service.dart';
+import 'package:iteacher/core/services/image_picker_service.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
 
 class TeacherProfileRepoImpl implements ITeacherProfileRepo {
   final FirebaseFirestoreService _firebaseFirestoreService;

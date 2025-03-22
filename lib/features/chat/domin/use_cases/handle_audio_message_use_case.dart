@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/features/chat/data/models/audio_message_model/audio_message_model.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/features/chat/data/models/audio_message_model/audio_message_model.dart';
 
 class HandleAudioMessageUseCase {
   Future<AudioMessageModel> execute({

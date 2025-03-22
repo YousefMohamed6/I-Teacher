@@ -1,11 +1,11 @@
-import 'package:mrjoo/core/services/fatwaterak_service.dart';
-import 'package:mrjoo/core/services/firebase_firestore_service.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
-import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
-import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
-import 'package:mrjoo/features/profile/data/model/account_model.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/core/services/fatwaterak_service.dart';
+import 'package:iteacher/core/services/firebase_firestore_service.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/payment/data/models/payment/payment.dart';
+import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
+import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
 
 class PaymentRepoImpl implements IPaymentRepo {
   final FawaterkService fawaterkService;

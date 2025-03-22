@@ -1,5 +1,5 @@
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/features/auth/login/domain/repo/i_login_repo.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/features/auth/login/domain/repo/i_login_repo.dart';
 
 class SaveUserRoleUseCase {
   final ILoginRepo _repo;

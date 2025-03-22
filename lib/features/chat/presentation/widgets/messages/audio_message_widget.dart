@@ -1,8 +1,8 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/services/audio_player_service.dart';
-import 'package:mrjoo/features/chat/data/models/audio_message_model/audio_message_model.dart';
+import 'package:iteacher/core/services/audio_player_service.dart';
+import 'package:iteacher/features/chat/data/models/audio_message_model/audio_message_model.dart';
 
 class AudioMessageWidget extends StatelessWidget {
   const AudioMessageWidget({super.key, required this.message});

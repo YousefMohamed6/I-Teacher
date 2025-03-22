@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/features/profile/data/model/account_model.dart';
-import 'package:mrjoo/features/profile/presentation/widgets/account_item.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/widgets/add_account_button.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/profile/presentation/widgets/account_item.dart';
+import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/add_account_button.dart';
 
 class TeacherSocialMediaAccounts extends StatelessWidget {
   const TeacherSocialMediaAccounts({super.key});

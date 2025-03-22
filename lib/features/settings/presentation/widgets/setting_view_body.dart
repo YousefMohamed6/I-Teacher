@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/chatbot/presentation/views/chatbot_view.dart';
-import 'package:mrjoo/features/settings/presentation/manager/setting_bloc.dart';
-import 'package:mrjoo/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
+import 'package:iteacher/features/chatbot/presentation/views/chatbot_view.dart';
+import 'package:iteacher/features/settings/presentation/manager/setting_bloc.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class SettingsViewBody extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/profile/data/model/account_model.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
 
 class AddAccountButton extends StatelessWidget {
   const AddAccountButton({super.key});

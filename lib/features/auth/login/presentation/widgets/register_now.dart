@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/core/widgets/custom_text_button.dart';
-import 'package:mrjoo/features/student_data/presentation/views/student_view.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/core/widgets/custom_text_button.dart';
+import 'package:iteacher/features/student_data/presentation/views/student_view.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class RegisterNow extends StatelessWidget {
   const RegisterNow({

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/utils/constants/app_fonts.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/settings/presentation/widgets/setting_view_body.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/settings/presentation/widgets/setting_view_body.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class SettingsView extends StatelessWidget {
   static String routeName = '/Setting';

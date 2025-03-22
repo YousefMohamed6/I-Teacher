@@ -1,4 +1,4 @@
-import 'package:mrjoo/core/services/image_picker_service.dart';
+import 'package:iteacher/core/services/image_picker_service.dart';
 
 class PickStudentImageUseCase {
   final ImagePickerService imagePickerService;

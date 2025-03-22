@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/core/exceptions/accept_terms_exception.dart';
-import 'package:mrjoo/features/auth/register/domain/use_case/create_user_with_email_and_password.dart';
-import 'package:mrjoo/features/auth/register/domain/use_case/sign_in_use_google.dart';
+import 'package:iteacher/core/exceptions/accept_terms_exception.dart';
+import 'package:iteacher/features/auth/register/domain/use_case/create_user_with_email_and_password.dart';
+import 'package:iteacher/features/auth/register/domain/use_case/sign_in_use_google.dart';
 
 part 'register_cubit.freezed.dart';
 part 'register_state.dart';

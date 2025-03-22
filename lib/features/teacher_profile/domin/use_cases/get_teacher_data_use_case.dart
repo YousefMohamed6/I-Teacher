@@ -1,5 +1,5 @@
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
 
 class FetchTeacherDataUseCase {
   final ITeacherProfileRepo _repo;

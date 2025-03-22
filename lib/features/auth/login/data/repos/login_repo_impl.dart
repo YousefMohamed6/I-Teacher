@@ -1,13 +1,13 @@
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/core/exceptions/unfound_user.dart';
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/core/services/firebase_firestore_service.dart';
-import 'package:mrjoo/core/services/sf_service.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/core/utils/constants/sf_keys.dart';
-import 'package:mrjoo/features/auth/login/domain/repo/i_login_repo.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
-import 'package:mrjoo/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/exceptions/unfound_user.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/core/services/firebase_firestore_service.dart';
+import 'package:iteacher/core/services/sf_service.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/core/utils/constants/sf_keys.dart';
+import 'package:iteacher/features/auth/login/domain/repo/i_login_repo.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/student_data/data/model/student_model.dart';
 
 class LoginRepoImpl implements ILoginRepo {
   final FirebaseFirestoreService firebaseFirestoreService;

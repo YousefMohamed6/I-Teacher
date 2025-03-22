@@ -1,4 +1,4 @@
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 
 class TermsAndConditionsModel {
   final String arabicTerms;

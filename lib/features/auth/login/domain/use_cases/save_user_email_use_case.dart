@@ -1,4 +1,4 @@
-import 'package:mrjoo/features/auth/login/domain/repo/i_login_repo.dart';
+import 'package:iteacher/features/auth/login/domain/repo/i_login_repo.dart';
 
 class SaveUserEmailUseCase {
   final ILoginRepo _repo;

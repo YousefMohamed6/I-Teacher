@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({

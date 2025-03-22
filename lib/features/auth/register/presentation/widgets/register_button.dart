@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/widgets/custom_button.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
-import 'package:mrjoo/l10n.dart';
+import 'package:iteacher/core/widgets/custom_button.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/auth/register/presentation/manager/register_cubit.dart';
+import 'package:iteacher/l10n.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key});

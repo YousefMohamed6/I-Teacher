@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/chat/data/models/image_message_model/image_message_model.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
+import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 
 class ImageMessageWidget extends StatelessWidget {
   const ImageMessageWidget({

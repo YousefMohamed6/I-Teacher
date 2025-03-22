@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/profile/presentation/manager/profile_state.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/profile/presentation/manager/profile_state.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit() : super(ProfileInitial());

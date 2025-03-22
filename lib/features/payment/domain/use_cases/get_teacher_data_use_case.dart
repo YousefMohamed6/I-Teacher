@@ -1,5 +1,5 @@
-import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
-import 'package:mrjoo/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
+import 'package:iteacher/features/profile/data/model/teacher_model.dart';
 
 class GetTeacherDataUseCase {
   final IPaymentRepo _paymentRepo;

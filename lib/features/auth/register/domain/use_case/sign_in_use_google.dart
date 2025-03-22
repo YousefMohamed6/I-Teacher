@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:mrjoo/core/services/firebase_auth_service.dart';
+import 'package:iteacher/core/services/firebase_auth_service.dart';
 
 class SignInUseGoogleUseCase {
   final FirebaseAuthService firebaseAuthService;

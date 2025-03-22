@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
-import 'package:mrjoo/core/widgets/base64_image.dart';
+import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:iteacher/core/widgets/base64_image.dart';
 
 class EditTeacherImage extends StatelessWidget {
   const EditTeacherImage({

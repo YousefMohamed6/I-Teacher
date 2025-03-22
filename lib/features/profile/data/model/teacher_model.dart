@@ -1,7 +1,7 @@
-import 'package:mrjoo/core/enums/user_role.dart';
-import 'package:mrjoo/core/models/user_model.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/features/profile/data/model/account_model.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
 
 class TeacherModel implements UserModel {
   @override

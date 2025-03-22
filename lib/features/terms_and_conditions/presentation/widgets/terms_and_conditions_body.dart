@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/widgets/background.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/terms_and_conditions/presentation/manager/terms_and_conditions_cubit.dart';
-import 'package:mrjoo/features/terms_and_conditions/presentation/widgets/custom_background.dart';
+import 'package:iteacher/core/widgets/background.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/manager/terms_and_conditions_cubit.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/widgets/custom_background.dart';
 
 class TermsAndConditionsBody extends StatelessWidget {
   const TermsAndConditionsBody({super.key});
