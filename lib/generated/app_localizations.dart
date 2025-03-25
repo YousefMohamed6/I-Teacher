@@ -437,11 +437,11 @@ abstract class AppLocalizations {
   /// **'unFound User'**
   String get unfound_user;
 
-  /// No description provided for @course_link.
+  /// No description provided for @channal_id.
   ///
   /// In en, this message translates to:
-  /// **'Course Link'**
-  String get course_link;
+  /// **'Channal Id'**
+  String get channal_id;
 
   /// No description provided for @course_price.
   ///
@@ -584,7 +584,7 @@ abstract class AppLocalizations {
   /// No description provided for @chatbot.
   ///
   /// In en, this message translates to:
-  /// **'ChatBot'**
+  /// **'Chatbot'**
   String get chatbot;
 
   /// No description provided for @write_message.
@@ -598,6 +598,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search'**
   String get search;
+
+  /// No description provided for @contact_us.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contact_us;
+
+  /// No description provided for @videos.
+  ///
+  /// In en, this message translates to:
+  /// **'Videos'**
+  String get videos;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

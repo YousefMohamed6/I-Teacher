@@ -180,7 +180,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unfound_user => 'unFound User';
 
   @override
-  String get course_link => 'Course Link';
+  String get channal_id => 'Channal Id';
 
   @override
   String get course_price => 'Course Price';
@@ -252,11 +252,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get message => 'Message';
 
   @override
-  String get chatbot => 'ChatBot';
+  String get chatbot => 'Chatbot';
 
   @override
   String get write_message => 'Write your message here';
 
   @override
   String get search => 'Search';
+
+  @override
+  String get contact_us => 'Contact Us';
+
+  @override
+  String get videos => 'Videos';
 }

@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
+import 'package:iteacher/features/chat/presentation/views/chats_view.dart';
 import 'package:iteacher/features/chatbot/presentation/views/chatbot_view.dart';
 import 'package:iteacher/features/settings/presentation/manager/setting_bloc.dart';
 import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
@@ -46,6 +47,25 @@ class SettingsViewBody extends StatelessWidget {
           ],
         ),
         SettingsSection(
+          title: Text(AppLocalizations.of(context)!.contact_us),
+          tiles: [
+            SettingsTile.navigation(
+              leading: Icon(Icons.chat),
+              title: CustomText(text: AppLocalizations.of(context)!.chats),
+              onPressed: (context) {
+                context.pushNamed(ChatsView.routeName);
+              },
+            ),
+            SettingsTile.navigation(
+              leading: Icon(Icons.smart_toy_outlined),
+              title: CustomText(text: AppLocalizations.of(context)!.chatbot),
+              onPressed: (context) {
+                context.pushNamed(ChatbotView.routeName);
+              },
+            ),
+          ],
+        ),
+        SettingsSection(
           title: CustomText(text: AppLocalizations.of(context)!.account),
           tiles: <SettingsTile>[
             SettingsTile.navigation(
@@ -54,13 +74,6 @@ class SettingsViewBody extends StatelessWidget {
                   text: AppLocalizations.of(context)!.terms_and_conditions),
               onPressed: (context) {
                 context.pushNamed(TermsAndConditionsView.routeName);
-              },
-            ),
-            SettingsTile.navigation(
-              leading: Icon(Icons.smart_toy_outlined),
-              title: CustomText(text: AppLocalizations.of(context)!.chatbot),
-              onPressed: (context) {
-                context.pushNamed(ChatbotView.routeName);
               },
             ),
             SettingsTile.navigation(

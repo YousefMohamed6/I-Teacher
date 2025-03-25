@@ -1,18 +1,17 @@
-import 'package:iteacher/core/models/user_model.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/features/chat/data/models/message_model/message_model.dart';
 
 class ImageMessageModel implements MessageModel {
   final String imageBase64;
   @override
-  final UserModel userModel;
+  final String senderId;
   @override
   final String createdAt;
   @override
   final String reciverId;
   ImageMessageModel(
       {required this.imageBase64,
-      required this.userModel,
+      required this.senderId,
       required this.createdAt,
       required this.reciverId});
 
@@ -20,7 +19,7 @@ class ImageMessageModel implements MessageModel {
   factory ImageMessageModel.fromJson(Map<String, dynamic> json) {
     return ImageMessageModel(
       imageBase64: json['imageBase64'],
-      userModel: UserModel.fromJson(json['user']),
+      senderId: ChatKeys.kSenderField,
       createdAt: json['createdAt'],
       reciverId: json[ChatKeys.kReciverField],
     );
@@ -30,7 +29,7 @@ class ImageMessageModel implements MessageModel {
   Map<String, dynamic> toJson() {
     return {
       'imageBase64': imageBase64,
-      'user': userModel.toJson(),
+      ChatKeys.kSenderField: senderId,
       'createdAt': createdAt,
       'type': type,
       ChatKeys.kReciverField: reciverId

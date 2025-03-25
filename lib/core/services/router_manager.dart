@@ -24,11 +24,11 @@ import 'package:iteacher/features/course/di/course_service.dart';
 import 'package:iteacher/features/course/domain/repos/I_course_repo.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
 import 'package:iteacher/features/course/presentation/views/course_view.dart';
+import 'package:iteacher/features/course/presentation/views/video_player_view.dart';
 import 'package:iteacher/features/payment/di/payment_service.dart';
 import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
 import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:iteacher/features/payment/presentation/views/payment_view.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:iteacher/features/profile/presentation/views/profile_view.dart';
 import 'package:iteacher/features/settings/presentation/views/setting_view.dart';
@@ -38,6 +38,7 @@ import 'package:iteacher/features/student_data/di/student_service.dart';
 import 'package:iteacher/features/student_data/domain/repos/i_student_repo.dart';
 import 'package:iteacher/features/student_data/presentation/manager/student_cubit.dart';
 import 'package:iteacher/features/student_data/presentation/views/student_view.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/teacher_profile/di/teacher_profile_service.dart';
 import 'package:iteacher/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
@@ -135,15 +136,14 @@ sealed class RouterManager {
         path: ChatView.routeName,
         name: ChatView.routeName,
         builder: (context, state) {
-          final student = state.extra as StudentModel;
           final String reciverId =
               state.uri.queryParameters[ChatKeys.kReciverField] ?? '';
           return RepositoryProvider(
             create: (context) => GetIt.instance<IChatRepo>(),
             child: BlocProvider(
               create: (context) => GetIt.instance<ChatCubit>()
-                ..user = student
                 ..reciverId = reciverId
+                ..getSenderId()
                 ..listenToMessages(),
               child: ChatView(),
             ),
@@ -154,15 +154,13 @@ sealed class RouterManager {
         path: ChatsView.routeName,
         name: ChatsView.routeName,
         builder: (context, state) {
-          final student = state.extra as StudentModel;
-
           ChatService().initDi();
           return RepositoryProvider(
             create: (context) => GetIt.instance<IChatRepo>(),
             child: BlocProvider(
               create: (context) => GetIt.instance<ChatCubit>()
                 ..getAllTeachers()
-                ..user = student,
+                ..getSenderId(),
               child: ChatsView(),
             ),
           );
@@ -177,8 +175,26 @@ sealed class RouterManager {
             create: (context) => GetIt.instance<ICourseRepo>(),
             child: BlocProvider(
               create: (context) =>
-                  GetIt.instance<CourseCubit>()..fetchCourseLink(),
+                  GetIt.instance<CourseCubit>()..fetchAllPlaylists(),
               child: CourseView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: VideoPlayerView.routeName,
+        name: VideoPlayerView.routeName,
+        builder: (context, state) {
+          final playlistId = state.extra as String;
+          CourseService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<ICourseRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<CourseCubit>()
+                ..fetchPlaylistVideos(
+                  playListId: playlistId,
+                ),
+              child: VideoPlayerView(),
             ),
           );
         },

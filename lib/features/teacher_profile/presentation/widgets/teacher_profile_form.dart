@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
-import 'package:iteacher/features/teacher_profile/presentation/widgets/course_link_text_field.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/channal_id_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/course_price_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/department_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/description_text_field.dart';
@@ -33,7 +33,7 @@ class TeacherProfileForm extends StatelessWidget {
           ),
           TeacherIDTextField(),
           PhoneTextField(),
-          CourseLinkTextField(),
+          ChannalIdTextField(),
           CoursePriceTextField(),
           DepartmentTextField(),
           DescriptionTextField(),

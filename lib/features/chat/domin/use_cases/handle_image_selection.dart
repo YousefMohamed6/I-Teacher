@@ -1,4 +1,3 @@
-import 'package:iteacher/core/models/user_model.dart';
 import 'package:iteacher/core/services/image_picker_service.dart';
 import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
 
@@ -7,12 +6,12 @@ class HandleImageSelectionUseCase {
 
   HandleImageSelectionUseCase(this._imagePickerService);
   Future<ImageMessageModel> execute({
-    required UserModel userModel,
+    required String senderId,
     required String reciverId,
   }) async {
     final image = await _imagePickerService.pickImageAsBase64FromGallery();
     final message = ImageMessageModel(
-      userModel: userModel,
+      senderId: senderId,
       imageBase64: image,
       createdAt: DateTime.now().toString(),
       reciverId: reciverId,

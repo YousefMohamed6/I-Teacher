@@ -56,7 +56,7 @@
   "teacher": "Teacher",
   "teacherProfile": "Teacher Profile",
   "unfound_user": "unFound User",
-  "course_link": "Course Link",
+  "channal_id": "Channal Id",
   "course_price": "Course Price",
   "course_description": "Course Description",
   "department": "Department",
@@ -80,7 +80,9 @@
   "file_picker_premission_error": "File Picker Premission Error",
   "no_internet": "No Internet Connection",
   "message": "Message",
-  "chatbot": "ChatBot",
+  "chatbot": "Chatbot",
   "write_message": "Write your message here",
-  "search": "Search"
+  "search": "Search",
+  "contact_us": "Contact Us",
+  "videos": "Videos"
 }

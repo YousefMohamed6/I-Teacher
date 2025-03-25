@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:iteacher/core/exceptions/pick_image_exception.dart';
 import 'package:iteacher/features/profile/data/model/account_model.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/teacher_profile/domin/use_cases/add_account_use_case.dart';
 import 'package:iteacher/features/teacher_profile/domin/use_cases/delete_account_use_case.dart';
 import 'package:iteacher/features/teacher_profile/domin/use_cases/edit_account_data_use_case.dart';
@@ -52,7 +52,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
         phone: phoneTextController.text,
         department: departmentTextController.text,
         coursePrice: coursePriceTextController.text,
-        courseLink: courseLinkTextController.text,
+        channalId: courseLinkTextController.text,
         description: descriptionTextController.text,
         teacherId: teacherIdTextController.text,
         accounts: teacher.accounts,
@@ -87,7 +87,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
     phoneTextController.text = teacher.phone;
     departmentTextController.text = teacher.department;
     coursePriceTextController.text = teacher.coursePrice;
-    courseLinkTextController.text = teacher.courseLink;
+    courseLinkTextController.text = teacher.channalId;
     descriptionTextController.text = teacher.description;
     teacherIdTextController.text = teacher.teacherId;
   }

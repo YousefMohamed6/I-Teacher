@@ -1,5 +1,5 @@
-import 'package:iteacher/features/course/domain/repos/I_course_repo.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/course/domain/repos/i_course_repo.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class GetTeacherDataUseCase {
   final ICourseRepo _courseRepo;

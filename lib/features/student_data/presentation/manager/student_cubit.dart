@@ -18,9 +18,10 @@ class StudentCubit extends Cubit<StudentState> {
   ) : super(StudentState.initial());
   final firstNameTextController = TextEditingController(text: 'Yousef');
   final lastNameTextController = TextEditingController(text: 'Mohamed');
-  final emailTextController = TextEditingController(text: 'Yousef@gmail.com');
+  final emailTextController =
+      TextEditingController(text: 'Yousef.Mohamed.Flutter@gmail.com');
   final phoneTextController = TextEditingController(text: '+201067954536');
-  final addressTextController = TextEditingController(text: 'Cairo');
+  final addressTextController = TextEditingController(text: 'El Santa');
   final teacherIdTextController = TextEditingController(text: '1');
   final studentImageController = TextEditingController(text: '');
   final formKey = GlobalKey<FormState>();

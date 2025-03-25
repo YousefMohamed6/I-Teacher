@@ -7,7 +7,7 @@ import 'package:iteacher/core/widgets/base64_image.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:iteacher/features/chat/presentation/views/chat_view.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class ChatItem extends StatelessWidget {
   const ChatItem({super.key, required this.teacherModel});
@@ -18,7 +18,7 @@ class ChatItem extends StatelessWidget {
       onTap: () {
         context.pushNamed(
           ChatView.routeName,
-          extra: context.read<ChatCubit>().user,
+          extra: context.read<ChatCubit>().senderId,
           queryParameters: {ChatKeys.kReciverField: teacherModel.email},
         );
       },

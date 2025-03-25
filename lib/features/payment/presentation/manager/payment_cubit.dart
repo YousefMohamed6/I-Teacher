@@ -9,8 +9,8 @@ import 'package:iteacher/features/payment/domain/use_cases/add_student_use_case.
 import 'package:iteacher/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
 import 'package:iteacher/features/payment/domain/use_cases/save_success_payment.dart';
 import 'package:iteacher/features/payment/domain/use_cases/send_payment_request.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 part 'payment_cubit.freezed.dart';

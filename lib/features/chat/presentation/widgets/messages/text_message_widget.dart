@@ -9,7 +9,7 @@ class TextMessageWidget extends StatelessWidget {
   final TextMessageModel message;
   @override
   Widget build(BuildContext context) {
-    bool isSender = context.read<ChatCubit>().getSender(message.userModel);
+    bool isSender = context.read<ChatCubit>().getSender(message.senderId);
     return BubbleNormal(
       text: message.text,
       color: isSender ? Color(0xFF1B97F3) : Color(0xFFE8E8EE),

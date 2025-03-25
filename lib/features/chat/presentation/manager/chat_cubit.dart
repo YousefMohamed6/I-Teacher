@@ -5,8 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:iteacher/core/exceptions/pick_file_exception.dart';
 import 'package:iteacher/core/exceptions/pick_image_exception.dart';
-import 'package:iteacher/core/models/user_model.dart';
 import 'package:iteacher/core/services/audio_recorder_service.dart';
+import 'package:iteacher/core/services/sf_service.dart';
+import 'package:iteacher/core/utils/constants/sf_keys.dart';
 import 'package:iteacher/features/chat/data/models/audio_message_model/audio_message_model.dart';
 import 'package:iteacher/features/chat/data/models/file_message_model/file_message_model.dart';
 import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
@@ -19,7 +20,7 @@ import 'package:iteacher/features/chat/domin/use_cases/handle_file_selection.dar
 import 'package:iteacher/features/chat/domin/use_cases/handle_image_selection.dart';
 import 'package:iteacher/features/chat/domin/use_cases/listen_to_messages_use_case.dart';
 import 'package:iteacher/features/chat/domin/use_cases/send_message_use_case.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 part 'chat_cubit.freezed.dart';
 part 'chat_state.dart';
@@ -44,7 +45,7 @@ class ChatCubit extends Cubit<ChatState> {
     this.audioRecorder,
   ) : super(ChatState.initial());
   List<MessageModel> messages = [];
-  late UserModel user;
+  late String senderId;
   late String reciverId;
   List<TeacherModel> _teachers = [];
   List<TeacherModel> result = [];
@@ -57,6 +58,10 @@ class ChatCubit extends Cubit<ChatState> {
     } on Exception catch (e) {
       emit(ChatState.failure(e.toString()));
     }
+  }
+
+  Future<void> getSenderId() async {
+    senderId = await SharedPreferencesService.getString(SfKeys.userEmail) ?? '';
   }
 
   void searchTeacher(String value) {
@@ -78,8 +83,8 @@ class ChatCubit extends Cubit<ChatState> {
     emit(ChatState.updateUI());
   }
 
-  bool getSender(UserModel value) {
-    return value.email == user.email;
+  bool getSender(String email) {
+    return email == senderId;
   }
 
   Future<void> sendMessage(MessageModel message) async {
@@ -93,7 +98,7 @@ class ChatCubit extends Cubit<ChatState> {
   Future<void> sendFileMessage() async {
     try {
       final FileMessageModel message = await _handleFileSelectionUseCase
-          .execute(userModel: user, reciverId: reciverId);
+          .execute(senderId: senderId, reciverId: reciverId);
       await sendMessage(message);
     } on PickedFileException catch (e) {
       emit(ChatState<PickedFileException>.failure(e.toString()));
@@ -117,7 +122,7 @@ class ChatCubit extends Cubit<ChatState> {
     try {
       final ImageMessageModel message =
           await _handleImageSelectionUseCase.execute(
-        userModel: user,
+        senderId: senderId,
         reciverId: reciverId,
       );
       await sendMessage(message);
@@ -131,7 +136,7 @@ class ChatCubit extends Cubit<ChatState> {
       final File file = File(audioRecorder.audioPath!);
       final AudioMessageModel message =
           await _handleAudioMessageUseCase.execute(
-        userModel: user,
+        senderId: senderId,
         file: file,
         reciverId: reciverId,
       );
@@ -144,7 +149,7 @@ class ChatCubit extends Cubit<ChatState> {
   Future<void> sendTextMessage(String text) async {
     try {
       final message = TextMessageModel(
-        userModel: user,
+        senderId: senderId,
         text: text,
         createdAt: DateTime.now().toString(),
         reciverId: reciverId,
@@ -182,7 +187,7 @@ class ChatCubit extends Cubit<ChatState> {
         for (var json in docs) {
           final MessageModel message =
               MessageModel.fromJson(json.data() as Map<String, dynamic>);
-          if (message.reciverId == reciverId) {
+          if (message.reciverId == reciverId && message.senderId == senderId) {
             result.add(message);
           }
         }

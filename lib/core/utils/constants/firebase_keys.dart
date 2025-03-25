@@ -15,7 +15,7 @@ sealed class TeacherKeys {
   static const String kPhoneField = 'phone';
   static const String kDepartmentField = 'department';
   static const String kDescriptionField = 'description';
-  static const String kCourseLinkField = "courseLink";
+  static const String kChannelIdField = "channelId";
   static const String kCoursePriceField = "coursePrice";
   static const String kTeacherImageField = "image";
   static const String kTeacherRoleField = 'userRole';
@@ -34,6 +34,7 @@ sealed class ChatKeys {
   static const String kCreatedAtField = "createdAt";
   static const String kUesrIdField = 'userId';
   static const String kDisplayNameField = 'displayName';
+  static const String kSenderField = 'senderId';
   static const String kReciverField = 'reciverId';
 }
 

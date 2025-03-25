@@ -51,6 +51,8 @@
   	<string>tel</string>
   	<string>whatsapp</string>
   	<string>sms</string>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
 </array>
 </dict>
 </plist>

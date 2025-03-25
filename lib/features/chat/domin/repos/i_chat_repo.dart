@@ -1,5 +1,5 @@
 import 'package:iteacher/features/chat/data/models/message_model/message_model.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 abstract class IChatRepo {
   Future<List<TeacherModel>> getAllTeachers();

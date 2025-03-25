@@ -1,11 +1,10 @@
-import 'package:iteacher/core/models/user_model.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/features/chat/data/models/message_model/message_model.dart';
 
 class TextMessageModel implements MessageModel {
   final String text;
   @override
-  final UserModel userModel;
+  final String senderId;
   @override
   final String createdAt;
   @override
@@ -13,14 +12,14 @@ class TextMessageModel implements MessageModel {
 
   TextMessageModel({
     required this.text,
-    required this.userModel,
+    required this.senderId,
     required this.createdAt,
     required this.reciverId,
   });
   factory TextMessageModel.fromJson(Map<String, dynamic> json) {
     return TextMessageModel(
       text: json['text'],
-      userModel: UserModel.fromJson(json['user']),
+      senderId: ChatKeys.kSenderField,
       createdAt: json['createdAt'],
       reciverId: json[ChatKeys.kReciverField],
     );
@@ -30,7 +29,7 @@ class TextMessageModel implements MessageModel {
   Map<String, dynamic> toJson() {
     return {
       'text': text,
-      'user': userModel.toJson(),
+      ChatKeys.kSenderField: senderId,
       'createdAt': createdAt,
       'type': type,
       ChatKeys.kReciverField: reciverId

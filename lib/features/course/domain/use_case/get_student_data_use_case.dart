@@ -1,4 +1,4 @@
-import 'package:iteacher/features/course/domain/repos/I_course_repo.dart';
+import 'package:iteacher/features/course/domain/repos/i_course_repo.dart';
 import 'package:iteacher/features/student_data/data/model/student_model.dart';
 
 class GetStudentDataUseCase {

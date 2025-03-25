@@ -13,8 +13,11 @@ class MessagesView extends StatelessWidget {
     return Expanded(
       child: ListView.separated(
         reverse: true,
-        itemBuilder: (context, index) => CustomMessageWidget(
-          message: cubit.messages[index],
+        itemBuilder: (context, index) => Directionality(
+          textDirection: TextDirection.ltr,
+          child: CustomMessageWidget(
+            message: cubit.messages[index],
+          ),
         ),
         itemCount: cubit.messages.length,
         separatorBuilder: (context, index) => SizedBox(

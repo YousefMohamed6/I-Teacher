@@ -1,5 +1,5 @@
 import 'package:iteacher/features/profile/data/model/account_model.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 abstract class ITeacherProfileRepo {
   Future<TeacherModel> getTeacherData({required String email});

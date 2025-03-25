@@ -11,7 +11,7 @@ import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dar
 import 'package:iteacher/features/payment/presentation/widgets/payment_button.dart';
 import 'package:iteacher/features/payment/presentation/widgets/payment_company_image.dart';
 import 'package:iteacher/features/payment/presentation/widgets/teacher_item.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class PaymentViewBody extends StatelessWidget {

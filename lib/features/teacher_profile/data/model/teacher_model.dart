@@ -17,7 +17,7 @@ class TeacherModel implements UserModel {
   final String department;
   final String description;
   final String coursePrice;
-  final String courseLink;
+  final String channalId;
   final String teacherId;
   @override
   String imageBase64;
@@ -31,7 +31,7 @@ class TeacherModel implements UserModel {
     required this.department,
     required this.coursePrice,
     required this.description,
-    required this.courseLink,
+    required this.channalId,
     required this.teacherId,
     required this.accounts,
     required this.imageBase64,
@@ -46,7 +46,7 @@ class TeacherModel implements UserModel {
       department: json[TeacherKeys.kDepartmentField],
       description: json[TeacherKeys.kDescriptionField],
       coursePrice: json[TeacherKeys.kCoursePriceField],
-      courseLink: json[TeacherKeys.kCourseLinkField],
+      channalId: json[TeacherKeys.kChannelIdField],
       teacherId: json[TeacherKeys.kTeacherIdField],
       imageBase64: json[TeacherKeys.kTeacherImageField],
       accounts: (json[AccountsKeys.kAccountsCollection] as List<dynamic>)
@@ -66,7 +66,7 @@ class TeacherModel implements UserModel {
       TeacherKeys.kDepartmentField: department,
       TeacherKeys.kDescriptionField: description,
       TeacherKeys.kCoursePriceField: coursePrice,
-      TeacherKeys.kCourseLinkField: courseLink,
+      TeacherKeys.kChannelIdField: channalId,
       TeacherKeys.kTeacherImageField: imageBase64,
       TeacherKeys.kTeacherIdField: teacherId,
     };

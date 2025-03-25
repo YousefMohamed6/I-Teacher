@@ -10,7 +10,7 @@ class FileMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<ChatCubit>();
-    final bool isSender = cubit.getSender(message.userModel);
+    final bool isSender = cubit.getSender(message.senderId);
     return Column(
       crossAxisAlignment:
           isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,

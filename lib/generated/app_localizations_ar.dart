@@ -135,7 +135,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get no_data => 'لا يوجد بيانات';
 
   @override
-  String get course => 'الدورة';
+  String get course => 'محتوي الدورة';
 
   @override
   String get chats => 'المحادثات';
@@ -180,7 +180,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unfound_user => 'مستخدم غير موجود';
 
   @override
-  String get course_link => 'رابط الدورة';
+  String get channal_id => 'معرف القناة';
 
   @override
   String get course_price => 'سعر الدورة';
@@ -259,4 +259,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get search => 'بحث';
+
+  @override
+  String get contact_us => 'تواصل معنا';
+
+  @override
+  String get videos => 'الفيديوهات';
 }

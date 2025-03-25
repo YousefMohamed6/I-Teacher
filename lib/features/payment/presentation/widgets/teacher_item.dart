@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/widgets/base64_image.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/profile/presentation/views/profile_view.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class TeacherItem extends StatelessWidget {
   const TeacherItem({super.key, required this.teacherModel});

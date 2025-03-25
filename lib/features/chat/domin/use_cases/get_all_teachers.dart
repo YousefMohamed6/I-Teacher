@@ -1,5 +1,5 @@
 import 'package:iteacher/features/chat/domin/repos/i_chat_repo.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class GetAllTeachersUseCase {
   final IChatRepo _chatRepo;

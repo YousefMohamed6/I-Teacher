@@ -24,7 +24,7 @@ class ImageMessageWidget extends StatelessWidget {
         ),
       ),
       color: Theme.of(context).primaryColor,
-      isSender: context.read<ChatCubit>().getSender(message.userModel),
+      isSender: context.read<ChatCubit>().getSender(message.senderId),
     );
   }
 }

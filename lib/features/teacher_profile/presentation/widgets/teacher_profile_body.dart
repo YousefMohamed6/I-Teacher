@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iteacher/core/utils/helper/show_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/features/profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/teacher_profile_form.dart';
 import 'package:iteacher/generated/app_localizations.dart';
