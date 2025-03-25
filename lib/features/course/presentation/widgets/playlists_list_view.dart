@@ -5,8 +5,8 @@ import 'package:iteacher/core/models/youtube/playlist_item/playlist_item.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
 import 'package:iteacher/features/course/presentation/widgets/playlist_item.dart';
 
-class PlayListItems extends StatelessWidget {
-  const PlayListItems({super.key});
+class PlayListsListView extends StatelessWidget {
+  const PlayListsListView({super.key});
 
   @override
   Widget build(BuildContext context) {

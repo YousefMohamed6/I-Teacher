@@ -31,7 +31,7 @@ class CourseCubit extends Cubit<CourseState> {
   late StudentModel student;
   List<Playlist> playLists = [];
   List<PlaylistVideo> videos = [];
-  late YoutubePlayerController controller;
+  YoutubePlayerController? controller;
 
   Future<String> fetchChannelId() async {
     emit(CourseState.loading());
@@ -95,13 +95,13 @@ class CourseCubit extends Cubit<CourseState> {
 
   void selectVideo(String videoId) {
     emit(CourseState.loading());
-    controller.load(videoId);
+    controller?.load(videoId);
     emit(CourseState<String>.success(videoId));
   }
 
   @override
   Future<void> close() {
-    controller.dispose();
+    controller?.dispose();
     return super.close();
   }
 }

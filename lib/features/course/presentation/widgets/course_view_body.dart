@@ -4,7 +4,7 @@ import 'package:iteacher/core/utils/helper/show_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
-import 'package:iteacher/features/course/presentation/widgets/playlist_items.dart';
+import 'package:iteacher/features/course/presentation/widgets/playlists_list_view.dart';
 import 'package:iteacher/l10n.dart';
 
 class CourseViewBody extends StatelessWidget {
@@ -25,7 +25,7 @@ class CourseViewBody extends StatelessWidget {
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),
-            success: (data) => PlayListItems(),
+            success: (data) => PlayListsListView(),
             failure: (message) => Center(
               child: CustomText(
                 text: AppLocalizations.of(context)!.no_data,

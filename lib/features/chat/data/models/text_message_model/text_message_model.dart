@@ -19,7 +19,7 @@ class TextMessageModel implements MessageModel {
   factory TextMessageModel.fromJson(Map<String, dynamic> json) {
     return TextMessageModel(
       text: json['text'],
-      senderId: ChatKeys.kSenderField,
+      senderId: json[ChatKeys.kSenderField],
       createdAt: json['createdAt'],
       reciverId: json[ChatKeys.kReciverField],
     );
