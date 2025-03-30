@@ -17,7 +17,7 @@ class FirebaseAuthService {
     final GoogleAuthProvider googleProvider = GoogleAuthProvider();
     googleProvider
         .addScope('https://www.googleapis.com/auth/contacts.readonly');
-    googleProvider.setCustomParameters({'login_hint': 'user@example.com'});
+    googleProvider.setCustomParameters({'login_hint': 'user@gmail.com'});
     await FirebaseAuth.instance.signInWithPopup(googleProvider);
   }
 
@@ -36,11 +36,11 @@ class FirebaseAuthService {
     required String password,
     String? displyName,
   }) async {
-    FirebaseAuth.instance.createUserWithEmailAndPassword(
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
-    FirebaseAuth.instance.currentUser?.updateDisplayName(displyName);
+    await FirebaseAuth.instance.currentUser?.updateDisplayName(displyName);
   }
 
   Future<void> signOut() async {

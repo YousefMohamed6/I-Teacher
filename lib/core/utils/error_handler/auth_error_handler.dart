@@ -9,6 +9,8 @@ sealed class AuthErrorHandler {
     switch (errorMessage) {
       case "user-not-found":
         return AppLocalizations.of(context)!.userNotFound;
+      case "weak-password":
+        return AppLocalizations.of(context)!.weakPassword;
       case "email-already-in-use":
         return AppLocalizations.of(context)!.emailAlreadyInUse;
       case "invalid-credential":

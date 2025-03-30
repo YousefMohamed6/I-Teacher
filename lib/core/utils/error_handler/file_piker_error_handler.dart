@@ -7,13 +7,12 @@ sealed class FilePikerErrorHandler {
     required Exception exception,
     required BuildContext context,
   }) {
-    switch (exception) {
-      case PickedFileException:
-        return AppLocalizations.of(context)!.userNotFound;
-      case PickFilePermissionException:
-        return AppLocalizations.of(context)!.emailAlreadyInUse;
-      default:
-        return AppLocalizations.of(context)!.somethingWentWrong;
+    if (exception is PickedFileException) {
+      return AppLocalizations.of(context)!.userNotFound;
+    } else if (exception is PickFilePermissionException) {
+      return AppLocalizations.of(context)!.emailAlreadyInUse;
+    } else {
+      return AppLocalizations.of(context)!.somethingWentWrong;
     }
   }
 }

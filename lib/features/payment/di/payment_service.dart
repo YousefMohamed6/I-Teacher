@@ -42,7 +42,6 @@ class PaymentService {
         sl(),
         sl(),
         sl(),
-        sl(),
       ),
     );
   }

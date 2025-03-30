@@ -5,7 +5,6 @@ import 'package:iteacher/features/payment/data/models/payment/cart_item.dart';
 import 'package:iteacher/features/payment/data/models/payment/payment.dart';
 import 'package:iteacher/features/payment/data/models/payment/redirection_urls.dart';
 import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
-import 'package:iteacher/features/payment/domain/use_cases/add_student_use_case.dart';
 import 'package:iteacher/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
 import 'package:iteacher/features/payment/domain/use_cases/save_success_payment.dart';
 import 'package:iteacher/features/payment/domain/use_cases/send_payment_request.dart';
@@ -20,12 +19,10 @@ class PaymentCubit extends Cubit<PaymentState> {
   final SendPaymentRequestUseCase _sendPaymentRequestUseCase;
   final GetTeacherDataUseCase _getTeacherDataUseCase;
   final SavePaymentStatusUseCase _savePaymentStatusUseCase;
-  final AddStudentUseCase _addStudentUseCase;
   PaymentCubit(
     this._sendPaymentRequestUseCase,
     this._getTeacherDataUseCase,
     this._savePaymentStatusUseCase,
-    this._addStudentUseCase,
   ) : super(PaymentState.initial());
   int selectIndex = 0;
   late StudentModel studentModel;
@@ -109,7 +106,6 @@ class PaymentCubit extends Cubit<PaymentState> {
             ..invoiceId = invoiceId
             ..paymentStatus = 'success',
         );
-        await addStudent();
         emit(PaymentState<bool>.success(true));
       } else if (url.url!.contains("https://dev.fawaterk.com/fail")) {
         await _savePaymentStatusUseCase.execute(
@@ -122,9 +118,5 @@ class PaymentCubit extends Cubit<PaymentState> {
     } catch (e) {
       emit(PaymentState<String>.failure(e.toString()));
     }
-  }
-
-  Future<void> addStudent() async {
-    await _addStudentUseCase.execute(student: studentModel);
   }
 }

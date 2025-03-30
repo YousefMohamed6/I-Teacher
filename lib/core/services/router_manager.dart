@@ -7,6 +7,7 @@ import 'package:iteacher/features/auth/login/di/login_service.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
 import 'package:iteacher/features/auth/register/di/register_service.dart';
+import 'package:iteacher/features/auth/register/domain/repos/i_register_repo.dart';
 import 'package:iteacher/features/auth/register/presentation/manager/register_cubit.dart';
 import 'package:iteacher/features/auth/register/presentation/views/register_view.dart';
 import 'package:iteacher/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
@@ -203,10 +204,15 @@ sealed class RouterManager {
         path: RegisterView.routeName,
         name: RegisterView.routeName,
         builder: (context, state) {
+          final student = state.extra as StudentModel;
           RegisterService().initDi();
-          return BlocProvider(
-            create: (context) => GetIt.instance<RegisterCubit>(),
-            child: RegisterView(),
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IRegisterRepo>(),
+            child: BlocProvider(
+              create: (context) =>
+                  GetIt.instance<RegisterCubit>()..initStudentModel(student),
+              child: RegisterView(),
+            ),
           );
         },
       ),

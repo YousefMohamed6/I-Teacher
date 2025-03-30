@@ -62,7 +62,6 @@ class LoginCubit extends Cubit<LoginState> {
   Future<UserModel> getUserData() async {
     final UserModel user = await _getUserDataUseCase.execute(
         isStudent: isStudent, email: emailTextController.text);
-    await _saveUserRoleUseCase.execute(userRole: user.userRole);
     return user;
   }
 

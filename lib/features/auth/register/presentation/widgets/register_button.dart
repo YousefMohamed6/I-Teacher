@@ -12,11 +12,7 @@ class RegisterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomButton(
       onPressed: () async {
-        final formKey = BlocProvider.of<RegisterCubit>(context).formKey;
-        if (formKey.currentState!.validate()) {
-          BlocProvider.of<RegisterCubit>(context)
-              .createUserWithEmailAndPassword();
-        }
+        BlocProvider.of<RegisterCubit>(context).registerStudent();
       },
       child: CustomText(
         text: AppLocalizations.of(context)!.register,
