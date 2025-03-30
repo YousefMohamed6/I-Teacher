@@ -16,14 +16,13 @@ class StudentCubit extends Cubit<StudentState> {
     this._getTeachersIdsUseCase,
     this._pickStudentImageUseCase,
   ) : super(StudentState.initial());
-  final firstNameTextController = TextEditingController(text: 'Yousef');
-  final lastNameTextController = TextEditingController(text: 'Mohamed');
-  final emailTextController =
-      TextEditingController(text: 'Yousef.Mohamed.Flutter@gmail.com');
-  final phoneTextController = TextEditingController(text: '+201067954536');
-  final addressTextController = TextEditingController(text: 'El Santa');
-  final teacherIdTextController = TextEditingController(text: '1');
-  final studentImageController = TextEditingController(text: '');
+  final firstNameTextController = TextEditingController();
+  final lastNameTextController = TextEditingController();
+  final emailTextController = TextEditingController();
+  final phoneTextController = TextEditingController();
+  final addressTextController = TextEditingController();
+  final teacherIdTextController = TextEditingController();
+  final studentImageController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   StudentModel get studentData => StudentModel(
