@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteacher/core/widgets/custom_button.dart';
-import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:iteacher/l10n.dart';
 
@@ -14,9 +13,11 @@ class PaymentButton extends StatelessWidget {
       onPressed: () {
         context.read<PaymentCubit>().pay();
       },
-      child: CustomText(
-        text: AppLocalizations.of(context)!.pay_now,
-        fontWeight: FontWeight.bold,
+      child: Text(
+        AppLocalizations.of(context)!.pay_now,
+        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          color: Theme.of(context).primaryColor,
+        ),
       ),
     );
   }
