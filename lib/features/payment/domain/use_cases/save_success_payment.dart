@@ -1,10 +1,10 @@
-import 'package:mrjoo/core/services/firebase_service.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/features/payment/data/models/data_base_payments.dart';
+import 'package:iteacher/core/services/firebase_firestore_service.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/payment/data/models/data_base_payments.dart';
 
-class SaveSuccessPaymentUseCase {
+class SavePaymentStatusUseCase {
   final FirebaseFirestoreService firebaseFirestoreService;
-  SaveSuccessPaymentUseCase(this.firebaseFirestoreService);
+  SavePaymentStatusUseCase(this.firebaseFirestoreService);
 
   Future<void> execute({
     required DatabasePaymentModel databasePaymentModel,

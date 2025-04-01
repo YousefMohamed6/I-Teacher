@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/core/services/show_message.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
-import 'package:mrjoo/core/widgets/custom_button.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
-import 'package:mrjoo/features/student_data/presentation/manager/student_cubit.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/widgets/custom_button.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/payment/presentation/views/payment_view.dart';
+import 'package:iteacher/features/student_data/presentation/manager/student_cubit.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({super.key});
@@ -33,10 +32,9 @@ class NextButton extends StatelessWidget {
             BlocProvider.of<StudentCubit>(context).checkTeacherId();
           }
         },
-        color: AppColors.kMainTextColor,
         child: CustomText(
           text: AppLocalizations.of(context)!.next,
-          color: AppColors.kPrimryColor,
+          color: Theme.of(context).primaryColor,
           fontWeight: FontWeight.bold,
         ),
       ),

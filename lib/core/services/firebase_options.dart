@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '483758448499',
     projectId: 'i-teacher-96035',
     storageBucket: 'i-teacher-96035.firebasestorage.app',
-    iosClientId: '483758448499-0div1bph7v0gu93cj00j33o1q74rp0so.apps.googleusercontent.com',
-    iosBundleId: 'com.example.mrjoo',
+    iosClientId:
+        '483758448499-0div1bph7v0gu93cj00j33o1q74rp0so.apps.googleusercontent.com',
+    iosBundleId: 'com.example.iteacher',
   );
 }

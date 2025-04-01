@@ -1,12 +1,12 @@
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 
 class DatabasePaymentModel {
   final String firstName;
   final String lastName;
   final String email;
   final String phone;
-  final String invoiceId;
-  final String paymentStatus;
+  String invoiceId;
+  String paymentStatus;
   final String paymentDate;
 
   DatabasePaymentModel({

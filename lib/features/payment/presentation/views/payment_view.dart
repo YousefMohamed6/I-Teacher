@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
-import 'package:mrjoo/core/utils/constants/app_fonts.dart';
-import 'package:mrjoo/core/widgets/app_drawer.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/payment/presentation/widgets/payment_view_body.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/payment/presentation/widgets/payment_view_body.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class PaymentView extends StatelessWidget {
   const PaymentView({super.key});
@@ -13,10 +11,7 @@ class PaymentView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
       appBar: AppBar(
-        backgroundColor: AppColors.kAppBarColor,
-        centerTitle: true,
         title: CustomText(
           text: AppLocalizations.of(context)!.payment,
           fontFamily: AppFonts.kPacificoFont,

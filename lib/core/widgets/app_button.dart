@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({super.key, required this.onPressed, required this.text});
@@ -15,12 +15,9 @@ class AppButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       onPressed: onPressed,
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 18,
-          color: AppColors.kPrimryColor,
-        ),
+      child: CustomText(
+        text: text,
+        fontSize: Theme.of(context).textTheme.headlineLarge?.fontSize,
       ),
     );
   }

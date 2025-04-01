@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:mrjoo/core/services/sf_service.dart';
-import 'package:mrjoo/core/utils/constants/sf_keys.dart';
+import 'package:iteacher/core/services/sf_service.dart';
+import 'package:iteacher/core/utils/constants/sf_keys.dart';
 
 part 'setting_event.dart';
 part 'setting_state.dart';

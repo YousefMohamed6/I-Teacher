@@ -1,4 +1,4 @@
-import 'package:mrjoo/core/services/firebase_auth_service.dart';
+import 'package:iteacher/core/services/firebase_auth_service.dart';
 
 class CreateUserWithEmailAndPasswordUseCase {
   final FirebaseAuthService firebaseAuthService;

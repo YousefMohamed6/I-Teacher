@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mrjoo/core/widgets/custom_form_field.dart';
-import 'package:mrjoo/features/student_data/presentation/manager/student_cubit.dart';
-import 'package:mrjoo/generated/app_localizations.dart';
+import 'package:iteacher/core/widgets/custom_form_field.dart';
+import 'package:iteacher/features/student_data/presentation/manager/student_cubit.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class FullNameTextField extends StatelessWidget {
   const FullNameTextField({super.key});
@@ -15,7 +15,7 @@ class FullNameTextField extends StatelessWidget {
           child: CustomFormField(
             textInputType: TextInputType.name,
             lablelText: AppLocalizations.of(context)!.first_name,
-            prefixIcon: const Icon(Icons.person),
+            prefixIcon: const Icon(Icons.person_outline),
             controller:
                 BlocProvider.of<StudentCubit>(context).firstNameTextController,
           ),
@@ -25,7 +25,7 @@ class FullNameTextField extends StatelessWidget {
           child: CustomFormField(
             textInputType: TextInputType.name,
             lablelText: AppLocalizations.of(context)!.last_name,
-            prefixIcon: const Icon(Icons.person),
+            prefixIcon: const Icon(Icons.person_2_outlined),
             controller:
                 BlocProvider.of<StudentCubit>(context).lastNameTextController,
           ),

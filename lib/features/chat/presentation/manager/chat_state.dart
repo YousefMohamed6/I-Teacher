@@ -1,15 +1,10 @@
 part of 'chat_cubit.dart';
 
-sealed class ChatState {}
-
-class Initial extends ChatState {}
-
-class Failure extends ChatState {}
-
-class Success extends ChatState {
-  final List<MessageModel> messages;
-
-  Success({required this.messages});
+@freezed
+class ChatState<T> with _$ChatState<T> {
+  const factory ChatState.initial() = Initial;
+  const factory ChatState.loading() = Loading;
+  const factory ChatState.failure(String message) = Failure;
+  const factory ChatState.success(T data) = Success;
+  const factory ChatState.updateUI() = UpdateUI;
 }
-
-class SignOut extends ChatState {}

@@ -1,32 +1,79 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/exceptions/unfound_user.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/features/auth/login/domain/use_cases/get_use_data_use_case.dart';
+import 'package:iteacher/features/auth/login/domain/use_cases/save_user_email_use_case.dart';
+import 'package:iteacher/features/auth/login/domain/use_cases/save_user_role_use_case.dart';
 
+part 'login_cubit.freezed.dart';
 part 'login_state.dart';
 
-class LoginCubit extends Cubit<LoginViewState> {
-  LoginCubit() : super(LoginInitial());
+class LoginCubit extends Cubit<LoginState> {
+  final GetUserDataUseCase _getUserDataUseCase;
+  final SaveUserRoleUseCase _saveUserRoleUseCase;
+  final SaveUserEmailUseCase _saveUserEmailUseCase;
+
+  LoginCubit(
+    this._getUserDataUseCase,
+    this._saveUserRoleUseCase,
+    this._saveUserEmailUseCase,
+  ) : super(LoginState.initial());
   final emailTextController = TextEditingController();
   final passwordTextControlle = TextEditingController();
-  final emailkey = GlobalKey<FormState>();
-  final passwordKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   bool obscuretext = true;
+  bool isStudent = true;
 
   void changeObscureText() {
+    emit(LoginState.initial());
     obscuretext = !obscuretext;
-    emit(LoginInitial());
+    emit(LoginState.updateUI());
   }
 
-  void loginUser() async {
-    emit(LoginLoading());
+  void changeRole(bool value) {
+    emit(LoginState.initial());
+    isStudent = value;
+    emit(LoginState.updateUI());
+  }
+
+  Future<void> login() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailTextController.text,
-        password: passwordTextControlle.text,
-      );
-      emit(LoginSuccess());
+      if (formKey.currentState!.validate()) {
+        emit(LoginState.loading());
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailTextController.text,
+          password: passwordTextControlle.text,
+        );
+      }
+      final user = await getUserData();
+      await saveUserData(user: user);
+      emit(LoginState<UserRole>.success(user.userRole));
     } on FirebaseAuthException catch (e) {
-      emit(LoginFailure(errMessage: e.code));
+      emit(LoginState.failure(errMessage: e.code));
+    } on UnFoundUser catch (_) {
+      emit(LoginState<UnFoundUser>.failure(errMessage: ''));
     }
+  }
+
+  Future<UserModel> getUserData() async {
+    final UserModel user = await _getUserDataUseCase.execute(
+        isStudent: isStudent, email: emailTextController.text);
+    return user;
+  }
+
+  Future<void> saveUserData({required UserModel user}) async {
+    await _saveUserRoleUseCase.execute(userRole: user.userRole);
+    await _saveUserEmailUseCase.execute(email: user.email);
+  }
+
+  @override
+  Future<void> close() async {
+    emailTextController.dispose();
+    passwordTextControlle.dispose();
+    super.close();
   }
 }

@@ -1,54 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
-import 'package:mrjoo/core/utils/constants/app_fonts.dart';
-import 'package:mrjoo/core/utils/constants/keys.dart';
-import 'package:mrjoo/core/services/url_launcher.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/profile/presentation/widgets/contect_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/utils/constants/keys.dart';
+import 'package:iteacher/core/utils/helper/url_launcher.dart';
+import 'package:iteacher/core/widgets/base64_image.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/profile/presentation/manager/profile_cubit.dart';
+import 'package:iteacher/features/profile/presentation/widgets/contect_item.dart';
+import 'package:iteacher/features/profile/presentation/widgets/teacher_accounts.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class TeacherData extends StatelessWidget {
-  const TeacherData({super.key});
-
+  const TeacherData({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
+    final teacherModel = context.read<ProfileCubit>().teacherModel;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const CustomText(
-          text: AppKeys.kTeacherName,
-          textAlign: TextAlign.center,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: AppColors.kMainTextColor,
+        SizedBox(height: 36.h),
+        CustomBase64Image(
+          base64: teacherModel.imageBase64,
+          radius: 84.h,
         ),
-        const SizedBox(height: 16),
-        const CustomText(
-          text: AppKeys.kTeacherJob,
+        SizedBox(height: 36.h),
+        CustomText(
+          text: '${teacherModel.firstName} ${teacherModel.lastName}',
           textAlign: TextAlign.center,
-          fontSize: 24,
+          fontSize: 20.sp,
+          fontWeight: FontWeight.bold,
+        ),
+        SizedBox(height: 16.h),
+        CustomText(
+          text: teacherModel.department,
+          textAlign: TextAlign.center,
+          fontSize: 20.sp,
           fontFamily: AppFonts.kPacificoFont,
           fontWeight: FontWeight.bold,
-          color: AppColors.kMainTextColor,
         ),
-        const SizedBox(height: 5),
+        SizedBox(height: 8.h),
         ContactItem(
           mainAxisAlignment: MainAxisAlignment.center,
-          text: "Phone Number : ",
-          textButton: AppKeys.kPhone,
+          text: "${AppLocalizations.of(context)!.phone} : ",
+          textButton: teacherModel.phone,
           onPressed: () async {
-            await UrlLauncher.launcher(url: 'tel:${AppKeys.kPhone}');
+            final String url = 'tel:${teacherModel.phone}';
+            await UrlLauncher.launcher(url: url);
           },
         ),
         ContactItem(
           mainAxisAlignment: MainAxisAlignment.center,
-          text: "Email Address : ",
-          textButton: AppKeys.kEmail,
+          text: "${AppLocalizations.of(context)!.email} : ",
+          textButton: teacherModel.email,
           onPressed: () async {
-            await UrlLauncher.launcher(
-                url:
-                    'mailto:${AppKeys.kEmail}?subject=${AppKeys.kEmailSubject}');
+            final String url =
+                'mailto:${teacherModel.email}?subject=${AppKeys.kEmailSubject}';
+            await UrlLauncher.launcher(url: url);
           },
         ),
-        const SizedBox(height: 32),
+        SizedBox(height: 16.h),
+        TeacherAccounts(),
       ],
     );
   }

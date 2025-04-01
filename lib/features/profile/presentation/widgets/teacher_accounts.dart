@@ -1,37 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mrjoo/core/utils/constants/urls.dart';
-import 'package:mrjoo/features/profile/presentation/widgets/account_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iteacher/core/utils/helper/url_launcher.dart';
+import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/profile/presentation/manager/profile_cubit.dart';
+import 'package:iteacher/features/profile/presentation/widgets/account_item.dart';
 
 class TeacherAccounts extends StatelessWidget {
   const TeacherAccounts({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        AccountItem(
-          icon: FontAwesomeIcons.facebook,
-          url: AppUrls.kFaceBookUrl,
-          iconColor: Color.fromRGBO(15, 81, 179, 1),
-        ),
-        AccountItem(
-          icon: FontAwesomeIcons.youtube,
-          url: AppUrls.kYoutubeUrl,
-          iconColor: Color.fromRGBO(198, 40, 40, 1),
-        ),
-        AccountItem(
-          icon: FontAwesomeIcons.linkedin,
-          url: AppUrls.kLinkedinUrl,
-          iconColor: Color.fromRGBO(6, 85, 204, 1),
-        ),
-        AccountItem(
-          icon: FontAwesomeIcons.github,
-          url: AppUrls.kGithubUrl,
-          iconColor: Colors.black,
-        ),
-      ],
+    final List<AccountModel> accounts =
+        context.read<ProfileCubit>().teacherModel.accounts.toList();
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.25,
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: accounts.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.all(16.h),
+            child: AccountItem(
+              account: accounts[index],
+              onTap: () {
+                UrlLauncher.launcher(url: accounts[index].url);
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }

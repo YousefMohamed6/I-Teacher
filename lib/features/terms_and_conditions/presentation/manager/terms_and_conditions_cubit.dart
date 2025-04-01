@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mrjoo/core/services/sf_service.dart';
-import 'package:mrjoo/core/utils/constants/sf_keys.dart';
-import 'package:mrjoo/features/terms_and_conditions/domain/use_cases/terms_and_conditions_use_case.dart';
+import 'package:iteacher/core/services/sf_service.dart';
+import 'package:iteacher/core/utils/constants/sf_keys.dart';
+import 'package:iteacher/features/terms_and_conditions/domain/use_cases/terms_and_conditions_use_case.dart';
 
 part 'terms_and_conditions.freezed.dart';
 part 'terms_and_conditions_state.dart';

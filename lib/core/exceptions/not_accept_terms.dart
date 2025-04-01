@@ -1,1 +1,0 @@
-class NotAcceptTermsException implements Exception {}

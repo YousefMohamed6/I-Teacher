@@ -1,12 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
-import 'package:mrjoo/features/payment/data/models/payment/customer_model.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/models/user_model.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/payment/data/models/payment/customer_model.dart';
 
-class StudentModel {
+class StudentModel implements UserModel {
+  @override
   final String firstName;
+  @override
   final String lastName;
+  @override
   final String email;
+  @override
   final String phone;
+  @override
+  final String imageBase64;
+  @override
+  final UserRole userRole = UserRole.student;
   final String address;
   final DateTime expiryDate;
   final DateTime subscriptionDate;
@@ -18,6 +28,7 @@ class StudentModel {
     required this.email,
     required this.phone,
     required this.address,
+    required this.imageBase64,
     required this.expiryDate,
     required this.subscriptionDate,
     required this.teacherId,
@@ -33,8 +44,11 @@ class StudentModel {
       subscriptionDate:
           (json[StudentKeys.kSubscriptionDate] as Timestamp).toDate(),
       teacherId: json[StudentKeys.kTeacherIdField],
+      imageBase64: json[StudentKeys.kStudentImageField],
     );
   }
+
+  @override
   Map<String, dynamic> toJson() {
     return {
       StudentKeys.kfirstNameField: firstName,
@@ -42,9 +56,11 @@ class StudentModel {
       StudentKeys.kEmailField: email,
       StudentKeys.kPhoneField: phone,
       StudentKeys.kStudentAddress: address,
+      StudentKeys.kStudentImageField: imageBase64,
       StudentKeys.kExpiryDate: expiryDate,
-      StudentKeys.kSubscriptionDate: expiryDate,
+      StudentKeys.kSubscriptionDate: subscriptionDate,
       StudentKeys.kTeacherIdField: teacherId,
+      StudentKeys.kStudentRoleField: userRole.name,
     };
   }
 

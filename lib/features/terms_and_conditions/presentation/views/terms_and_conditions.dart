@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
-import 'package:mrjoo/core/widgets/app_drawer.dart';
-import 'package:mrjoo/core/widgets/custom_text.dart';
-import 'package:mrjoo/features/terms_and_conditions/presentation/widgets/terms_and_conditions_body.dart';
-import 'package:mrjoo/mr_joo.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/widgets/terms_and_conditions_body.dart';
+import 'package:iteacher/l10n.dart';
 
 class TermsAndConditionsView extends StatelessWidget {
   const TermsAndConditionsView({super.key});
@@ -11,13 +9,10 @@ class TermsAndConditionsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
       appBar: AppBar(
         title: CustomText(
           text: AppLocalizations.of(context)!.terms_and_conditions,
-          color: AppColors.kMainTextColor,
         ),
-        backgroundColor: AppColors.kAppBarColor,
       ),
       body: const TermsAndConditionsBody(),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mrjoo/core/utils/constants/app_colors.dart';
 
 class Background extends StatelessWidget {
   const Background({super.key, this.child});
@@ -10,11 +9,14 @@ class Background extends StatelessWidget {
       alignment: Alignment.center,
       width: MediaQuery.sizeOf(context).width,
       height: MediaQuery.sizeOf(context).height,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [AppColors.kPrimryColor, AppColors.kSecondColor],
+          colors: [
+            Theme.of(context).primaryColor,
+            Theme.of(context).secondaryHeaderColor
+          ],
         ),
       ),
       child: child,

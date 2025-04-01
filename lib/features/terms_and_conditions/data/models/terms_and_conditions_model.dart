@@ -1,4 +1,4 @@
-import 'package:mrjoo/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 
 class TermsAndConditionsModel {
   final String arabicTerms;
@@ -14,16 +14,16 @@ class TermsAndConditionsModel {
   });
   factory TermsAndConditionsModel.fromJson(Map<String, dynamic> json) {
     return TermsAndConditionsModel(
-      arabicTerms: json[DashBoardKeys.kTermsArabicField],
-      englishTerms: json[DashBoardKeys.kTermsEnglishField],
-      arabicConditions: json[DashBoardKeys.kConditionsArabicField],
-      englishConditions: json[DashBoardKeys.kConditionsEnglishField],
+      arabicTerms: json[DashboardKeys.kTermsArabicField],
+      englishTerms: json[DashboardKeys.kTermsEnglishField],
+      arabicConditions: json[DashboardKeys.kConditionsArabicField],
+      englishConditions: json[DashboardKeys.kConditionsEnglishField],
     );
   }
   Map<String, dynamic> toJson() => {
-        DashBoardKeys.kTermsArabicField: arabicTerms,
-        DashBoardKeys.kTermsEnglishField: englishTerms,
-        DashBoardKeys.kConditionsArabicField: arabicConditions,
-        DashBoardKeys.kConditionsEnglishField: englishConditions,
+        DashboardKeys.kTermsArabicField: arabicTerms,
+        DashboardKeys.kTermsEnglishField: englishTerms,
+        DashboardKeys.kConditionsArabicField: arabicConditions,
+        DashboardKeys.kConditionsEnglishField: englishConditions,
       };
 }

@@ -1,4 +1,4 @@
-import 'package:mrjoo/features/student_data/domain/repos/i_student_repo.dart';
+import 'package:iteacher/features/student_data/domain/repos/i_student_repo.dart';
 
 class GetTeachersIdsUseCase {
   final IStudentRepo studentRepo;

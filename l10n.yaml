@@ -3,5 +3,6 @@ synthetic-package: false
 output-dir: ./lib/generated
 arb-dir: ./lib/l10n
 output-localization-file: app_localizations.dart
+untranslated-messages-file: untranslated_messages.text
 output-class: AppLocalizations
 

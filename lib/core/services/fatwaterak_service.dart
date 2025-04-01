@@ -1,8 +1,8 @@
-import 'package:mrjoo/core/services/api_service.dart';
-import 'package:mrjoo/core/utils/constants/keys.dart';
-import 'package:mrjoo/core/utils/constants/urls.dart';
-import 'package:mrjoo/core/utils/json_hander.dart';
-import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
+import 'package:iteacher/core/services/api_service.dart';
+import 'package:iteacher/core/utils/constants/keys.dart';
+import 'package:iteacher/core/utils/constants/app_urls.dart';
+import 'package:iteacher/core/utils/helper/json_handler.dart';
+import 'package:iteacher/features/payment/data/models/payment/payment.dart';
 
 class FawaterkService {
   final ApiService _api = ApiService();

@@ -1,6 +1,6 @@
-import 'package:mrjoo/features/payment/data/models/payment/payment.dart';
-import 'package:mrjoo/features/payment/data/models/payment_status/payment_status.dart';
-import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
+import 'package:iteacher/features/payment/data/models/payment/payment.dart';
+import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
+import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
 
 class SendPaymentRequestUseCase {
   final IPaymentRepo paymentRepo;

@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -49,7 +51,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
-  String get forget_password => 'Forget Your Password?';
+  String get forget_password => 'Forgetten Password?';
 
   @override
   String get enter_password => 'Enter Your Password';
@@ -64,7 +66,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get required_field => 'This Field Is Required';
 
   @override
-  String get first_name => 'first Name';
+  String get first_name => 'First Name';
 
   @override
   String get last_name => 'Last Name';
@@ -88,7 +90,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_teacher_id => 'Enter Teacher Identifier';
 
   @override
-  String get unfound_id => 'unFound Identifier';
+  String get unfound_id => 'unfound Identifier';
 
   @override
   String get student_data => 'Student Data';
@@ -131,4 +133,136 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no_data => 'No Data';
+
+  @override
+  String get course => 'Course';
+
+  @override
+  String get chats => 'Chats';
+
+  @override
+  String get chat => 'Chat';
+
+  @override
+  String get send => 'Send';
+
+  @override
+  String get userNotFound => 'User Not Found';
+
+  @override
+  String get invalidEmailorPassword => 'Invalid Email Or Password';
+
+  @override
+  String get weakPassword => 'Weak Password';
+
+  @override
+  String get emailAlreadyInUse => 'Email Already In Use';
+
+  @override
+  String get invalidEmail => 'Invalid Email';
+
+  @override
+  String get somethingWentWrong => 'Something Went Wrong';
+
+  @override
+  String get networkRequestFailed => 'Network Request Failed';
+
+  @override
+  String get student => 'Student';
+
+  @override
+  String get teacher => 'Teacher';
+
+  @override
+  String get teacherProfile => 'Teacher Profile';
+
+  @override
+  String get unfound_user => 'unFound User';
+
+  @override
+  String get channal_id => 'Channal Id';
+
+  @override
+  String get course_price => 'Course Price';
+
+  @override
+  String get course_description => 'Course Description';
+
+  @override
+  String get department => 'Department';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get copied => 'Copied';
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get social_account => 'Social Media Account';
+
+  @override
+  String get account_name => 'Account Name';
+
+  @override
+  String get account_link => 'Account Link';
+
+  @override
+  String get account_icon => 'Account Icon';
+
+  @override
+  String get file => 'File';
+
+  @override
+  String get photo => 'Photo';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'delete';
+
+  @override
+  String get confirm => 'confirm';
+
+  @override
+  String get sure => 'are you sure';
+
+  @override
+  String get yes => 'yes';
+
+  @override
+  String get no => 'no';
+
+  @override
+  String get file_picker_error => 'File Picker Error';
+
+  @override
+  String get file_picker_premission_error => 'File Picker Premission Error';
+
+  @override
+  String get no_internet => 'No Internet Connection';
+
+  @override
+  String get message => 'Message';
+
+  @override
+  String get chatbot => 'Chatbot';
+
+  @override
+  String get write_message => 'Write your message here';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get contact_us => 'Contact Us';
+
+  @override
+  String get videos => 'Videos';
 }

@@ -182,7 +182,7 @@ abstract class AppLocalizations {
   /// No description provided for @forget_password.
   ///
   /// In en, this message translates to:
-  /// **'Forget Your Password?'**
+  /// **'Forgetten Password?'**
   String get forget_password;
 
   /// No description provided for @enter_password.
@@ -212,7 +212,7 @@ abstract class AppLocalizations {
   /// No description provided for @first_name.
   ///
   /// In en, this message translates to:
-  /// **'first Name'**
+  /// **'First Name'**
   String get first_name;
 
   /// No description provided for @last_name.
@@ -260,7 +260,7 @@ abstract class AppLocalizations {
   /// No description provided for @unfound_id.
   ///
   /// In en, this message translates to:
-  /// **'unFound Identifier'**
+  /// **'unfound Identifier'**
   String get unfound_id;
 
   /// No description provided for @student_data.
@@ -346,6 +346,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No Data'**
   String get no_data;
+
+  /// No description provided for @course.
+  ///
+  /// In en, this message translates to:
+  /// **'Course'**
+  String get course;
+
+  /// No description provided for @chats.
+  ///
+  /// In en, this message translates to:
+  /// **'Chats'**
+  String get chats;
+
+  /// No description provided for @chat.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chat;
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
+
+  /// No description provided for @userNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'User Not Found'**
+  String get userNotFound;
+
+  /// No description provided for @invalidEmailorPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Email Or Password'**
+  String get invalidEmailorPassword;
+
+  /// No description provided for @weakPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Weak Password'**
+  String get weakPassword;
+
+  /// No description provided for @emailAlreadyInUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Already In Use'**
+  String get emailAlreadyInUse;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Email'**
+  String get invalidEmail;
+
+  /// No description provided for @somethingWentWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something Went Wrong'**
+  String get somethingWentWrong;
+
+  /// No description provided for @networkRequestFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Network Request Failed'**
+  String get networkRequestFailed;
+
+  /// No description provided for @student.
+  ///
+  /// In en, this message translates to:
+  /// **'Student'**
+  String get student;
+
+  /// No description provided for @teacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher'**
+  String get teacher;
+
+  /// No description provided for @teacherProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher Profile'**
+  String get teacherProfile;
+
+  /// No description provided for @unfound_user.
+  ///
+  /// In en, this message translates to:
+  /// **'unFound User'**
+  String get unfound_user;
+
+  /// No description provided for @channal_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Channal Id'**
+  String get channal_id;
+
+  /// No description provided for @course_price.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Price'**
+  String get course_price;
+
+  /// No description provided for @course_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Course Description'**
+  String get course_description;
+
+  /// No description provided for @department.
+  ///
+  /// In en, this message translates to:
+  /// **'Department'**
+  String get department;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @copied.
+  ///
+  /// In en, this message translates to:
+  /// **'Copied'**
+  String get copied;
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @social_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Social Media Account'**
+  String get social_account;
+
+  /// No description provided for @account_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Name'**
+  String get account_name;
+
+  /// No description provided for @account_link.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Link'**
+  String get account_link;
+
+  /// No description provided for @account_icon.
+  ///
+  /// In en, this message translates to:
+  /// **'Account Icon'**
+  String get account_icon;
+
+  /// No description provided for @file.
+  ///
+  /// In en, this message translates to:
+  /// **'File'**
+  String get file;
+
+  /// No description provided for @photo.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get photo;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'delete'**
+  String get delete;
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'confirm'**
+  String get confirm;
+
+  /// No description provided for @sure.
+  ///
+  /// In en, this message translates to:
+  /// **'are you sure'**
+  String get sure;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'yes'**
+  String get yes;
+
+  /// No description provided for @no.
+  ///
+  /// In en, this message translates to:
+  /// **'no'**
+  String get no;
+
+  /// No description provided for @file_picker_error.
+  ///
+  /// In en, this message translates to:
+  /// **'File Picker Error'**
+  String get file_picker_error;
+
+  /// No description provided for @file_picker_premission_error.
+  ///
+  /// In en, this message translates to:
+  /// **'File Picker Premission Error'**
+  String get file_picker_premission_error;
+
+  /// No description provided for @no_internet.
+  ///
+  /// In en, this message translates to:
+  /// **'No Internet Connection'**
+  String get no_internet;
+
+  /// No description provided for @message.
+  ///
+  /// In en, this message translates to:
+  /// **'Message'**
+  String get message;
+
+  /// No description provided for @chatbot.
+  ///
+  /// In en, this message translates to:
+  /// **'Chatbot'**
+  String get chatbot;
+
+  /// No description provided for @write_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your message here'**
+  String get write_message;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @contact_us.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contact_us;
+
+  /// No description provided for @videos.
+  ///
+  /// In en, this message translates to:
+  /// **'Videos'**
+  String get videos;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

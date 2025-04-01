@@ -1,43 +1,60 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mrjoo/features/auth/login/presentation/manager/login_cubit.dart';
-import 'package:mrjoo/features/auth/login/presentation/views/login_view.dart';
-import 'package:mrjoo/features/auth/register/di/register_service.dart';
-import 'package:mrjoo/features/auth/register/presentation/manager/register_cubit.dart';
-import 'package:mrjoo/features/auth/register/presentation/views/register_view.dart';
-import 'package:mrjoo/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
-import 'package:mrjoo/features/auth/rest_Password/persentation/view/rest_password_view.dart';
-import 'package:mrjoo/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:mrjoo/features/chat/presentation/views/chat_view.dart';
-import 'package:mrjoo/features/course/di/course_service.dart';
-import 'package:mrjoo/features/course/domain/repos/I_course_repo.dart';
-import 'package:mrjoo/features/course/presentation/manager/course_cubit.dart';
-import 'package:mrjoo/features/course/presentation/views/course_view.dart';
-import 'package:mrjoo/features/payment/di/payment_service.dart';
-import 'package:mrjoo/features/payment/domain/repos/i_payment_repo.dart';
-import 'package:mrjoo/features/payment/presentation/manager/payment_cubit.dart';
-import 'package:mrjoo/features/payment/presentation/views/payment_view.dart';
-import 'package:mrjoo/features/profile/presentation/manager/profile_cubit.dart';
-import 'package:mrjoo/features/profile/presentation/views/profile_view.dart';
-import 'package:mrjoo/features/settings/presentation/views/setting_view.dart';
-import 'package:mrjoo/features/splash/views/splash_view.dart';
-import 'package:mrjoo/features/student_data/data/model/student_model.dart';
-import 'package:mrjoo/features/student_data/di/student_service.dart';
-import 'package:mrjoo/features/student_data/domain/repos/i_student_repo.dart';
-import 'package:mrjoo/features/student_data/presentation/manager/student_cubit.dart';
-import 'package:mrjoo/features/student_data/presentation/views/student_view.dart';
-import 'package:mrjoo/features/terms_and_conditions/di/terms_and_conditions_service.dart';
-import 'package:mrjoo/features/terms_and_conditions/domain/repos/i_terms_and_conditions.dart';
-import 'package:mrjoo/features/terms_and_conditions/presentation/manager/terms_and_conditions_cubit.dart';
-import 'package:mrjoo/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
+import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/features/auth/login/data/repos/login_repo_impl.dart';
+import 'package:iteacher/features/auth/login/di/login_service.dart';
+import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
+import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
+import 'package:iteacher/features/auth/register/di/register_service.dart';
+import 'package:iteacher/features/auth/register/domain/repos/i_register_repo.dart';
+import 'package:iteacher/features/auth/register/presentation/manager/register_cubit.dart';
+import 'package:iteacher/features/auth/register/presentation/views/register_view.dart';
+import 'package:iteacher/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
+import 'package:iteacher/features/auth/rest_Password/persentation/view/rest_password_view.dart';
+import 'package:iteacher/features/chat/di/chat_service.dart';
+import 'package:iteacher/features/chat/domin/repos/i_chat_repo.dart';
+import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
+import 'package:iteacher/features/chat/presentation/views/chat_view.dart';
+import 'package:iteacher/features/chat/presentation/views/chats_view.dart';
+import 'package:iteacher/features/chatbot/di/chatbot_service.dart';
+import 'package:iteacher/features/chatbot/domin/repos/i_chatbot_repo.dart';
+import 'package:iteacher/features/chatbot/presentation/manager/chatbot_cubit.dart';
+import 'package:iteacher/features/chatbot/presentation/views/chatbot_view.dart';
+import 'package:iteacher/features/course/di/course_service.dart';
+import 'package:iteacher/features/course/domain/repos/I_course_repo.dart';
+import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
+import 'package:iteacher/features/course/presentation/views/course_view.dart';
+import 'package:iteacher/features/course/presentation/views/video_player_view.dart';
+import 'package:iteacher/features/payment/di/payment_service.dart';
+import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
+import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
+import 'package:iteacher/features/payment/presentation/views/payment_view.dart';
+import 'package:iteacher/features/profile/presentation/manager/profile_cubit.dart';
+import 'package:iteacher/features/profile/presentation/views/profile_view.dart';
+import 'package:iteacher/features/settings/presentation/views/setting_view.dart';
+import 'package:iteacher/features/splash/presentation/views/splash_view.dart';
+import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/student_data/di/student_service.dart';
+import 'package:iteacher/features/student_data/domain/repos/i_student_repo.dart';
+import 'package:iteacher/features/student_data/presentation/manager/student_cubit.dart';
+import 'package:iteacher/features/student_data/presentation/views/student_view.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/di/teacher_profile_service.dart';
+import 'package:iteacher/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:iteacher/features/teacher_profile/presentation/views/teacher_profile_view.dart';
+import 'package:iteacher/features/terms_and_conditions/di/terms_and_conditions_service.dart';
+import 'package:iteacher/features/terms_and_conditions/domain/repos/i_terms_and_conditions.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/manager/terms_and_conditions_cubit.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
 
-abstract class RouterManager {
+sealed class RouterManager {
   static GoRouter routConfig = GoRouter(
-    initialLocation: SplashView.path,
+    initialLocation: SplashView.routeName,
     routes: [
       GoRoute(
-        path: SplashView.path,
+        path: SplashView.routeName,
         builder: (context, state) {
           return SplashView();
         },
@@ -53,8 +70,10 @@ abstract class RouterManager {
         path: ProfileView.routeName,
         name: ProfileView.routeName,
         builder: (context, state) {
+          final teacherModel = state.extra as TeacherModel;
           return BlocProvider(
-            create: (context) => ProfileCubit(),
+            create: (context) =>
+                ProfileCubit()..initState(teacherModel: teacherModel),
             child: ProfileView(),
           );
         },
@@ -63,9 +82,13 @@ abstract class RouterManager {
         path: LoginView.routeName,
         name: LoginView.routeName,
         builder: (context, state) {
-          return BlocProvider(
-            create: (context) => LoginCubit(),
-            child: LoginView(),
+          LoginService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.I<LoginRepoImpl>(),
+            child: BlocProvider(
+              create: (context) => GetIt.I<LoginCubit>(),
+              child: LoginView(),
+            ),
           );
         },
       ),
@@ -114,9 +137,33 @@ abstract class RouterManager {
         path: ChatView.routeName,
         name: ChatView.routeName,
         builder: (context, state) {
-          return BlocProvider(
-            create: (context) => ChatCubit(),
-            child: ChatView(),
+          final String reciverId =
+              state.uri.queryParameters[ChatKeys.kReciverField] ?? '';
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IChatRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<ChatCubit>()
+                ..reciverId = reciverId
+                ..getSenderId()
+                ..listenToMessages(),
+              child: ChatView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: ChatsView.routeName,
+        name: ChatsView.routeName,
+        builder: (context, state) {
+          ChatService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IChatRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<ChatCubit>()
+                ..getAllTeachers()
+                ..getSenderId(),
+              child: ChatsView(),
+            ),
           );
         },
       ),
@@ -129,8 +176,26 @@ abstract class RouterManager {
             create: (context) => GetIt.instance<ICourseRepo>(),
             child: BlocProvider(
               create: (context) =>
-                  GetIt.instance<CourseCubit>()..fetchCourseLink(),
+                  GetIt.instance<CourseCubit>()..fetchAllPlaylists(),
               child: CourseView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: VideoPlayerView.routeName,
+        name: VideoPlayerView.routeName,
+        builder: (context, state) {
+          final playlistId = state.extra as String;
+          CourseService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<ICourseRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<CourseCubit>()
+                ..fetchPlaylistVideos(
+                  playListId: playlistId,
+                ),
+              child: VideoPlayerView(),
             ),
           );
         },
@@ -139,10 +204,15 @@ abstract class RouterManager {
         path: RegisterView.routeName,
         name: RegisterView.routeName,
         builder: (context, state) {
+          final student = state.extra as StudentModel;
           RegisterService().initDi();
-          return BlocProvider(
-            create: (context) => GetIt.instance<RegisterCubit>(),
-            child: RegisterView(),
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IRegisterRepo>(),
+            child: BlocProvider(
+              create: (context) =>
+                  GetIt.instance<RegisterCubit>()..initStudentModel(student),
+              child: RegisterView(),
+            ),
           );
         },
       ),
@@ -157,6 +227,35 @@ abstract class RouterManager {
               create: (context) => GetIt.instance<TermsAndConditionsCubit>()
                 ..fetchTermsAndConditions(),
               child: TermsAndConditionsView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: TeacherProfileView.routeName,
+        name: TeacherProfileView.routeName,
+        builder: (context, state) {
+          TeacherProfileService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<ITeacherProfileRepo>(),
+            child: BlocProvider(
+              create: (context) =>
+                  GetIt.instance<TeacherProfileCubit>()..fetchTeacherData(),
+              child: TeacherProfileView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: ChatbotView.routeName,
+        name: ChatbotView.routeName,
+        builder: (context, state) {
+          ChatbotService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IChatbotRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<ChatbotCubit>(),
+              child: ChatbotView(),
             ),
           );
         },

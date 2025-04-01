@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class Avatar extends StatelessWidget {
   const Avatar({
     super.key,
-    required this.image,
+    required this.imagePath,
     this.radius = 100,
     this.backgroundColor,
   });
-  final String image;
+  final String imagePath;
   final double radius;
   final Color? backgroundColor;
   @override
@@ -17,7 +17,7 @@ class Avatar extends StatelessWidget {
       backgroundColor: backgroundColor ?? Colors.grey,
       child: CircleAvatar(
         radius: radius,
-        backgroundImage: AssetImage(image),
+        backgroundImage: AssetImage(imagePath),
       ),
     );
   }

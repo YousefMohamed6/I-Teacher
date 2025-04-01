@@ -17,6 +17,8 @@ class CustomNetworkImage extends StatelessWidget {
       imageUrl: imageUrl,
       width: width,
       height: height,
+      placeholder: (context, url) => const CircularProgressIndicator(),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
     );
   }
 }
