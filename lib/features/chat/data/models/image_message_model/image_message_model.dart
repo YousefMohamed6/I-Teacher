@@ -19,7 +19,7 @@ class ImageMessageModel implements MessageModel {
   factory ImageMessageModel.fromJson(Map<String, dynamic> json) {
     return ImageMessageModel(
       imageBase64: json['imageBase64'],
-      senderId: ChatKeys.kSenderField,
+      senderId: json[ChatKeys.kSenderField],
       createdAt: json['createdAt'],
       reciverId: json[ChatKeys.kReciverField],
     );

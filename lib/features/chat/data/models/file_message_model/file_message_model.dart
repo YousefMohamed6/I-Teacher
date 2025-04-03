@@ -22,7 +22,7 @@ class FileMessageModel implements MessageModel {
   factory FileMessageModel.fromJson(Map<String, dynamic> json) {
     return FileMessageModel(
       fileBase64: json['fileBase64'],
-      senderId: ChatKeys.kSenderField,
+      senderId: json[ChatKeys.kSenderField],
       createdAt: json['createdAt'],
       fileName: json['fileName'],
       reciverId: json[ChatKeys.kReciverField],

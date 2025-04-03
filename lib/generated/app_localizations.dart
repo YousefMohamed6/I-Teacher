@@ -610,6 +610,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Videos'**
   String get videos;
+
+  /// No description provided for @expired_subscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription is expired'**
+  String get expired_subscription;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

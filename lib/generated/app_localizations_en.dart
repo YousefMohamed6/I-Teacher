@@ -265,4 +265,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get videos => 'Videos';
+
+  @override
+  String get expired_subscription => 'Subscription is expired';
 }

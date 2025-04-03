@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:iteacher/core/exceptions/expired_subscription_exception.dart';
 import 'package:iteacher/core/models/youtube/playlist_item/playlist_item.dart';
 import 'package:iteacher/core/models/youtube/playlist_video_item/playlist_video_item.dart';
 import 'package:iteacher/core/services/sf_service.dart';
@@ -9,6 +10,7 @@ import 'package:iteacher/features/course/domain/use_case/fetch_all_playlists_use
 import 'package:iteacher/features/course/domain/use_case/fetch_playlist_videos_use_case.dart';
 import 'package:iteacher/features/course/domain/use_case/get_student_data_use_case.dart';
 import 'package:iteacher/features/course/domain/use_case/get_teacher_data_use_case.dart';
+import 'package:iteacher/features/course/domain/use_case/validate_subscription_use_case.dart';
 import 'package:iteacher/features/student_data/data/model/student_model.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -21,11 +23,13 @@ class CourseCubit extends Cubit<CourseState> {
   final GetStudentDataUseCase _getStudentDataUseCase;
   final FetchAllPlaylistsUseCase _fetchAllPlaylistsUseCase;
   final FetchPlaylistVideosUseCase _fetchPlaylistVideosUseCase;
+  final ValidateSubscriptionUseCase _validateSubscriptionUseCase;
   CourseCubit(
     this._getTeacherDataUseCase,
     this._getStudentDataUseCase,
     this._fetchAllPlaylistsUseCase,
     this._fetchPlaylistVideosUseCase,
+    this._validateSubscriptionUseCase,
   ) : super(CourseState.initial());
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late StudentModel student;
@@ -34,13 +38,8 @@ class CourseCubit extends Cubit<CourseState> {
   YoutubePlayerController? controller;
 
   Future<String> fetchChannelId() async {
-    emit(CourseState.loading());
     try {
-      emit(CourseState.loading());
-      final studentEmail = await getStudentEmail();
-      student = await getStudentData(studentEmail: studentEmail);
       final teacher = await getTeacherData(teacherId: student.teacherId);
-      emit(CourseState<String>.success(teacher.channalId));
       return teacher.channalId;
     } catch (e) {
       emit(CourseState.failure(e.toString()));
@@ -56,19 +55,28 @@ class CourseCubit extends Cubit<CourseState> {
     return await _getTeacherDataUseCase.execute(teacherId: teacherId);
   }
 
-  Future<StudentModel> getStudentData({required String studentEmail}) async {
+  Future<StudentModel> getStudentData() async {
+    final studentEmail = await getStudentEmail();
     return await _getStudentDataUseCase.execute(studentEmail: studentEmail);
   }
 
   Future<void> fetchAllPlaylists() async {
     try {
-      emit(CourseState.loading());
+      emit(CourseState<List<Playlist>>.loading());
+      student = await getStudentData();
+      await validateSubscription();
       final channelId = await fetchChannelId();
       playLists = await _fetchAllPlaylistsUseCase.execute(channelId: channelId);
       emit(CourseState<List<Playlist>>.success(playLists));
+    } on ExpiredSubscriptionException catch (e) {
+      emit(CourseState<ExpiredSubscriptionException>.failure(e.toString()));
     } catch (e) {
-      emit(CourseState.failure(e.toString()));
+      emit(CourseState<String>.failure(e.toString()));
     }
+  }
+
+  Future<void> validateSubscription() async {
+    await _validateSubscriptionUseCase.execute(student);
   }
 
   void initController() {
@@ -83,13 +91,13 @@ class CourseCubit extends Cubit<CourseState> {
 
   Future<void> fetchPlaylistVideos({required String playListId}) async {
     try {
-      emit(CourseState.loading());
+      emit(CourseState<List<PlaylistVideo>>.loading());
       videos =
           await _fetchPlaylistVideosUseCase.execute(playlistId: playListId);
       initController();
       emit(CourseState<List<PlaylistVideo>>.success(videos));
     } catch (e) {
-      emit(CourseState.failure(e.toString()));
+      emit(CourseState<String>.failure(e.toString()));
     }
   }
 

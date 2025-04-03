@@ -265,4 +265,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get videos => 'الفيديوهات';
+
+  @override
+  String get expired_subscription => 'انتهت صلاحية الاشتراك';
 }

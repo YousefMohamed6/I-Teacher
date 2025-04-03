@@ -84,5 +84,6 @@
   "write_message": "Write your message here",
   "search": "Search",
   "contact_us": "Contact Us",
-  "videos": "Videos"
+  "videos": "Videos",
+  "expired_subscription": "Subscription is expired"
 }

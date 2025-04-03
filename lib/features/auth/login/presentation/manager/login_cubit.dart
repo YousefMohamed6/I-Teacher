@@ -48,10 +48,10 @@ class LoginCubit extends Cubit<LoginState> {
           email: emailTextController.text,
           password: passwordTextControlle.text,
         );
+        final user = await getUserData();
+        await saveUserData(user: user);
+        emit(LoginState<UserRole>.success(user.userRole));
       }
-      final user = await getUserData();
-      await saveUserData(user: user);
-      emit(LoginState<UserRole>.success(user.userRole));
     } on FirebaseAuthException catch (e) {
       emit(LoginState.failure(errMessage: e.code));
     } on UnFoundUser catch (_) {

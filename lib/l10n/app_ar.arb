@@ -84,5 +84,6 @@
   "write_message": "اكتب رسالتك هنا",
   "search": "بحث",
   "contact_us": "تواصل معنا",
-  "videos": "الفيديوهات"
+  "videos": "الفيديوهات",
+  "expired_subscription":"انتهت صلاحية الاشتراك"
 }

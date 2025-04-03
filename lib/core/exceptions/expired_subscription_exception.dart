@@ -1,0 +1,1 @@
+class ExpiredSubscriptionException implements Exception {}
