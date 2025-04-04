@@ -268,4 +268,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get expired_subscription => 'Subscription is expired';
+
+  @override
+  String get subscription_expired_date => 'Sٍٍubscription is about to expire';
+
+  @override
+  String get subscription_expired => 'your subscription will expired on';
 }

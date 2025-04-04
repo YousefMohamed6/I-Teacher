@@ -85,5 +85,7 @@
   "search": "Search",
   "contact_us": "Contact Us",
   "videos": "Videos",
-  "expired_subscription": "Subscription is expired"
+  "expired_subscription": "Subscription is expired",
+  "subscription_expired_date": "Sٍٍubscription is about to expire",
+  "subscription_expired": "your subscription will expired on"
 }

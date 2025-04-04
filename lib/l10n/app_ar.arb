@@ -85,5 +85,7 @@
   "search": "بحث",
   "contact_us": "تواصل معنا",
   "videos": "الفيديوهات",
-  "expired_subscription":"انتهت صلاحية الاشتراك"
+  "expired_subscription":"انتهت صلاحية الاشتراك",
+  "subscription_expired_date":"الاشتراك على وشك الانتهاء",
+  "subscription_expired":"سوف تنتهي صلاحية اشتراكك في"
 }

@@ -616,6 +616,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Subscription is expired'**
   String get expired_subscription;
+
+  /// No description provided for @subscription_expired_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Sٍٍubscription is about to expire'**
+  String get subscription_expired_date;
+
+  /// No description provided for @subscription_expired.
+  ///
+  /// In en, this message translates to:
+  /// **'your subscription will expired on'**
+  String get subscription_expired;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

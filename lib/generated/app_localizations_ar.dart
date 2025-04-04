@@ -268,4 +268,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get expired_subscription => 'انتهت صلاحية الاشتراك';
+
+  @override
+  String get subscription_expired_date => 'الاشتراك على وشك الانتهاء';
+
+  @override
+  String get subscription_expired => 'سوف تنتهي صلاحية اشتراكك في';
 }
