@@ -1,7 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/core/services/sf_service.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
+import 'package:iteacher/core/utils/constants/sf_keys.dart';
 import 'package:iteacher/features/auth/login/data/repos/login_repo_impl.dart';
 import 'package:iteacher/features/auth/login/di/login_service.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
@@ -33,7 +38,6 @@ import 'package:iteacher/features/payment/presentation/views/payment_view.dart';
 import 'package:iteacher/features/profile/presentation/manager/profile_cubit.dart';
 import 'package:iteacher/features/profile/presentation/views/profile_view.dart';
 import 'package:iteacher/features/settings/presentation/views/setting_view.dart';
-import 'package:iteacher/features/splash/presentation/views/splash_view.dart';
 import 'package:iteacher/features/student_data/data/model/student_model.dart';
 import 'package:iteacher/features/student_data/di/student_service.dart';
 import 'package:iteacher/features/student_data/domain/repos/i_student_repo.dart';
@@ -50,15 +54,24 @@ import 'package:iteacher/features/terms_and_conditions/presentation/manager/term
 import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
 
 sealed class RouterManager {
-  static GoRouter routConfig = GoRouter(
-    initialLocation: SplashView.routeName,
+  static final navigatorKey = GlobalKey<NavigatorState>();
+  static GoRouter routeConfig = GoRouter(
+    redirect: (context, state) async {
+      if (state.fullPath?.isNotEmpty ?? false) return state.fullPath;
+      final User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        switch (await _userRole) {
+          case UserRole.student:
+            return CourseView.routeName;
+          case UserRole.teacher:
+            return TeacherProfileView.routeName;
+        }
+      } else {
+        return LoginView.routeName;
+      }
+    },
+    navigatorKey: navigatorKey,
     routes: [
-      GoRoute(
-        path: SplashView.routeName,
-        builder: (context, state) {
-          return SplashView();
-        },
-      ),
       GoRoute(
         path: SettingsView.routeName,
         name: SettingsView.routeName,
@@ -262,4 +275,14 @@ sealed class RouterManager {
       ),
     ],
   );
+  static Future<UserRole> get _userRole async {
+    final String userRole =
+        await SharedPreferencesService.getString(SfKeys.userRole) ?? '';
+    switch (userRole) {
+      case 'teacher':
+        return UserRole.teacher;
+      default:
+        return UserRole.student;
+    }
+  }
 }

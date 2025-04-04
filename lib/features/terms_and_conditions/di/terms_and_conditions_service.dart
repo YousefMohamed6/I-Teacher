@@ -22,7 +22,7 @@ class TermsAndConditionsService {
         sl(),
       ),
     );
-    sl.registerLazySingletonSafely<TermsAndConditionsCubit>(
+    sl.registerFactorySafely<TermsAndConditionsCubit>(
       () => TermsAndConditionsCubit(
         sl(),
       ),

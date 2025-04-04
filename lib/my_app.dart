@@ -42,7 +42,7 @@ class CustomMaterialApp extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           theme: bloc.isDark ? darkTheme : lightTheme,
-          routerConfig: RouterManager.routConfig,
+          routerConfig: RouterManager.routeConfig,
         );
       },
     );

@@ -118,7 +118,7 @@ ThemeData get darkTheme => ThemeData(
         ),
       ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
-        color: DarkModeColors.primaryColor,
+        color: DarkModeColors.onPrimaryColor,
       ),
       checkboxTheme: CheckboxThemeData(
         fillColor: WidgetStateProperty.all(
