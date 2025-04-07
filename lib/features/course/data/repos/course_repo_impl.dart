@@ -4,8 +4,8 @@ import 'package:iteacher/core/services/firebase_firestore_service.dart';
 import 'package:iteacher/core/services/youtube_service.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/features/course/domain/repos/i_course_repo.dart';
-import 'package:iteacher/features/profile/data/model/account_model.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/account_model.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class CourseRepoImpl implements ICourseRepo {

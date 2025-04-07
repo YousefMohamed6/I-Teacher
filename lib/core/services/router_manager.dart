@@ -18,12 +18,12 @@ import 'package:iteacher/features/auth/register/presentation/views/register_view
 import 'package:iteacher/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
 import 'package:iteacher/features/auth/rest_Password/persentation/view/rest_password_view.dart';
 import 'package:iteacher/features/chat/di/chat_service.dart';
-import 'package:iteacher/features/chat/domin/repos/i_chat_repo.dart';
+import 'package:iteacher/features/chat/domain/repos/i_chat_repo.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:iteacher/features/chat/presentation/views/chat_view.dart';
 import 'package:iteacher/features/chat/presentation/views/chats_view.dart';
 import 'package:iteacher/features/chatbot/di/chatbot_service.dart';
-import 'package:iteacher/features/chatbot/domin/repos/i_chatbot_repo.dart';
+import 'package:iteacher/features/chatbot/domain/repos/i_chatbot_repo.dart';
 import 'package:iteacher/features/chatbot/presentation/manager/chatbot_cubit.dart';
 import 'package:iteacher/features/chatbot/presentation/views/chatbot_view.dart';
 import 'package:iteacher/features/course/di/course_service.dart';
@@ -35,18 +35,21 @@ import 'package:iteacher/features/payment/di/payment_service.dart';
 import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
 import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:iteacher/features/payment/presentation/views/payment_view.dart';
-import 'package:iteacher/features/profile/presentation/manager/profile_cubit.dart';
-import 'package:iteacher/features/profile/presentation/views/profile_view.dart';
-import 'package:iteacher/features/settings/presentation/views/setting_view.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
-import 'package:iteacher/features/student_data/di/student_service.dart';
-import 'package:iteacher/features/student_data/domain/repos/i_student_repo.dart';
-import 'package:iteacher/features/student_data/presentation/manager/student_cubit.dart';
-import 'package:iteacher/features/student_data/presentation/views/student_view.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
+import 'package:iteacher/features/register_student/di/register_student_service.dart';
+import 'package:iteacher/features/register_student/domain/repos/i_register_student_repo.dart';
+import 'package:iteacher/features/register_student/presentation/manager/register_student_cubit.dart';
+import 'package:iteacher/features/register_student/presentation/views/student_view.dart';
+import 'package:iteacher/features/register_teacher/di/register_teacher_service.dart';
+import 'package:iteacher/features/register_teacher/domain/repos/i_register_teacher.dart';
+import 'package:iteacher/features/register_teacher/presentation/manager/register_teacher_cubit.dart';
+import 'package:iteacher/features/register_teacher/presentation/views/register_teacher_view.dart';
+import 'package:iteacher/features/student_profile/presentation/views/student_profile_view.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/teacher_profile/di/teacher_profile_service.dart';
-import 'package:iteacher/features/teacher_profile/domin/repos/i_teacher_profile_repo.dart';
+import 'package:iteacher/features/teacher_profile/domain/repos/i_teacher_profile_repo.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
+import 'package:iteacher/features/teacher_profile/presentation/views/edit_teacher_profile_view.dart';
 import 'package:iteacher/features/teacher_profile/presentation/views/teacher_profile_view.dart';
 import 'package:iteacher/features/terms_and_conditions/di/terms_and_conditions_service.dart';
 import 'package:iteacher/features/terms_and_conditions/domain/repos/i_terms_and_conditions.dart';
@@ -64,7 +67,7 @@ sealed class RouterManager {
           case UserRole.student:
             return CourseView.routeName;
           case UserRole.teacher:
-            return TeacherProfileView.routeName;
+            return EditTeacherProfileView.routeName;
         }
       } else {
         return LoginView.routeName;
@@ -73,22 +76,11 @@ sealed class RouterManager {
     navigatorKey: navigatorKey,
     routes: [
       GoRoute(
-        path: SettingsView.routeName,
-        name: SettingsView.routeName,
-        builder: (context, state) {
-          return SettingsView();
-        },
-      ),
-      GoRoute(
-        path: ProfileView.routeName,
-        name: ProfileView.routeName,
+        path: TeacherProfileView.routeName,
+        name: TeacherProfileView.routeName,
         builder: (context, state) {
           final teacherModel = state.extra as TeacherModel;
-          return BlocProvider(
-            create: (context) =>
-                ProfileCubit()..initState(teacherModel: teacherModel),
-            child: ProfileView(),
-          );
+          return TeacherProfileView(teacher: teacherModel);
         },
       ),
       GoRoute(
@@ -119,9 +111,9 @@ sealed class RouterManager {
         path: StudentView.routeName,
         name: StudentView.routeName,
         builder: (context, state) {
-          StudentService().initDi();
+          RegisterStudentService().initDi();
           return RepositoryProvider(
-            create: (context) => GetIt.instance<IStudentRepo>(),
+            create: (context) => GetIt.instance<IRegisterStudentRepo>(),
             child: BlocProvider(
               create: (context) => GetIt.instance<StudentCubit>(),
               child: StudentView(),
@@ -245,8 +237,8 @@ sealed class RouterManager {
         },
       ),
       GoRoute(
-        path: TeacherProfileView.routeName,
-        name: TeacherProfileView.routeName,
+        path: EditTeacherProfileView.routeName,
+        name: EditTeacherProfileView.routeName,
         builder: (context, state) {
           TeacherProfileService().initDi();
           return RepositoryProvider(
@@ -254,7 +246,7 @@ sealed class RouterManager {
             child: BlocProvider(
               create: (context) =>
                   GetIt.instance<TeacherProfileCubit>()..fetchTeacherData(),
-              child: TeacherProfileView(),
+              child: EditTeacherProfileView(),
             ),
           );
         },
@@ -269,6 +261,30 @@ sealed class RouterManager {
             child: BlocProvider(
               create: (context) => GetIt.instance<ChatbotCubit>(),
               child: ChatbotView(),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        path: StudentProfileView.routeName,
+        name: StudentProfileView.routeName,
+        builder: (context, state) {
+          final student = state.extra as StudentModel;
+          return StudentProfileView(
+            student: student,
+          );
+        },
+      ),
+      GoRoute(
+        path: RegisterTeacherView.routeName,
+        name: RegisterTeacherView.routeName,
+        builder: (context, state) {
+          RegisterTeacherService().initDi();
+          return RepositoryProvider(
+            create: (context) => GetIt.instance<IRegisterTeacherRepo>(),
+            child: BlocProvider(
+              create: (context) => GetIt.instance<RegisterTeacherCubit>(),
+              child: RegisterTeacherView(),
             ),
           );
         },

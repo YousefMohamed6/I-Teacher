@@ -9,7 +9,7 @@ import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/login_view_form.dart';
 import 'package:iteacher/features/course/presentation/views/course_view.dart';
-import 'package:iteacher/features/teacher_profile/presentation/views/teacher_profile_view.dart';
+import 'package:iteacher/features/teacher_profile/presentation/views/edit_teacher_profile_view.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -23,7 +23,8 @@ class LoginViewBody extends StatelessWidget {
           if (state is Success<UserRole>) {
             state.data == UserRole.student
                 ? context.pushReplacementNamed(CourseView.routeName)
-                : context.pushReplacementNamed(TeacherProfileView.routeName);
+                : context
+                    .pushReplacementNamed(EditTeacherProfileView.routeName);
           } else if (state is Failure<UnFoundUser>) {
             ShowMessage.show(context,
                 msg: AppLocalizations.of(context)!.unfound_user);

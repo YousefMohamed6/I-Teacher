@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iteacher/core/widgets/custom_drawer.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/login_view_body.dart';
+import 'package:iteacher/features/settings/presentation/views/default_setting_view.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class LoginView extends StatelessWidget {
@@ -10,7 +10,9 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: CustomDrawer(),
+      drawer: Drawer(
+        child: DefaultSettingsView(),
+      ),
       appBar: AppBar(
         title: CustomText(
           text: AppLocalizations.of(context)!.login,

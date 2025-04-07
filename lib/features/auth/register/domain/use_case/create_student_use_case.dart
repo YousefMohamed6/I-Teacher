@@ -1,5 +1,5 @@
 import 'package:iteacher/features/auth/register/domain/repos/i_register_repo.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
 
 class CreateStudentUseCase {
   final IRegisterRepo registerRepo;

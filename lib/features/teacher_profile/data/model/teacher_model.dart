@@ -1,7 +1,8 @@
 import 'package:iteacher/core/enums/user_role.dart';
 import 'package:iteacher/core/models/user_model.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
-import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/payment/data/models/payment/customer_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/account_model.dart';
 
 class TeacherModel implements UserModel {
   @override
@@ -13,12 +14,15 @@ class TeacherModel implements UserModel {
   @override
   final String phone;
   @override
+  final String address;
+  @override
   final UserRole userRole = UserRole.teacher;
   final String department;
   final String description;
   final String coursePrice;
   final String channalId;
   final String teacherId;
+  final String paymentId;
   @override
   String imageBase64;
   Set<AccountModel> accounts;
@@ -28,11 +32,13 @@ class TeacherModel implements UserModel {
     required this.lastName,
     required this.email,
     required this.phone,
+    required this.address,
     required this.department,
     required this.coursePrice,
     required this.description,
     required this.channalId,
     required this.teacherId,
+    required this.paymentId,
     required this.accounts,
     required this.imageBase64,
   });
@@ -43,11 +49,13 @@ class TeacherModel implements UserModel {
       lastName: json[TeacherKeys.kLastNameField],
       email: json[TeacherKeys.kEmailField],
       phone: json[TeacherKeys.kPhoneField],
+      address: json[TeacherKeys.kAddressField],
       department: json[TeacherKeys.kDepartmentField],
       description: json[TeacherKeys.kDescriptionField],
       coursePrice: json[TeacherKeys.kCoursePriceField],
       channalId: json[TeacherKeys.kChannelIdField],
       teacherId: json[TeacherKeys.kTeacherIdField],
+      paymentId: json[TeacherKeys.kPaymentIdField],
       imageBase64: json[TeacherKeys.kTeacherImageField],
       accounts: (json[AccountsKeys.kAccountsCollection] as List<dynamic>)
           .map((account) =>
@@ -63,12 +71,22 @@ class TeacherModel implements UserModel {
       TeacherKeys.kLastNameField: lastName,
       TeacherKeys.kEmailField: email,
       TeacherKeys.kPhoneField: phone,
+      TeacherKeys.kAddressField: address,
       TeacherKeys.kDepartmentField: department,
       TeacherKeys.kDescriptionField: description,
       TeacherKeys.kCoursePriceField: coursePrice,
       TeacherKeys.kChannelIdField: channalId,
       TeacherKeys.kTeacherImageField: imageBase64,
       TeacherKeys.kTeacherIdField: teacherId,
+      TeacherKeys.kPaymentIdField: paymentId,
     };
   }
+
+  CustomerModel toCustomer() => CustomerModel(
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        address: address,
+      );
 }

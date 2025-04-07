@@ -9,9 +9,11 @@ class SendPaymentRequestUseCase {
 
   Future<PaymentStatus> execute({
     required PaymentModel paymentModel,
+    required String token,
   }) async {
     return await paymentRepo.sendPaymentRequest(
       paymentModel: paymentModel,
+      token: token,
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/features/teacher_profile/presentation/widgets/delete_account_button.dart';
-import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_social_account_from.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/delete_account_button.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/edit_social_account_from.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class SocialMediaAccountView extends StatelessWidget {

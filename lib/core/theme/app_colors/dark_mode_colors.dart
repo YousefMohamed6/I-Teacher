@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 sealed class DarkModeColors {
   static const appBarColor = Color(0xFF1E1E1E);
-  static const scaffoldBackbroundColor = Color(0xFF1E1E1E);
+  static const scaffoldBackgroundColor = Color(0xFF1E1E1E);
   static const backgroundColor = Color(0xFF1E1E1E);
   static const primaryColor = Color(0xFF1E1E1E);
   static const secondaryColor = Color(0xFF1E1E1E);

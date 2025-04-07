@@ -13,13 +13,13 @@ import 'package:iteacher/features/chat/data/models/file_message_model/file_messa
 import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
 import 'package:iteacher/features/chat/data/models/message_model/message_model.dart';
 import 'package:iteacher/features/chat/data/models/text_message_model/text_message_model.dart';
-import 'package:iteacher/features/chat/domin/use_cases/download_files_use_case.dart';
-import 'package:iteacher/features/chat/domin/use_cases/get_all_teachers.dart';
-import 'package:iteacher/features/chat/domin/use_cases/handle_audio_message_use_case.dart';
-import 'package:iteacher/features/chat/domin/use_cases/handle_file_selection.dart';
-import 'package:iteacher/features/chat/domin/use_cases/handle_image_selection.dart';
-import 'package:iteacher/features/chat/domin/use_cases/listen_to_messages_use_case.dart';
-import 'package:iteacher/features/chat/domin/use_cases/send_message_use_case.dart';
+import 'package:iteacher/features/chat/domain/use_cases/download_files_use_case.dart';
+import 'package:iteacher/features/chat/domain/use_cases/get_all_teachers.dart';
+import 'package:iteacher/features/chat/domain/use_cases/handle_audio_message_use_case.dart';
+import 'package:iteacher/features/chat/domain/use_cases/handle_file_selection.dart';
+import 'package:iteacher/features/chat/domain/use_cases/handle_image_selection.dart';
+import 'package:iteacher/features/chat/domain/use_cases/listen_to_messages_use_case.dart';
+import 'package:iteacher/features/chat/domain/use_cases/send_message_use_case.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 part 'chat_cubit.freezed.dart';

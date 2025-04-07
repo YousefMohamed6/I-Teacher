@@ -1,0 +1,12 @@
+import 'package:iteacher/features/teacher_profile/data/model/account_model.dart';
+import 'package:iteacher/features/teacher_profile/domain/repos/i_teacher_profile_repo.dart';
+
+class AddAccountUseCase {
+  final ITeacherProfileRepo _repo;
+  AddAccountUseCase(this._repo);
+  Future<void> execute({
+    required AccountModel account,
+    required String email,
+  }) async =>
+      await _repo.addAccount(account: account, email: email);
+}

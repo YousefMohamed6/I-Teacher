@@ -4,11 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iteacher/core/utils/constants/app_images.dart';
 import 'package:iteacher/core/widgets/avatar.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
+import 'package:iteacher/features/auth/login/presentation/widgets/custom_register_button.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/email_text_field.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/forget_password.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/login_button.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/password_text_field.dart';
-import 'package:iteacher/features/auth/login/presentation/widgets/register_now.dart';
+import 'package:iteacher/features/register_teacher/presentation/views/register_teacher_view.dart';
+import 'package:iteacher/features/register_student/presentation/views/student_view.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class LoginViewForm extends StatelessWidget {
   const LoginViewForm({super.key});
@@ -19,17 +22,24 @@ class LoginViewForm extends StatelessWidget {
       key: BlocProvider.of<LoginCubit>(context).formKey,
       child: ListView(
         children: [
-          SizedBox(height: 24.h),
+          SizedBox(height: 16.h),
           Avatar(imagePath: AppImages.kAppLogo),
-          SizedBox(height: 24.h),
+          SizedBox(height: 16.h),
           EmailTextField(),
           SizedBox(height: 8.h),
           PasswordTextField(),
           ForgetPassword(),
           SizedBox(height: 24.h),
           LoginButton(),
-          SizedBox(height: 32.h),
-          RegisterNow(),
+          SizedBox(height: 16.h),
+          CustomRegisterButton(
+            routeName: StudentView.routeName,
+            title: AppLocalizations.of(context)!.register_as_student,
+          ),
+          CustomRegisterButton(
+            routeName: RegisterTeacherView.routeName,
+            title: AppLocalizations.of(context)!.register_as_teacher,
+          ),
           SizedBox(height: 8.h),
         ],
       ),

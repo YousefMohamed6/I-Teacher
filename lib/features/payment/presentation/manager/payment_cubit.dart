@@ -1,14 +1,15 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:iteacher/features/payment/data/models/data_base_payments.dart';
+import 'package:iteacher/core/utils/helper/payment_manager.dart';
 import 'package:iteacher/features/payment/data/models/payment/cart_item.dart';
 import 'package:iteacher/features/payment/data/models/payment/payment.dart';
 import 'package:iteacher/features/payment/data/models/payment/redirection_urls.dart';
+import 'package:iteacher/features/payment/data/models/payment_opration_model.dart';
 import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
 import 'package:iteacher/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
-import 'package:iteacher/features/payment/domain/use_cases/save_success_payment.dart';
+import 'package:iteacher/features/payment/domain/use_cases/save_payment_status_use_case.dart';
 import 'package:iteacher/features/payment/domain/use_cases/send_payment_request.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -40,6 +41,7 @@ class PaymentCubit extends Cubit<PaymentState> {
   Future<PaymentStatus> createPayment({required String courePrice}) async {
     final PaymentStatus paymentStatus =
         await _sendPaymentRequestUseCase.execute(
+      token: teacherModel.paymentId,
       paymentModel: PaymentModel(
         cartTotal: courePrice,
         currency: "EGP",
@@ -86,7 +88,7 @@ class PaymentCubit extends Cubit<PaymentState> {
     }
   }
 
-  DatabasePaymentModel get paymentOpration => DatabasePaymentModel(
+  PaymentOprationModel get paymentOpration => PaymentOprationModel(
         invoiceId: '',
         paymentStatus: '',
         paymentDate: DateTime.now().toString(),
@@ -95,26 +97,30 @@ class PaymentCubit extends Cubit<PaymentState> {
         email: studentModel.email,
         phone: studentModel.phone,
       );
-  Future<void> checkPayment(UrlChange url) async {
+  Future<void> checkPayment(UrlChange uri) async {
     final String invoiceId =
-        Uri.parse(url.url!).queryParameters['invoice_id'] ?? "";
+        Uri.parse(uri.url!).queryParameters['invoice_id'] ?? "";
     try {
-      if (url.url!.contains("https://dev.fawaterk.com/success")) {
-        emit(PaymentState.loading());
-        await _savePaymentStatusUseCase.execute(
-          databasePaymentModel: paymentOpration
-            ..invoiceId = invoiceId
-            ..paymentStatus = 'success',
-        );
-        emit(PaymentState<bool>.success(true));
-      } else if (url.url!.contains("https://dev.fawaterk.com/fail")) {
-        await _savePaymentStatusUseCase.execute(
-          databasePaymentModel: paymentOpration
-            ..invoiceId = invoiceId
-            ..paymentStatus = 'fail',
-        );
-        emit(PaymentState<bool>.failure(''));
-      }
+      await PaymentManager.checkPayment(
+        url: uri,
+        onSuccess: () async {
+          emit(PaymentState.loading());
+          await _savePaymentStatusUseCase.execute(
+            PaymentOprationModel: paymentOpration
+              ..invoiceId = invoiceId
+              ..paymentStatus = 'success',
+          );
+          emit(PaymentState<bool>.success(true));
+        },
+        onFail: () async {
+          await _savePaymentStatusUseCase.execute(
+            PaymentOprationModel: paymentOpration
+              ..invoiceId = invoiceId
+              ..paymentStatus = 'fail',
+          );
+          emit(PaymentState<bool>.failure(''));
+        },
+      );
     } catch (e) {
       emit(PaymentState<String>.failure(e.toString()));
     }

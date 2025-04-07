@@ -1,5 +1,5 @@
-import 'package:iteacher/features/terms_and_conditions/data/models/terms_and_conditions_model.dart';
+import 'package:iteacher/features/terms_and_conditions/data/models/dashboard_model.dart';
 
 abstract class ITermsAndConditionsRepo {
-  Future<TermsAndConditionsModel> fetchTermsAndConditions();
+  Future<DashboardModel> fetchTermsAndConditions();
 }

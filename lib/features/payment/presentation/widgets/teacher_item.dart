@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/widgets/base64_image.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/features/profile/presentation/views/profile_view.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
+import 'package:iteacher/features/teacher_profile/presentation/views/teacher_profile_view.dart';
 
 class TeacherItem extends StatelessWidget {
   const TeacherItem({super.key, required this.teacherModel});
@@ -13,7 +13,7 @@ class TeacherItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(ProfileView.routeName, extra: teacherModel);
+        context.pushNamed(TeacherProfileView.routeName, extra: teacherModel);
       },
       child: Card(
         margin: EdgeInsets.all(16.h),

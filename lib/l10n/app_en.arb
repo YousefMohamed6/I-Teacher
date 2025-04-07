@@ -1,4 +1,5 @@
 {
+  "i_teacher": "ITeacher",
   "common": "Common",
   "language": "Language",
   "arabic": "Arabic",
@@ -27,11 +28,12 @@
   "teacher_id": "Teacher Identifier",
   "enter_teacher_id": "Enter Teacher Identifier",
   "unfound_id": "unfound Identifier",
-  "student_data": "Student Data",
+  "register_student": "Student Data",
   "next": "Next",
   "rest_password": "Rest Password",
   "rest": "Rest",
   "payment": "Payment",
+  "payment_id": "Payment Identifier",
   "pay_now": "Pay Now",
   "register": "Register",
   "i_accept": "I Accept",
@@ -87,5 +89,10 @@
   "videos": "Videos",
   "expired_subscription": "Subscription is expired",
   "subscription_expired_date": "Sٍٍubscription is about to expire",
-  "subscription_expired": "your subscription will expired on"
+  "subscription_expired": "your subscription will expired on",
+  "student_profile": "Student Profile",
+  "subscription_date":"Subscription Date",
+  "expiry_date":"Expiry Date",
+  "register_as_student":"Register as Student",
+  "register_as_teacher":"Register as Teacher"
 }

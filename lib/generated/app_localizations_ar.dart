@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get i_teacher => 'انا مدرس';
+
+  @override
   String get common => 'اساسي';
 
   @override
@@ -93,7 +96,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unfound_id => 'معرف غير موجود';
 
   @override
-  String get student_data => 'بيانات الطالب';
+  String get register_student => 'بيانات الطالب';
 
   @override
   String get next => 'التالي';
@@ -106,6 +109,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get payment => 'منصة الدفع';
+
+  @override
+  String get payment_id => 'معرف الدفع';
 
   @override
   String get pay_now => 'ادفع الان';
@@ -274,4 +280,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get subscription_expired => 'سوف تنتهي صلاحية اشتراكك في';
+
+  @override
+  String get student_profile => ' بيانات الطالب';
+
+  @override
+  String get subscription_date => 'تاريخ الاشتراك';
+
+  @override
+  String get expiry_date => 'تاريخ الانتهاء';
+
+  @override
+  String get register_as_student => 'تسجيل كطالب';
+
+  @override
+  String get register_as_teacher => 'تسجيل كمدرس';
 }

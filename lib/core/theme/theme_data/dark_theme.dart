@@ -7,6 +7,7 @@ ThemeData get darkTheme => ThemeData(
       brightness: Brightness.dark,
       primaryColor: DarkModeColors.primaryColor,
       secondaryHeaderColor: DarkModeColors.secondaryColor,
+      scaffoldBackgroundColor: DarkModeColors.scaffoldBackgroundColor,
       appBarTheme: AppBarTheme(
         centerTitle: true,
         backgroundColor: DarkModeColors.appBarColor,

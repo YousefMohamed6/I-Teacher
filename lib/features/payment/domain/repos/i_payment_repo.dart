@@ -5,6 +5,7 @@ import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart'
 abstract class IPaymentRepo {
   Future<PaymentStatus> sendPaymentRequest({
     required PaymentModel paymentModel,
+    required String token,
   });
   Future<TeacherModel> getTeacherData({required String teacherId});
 }

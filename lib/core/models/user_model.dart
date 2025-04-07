@@ -1,11 +1,12 @@
 import 'package:iteacher/core/enums/user_role.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
 
 abstract class UserModel {
   final String firstName;
   final String lastName;
   final String email;
+  final String address;
   final String phone;
   final String imageBase64;
   final UserRole userRole;
@@ -14,6 +15,7 @@ abstract class UserModel {
     required this.firstName,
     required this.lastName,
     required this.email,
+    required this.address,
     required this.phone,
     required this.userRole,
     required this.imageBase64,

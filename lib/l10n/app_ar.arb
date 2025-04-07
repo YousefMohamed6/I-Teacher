@@ -1,4 +1,5 @@
 {
+  "i_teacher": "انا مدرس",
   "common": "اساسي",
   "language": "اللغة",
   "arabic": "العربية",
@@ -24,7 +25,7 @@
   "enter_phone": "ادخل رقم الهاتف",
   "address": "العنوان",
   "enter_address": "ادخل العنوان",
-  "student_data": "بيانات الطالب",
+  "register_student": "بيانات الطالب",
   "teacher_id": "معرف المدرس",
   "enter_teacher_id": "ادخل معرف المدرس",
   "unfound_id": "معرف غير موجود",
@@ -32,6 +33,7 @@
   "rest_password": "اعادة ضبط كلمة المرور",
   "rest": "اعادة الضبط",
   "payment": "منصة الدفع",
+  "payment_id":"معرف الدفع",
   "pay_now": "ادفع الان",
   "register": "انشاء حساب",
   "i_accept": "اوافق على ",
@@ -85,7 +87,12 @@
   "search": "بحث",
   "contact_us": "تواصل معنا",
   "videos": "الفيديوهات",
-  "expired_subscription":"انتهت صلاحية الاشتراك",
-  "subscription_expired_date":"الاشتراك على وشك الانتهاء",
-  "subscription_expired":"سوف تنتهي صلاحية اشتراكك في"
+  "expired_subscription": "انتهت صلاحية الاشتراك",
+  "subscription_expired_date": "الاشتراك على وشك الانتهاء",
+  "subscription_expired": "سوف تنتهي صلاحية اشتراكك في",
+  "student_profile": " بيانات الطالب",
+  "subscription_date": "تاريخ الاشتراك",
+  "expiry_date": "تاريخ الانتهاء",
+  "register_as_student": "تسجيل كطالب",
+  "register_as_teacher": "تسجيل كمدرس"
 }

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:iteacher/core/exceptions/pick_image_exception.dart';
-import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/account_model.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
-import 'package:iteacher/features/teacher_profile/domin/use_cases/add_account_use_case.dart';
-import 'package:iteacher/features/teacher_profile/domin/use_cases/delete_account_use_case.dart';
-import 'package:iteacher/features/teacher_profile/domin/use_cases/edit_account_data_use_case.dart';
-import 'package:iteacher/features/teacher_profile/domin/use_cases/get_teacher_data_use_case.dart';
-import 'package:iteacher/features/teacher_profile/domin/use_cases/get_user_email_use_case.dart';
-import 'package:iteacher/features/teacher_profile/domin/use_cases/pick_teacher_image.dart';
-import 'package:iteacher/features/teacher_profile/domin/use_cases/save_teache_data_use_case.dart';
+import 'package:iteacher/features/teacher_profile/domain/use_cases/add_account_use_case.dart';
+import 'package:iteacher/features/teacher_profile/domain/use_cases/delete_account_use_case.dart';
+import 'package:iteacher/features/teacher_profile/domain/use_cases/edit_account_data_use_case.dart';
+import 'package:iteacher/features/teacher_profile/domain/use_cases/get_teacher_data_use_case.dart';
+import 'package:iteacher/features/teacher_profile/domain/use_cases/get_user_email_use_case.dart';
+import 'package:iteacher/features/teacher_profile/domain/use_cases/pick_teacher_image.dart';
+import 'package:iteacher/features/teacher_profile/domain/use_cases/save_teache_data_use_case.dart';
 import 'package:iteacher/features/teacher_profile/presentation/views/social_media_account_view.dart';
 
 part 'teacher_profile_cubit.freezed.dart';
@@ -38,11 +38,14 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
   final firstNameTextController = TextEditingController();
   final lastNameTextController = TextEditingController();
   final phoneTextController = TextEditingController();
+  final addressTextField = TextEditingController();
   final teacherIdTextController = TextEditingController();
   final coursePriceTextController = TextEditingController();
   final courseLinkTextController = TextEditingController();
   final departmentTextController = TextEditingController();
   final descriptionTextController = TextEditingController();
+  final paymentIdTextController = TextEditingController();
+
   late TeacherModel teacher;
   Set<AccountModel> accounts = {};
   TeacherModel get newTeacher => TeacherModel(
@@ -50,11 +53,13 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
         lastName: lastNameTextController.text,
         email: teacher.email,
         phone: phoneTextController.text,
+        address: teacher.address,
         department: departmentTextController.text,
         coursePrice: coursePriceTextController.text,
         channalId: courseLinkTextController.text,
         description: descriptionTextController.text,
         teacherId: teacherIdTextController.text,
+        paymentId: paymentIdTextController.text,
         accounts: teacher.accounts,
         imageBase64: teacher.imageBase64,
       );
@@ -90,6 +95,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
     courseLinkTextController.text = teacher.channalId;
     descriptionTextController.text = teacher.description;
     teacherIdTextController.text = teacher.teacherId;
+    paymentIdTextController.text = teacher.paymentId;
   }
 
   void navigateToEditAccountView({

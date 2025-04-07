@@ -6,7 +6,7 @@ import 'package:iteacher/features/payment/data/repos/payment_repo_impl.dart';
 import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
 import 'package:iteacher/features/payment/domain/use_cases/add_student_use_case.dart';
 import 'package:iteacher/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
-import 'package:iteacher/features/payment/domain/use_cases/save_success_payment.dart';
+import 'package:iteacher/features/payment/domain/use_cases/save_payment_status_use_case.dart';
 import 'package:iteacher/features/payment/domain/use_cases/send_payment_request.dart';
 import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
 

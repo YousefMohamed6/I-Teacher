@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get i_teacher => 'ITeacher';
+
+  @override
   String get common => 'Common';
 
   @override
@@ -93,7 +96,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unfound_id => 'unfound Identifier';
 
   @override
-  String get student_data => 'Student Data';
+  String get register_student => 'Student Data';
 
   @override
   String get next => 'Next';
@@ -106,6 +109,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get payment => 'Payment';
+
+  @override
+  String get payment_id => 'Payment Identifier';
 
   @override
   String get pay_now => 'Pay Now';
@@ -274,4 +280,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get subscription_expired => 'your subscription will expired on';
+
+  @override
+  String get student_profile => 'Student Profile';
+
+  @override
+  String get subscription_date => 'Subscription Date';
+
+  @override
+  String get expiry_date => 'Expiry Date';
+
+  @override
+  String get register_as_student => 'Register as Student';
+
+  @override
+  String get register_as_teacher => 'Register as Teacher';
 }

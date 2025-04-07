@@ -7,7 +7,7 @@ import 'package:iteacher/core/services/sf_service.dart';
 import 'package:iteacher/core/utils/constants/sf_keys.dart';
 import 'package:iteacher/features/auth/register/domain/use_case/create_student_use_case.dart';
 import 'package:iteacher/features/auth/register/domain/use_case/create_user_with_email_and_password.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
 
 part 'register_cubit.freezed.dart';
 part 'register_state.dart';

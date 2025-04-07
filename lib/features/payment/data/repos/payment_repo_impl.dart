@@ -4,7 +4,7 @@ import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/features/payment/data/models/payment/payment.dart';
 import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
 import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
-import 'package:iteacher/features/profile/data/model/account_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/account_model.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class PaymentRepoImpl implements IPaymentRepo {
@@ -16,13 +16,13 @@ class PaymentRepoImpl implements IPaymentRepo {
   @override
   Future<PaymentStatus> sendPaymentRequest({
     required PaymentModel paymentModel,
+    required String token,
   }) async {
     final body = await fawaterkService.sendPaymentRequest(
       paymentModel: paymentModel,
+      token: token,
     );
-    return PaymentStatus.fromJson(
-      body,
-    );
+    return PaymentStatus.fromJson(body);
   }
 
   @override

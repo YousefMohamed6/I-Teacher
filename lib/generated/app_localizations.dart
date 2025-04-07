@@ -95,6 +95,12 @@ abstract class AppLocalizations {
     Locale('ar')
   ];
 
+  /// No description provided for @i_teacher.
+  ///
+  /// In en, this message translates to:
+  /// **'ITeacher'**
+  String get i_teacher;
+
   /// No description provided for @common.
   ///
   /// In en, this message translates to:
@@ -263,11 +269,11 @@ abstract class AppLocalizations {
   /// **'unfound Identifier'**
   String get unfound_id;
 
-  /// No description provided for @student_data.
+  /// No description provided for @register_student.
   ///
   /// In en, this message translates to:
   /// **'Student Data'**
-  String get student_data;
+  String get register_student;
 
   /// No description provided for @next.
   ///
@@ -292,6 +298,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Payment'**
   String get payment;
+
+  /// No description provided for @payment_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Identifier'**
+  String get payment_id;
 
   /// No description provided for @pay_now.
   ///
@@ -628,6 +640,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'your subscription will expired on'**
   String get subscription_expired;
+
+  /// No description provided for @student_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Student Profile'**
+  String get student_profile;
+
+  /// No description provided for @subscription_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription Date'**
+  String get subscription_date;
+
+  /// No description provided for @expiry_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Expiry Date'**
+  String get expiry_date;
+
+  /// No description provided for @register_as_student.
+  ///
+  /// In en, this message translates to:
+  /// **'Register as Student'**
+  String get register_as_student;
+
+  /// No description provided for @register_as_teacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Register as Teacher'**
+  String get register_as_teacher;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

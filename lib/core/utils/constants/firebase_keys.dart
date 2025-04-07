@@ -4,15 +4,19 @@ sealed class DashboardKeys {
   static const String kTermsEnglishField = "english_terms";
   static const String kConditionsArabicField = "arabic_conditions";
   static const String kConditionsEnglishField = "english_conditions";
+  static const String kOwnerPaymentIdField = "owner_payment_id";
+  static const String kCostField = "cost";
 }
 
 sealed class TeacherKeys {
   static const String kTeachersCollection = "teacher";
   static const String kTeacherIdField = 'teacherId';
+  static const String kPaymentIdField = 'paymentId';
   static const String kfirstNameField = 'firstName';
   static const String kLastNameField = 'lastName';
   static const String kEmailField = 'email';
   static const String kPhoneField = 'phone';
+  static const String kAddressField = 'address';
   static const String kDepartmentField = 'department';
   static const String kDescriptionField = 'description';
   static const String kChannelIdField = "channelId";

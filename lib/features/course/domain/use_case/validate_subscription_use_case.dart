@@ -5,7 +5,7 @@ import 'package:iteacher/core/services/firebase_firestore_service.dart';
 import 'package:iteacher/core/services/loacl_notification_service.dart';
 import 'package:iteacher/core/services/router_manager.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 import 'package:ntp/ntp.dart';
 

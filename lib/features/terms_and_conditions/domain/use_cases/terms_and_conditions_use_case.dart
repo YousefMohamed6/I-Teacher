@@ -1,4 +1,4 @@
-import 'package:iteacher/features/terms_and_conditions/data/models/terms_and_conditions_model.dart';
+import 'package:iteacher/features/terms_and_conditions/data/models/dashboard_model.dart';
 import 'package:iteacher/features/terms_and_conditions/domain/repos/i_terms_and_conditions.dart';
 
 class TermsAndConditionsUseCase {
@@ -6,7 +6,7 @@ class TermsAndConditionsUseCase {
 
   TermsAndConditionsUseCase(this._termsAndConditionsRepo);
 
-  Future<TermsAndConditionsModel> execute() async {
+  Future<DashboardModel> execute() async {
     return await _termsAndConditionsRepo.fetchTermsAndConditions();
   }
 }

@@ -7,7 +7,7 @@ import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
 import 'package:iteacher/features/course/presentation/widgets/playlists_list_view.dart';
-import 'package:iteacher/features/student_data/presentation/views/student_view.dart';
+import 'package:iteacher/features/register_student/presentation/views/student_view.dart';
 import 'package:iteacher/l10n.dart';
 
 class CourseViewBody extends StatelessWidget {

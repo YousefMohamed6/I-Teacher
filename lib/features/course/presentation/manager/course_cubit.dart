@@ -11,7 +11,7 @@ import 'package:iteacher/features/course/domain/use_case/fetch_playlist_videos_u
 import 'package:iteacher/features/course/domain/use_case/get_student_data_use_case.dart';
 import 'package:iteacher/features/course/domain/use_case/get_teacher_data_use_case.dart';
 import 'package:iteacher/features/course/domain/use_case/validate_subscription_use_case.dart';
-import 'package:iteacher/features/student_data/data/model/student_model.dart';
+import 'package:iteacher/features/register_student/data/model/student_model.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
