@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/models/youtube/playlist_item/playlist_item.dart';
+import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
 import 'package:iteacher/features/course/presentation/views/video_player_view.dart';
 
 class PlaylistWidget extends StatelessWidget {
@@ -12,6 +14,7 @@ class PlaylistWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
+        await BlocProvider.of<CourseCubit>(context).showRewardedAd();
         context.pushNamed(VideoPlayerView.routeName, extra: playlist.id);
       },
       child: Column(

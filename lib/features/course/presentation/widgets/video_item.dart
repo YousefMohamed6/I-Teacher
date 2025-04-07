@@ -10,7 +10,8 @@ class CustomVideoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
+        await BlocProvider.of<CourseCubit>(context).showRewardedAd();
         context
             .read<CourseCubit>()
             .selectVideo(video.snippet.resourceId.videoId);

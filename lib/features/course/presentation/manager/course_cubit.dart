@@ -1,6 +1,10 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:iteacher/core/exceptions/expired_subscription_exception.dart';
 import 'package:iteacher/core/models/youtube/playlist_item/playlist_item.dart';
 import 'package:iteacher/core/models/youtube/playlist_video_item/playlist_video_item.dart';
@@ -24,6 +28,7 @@ class CourseCubit extends Cubit<CourseState> {
   final FetchAllPlaylistsUseCase _fetchAllPlaylistsUseCase;
   final FetchPlaylistVideosUseCase _fetchPlaylistVideosUseCase;
   final ValidateSubscriptionUseCase _validateSubscriptionUseCase;
+
   CourseCubit(
     this._getTeacherDataUseCase,
     this._getStudentDataUseCase,
@@ -36,6 +41,45 @@ class CourseCubit extends Cubit<CourseState> {
   List<Playlist> playLists = [];
   List<PlaylistVideo> videos = [];
   YoutubePlayerController? controller;
+  RewardedAd? _rewardedAd;
+  Future<void> showRewardedAd() async {
+    if (_rewardedAd == null) await _loadAd();
+    if (_rewardedAd != null) {
+      await _rewardedAd!.show(
+        onUserEarnedReward: (ad, reward) {},
+      );
+      _rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
+        onAdDismissedFullScreenContent: (ad) async {
+          await ad.dispose();
+          _rewardedAd = null;
+        },
+        onAdFailedToShowFullScreenContent: (ad, error) async {
+          await ad.dispose();
+          _rewardedAd = null;
+        },
+      );
+    }
+  }
+
+  Future<void> _loadAd() async {
+    Completer<void> completer = Completer();
+    await RewardedAd.load(
+      adUnitId: kDebugMode
+          ? 'ca-app-pub-3940256099942544/5224354917'
+          : 'ca-app-pub-6389953285228248/2497448048',
+      request: AdRequest(keywords: ['games', 'rewards']),
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        onAdLoaded: (RewardedAd ad) {
+          _rewardedAd = ad;
+          completer.complete();
+        },
+        onAdFailedToLoad: (LoadAdError error) {
+          completer.complete();
+        },
+      ),
+    );
+    await completer.future;
+  }
 
   Future<String> fetchChannelId() async {
     try {
@@ -83,7 +127,7 @@ class CourseCubit extends Cubit<CourseState> {
     controller = YoutubePlayerController(
       initialVideoId: videos.first.snippet.resourceId.videoId,
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
       ),
     );
