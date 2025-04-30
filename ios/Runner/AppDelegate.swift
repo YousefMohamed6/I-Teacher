@@ -3,7 +3,6 @@ import AVFoundation
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
-    var window: UIWindow?
 
     override func application(
         _ application: UIApplication,
@@ -20,9 +19,9 @@ import AVFoundation
 
     @objc func screenCaptureStatusChanged() {
         if UIScreen.main.isCaptured {
-            window?.isHidden = true
+            self.window?.isHidden = true
         } else {
-            window?.isHidden = false
+            self.window?.isHidden = false
         }
     }
 }
