@@ -1,13 +1,11 @@
 name: Build iOS
 on:
-    pull_request:
+    push:
         branches:
             - main
-        types: [synchronize]
 
 jobs:
     build:
-        if: github.event.pull_request.merged == true
         runs-on: macos-latest
         steps:
             - uses: actions/checkout@v3

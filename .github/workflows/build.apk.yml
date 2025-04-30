@@ -1,13 +1,10 @@
 name: Build APK
 on:
-    pull_request:
+    push:
         branches:
             - main
-        types: [synchronize]
-
 jobs:
     build:
-        if: github.event.pull_request.merged == true
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
