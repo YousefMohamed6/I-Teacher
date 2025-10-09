@@ -156,7 +156,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get userNotFound => 'مستخدم غير موجود';
 
   @override
-  String get invalidEmailorPassword => 'البريد الالكتروني او كلمة المرور غير صحيحة';
+  String get invalidEmailorPassword =>
+      'البريد الالكتروني او كلمة المرور غير صحيحة';
 
   @override
   String get weakPassword => 'كلمة المرور ضعيفة';

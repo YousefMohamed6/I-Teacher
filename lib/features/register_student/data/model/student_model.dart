@@ -17,6 +17,7 @@ class StudentModel implements UserModel {
   final String imageBase64;
   @override
   final UserRole userRole = UserRole.student;
+  @override
   final String address;
   final DateTime expiryDate;
   final DateTime subscriptionDate;
