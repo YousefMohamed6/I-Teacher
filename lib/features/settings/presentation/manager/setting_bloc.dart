@@ -7,11 +7,11 @@ part 'setting_state.dart';
 
 class SettingsBloc extends Bloc<SettingEvent, SettingsState> {
   bool isDark = false;
-  String local = 'en';
+  String local = 'ar';
   SettingsBloc() : super(SettingInitial()) {
     //========================================
     on<GetLocalization>((event, emit) async {
-      local = await SharedPreferencesService.getString(SfKeys.local) ?? 'en';
+      local = await SharedPreferencesService.getString(SfKeys.local) ?? 'ar';
       emit(UpdateUI());
     });
     //========================================

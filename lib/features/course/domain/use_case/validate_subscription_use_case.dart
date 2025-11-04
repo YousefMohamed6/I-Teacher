@@ -32,10 +32,10 @@ class ValidateSubscriptionUseCase {
       final NotificationService notificationService = NotificationService();
       await notificationService.showNotification(
         id: 1,
-        title: AppLocalizations.of(RouterManager.navigatorKey.currentContext!)!
+        title: AppLocalizations.of(RouterManager.navigationKey.currentContext!)!
             .subscription_expired_date,
         body:
-            '${AppLocalizations.of(RouterManager.navigatorKey.currentContext!)!.subscription_expired} ${student.expiryDate.toString().substring(0, 10)}',
+            '${AppLocalizations.of(RouterManager.navigationKey.currentContext!)!.subscription_expired} ${student.expiryDate.toString().substring(0, 10)}',
       );
     }
   }

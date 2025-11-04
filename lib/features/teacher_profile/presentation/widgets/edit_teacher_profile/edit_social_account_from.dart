@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/features/teacher_profile/data/model/account_model.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
@@ -19,7 +19,7 @@ class SocialMediaAccountForm extends StatelessWidget {
     return BlocListener<TeacherProfileCubit, TeacherProfileState>(
       listener: (context, state) {
         if (state is Success<AccountModel>) {
-          ShowMessage.show(context, msg: AppLocalizations.of(context)!.success);
+          ToastMessage.show(msg: AppLocalizations.of(context)!.success);
         }
       },
       child: Background(

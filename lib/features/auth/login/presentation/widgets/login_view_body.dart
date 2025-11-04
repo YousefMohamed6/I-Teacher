@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/enums/user_role.dart';
 import 'package:iteacher/core/exceptions/unfound_user.dart';
 import 'package:iteacher/core/utils/error_handler/auth_error_handler.dart';
-import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/login_view_form.dart';
@@ -26,12 +26,11 @@ class LoginViewBody extends StatelessWidget {
                 : context
                     .pushReplacementNamed(EditTeacherProfileView.routeName);
           } else if (state is Failure<UnFoundUser>) {
-            ShowMessage.show(context,
-                msg: AppLocalizations.of(context)!.unfound_user);
+            ToastMessage.show(msg: AppLocalizations.of(context)!.unfound_user);
           } else if (state is Failure) {
             final String message = AuthErrorHandler.getErrorMessage(
                 context: context, errorMessage: state.errMessage);
-            ShowMessage.show(context, msg: message);
+            ToastMessage.show(msg: message);
           }
         },
         buildWhen: (previous, current) => current is UpdateUI,

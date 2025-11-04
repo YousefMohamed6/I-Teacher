@@ -129,7 +129,7 @@ class RegisterTeacherCubit extends Cubit<RegisterTeacherState> {
         onSuccess: () async {
           emit(RegisterTeacherState.loading());
           await _savePaymentStatusUseCase.execute(
-            PaymentOprationModel: paymentOpration
+            paymentOprationModel: paymentOpration
               ..invoiceId = invoiceId
               ..paymentStatus = 'success',
           );
@@ -141,7 +141,7 @@ class RegisterTeacherCubit extends Cubit<RegisterTeacherState> {
         },
         onFail: () async {
           await _savePaymentStatusUseCase.execute(
-            PaymentOprationModel: paymentOpration
+            paymentOprationModel: paymentOpration
               ..invoiceId = invoiceId
               ..paymentStatus = 'fail',
           );

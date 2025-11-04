@@ -14,7 +14,7 @@ class PlaylistWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        await BlocProvider.of<CourseCubit>(context).showRewardedAd();
+        BlocProvider.of<CourseCubit>(context).showRewardedAd();
         context.pushNamed(VideoPlayerView.routeName, extra: playlist.id);
       },
       child: Column(

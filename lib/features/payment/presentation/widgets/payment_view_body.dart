@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/core/widgets/webview_body.dart';
@@ -29,9 +29,9 @@ class PaymentViewBody extends StatelessWidget {
               extra: cubit.studentModel,
             );
           } else if (state is Failure<bool>) {
-            ShowMessage.show(context, msg: AppLocalizations.of(context)!.fail);
+            ToastMessage.show(msg: AppLocalizations.of(context)!.fail);
           } else if (state is Failure) {
-            ShowMessage.show(context, msg: state.message);
+            ToastMessage.show(msg: state.message);
           }
         },
         buildWhen: (previous, current) =>

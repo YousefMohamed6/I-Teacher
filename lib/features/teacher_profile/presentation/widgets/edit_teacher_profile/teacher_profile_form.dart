@@ -9,7 +9,7 @@ import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teac
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/edit_teacher_image.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/first_name_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/last_name_text_field.dart';
-import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/payment_id_text_field%20.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/payment_id_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/phone_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/teacher_accounts.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/teacher_id_text_field.dart';

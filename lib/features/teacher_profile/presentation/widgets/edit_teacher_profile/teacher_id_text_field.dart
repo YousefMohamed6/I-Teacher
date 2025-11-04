@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/custom_form_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
 import 'package:iteacher/generated/app_localizations.dart';
@@ -35,8 +35,7 @@ class TeacherIDTextField extends StatelessWidget {
                 .teacherIdTextController
                 .text;
             Clipboard.setData(ClipboardData(text: text));
-            ShowMessage.show(context,
-                msg: AppLocalizations.of(context)!.copied);
+            ToastMessage.show(msg: AppLocalizations.of(context)!.copied);
           },
           icon: Icon(FontAwesomeIcons.copy),
         ),

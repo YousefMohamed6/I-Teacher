@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/exceptions/expired_subscription_exception.dart';
-import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
@@ -19,7 +19,7 @@ class CourseViewBody extends StatelessWidget {
       child: BlocConsumer<CourseCubit, CourseState>(
         listener: (context, state) {
           if (state is Failure<String>) {
-            ShowMessage.show(context, msg: AppLocalizations.of(context)!.fail);
+            ToastMessage.show(msg: AppLocalizations.of(context)!.fail);
           }
           if (state is Failure<ExpiredSubscriptionException>) {
             context.goNamed(StudentView.routeName);

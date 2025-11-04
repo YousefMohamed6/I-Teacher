@@ -106,7 +106,7 @@ class PaymentCubit extends Cubit<PaymentState> {
         onSuccess: () async {
           emit(PaymentState.loading());
           await _savePaymentStatusUseCase.execute(
-            PaymentOprationModel: paymentOpration
+            paymentOprationModel: paymentOpration
               ..invoiceId = invoiceId
               ..paymentStatus = 'success',
           );
@@ -114,7 +114,7 @@ class PaymentCubit extends Cubit<PaymentState> {
         },
         onFail: () async {
           await _savePaymentStatusUseCase.execute(
-            PaymentOprationModel: paymentOpration
+            paymentOprationModel: paymentOpration
               ..invoiceId = invoiceId
               ..paymentStatus = 'fail',
           );

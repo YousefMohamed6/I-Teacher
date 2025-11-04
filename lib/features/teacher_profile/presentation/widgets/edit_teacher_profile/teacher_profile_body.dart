@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
@@ -21,10 +21,9 @@ class TeacherProfileBody extends StatelessWidget {
             current is Loading<TeacherModel>,
         listener: (context, state) {
           if (state is Success<TeacherModel>) {
-            ShowMessage.show(context,
-                msg: AppLocalizations.of(context)!.success);
+            ToastMessage.show(msg: AppLocalizations.of(context)!.success);
           } else if (state is Failure) {
-            ShowMessage.show(context, msg: AppLocalizations.of(context)!.fail);
+            ToastMessage.show(msg: AppLocalizations.of(context)!.fail);
           }
         },
         builder: (context, state) => state.when(

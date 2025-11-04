@@ -57,7 +57,7 @@ import 'package:iteacher/features/terms_and_conditions/presentation/manager/term
 import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
 
 sealed class RouterManager {
-  static final navigatorKey = GlobalKey<NavigatorState>();
+  static final navigationKey = GlobalKey<NavigatorState>();
   static GoRouter routeConfig = GoRouter(
     redirect: (context, state) async {
       if (state.fullPath?.isNotEmpty ?? false) return state.fullPath;
@@ -73,7 +73,7 @@ sealed class RouterManager {
         return LoginView.routeName;
       }
     },
-    navigatorKey: navigatorKey,
+    navigatorKey: navigationKey,
     routes: [
       GoRoute(
         path: TeacherProfileView.routeName,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iteacher/core/utils/helper/show_message.dart';
+import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/webview_body.dart';
 import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
@@ -41,8 +41,7 @@ class RegisterTeacherViewBody extends StatelessWidget {
         listener: (context, state) {
           if (state is Success && state.data == true) {
             context.goNamed(LoginView.routeName);
-            ShowMessage.show(context,
-                msg: AppLocalizations.of(context)!.success);
+            ToastMessage.show(msg: AppLocalizations.of(context)!.success);
           }
         },
         buildWhen: (previous, current) =>

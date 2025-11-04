@@ -7,12 +7,12 @@ class SavePaymentStatusUseCase {
   SavePaymentStatusUseCase(this.firebaseFirestoreService);
 
   Future<void> execute({
-    required PaymentOprationModel PaymentOprationModel,
+    required PaymentOprationModel paymentOprationModel,
   }) async {
     await firebaseFirestoreService.addDocumentUsingId(
       collectionId: PaymentsKeys.kPaymentsCollection,
-      documentId: PaymentOprationModel.invoiceId,
-      data: PaymentOprationModel.toJson(),
+      documentId: paymentOprationModel.invoiceId,
+      data: paymentOprationModel.toJson(),
     );
   }
 }
