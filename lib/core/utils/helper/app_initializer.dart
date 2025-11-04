@@ -10,9 +10,7 @@ import 'package:iteacher/core/utils/helper/simple_bloc_obsever.dart';
 
 class AppInitializer {
   Future<void> init() async {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    
     await ScreenUtil.ensureScreenSize();
     await FlutterWindowManagerPlus.addFlags(
         FlutterWindowManagerPlus.FLAG_SECURE);

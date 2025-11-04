@@ -1,27 +1,23 @@
+import Firebase
+import FirebaseMessaging
+import Flutter
 import UIKit
-import AVFoundation
+import flutter_local_notifications
 
 @main
-@objc class AppDelegate: FlutterAppDelegate {
+@objc class AppDelegate: FlutterAppDelegate, MessagingDelegate {
 
     override func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(screenCaptureStatusChanged),
-            name: UIScreen.capturedDidChangeNotification,
-            object: nil
-        )
-        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-    }
-
-    @objc func screenCaptureStatusChanged() {
-        if UIScreen.main.isCaptured {
-            self.window?.isHidden = true
-        } else {
-            self.window?.isHidden = false
+        FirebaseApp.configure()
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+        FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { registry in
+            GeneratedPluginRegistrant.register(with: registry)
         }
+        GeneratedPluginRegistrant.register(with: self)
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 }
