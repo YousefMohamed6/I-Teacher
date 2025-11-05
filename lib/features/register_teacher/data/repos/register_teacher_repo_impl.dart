@@ -28,8 +28,7 @@ class RegisterTeacherRepoImpl implements IRegisterTeacherRepo {
     required String email,
     required String password,
   }) async {
-    await _firebaseAuthService.createUserWithEmailAndPassword(
-        email: email, password: password);
+    await _firebaseAuthService.signUp(email: email, password: password);
   }
 
   @override

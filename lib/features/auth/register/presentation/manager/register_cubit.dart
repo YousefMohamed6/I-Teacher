@@ -76,7 +76,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       await _createUserWithEmailAndPassword.execute(
         email: emailTextController.text,
         password: passwordTextController.text,
-        displyName:
+        displayName:
             '${firstNameTextController.text} ${lastNameTextController.text}',
       );
     } else {

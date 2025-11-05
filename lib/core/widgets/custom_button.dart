@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -12,9 +13,19 @@ class CustomButton extends StatelessWidget {
   Widget build(context) {
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: onPressed,
-          child: child,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: MaterialButton(
+            minWidth: double.infinity,
+            height: 48,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.r),
+            ),
+            color: Theme.of(context).secondaryHeaderColor,
+            onPressed: onPressed,
+            child: child,
+          ),
         ),
       ],
     );

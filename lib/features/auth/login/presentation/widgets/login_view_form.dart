@@ -9,8 +9,8 @@ import 'package:iteacher/features/auth/login/presentation/widgets/email_text_fie
 import 'package:iteacher/features/auth/login/presentation/widgets/forget_password.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/login_button.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/password_text_field.dart';
-import 'package:iteacher/features/register_teacher/presentation/views/register_teacher_view.dart';
 import 'package:iteacher/features/register_student/presentation/views/student_view.dart';
+import 'package:iteacher/features/register_teacher/presentation/views/register_teacher_view.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class LoginViewForm extends StatelessWidget {
@@ -36,6 +36,7 @@ class LoginViewForm extends StatelessWidget {
             routeName: StudentView.routeName,
             title: AppLocalizations.of(context)!.register_as_student,
           ),
+          SizedBox(height: 16.h),
           CustomRegisterButton(
             routeName: RegisterTeacherView.routeName,
             title: AppLocalizations.of(context)!.register_as_teacher,

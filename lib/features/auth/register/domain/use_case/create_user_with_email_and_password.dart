@@ -6,12 +6,12 @@ class CreateUserWithEmailAndPasswordUseCase {
   Future<void> execute({
     required String email,
     required String password,
-    String? displyName,
+    String? displayName,
   }) async {
-    await firebaseAuthService.createUserWithEmailAndPassword(
+    await firebaseAuthService.signUp(
       email: email,
       password: password,
-      displyName: displyName,
+      displayName: displayName,
     );
   }
 }

@@ -16,9 +16,7 @@ class LoginButton extends StatelessWidget {
       },
       child: CustomText(
         text: AppLocalizations.of(context)!.login,
-        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: Theme.of(context).primaryColor,
-            ),
+        style: Theme.of(context).textTheme.titleMedium,
       ),
     );
   }
