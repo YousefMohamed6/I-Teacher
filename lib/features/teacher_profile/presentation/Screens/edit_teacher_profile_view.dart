@@ -15,7 +15,11 @@ class EditTeacherProfileView extends StatelessWidget {
         child: DefaultSettingsView(),
       ),
       appBar: AppBar(
-        title: CustomText(text: AppLocalizations.of(context)!.teacherProfile),
+        title: CustomText(
+          color: Theme.of(context).colorScheme.onPrimary,
+          text: AppLocalizations.of(context)!.teacherProfile,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         actions: [
           SaveButton(),
         ],

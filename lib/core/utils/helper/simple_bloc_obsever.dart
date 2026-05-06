@@ -27,4 +27,13 @@ class SimpleBlocObServer implements BlocObserver {
   void onTransition(Bloc bloc, Transition transition) {
     debugPrint(transition.toString());
   }
+
+  @override
+  void onDone(Bloc<dynamic, dynamic> bloc, Object? event,
+      [Object? error, StackTrace? stackTrace]) {
+    debugPrint("Done  ${bloc.toString()}");
+    debugPrint("Event  ${event.toString()}");
+    debugPrint("Error  ${error.toString()}");
+    debugPrint("Stack Trace  ${stackTrace.toString()}");
+  }
 }

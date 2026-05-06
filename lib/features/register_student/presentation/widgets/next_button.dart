@@ -33,7 +33,7 @@ class NextButton extends StatelessWidget {
         },
         child: CustomText(
           text: AppLocalizations.of(context)!.next,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.onPrimary,
           fontWeight: FontWeight.bold,
         ),
       ),

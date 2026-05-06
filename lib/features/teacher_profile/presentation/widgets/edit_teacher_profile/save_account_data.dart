@@ -17,7 +17,7 @@ class SaveAccountDataButton extends StatelessWidget {
       child: CustomText(
         text: AppLocalizations.of(context)!.save,
         style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
       ),
     );

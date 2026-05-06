@@ -6,24 +6,25 @@ import 'package:iteacher/core/services/sf_service.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/core/utils/constants/sf_keys.dart';
 import 'package:iteacher/features/auth/login/domain/repo/i_login_repo.dart';
-import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/register_student/data/model/student_model.dart';
+import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class LoginRepoImpl implements ILoginRepo {
   final FirebaseFirestoreService firebaseFirestoreService;
 
   LoginRepoImpl({required this.firebaseFirestoreService});
   Future<TeacherModel> _getTeacherData({required String email}) async {
-    final response = await firebaseFirestoreService.getCollection(
+    final response = await firebaseFirestoreService.getDocument(
+      documentId: email.trim(),
       collectionId: TeacherKeys.kTeachersCollection,
     );
-    for (var json in response) {
-      Map<String, dynamic> data = json.data() as Map<String, dynamic>;
-      data.addAll({AccountsKeys.kAccountsCollection: []});
-      final teacher = TeacherModel.fromJson(data);
-      if (teacher.email == email.trim()) return teacher;
+    if (response.exists == false) {
+      throw UnFoundUser();
     }
-    throw UnFoundUser();
+    Map<String, dynamic> data = response.data() as Map<String, dynamic>;
+    data.addAll({AccountsKeys.kAccountsCollection: []});
+    final teacher = TeacherModel.fromJson(data);
+    return teacher;
   }
 
   Future<StudentModel> _getStudent({required String email}) async {

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iteacher/features/teacher_profile/data/model/account_model.dart';
-import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/display_teacher_profile/account_item.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
-import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/add_account_button.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/display_teacher_profile/account_item.dart';
 
 class TeacherSocialMediaAccounts extends StatelessWidget {
   const TeacherSocialMediaAccounts({super.key});
@@ -39,11 +38,6 @@ class TeacherSocialMediaAccounts extends StatelessWidget {
               );
             },
           ),
-        ),
-        Positioned(
-          left: 0,
-          top: -16.h,
-          child: AddAccountButton(),
         ),
       ],
     );
