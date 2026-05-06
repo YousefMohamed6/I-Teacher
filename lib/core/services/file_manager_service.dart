@@ -10,7 +10,7 @@ class FileManagerService {
   Future<File> pickFile() async {
     final grantedPermission = await requestStoragePermission();
     if (grantedPermission) {
-      FilePickerResult? result = await FilePicker.pickFiles();
+      FilePickerResult? result = await FilePicker.platform.pickFiles();
       if (result != null) {
         File file = File(result.files.single.path!);
         return file;
@@ -41,7 +41,7 @@ class FileManagerService {
     required Uint8List bytes,
     bool handleSave = false,
   }) async {
-    String? outputFile = await FilePicker.saveFile(
+    String? outputFile = await FilePicker.platform.saveFile(
         dialogTitle: 'Please select an output file:',
         fileName: fileName,
         bytes: bytes);
@@ -56,7 +56,7 @@ class FileManagerService {
   }
 
   Future<String?> _saveFileMobile(String fileName, Uint8List bytes) async {
-    final outputFile = await FilePicker.saveFile(
+    final outputFile = await FilePicker.platform.saveFile(
         dialogTitle: 'Please select an output file:',
         fileName: fileName,
         bytes: bytes);

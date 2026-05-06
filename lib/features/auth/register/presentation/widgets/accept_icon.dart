@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteacher/core/extentions/theme_extension.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/features/auth/register/presentation/manager/register_cubit.dart';
 
-class AccpetIcon extends StatelessWidget {
-  const AccpetIcon({super.key});
+class AcceptIcon extends StatelessWidget {
+  const AcceptIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +16,12 @@ class AccpetIcon extends StatelessWidget {
           icon: cubit.isAccept
               ? Icon(
                   Icons.check_circle,
-                  color: Colors.white,
-                  size: MediaQuery.sizeOf(context).height * 0.030,
+                  color: context.colorScheme.primary,
+                  size: AppDimensions.kIcon24,
                 )
               : Icon(
                   Icons.check_circle_outline,
-                  size: MediaQuery.sizeOf(context).height * 0.030,
+                  size: AppDimensions.kIcon24,
                 ),
           onPressed: () {
             cubit.changeAccpetTermsAndPrivacy();

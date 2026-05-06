@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iteacher/core/utils/constants/app_font_sizes.dart';
 import 'package:iteacher/core/utils/constants/app_fonts.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/chat/presentation/widgets/chat_view_body.dart';
@@ -14,12 +14,11 @@ class ChatView extends StatelessWidget {
       appBar: AppBar(
         title: CustomText(
           text: AppLocalizations.of(context)!.chat,
-          fontSize: 20.sp,
+          fontSize: AppFontSizes.s20,
           fontFamily: AppFonts.kPacificoFont,
-          color: Colors.white,
         ),
       ),
-      body: ChatviewBody(),
+      body: const ChatViewBody(),
     );
   }
 }

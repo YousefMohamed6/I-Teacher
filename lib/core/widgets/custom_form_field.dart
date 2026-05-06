@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
+import 'package:iteacher/core/utils/constants/app_durations.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class CustomFormField extends StatelessWidget {
@@ -17,6 +20,7 @@ class CustomFormField extends StatelessWidget {
     this.autovalidateMode,
     this.enabled,
   });
+
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final TextInputType? textInputType;
@@ -30,13 +34,16 @@ class CustomFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
   final AutovalidateMode? autovalidateMode;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      padding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.kPadding8,
+        vertical: AppDimensions.kPadding8,
+      ),
       child: TextFormField(
-        autovalidateMode:
-            autovalidateMode ?? AutovalidateMode.onUserInteraction,
+        autovalidateMode: autovalidateMode ?? AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
           labelText: labelText,
           hintText: hintText,
@@ -57,8 +64,15 @@ class CustomFormField extends StatelessWidget {
         onChanged: onChanged,
         controller: controller,
         style: Theme.of(context).textTheme.bodyMedium,
-        cursorColor: Colors.white,
       ),
-    );
+    )
+    .animate()
+    .slideY(
+      begin: 0.1,
+      end: 0,
+      duration: AppDurations.medium,
+      curve: Curves.easeOutQuad,
+    )
+    .fadeIn(duration: AppDurations.medium);
   }
 }

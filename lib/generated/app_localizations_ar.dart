@@ -286,6 +286,48 @@ class AppLocalizationsAr extends AppLocalizations {
   String get student_profile => ' بيانات الطالب';
 
   @override
+  String get teacher_profile => 'بيانات المعلم';
+
+  @override
+  String get start_live => 'بدء حصة مباشرة';
+
+  @override
+  String get join_live => 'الانضمام للحصة المباشرة';
+
+  @override
+  String get live_lesson => 'حصة مباشرة';
+
+  @override
+  String get sign_language_mode => 'وضع لغة الإشارة';
+
+  @override
+  String get normal_mode => 'الوضع العادي';
+
+  @override
+  String get end_lesson => 'إنهاء الحصة';
+
+  @override
+  String get are_you_sure_you_want_to_end_the_lesson =>
+      'هل أنت متأكد من رغبتك في إنهاء الحصة؟';
+
+  @override
+  String get preparing_lesson => 'جاري تحضير الحصة...';
+
+  @override
+  String get permissions_required => 'الأذونات مطلوبة';
+
+  @override
+  String get please_wait_while_we_setup =>
+      'يرجى الانتظار بينما نقوم بإعداد جلستك';
+
+  @override
+  String get we_need_camera_mic_access =>
+      'نحتاج للوصول إلى الكاميرا والميكروفون للمتابعة.';
+
+  @override
+  String get grant_permissions => 'منح الأذونات';
+
+  @override
   String get subscription_date => 'تاريخ الاشتراك';
 
   @override
@@ -296,4 +338,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get register_as_teacher => 'تسجيل كمدرس';
+
+  @override
+  String get accessibility => 'إمكانية الوصول';
+
+  @override
+  String get sign_language_support => 'دعم لغة الإشارة';
+
+  @override
+  String get translate_signs => 'ترجمة الإشارات';
+
+  @override
+  String get sign_language_interpreter => 'مترجم لغة الإشارة';
+
+  @override
+  String get enable_captions => 'تفعيل الشرح النصي';
+
+  @override
+  String get sign_language_avatar => 'أفاتار لغة الإشارة';
+
+  @override
+  String get learning_hub => 'مركز التعلم';
+
+  @override
+  String get sign_flashcards => 'بطاقات لغة الإشارة';
+
+  @override
+  String get sign_stickers => 'ملصقات لغة الإشارة';
+
+  @override
+  String get haptic_feedback => 'ردود الفعل الاهتزازية';
+
+  @override
+  String get video_player => 'مشغل الفيديو';
+
+  @override
+  String get playlists => 'قوائم التشغيل';
 }

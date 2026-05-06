@@ -11,7 +11,7 @@ The Course feature handles the display and management of educational content, pr
   - `FetchPlaylistVideosUseCase`: Fetches videos within a specific playlist.
   - `ValidateSubscriptionUseCase`: Checks if the student's subscription is still active.
 - **Presentation Layer**:
-  - **Manager**: `CourseCubit` manages the state of playlist fetching and subscription validation.
+  - **Manager**: `PlaylistsCubit` manages the state of playlist fetching and subscription validation.
   - **Screens**:
     - `CourseView`: Main entry point for the course feature.
     - `VideoPlayerView`: Handles video playback.

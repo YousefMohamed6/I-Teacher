@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/utils/constants/app_font_sizes.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/course/presentation/widgets/course_view_body.dart';
 import 'package:iteacher/features/settings/presentation/Screens/setting_view.dart';
@@ -17,9 +18,8 @@ class CourseView extends StatelessWidget {
       appBar: AppBar(
         title: CustomText(
           text: AppLocalizations.of(context)!.course,
-          fontSize: 24,
+          fontSize: AppFontSizes.s24,
           fontFamily: AppFonts.kPacificoFont,
-          color: Colors.white,
         ),
       ),
       body: const CourseViewBody(),

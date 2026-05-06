@@ -7,9 +7,10 @@ import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/auth/login/presentation/Screens/login_view.dart';
 import 'package:iteacher/features/chat/presentation/Screens/chats_view.dart';
 import 'package:iteacher/features/chatbot/presentation/Screens/chatbot_view.dart';
-import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
+import 'package:iteacher/features/course/presentation/manager/playlists_cubit.dart';
 import 'package:iteacher/features/settings/presentation/manager/setting_bloc.dart';
 import 'package:iteacher/features/student_profile/presentation/Screens/student_profile_view.dart';
+import 'package:iteacher/features/settings/presentation/Screens/accessibility_view.dart';
 import 'package:iteacher/features/terms_and_conditions/presentation/Screens/terms_and_conditions.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 import 'package:settings_ui/settings_ui.dart';
@@ -46,6 +47,13 @@ class SettingsView extends StatelessWidget {
                 );
               },
             ),
+            SettingsTile.navigation(
+              leading: const Icon(Icons.accessibility_new_rounded),
+              title: CustomText(text: AppLocalizations.of(context)!.accessibility),
+              onPressed: (context) {
+                context.pushNamed(AccessibilityView.routeName);
+              },
+            ),
           ],
         ),
         SettingsSection(
@@ -76,7 +84,7 @@ class SettingsView extends StatelessWidget {
                   text: AppLocalizations.of(context)!.student_profile),
               onPressed: (context) {
                 context.pushNamed(StudentProfileView.routeName,
-                    extra: context.read<CourseCubit>().student);
+                    extra: context.read<PlaylistsCubit>().student);
               },
             ),
             SettingsTile.navigation(

@@ -19,29 +19,31 @@ import 'package:iteacher/features/register_student/data/model/student_model.dart
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-part 'course_cubit.freezed.dart';
-part 'course_state.dart';
+part 'playlists_cubit.freezed.dart';
+part 'playlists_state.dart';
 
-class CourseCubit extends Cubit<CourseState> {
+class PlaylistsCubit extends Cubit<PlaylistsState> {
   final GetTeacherDataUseCase _getTeacherDataUseCase;
   final GetStudentDataUseCase _getStudentDataUseCase;
   final FetchAllPlaylistsUseCase _fetchAllPlaylistsUseCase;
   final FetchPlaylistVideosUseCase _fetchPlaylistVideosUseCase;
   final ValidateSubscriptionUseCase _validateSubscriptionUseCase;
 
-  CourseCubit(
+  PlaylistsCubit(
     this._getTeacherDataUseCase,
     this._getStudentDataUseCase,
     this._fetchAllPlaylistsUseCase,
     this._fetchPlaylistVideosUseCase,
     this._validateSubscriptionUseCase,
-  ) : super(CourseState.initial());
+  ) : super(const PlaylistsState.initial());
+  
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late StudentModel student;
   List<Playlist> playLists = [];
   List<PlaylistVideo> videos = [];
   YoutubePlayerController? controller;
   RewardedAd? _rewardedAd;
+
   Future<void> showRewardedAd() async {
     if (_rewardedAd == null) await _loadAd();
     if (_rewardedAd != null) {
@@ -67,7 +69,7 @@ class CourseCubit extends Cubit<CourseState> {
       adUnitId: kDebugMode
           ? 'ca-app-pub-3940256099942544/5224354917'
           : 'ca-app-pub-6389953285228248/2497448048',
-      request: AdRequest(keywords: ['games', 'rewards']),
+      request: const AdRequest(keywords: ['games', 'rewards']),
       rewardedAdLoadCallback: RewardedAdLoadCallback(
         onAdLoaded: (RewardedAd ad) {
           _rewardedAd = ad;
@@ -86,7 +88,7 @@ class CourseCubit extends Cubit<CourseState> {
       final teacher = await getTeacherData(teacherId: student.teacherId);
       return teacher.channelId;
     } catch (e) {
-      emit(CourseState.failure(e.toString()));
+      emit(PlaylistsState.failure(e.toString()));
       return '';
     }
   }
@@ -106,16 +108,16 @@ class CourseCubit extends Cubit<CourseState> {
 
   Future<void> fetchAllPlaylists() async {
     try {
-      emit(CourseState<List<Playlist>>.loading());
+      emit(const PlaylistsState<List<Playlist>>.loading());
       student = await getStudentData();
       await validateSubscription();
       final channelId = await fetchChannelId();
       playLists = await _fetchAllPlaylistsUseCase.execute(channelId: channelId);
-      emit(CourseState<List<Playlist>>.success(playLists));
-    } on ExpiredSubscriptionException catch (e) {
-      emit(CourseState<ExpiredSubscriptionException>.failure(e.toString()));
+      emit(PlaylistsState<List<Playlist>>.success(playLists));
+    } on ExpiredSubscriptionException {
+      emit(const PlaylistsState.expiredSubscription());
     } catch (e) {
-      emit(CourseState<String>.failure(e.toString()));
+      emit(PlaylistsState<String>.failure(e.toString()));
     }
   }
 
@@ -123,32 +125,36 @@ class CourseCubit extends Cubit<CourseState> {
     await _validateSubscriptionUseCase.execute(student);
   }
 
-  void initController() {
+  Future<void> initController() async {
+    final bool enableCaptions = await SharedPreferencesService.getBool(
+        SfKeys.captionsEnabled,
+        defaultIfNull: false);
     controller = YoutubePlayerController(
       initialVideoId: videos.first.snippet.resourceId.videoId,
-      flags: const YoutubePlayerFlags(
+      flags: YoutubePlayerFlags(
         autoPlay: false,
         mute: false,
+        enableCaption: enableCaptions,
       ),
     );
   }
 
   Future<void> fetchPlaylistVideos({required String playListId}) async {
     try {
-      emit(CourseState<List<PlaylistVideo>>.loading());
+      emit(const PlaylistsState<List<PlaylistVideo>>.loading());
       videos =
           await _fetchPlaylistVideosUseCase.execute(playlistId: playListId);
-      initController();
-      emit(CourseState<List<PlaylistVideo>>.success(videos));
+      await initController();
+      emit(PlaylistsState<List<PlaylistVideo>>.success(videos));
     } catch (e) {
-      emit(CourseState<String>.failure(e.toString()));
+      emit(PlaylistsState<String>.failure(e.toString()));
     }
   }
 
   void selectVideo(String videoId) {
-    emit(CourseState.loading());
+    emit(const PlaylistsState.loading());
     controller?.load(videoId);
-    emit(CourseState<String>.success(videoId));
+    emit(PlaylistsState<String>.success(videoId));
   }
 
   @override

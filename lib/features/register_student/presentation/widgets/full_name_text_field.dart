@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/core/widgets/custom_form_field.dart';
 import 'package:iteacher/features/register_student/presentation/manager/register_student_cubit.dart';
 import 'package:iteacher/generated/app_localizations.dart';
@@ -20,7 +21,7 @@ class FullNameTextField extends StatelessWidget {
                 BlocProvider.of<StudentCubit>(context).firstNameTextController,
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: AppDimensions.kPadding8),
         Expanded(
           child: CustomFormField(
             textInputType: TextInputType.name,

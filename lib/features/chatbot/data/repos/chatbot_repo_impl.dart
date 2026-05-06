@@ -8,8 +8,11 @@ class ChatbotRepoImpl implements IChatbotRepo {
   ChatbotRepoImpl(this.geminiService);
 
   @override
-  Future<GeminiModel> getAnswer(String question) async {
-    final response = await geminiService.askGemini(question: question);
+  Future<GeminiModel> getAnswer(String question, {String? imageBase64}) async {
+    final response = await geminiService.askGemini(
+      question: question,
+      imageBase64: imageBase64,
+    );
     return GeminiModel.fromJson(response);
   }
 }

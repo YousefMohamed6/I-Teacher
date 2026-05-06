@@ -12,6 +12,7 @@ import 'package:iteacher/features/chat/data/models/audio_message_model/audio_mes
 import 'package:iteacher/features/chat/data/models/file_message_model/file_message_model.dart';
 import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
 import 'package:iteacher/features/chat/data/models/message_model/message_model.dart';
+import 'package:iteacher/features/chat/data/models/sticker_message_model/sticker_message_model.dart';
 import 'package:iteacher/features/chat/data/models/text_message_model/text_message_model.dart';
 import 'package:iteacher/features/chat/domain/use_cases/download_files_use_case.dart';
 import 'package:iteacher/features/chat/domain/use_cases/get_all_teachers.dart';
@@ -153,6 +154,24 @@ class ChatCubit extends Cubit<ChatState> {
         text: text,
         createdAt: DateTime.now().toString(),
         receiverId: receiverId,
+      );
+      await sendMessage(message);
+    } on Exception catch (e) {
+      emit(ChatState.failure(e.toString()));
+    }
+  }
+
+  Future<void> sendStickerMessage({
+    required String stickerUrl,
+    required String stickerId,
+  }) async {
+    try {
+      final message = StickerMessageModel(
+        senderId: senderId,
+        createdAt: DateTime.now().toIso8601String(),
+        receiverId: receiverId,
+        stickerUrl: stickerUrl,
+        stickerId: stickerId,
       );
       await sendMessage(message);
     } on Exception catch (e) {

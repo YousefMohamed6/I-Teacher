@@ -1,139 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iteacher/core/theme/app_colors/dark_mode_colors.dart';
-import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 
 ThemeData get darkTheme => ThemeData(
+      useMaterial3: true,
       brightness: Brightness.dark,
       primaryColor: DarkModeColors.primaryColor,
-      secondaryHeaderColor: DarkModeColors.secondaryColor,
       scaffoldBackgroundColor: DarkModeColors.scaffoldBackgroundColor,
+      colorScheme: ColorScheme.dark(
+        primary: DarkModeColors.primaryColor,
+        onPrimary: DarkModeColors.onPrimaryColor,
+        secondary: DarkModeColors.secondaryColor,
+        onSecondary: DarkModeColors.onSecondaryColor,
+        surface: DarkModeColors.surfaceColor,
+        onSurface: DarkModeColors.onSurfaceColor,
+        error: DarkModeColors.errorColor,
+        onError: DarkModeColors.onErrorColor,
+      ),
       appBarTheme: AppBarTheme(
         centerTitle: true,
         backgroundColor: DarkModeColors.appBarColor,
-        iconTheme: IconThemeData(
-          color: DarkModeColors.onPrimaryColor,
-        ),
-        titleTextStyle: TextStyle(
+        elevation: 0,
+        iconTheme: const IconThemeData(color: DarkModeColors.onBackgroundColor),
+        titleTextStyle: GoogleFonts.cairo(
           fontSize: 20.sp,
-          fontFamily: AppFonts.kPacificoFont,
-          color: DarkModeColors.onPrimaryColor,
+          fontWeight: FontWeight.bold,
+          color: DarkModeColors.onBackgroundColor,
         ),
       ),
-      textTheme: TextTheme(
-          bodyLarge: TextStyle(
-            fontSize: 16.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          bodyMedium: TextStyle(
-            fontSize: 14.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          bodySmall: TextStyle(
-            fontSize: 12.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          titleLarge: TextStyle(
-            fontSize: 20.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          titleMedium: TextStyle(
-            fontSize: 16.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          titleSmall: TextStyle(
-            fontSize: 14.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          labelLarge: TextStyle(
-            fontSize: 20.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          labelMedium: TextStyle(
-            fontSize: 16.sp,
-            color: DarkModeColors.onPrimaryColor,
-          ),
-          labelSmall: TextStyle(
-            fontSize: 14.sp,
-            color: DarkModeColors.onPrimaryColor,
-          )),
+      textTheme: GoogleFonts.cairoTextTheme().apply(
+        bodyColor: DarkModeColors.onBackgroundColor,
+        displayColor: DarkModeColors.onBackgroundColor,
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: DarkModeColors.onPrimaryColor,
-          enableFeedback: true,
+          backgroundColor: DarkModeColors.primaryColor,
+          foregroundColor: DarkModeColors.onPrimaryColor,
+          minimumSize: Size(double.infinity, AppDimensions.kButtonHeight48),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
           ),
-          textStyle: TextStyle(
-            fontSize: 14.sp,
-            color: DarkModeColors.primaryColor,
-            fontFamily: AppFonts.kFontLumanosimo,
+          textStyle: GoogleFonts.cairo(
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w600,
           ),
+          elevation: 2,
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: DarkModeColors.onPrimaryColor,
-          textStyle: TextStyle(
+          foregroundColor: DarkModeColors.primaryColor,
+          textStyle: GoogleFonts.cairo(
             fontSize: 14.sp,
-            color: DarkModeColors.primaryColor,
-            fontFamily: AppFonts.kFontLumanosimo,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: DarkModeColors.surfaceColor,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.kPadding16,
+          vertical: AppDimensions.kPadding14,
+        ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: BorderSide(
-            color: DarkModeColors.onPrimaryColor,
-          ),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: const BorderSide(color: DarkModeColors.secondaryColor),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: BorderSide(
-            color: DarkModeColors.onPrimaryColor,
-          ),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: BorderSide(color: DarkModeColors.secondaryColor.withValues(alpha: 0.3)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: BorderSide(
-            color: DarkModeColors.onPrimaryColor,
-          ),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: const BorderSide(color: DarkModeColors.primaryColor, width: 2),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: const BorderSide(color: DarkModeColors.errorColor),
         ),
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 8.w,
-          vertical: 14.h,
-        ),
-        prefixIconColor: DarkModeColors.onPrimaryColor,
-        suffixIconColor: DarkModeColors.onPrimaryColor,
-        labelStyle: TextStyle(
+        hintStyle: GoogleFonts.cairo(
+          color: DarkModeColors.secondaryColor,
           fontSize: 14.sp,
-          color: DarkModeColors.onPrimaryColor,
         ),
-        hintStyle: TextStyle(
+        labelStyle: GoogleFonts.cairo(
+          color: DarkModeColors.primaryColor,
           fontSize: 14.sp,
-          color: DarkModeColors.onPrimaryColor,
         ),
       ),
-      progressIndicatorTheme: ProgressIndicatorThemeData(
-        color: DarkModeColors.onPrimaryColor,
-      ),
-      checkboxTheme: CheckboxThemeData(
-        fillColor: WidgetStateProperty.all(
-          DarkModeColors.primaryColor,
-        ),
-        checkColor: WidgetStateProperty.all(
-          DarkModeColors.onPrimaryColor,
+      cardTheme: CardThemeData(
+        color: DarkModeColors.cardColor,
+        elevation: 4,
+        shadowColor: Colors.black.withValues(alpha: 0.2),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius16),
         ),
       ),
-      iconButtonTheme: IconButtonThemeData(
-        style: ButtonStyle(
-          iconColor: WidgetStatePropertyAll(
-            DarkModeColors.onPrimaryColor,
-          ),
-        ),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: DarkModeColors.primaryColor,
       ),
     );

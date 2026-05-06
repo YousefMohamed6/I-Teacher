@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/core/utils/constants/app_images.dart';
 import 'package:iteacher/core/widgets/avatar.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
@@ -21,27 +21,34 @@ class LoginViewForm extends StatelessWidget {
     return Form(
       key: BlocProvider.of<LoginCubit>(context).formKey,
       child: ListView(
+        padding: EdgeInsets.all(AppDimensions.kPadding16),
         children: [
-          SizedBox(height: 16.h),
+          SizedBox(height: AppDimensions.kPadding24),
           Avatar(imagePath: AppImages.kAppLogo),
-          SizedBox(height: 16.h),
-          EmailTextField(),
-          SizedBox(height: 8.h),
-          PasswordTextField(),
-          ForgetPassword(),
-          SizedBox(height: 24.h),
-          LoginButton(),
-          SizedBox(height: 16.h),
+          SizedBox(height: AppDimensions.kPadding32),
+          const EmailTextField(),
+          SizedBox(height: AppDimensions.kPadding12),
+          const PasswordTextField(),
+          const ForgetPassword(),
+          SizedBox(height: AppDimensions.kPadding24),
+          const LoginButton(),
+          SizedBox(height: AppDimensions.kPadding32),
+          Divider(
+            color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.2),
+            indent: AppDimensions.kPadding32,
+            endIndent: AppDimensions.kPadding32,
+          ),
+          SizedBox(height: AppDimensions.kPadding24),
           CustomRegisterButton(
             routeName: StudentView.routeName,
             title: AppLocalizations.of(context)!.register_as_student,
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: AppDimensions.kPadding16),
           CustomRegisterButton(
             routeName: RegisterTeacherView.routeName,
             title: AppLocalizations.of(context)!.register_as_teacher,
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: AppDimensions.kPadding24),
         ],
       ),
     );

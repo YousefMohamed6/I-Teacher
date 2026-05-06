@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:iteacher/core/extentions/getit_extension.dart';
 import 'package:iteacher/core/services/gemini_service.dart';
+import 'package:iteacher/core/services/image_picker_service.dart';
 import 'package:iteacher/features/chatbot/data/repos/chatbot_repo_impl.dart';
 import 'package:iteacher/features/chatbot/domain/repos/i_chatbot_repo.dart';
 import 'package:iteacher/features/chatbot/domain/use_cases/ask_gemini_use_case.dart';
@@ -12,6 +13,9 @@ class ChatbotService {
     sl.registerLazySingletonSafely<GeminiService>(
       () => GeminiService(),
     );
+    sl.registerLazySingletonSafely<ImagePickerService>(
+      () => ImagePickerService(),
+    );
     sl.registerLazySingletonSafely<IChatbotRepo>(
       () => ChatbotRepoImpl(sl()),
     );
@@ -20,6 +24,7 @@ class ChatbotService {
     );
     sl.registerFactorySafely(
       () => ChatbotCubit(
+        sl(),
         sl(),
       ),
     );

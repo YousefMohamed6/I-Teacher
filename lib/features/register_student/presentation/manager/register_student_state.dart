@@ -1,7 +1,7 @@
 part of 'register_student_cubit.dart';
 
 @freezed
-class StudentState<T> with _$StudentState<T> {
+sealed class StudentState<T> with _$StudentState<T> {
   const factory StudentState.initial() = Initial;
   const factory StudentState.loading() = Loading;
   const factory StudentState.success(T data) = Success;

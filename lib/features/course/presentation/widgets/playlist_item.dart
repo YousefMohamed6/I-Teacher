@@ -1,74 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:iteacher/core/models/youtube/playlist_item/playlist_item.dart';
-import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
+import 'package:iteacher/core/extentions/theme_extension.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
+import 'package:iteacher/core/utils/constants/app_font_sizes.dart';
+import 'package:iteacher/core/widgets/custom_text.dart';
+import 'package:iteacher/features/course/presentation/manager/playlists_cubit.dart';
 import 'package:iteacher/features/course/presentation/Screens/video_player_view.dart';
+import 'package:iteacher/core/models/youtube/playlist_item/playlist_item.dart';
 
-class PlaylistWidget extends StatelessWidget {
-  const PlaylistWidget({super.key, required this.playlist});
+class PlaylistItem extends StatelessWidget {
+  const PlaylistItem({super.key, required this.playList});
+  final Playlist playList;
 
-  final Playlist playlist;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-        BlocProvider.of<CourseCubit>(context).showRewardedAd();
-        context.pushNamed(VideoPlayerView.routeName, extra: playlist.id);
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Stack(
+    final theme = Theme.of(context);
+
+    return Card(
+      elevation: AppDimensions.kElevation2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+        onTap: () {
+          BlocProvider.of<PlaylistsCubit>(context).showRewardedAd();
+          context.pushNamed(VideoPlayerView.routeName, extra: playList.id);
+        },
+        child: Padding(
+          padding: EdgeInsets.all(AppDimensions.kPadding12),
+          child: Row(
             children: [
               Container(
-                height: playlist.snippet.thumbnails.medium.height.toDouble(),
-                width: playlist.snippet.thumbnails.medium.width.toDouble(),
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8.r),
-                  ),
-                  image: DecorationImage(
-                    image: NetworkImage(playlist.snippet.thumbnails.medium.url),
-                    fit: BoxFit.cover,
-                  ),
+                  color: context.colorScheme.primary.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(AppDimensions.kRadius8),
+                ),
+                child: Icon(
+                  Icons.playlist_play_rounded,
+                  color: context.colorScheme.primary,
+                  size: AppDimensions.kIcon32,
                 ),
               ),
-              Positioned(
-                bottom: 8,
-                right: 8,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 4,
-                    vertical: 2,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.8),
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.playlist_play,
-                        size: 16,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        playlist.snippet.localized.title ?? '',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
+              SizedBox(width: AppDimensions.kPadding16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomText(
+                      text: playList.snippet.title,
+                      fontSize: AppFontSizes.s16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    SizedBox(height: AppDimensions.kPadding4),
+                    CustomText(
+                      text: playList.snippet.description,
+                      fontSize: AppFontSizes.s12,
+                      color: context.colorScheme.onSurfaceVariant,
+                      maxLines: 2,
+                    ),
+                  ],
                 ),
+              ),
+              Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: AppDimensions.kIcon16,
+                color: context.colorScheme.outline,
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

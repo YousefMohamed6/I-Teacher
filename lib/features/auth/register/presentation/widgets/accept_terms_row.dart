@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/features/auth/register/presentation/widgets/accept_icon.dart';
 import 'package:iteacher/features/auth/register/presentation/widgets/i_accept_text.dart';
 import 'package:iteacher/features/auth/register/presentation/widgets/terms_text_button.dart';
@@ -10,11 +10,11 @@ class AcceptTermsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      spacing: 16.w,
-      children: [
-        AccpetIcon(),
+      spacing: AppDimensions.kPadding16,
+      children: const [
+        AcceptIcon(),
         IAcceptText(),
-        TremsTextButton(),
+        TermsTextButton(),
       ],
     );
   }

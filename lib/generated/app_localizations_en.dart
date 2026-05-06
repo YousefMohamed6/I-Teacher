@@ -285,6 +285,48 @@ class AppLocalizationsEn extends AppLocalizations {
   String get student_profile => 'Student Profile';
 
   @override
+  String get teacher_profile => 'Teacher Profile';
+
+  @override
+  String get start_live => 'Start Live Lesson';
+
+  @override
+  String get join_live => 'Join Live Lesson';
+
+  @override
+  String get live_lesson => 'Live Lesson';
+
+  @override
+  String get sign_language_mode => 'Sign Language Mode';
+
+  @override
+  String get normal_mode => 'Normal Mode';
+
+  @override
+  String get end_lesson => 'End Lesson';
+
+  @override
+  String get are_you_sure_you_want_to_end_the_lesson =>
+      'Are you sure you want to end the lesson?';
+
+  @override
+  String get preparing_lesson => 'Preparing Lesson...';
+
+  @override
+  String get permissions_required => 'Permissions Required';
+
+  @override
+  String get please_wait_while_we_setup =>
+      'Please wait while we set up your session';
+
+  @override
+  String get we_need_camera_mic_access =>
+      'We need access to your camera and microphone to continue.';
+
+  @override
+  String get grant_permissions => 'Grant Permissions';
+
+  @override
   String get subscription_date => 'Subscription Date';
 
   @override
@@ -295,4 +337,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get register_as_teacher => 'Register as Teacher';
+
+  @override
+  String get accessibility => 'Accessibility';
+
+  @override
+  String get sign_language_support => 'Sign Language Support';
+
+  @override
+  String get translate_signs => 'Translate Signs';
+
+  @override
+  String get sign_language_interpreter => 'Sign Language Interpreter';
+
+  @override
+  String get enable_captions => 'Enable Captions';
+
+  @override
+  String get sign_language_avatar => 'Sign Language Avatar';
+
+  @override
+  String get learning_hub => 'Learning Hub';
+
+  @override
+  String get sign_flashcards => 'Sign Flashcards';
+
+  @override
+  String get sign_stickers => 'Sign Stickers';
+
+  @override
+  String get haptic_feedback => 'Haptic Feedback';
+
+  @override
+  String get video_player => 'Video Player';
+
+  @override
+  String get playlists => 'Playlists';
 }

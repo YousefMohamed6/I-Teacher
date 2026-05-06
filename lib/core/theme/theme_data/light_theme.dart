@@ -1,139 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iteacher/core/theme/app_colors/light_mode_colors.dart';
-import 'package:iteacher/core/utils/constants/app_fonts.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 
 ThemeData get lightTheme => ThemeData(
+      useMaterial3: true,
       brightness: Brightness.light,
       primaryColor: LightModeColors.primaryColor,
-      secondaryHeaderColor: LightModeColors.secondaryColor,
       scaffoldBackgroundColor: LightModeColors.scaffoldBackbroundColor,
+      colorScheme: ColorScheme.light(
+        primary: LightModeColors.primaryColor,
+        onPrimary: LightModeColors.onPrimaryColor,
+        secondary: LightModeColors.secondaryColor,
+        onSecondary: LightModeColors.onSecondaryColor,
+        surface: LightModeColors.surfaceColor,
+        onSurface: LightModeColors.onSurfaceColor,
+        error: LightModeColors.errorColor,
+        onError: LightModeColors.onErrorColor,
+      ),
       appBarTheme: AppBarTheme(
         centerTitle: true,
         backgroundColor: LightModeColors.appBarColor,
-        iconTheme: IconThemeData(
-          color: LightModeColors.onPrimaryColor,
-        ),
-        titleTextStyle: TextStyle(
+        elevation: 0,
+        iconTheme: const IconThemeData(color: LightModeColors.onPrimaryColor),
+        titleTextStyle: GoogleFonts.cairo(
           fontSize: 20.sp,
-          fontFamily: AppFonts.kPacificoFont,
+          fontWeight: FontWeight.bold,
           color: LightModeColors.onPrimaryColor,
         ),
       ),
-      textTheme: TextTheme(
-          bodyLarge: TextStyle(
-            fontSize: 16.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          bodyMedium: TextStyle(
-            fontSize: 14.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          bodySmall: TextStyle(
-            fontSize: 12.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          titleLarge: TextStyle(
-            fontSize: 20.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          titleMedium: TextStyle(
-            fontSize: 16.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          titleSmall: TextStyle(
-            fontSize: 14.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          labelLarge: TextStyle(
-            fontSize: 20.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          labelMedium: TextStyle(
-            fontSize: 16.sp,
-            color: LightModeColors.onPrimaryColor,
-          ),
-          labelSmall: TextStyle(
-            fontSize: 14.sp,
-            color: LightModeColors.onPrimaryColor,
-          )),
+      textTheme: GoogleFonts.cairoTextTheme().apply(
+        bodyColor: LightModeColors.onBackgroundColor,
+        displayColor: LightModeColors.onBackgroundColor,
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: LightModeColors.onPrimaryColor,
-          enableFeedback: true,
+          backgroundColor: LightModeColors.primaryColor,
+          foregroundColor: LightModeColors.onPrimaryColor,
+          minimumSize: Size(double.infinity, AppDimensions.kButtonHeight48),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
           ),
-          textStyle: TextStyle(
-            fontSize: 14.sp,
-            color: LightModeColors.primaryColor,
-            fontFamily: AppFonts.kFontLumanosimo,
+          textStyle: GoogleFonts.cairo(
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w600,
           ),
+          elevation: 2,
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: LightModeColors.primaryColor,
-          textStyle: TextStyle(
+          textStyle: GoogleFonts.cairo(
             fontSize: 14.sp,
-            color: LightModeColors.primaryColor,
-            fontFamily: AppFonts.kFontLumanosimo,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: LightModeColors.surfaceColor,
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: AppDimensions.kPadding16,
+          vertical: AppDimensions.kPadding14,
+        ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: BorderSide(
-            color: LightModeColors.onPrimaryColor,
-          ),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: const BorderSide(color: LightModeColors.secondaryColor),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: BorderSide(
-            color: LightModeColors.onPrimaryColor,
-          ),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: BorderSide(color: LightModeColors.secondaryColor.withValues(alpha: 0.3)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: BorderSide(
-            color: LightModeColors.onPrimaryColor,
-          ),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: const BorderSide(color: LightModeColors.primaryColor, width: 2),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius12),
+          borderSide: const BorderSide(color: LightModeColors.errorColor),
         ),
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 8.w,
-          vertical: 14.h,
-        ),
-        prefixIconColor: LightModeColors.onPrimaryColor,
-        suffixIconColor: LightModeColors.onPrimaryColor,
-        labelStyle: TextStyle(
+        hintStyle: GoogleFonts.cairo(
+          color: LightModeColors.secondaryColor,
           fontSize: 14.sp,
-          color: LightModeColors.onPrimaryColor,
         ),
-        hintStyle: TextStyle(
+        labelStyle: GoogleFonts.cairo(
+          color: LightModeColors.primaryColor,
           fontSize: 14.sp,
-          color: LightModeColors.onPrimaryColor,
         ),
       ),
-      progressIndicatorTheme: ProgressIndicatorThemeData(
+      cardTheme: CardThemeData(
+        color: LightModeColors.cardColor,
+        elevation: 4,
+        shadowColor: Colors.black.withValues(alpha: 0.05),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.kRadius16),
+        ),
+      ),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: LightModeColors.primaryColor,
-      ),
-      checkboxTheme: CheckboxThemeData(
-        fillColor: WidgetStateProperty.all(
-          LightModeColors.primaryColor,
-        ),
-        checkColor: WidgetStateProperty.all(
-          LightModeColors.onPrimaryColor,
-        ),
-      ),
-      iconButtonTheme: IconButtonThemeData(
-        style: ButtonStyle(
-          iconColor: WidgetStatePropertyAll(
-            LightModeColors.onPrimaryColor,
-          ),
-        ),
       ),
     );

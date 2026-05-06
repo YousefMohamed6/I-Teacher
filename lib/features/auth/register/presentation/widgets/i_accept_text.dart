@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iteacher/core/utils/constants/app_font_sizes.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/l10n.dart';
+import 'package:iteacher/generated/app_localizations.dart';
 
 class IAcceptText extends StatelessWidget {
   const IAcceptText({super.key});
@@ -10,7 +10,7 @@ class IAcceptText extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomText(
       text: AppLocalizations.of(context)!.i_accept,
-      fontSize: 14.sp,
+      fontSize: AppFontSizes.s14,
     );
   }
 }

@@ -48,6 +48,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
 
   late TeacherModel teacher;
   Set<AccountModel> accounts = {};
+  bool supportsSignLanguage = false;
   TeacherModel get newTeacher => TeacherModel(
         firstName: firstNameTextController.text,
         lastName: lastNameTextController.text,
@@ -62,6 +63,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
         paymentId: paymentIdTextController.text,
         accounts: teacher.accounts,
         imageBase64: teacher.imageBase64,
+        supportsSignLanguage: supportsSignLanguage,
       );
   // Account
   final accountNameTextController = TextEditingController();
@@ -96,6 +98,12 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
     descriptionTextController.text = teacher.description;
     teacherIdTextController.text = teacher.teacherId;
     paymentIdTextController.text = teacher.paymentId;
+    supportsSignLanguage = teacher.supportsSignLanguage;
+  }
+
+  void changeSignLanguageSupport(bool value) {
+    supportsSignLanguage = value;
+    emit(TeacherProfileState.updateUI());
   }
 
   void navigateToEditAccountView({

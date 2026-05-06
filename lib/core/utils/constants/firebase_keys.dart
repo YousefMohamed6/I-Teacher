@@ -23,6 +23,7 @@ sealed class TeacherKeys {
   static const String kCoursePriceField = "coursePrice";
   static const String kTeacherImageField = "image";
   static const String kTeacherRoleField = 'userRole';
+  static const String kSupportsSignLanguageField = 'supportsSignLanguage';
 }
 
 sealed class AccountsKeys {

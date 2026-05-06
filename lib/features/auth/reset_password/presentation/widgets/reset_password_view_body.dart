@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/core/utils/constants/app_images.dart';
 import 'package:iteacher/core/utils/error_handler/auth_error_handler.dart';
 import 'package:iteacher/core/utils/helper/toast_message.dart';
@@ -33,13 +33,15 @@ class ResetPasswordViewBody extends StatelessWidget {
         child: Form(
           key: BlocProvider.of<ResetPasswordCubit>(context).formKey,
           child: ListView(
+            padding: EdgeInsets.all(AppDimensions.kPadding24),
             children: [
-              SizedBox(height: 84.h),
-              Avatar(imagePath: AppImages.kAppLogo),
-              SizedBox(height: 54.h),
-              ResetPasswordEmailField(),
-              SizedBox(height: 32.h),
-              ResetPasswordButton(),
+              SizedBox(height: AppDimensions.kPadding64),
+              const Avatar(imagePath: AppImages.kAppLogo),
+              SizedBox(height: AppDimensions.kPadding48),
+              const ResetPasswordEmailField(),
+              SizedBox(height: AppDimensions.kPadding32),
+              const ResetPasswordButton(),
+              SizedBox(height: AppDimensions.kPadding24),
             ],
           ),
         ),

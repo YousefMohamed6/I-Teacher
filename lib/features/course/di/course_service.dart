@@ -10,7 +10,8 @@ import 'package:iteacher/features/course/domain/use_case/fetch_playlist_videos_u
 import 'package:iteacher/features/course/domain/use_case/get_student_data_use_case.dart';
 import 'package:iteacher/features/course/domain/use_case/get_teacher_data_use_case.dart';
 import 'package:iteacher/features/course/domain/use_case/validate_subscription_use_case.dart';
-import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
+import 'package:iteacher/features/course/presentation/manager/playlists_cubit.dart';
+import 'package:iteacher/features/course/presentation/manager/sign_learning_cubit.dart';
 
 class CourseService {
   final sl = GetIt.instance;
@@ -49,11 +50,17 @@ class CourseService {
         apiService: sl(),
       ),
     );
-    sl.registerFactorySafely<CourseCubit>(
-      () => CourseCubit(
+    sl.registerFactorySafely<PlaylistsCubit>(
+      () => PlaylistsCubit(
         sl(),
         sl(),
         sl(),
+        sl(),
+        sl(),
+      ),
+    );
+    sl.registerFactorySafely<SignLearningCubit>(
+      () => SignLearningCubit(
         sl(),
         sl(),
       ),

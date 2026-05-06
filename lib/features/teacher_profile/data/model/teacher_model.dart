@@ -23,6 +23,7 @@ class TeacherModel implements UserModel {
   final String channelId;
   final String teacherId;
   final String paymentId;
+  final bool supportsSignLanguage;
   @override
   String imageBase64;
   Set<AccountModel> accounts;
@@ -41,6 +42,7 @@ class TeacherModel implements UserModel {
     required this.paymentId,
     required this.accounts,
     required this.imageBase64,
+    required this.supportsSignLanguage,
   });
   @override
   factory TeacherModel.fromJson(Map<String, dynamic> json) {
@@ -57,6 +59,8 @@ class TeacherModel implements UserModel {
       teacherId: json[TeacherKeys.kTeacherIdField],
       paymentId: json[TeacherKeys.kPaymentIdField],
       imageBase64: json[TeacherKeys.kTeacherImageField],
+      supportsSignLanguage:
+          json[TeacherKeys.kSupportsSignLanguageField] ?? false,
       accounts: (json[AccountsKeys.kAccountsCollection] as List<dynamic>)
           .map((account) =>
               AccountModel.fromJson(account.data() as Map<String, dynamic>))
@@ -79,6 +83,7 @@ class TeacherModel implements UserModel {
       TeacherKeys.kTeacherImageField: imageBase64,
       TeacherKeys.kTeacherIdField: teacherId,
       TeacherKeys.kPaymentIdField: paymentId,
+      TeacherKeys.kSupportsSignLanguageField: supportsSignLanguage,
     };
   }
 

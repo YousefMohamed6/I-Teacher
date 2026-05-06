@@ -1,6 +1,7 @@
 import 'package:iteacher/features/chat/data/models/audio_message_model/audio_message_model.dart';
 import 'package:iteacher/features/chat/data/models/file_message_model/file_message_model.dart';
 import 'package:iteacher/features/chat/data/models/image_message_model/image_message_model.dart';
+import 'package:iteacher/features/chat/data/models/sticker_message_model/sticker_message_model.dart';
 import 'package:iteacher/features/chat/data/models/text_message_model/text_message_model.dart';
 
 abstract class MessageModel {
@@ -19,6 +20,8 @@ abstract class MessageModel {
         return ImageMessageModel.fromJson(json);
       case "file":
         return FileMessageModel.fromJson(json);
+      case "sticker":
+        return StickerMessageModel.fromJson(json);
       default:
         throw Exception('unknown message type');
     }

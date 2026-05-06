@@ -11,6 +11,7 @@ import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teac
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/last_name_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/payment_id_text_field.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/phone_text_field.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/sign_language_support_switch.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/teacher_accounts.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/teacher_id_text_field.dart';
 
@@ -38,6 +39,7 @@ class TeacherProfileForm extends StatelessWidget {
           ChannalIdTextField(),
           CoursePriceTextField(),
           DepartmentTextField(),
+          SignLanguageSupportSwitch(),
           DescriptionTextField(),
           SizedBox(height: 8.h),
           TeacherSocialMediaAccounts(),

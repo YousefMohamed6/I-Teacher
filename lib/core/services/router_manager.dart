@@ -29,8 +29,10 @@ import 'package:iteacher/features/chatbot/presentation/manager/chatbot_cubit.dar
 import 'package:iteacher/features/course/di/course_service.dart';
 import 'package:iteacher/features/course/domain/repos/I_course_repo.dart';
 import 'package:iteacher/features/course/presentation/Screens/course_view.dart';
+import 'package:iteacher/features/course/presentation/Screens/sign_flashcards_view.dart';
 import 'package:iteacher/features/course/presentation/Screens/video_player_view.dart';
-import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
+import 'package:iteacher/features/course/presentation/manager/playlists_cubit.dart';
+import 'package:iteacher/features/course/presentation/manager/sign_learning_cubit.dart';
 import 'package:iteacher/features/payment/di/payment_service.dart';
 import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
 import 'package:iteacher/features/payment/presentation/Screens/payment_view.dart';
@@ -44,6 +46,7 @@ import 'package:iteacher/features/register_teacher/di/register_teacher_service.d
 import 'package:iteacher/features/register_teacher/domain/repos/i_register_teacher.dart';
 import 'package:iteacher/features/register_teacher/presentation/Screens/register_teacher_view.dart';
 import 'package:iteacher/features/register_teacher/presentation/manager/register_teacher_cubit.dart';
+import 'package:iteacher/features/settings/presentation/Screens/accessibility_view.dart';
 import 'package:iteacher/features/student_profile/presentation/Screens/student_profile_view.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/teacher_profile/di/teacher_profile_service.dart';
@@ -181,7 +184,7 @@ sealed class RouterManager {
             create: (context) => GetIt.instance<ICourseRepo>(),
             child: BlocProvider(
               create: (context) =>
-                  GetIt.instance<CourseCubit>()..fetchAllPlaylists(),
+                  GetIt.instance<PlaylistsCubit>()..fetchAllPlaylists(),
               child: CourseView(),
             ),
           );
@@ -196,11 +199,13 @@ sealed class RouterManager {
           return RepositoryProvider(
             create: (context) => GetIt.instance<ICourseRepo>(),
             child: BlocProvider(
-              create: (context) => GetIt.instance<CourseCubit>()
+              create: (context) => GetIt.instance<PlaylistsCubit>()
                 ..fetchPlaylistVideos(
                   playListId: playlistId,
                 ),
-              child: VideoPlayerView(),
+              child: VideoPlayerView(
+                playListId: playlistId,
+              ),
             ),
           );
         },
@@ -274,6 +279,19 @@ sealed class RouterManager {
             student: student,
           );
         },
+      ),
+      GoRoute(
+        path: AccessibilityView.routeName,
+        name: AccessibilityView.routeName,
+        builder: (context, state) => const AccessibilityView(),
+      ),
+      GoRoute(
+        path: SignFlashcardsView.routeName,
+        name: SignFlashcardsView.routeName,
+        builder: (context, state) => BlocProvider(
+          create: (context) => GetIt.I<SignLearningCubit>(),
+          child: const SignFlashcardsView(),
+        ),
       ),
       GoRoute(
         path: RegisterTeacherView.routeName,

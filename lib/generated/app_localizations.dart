@@ -650,6 +650,84 @@ abstract class AppLocalizations {
   /// **'Student Profile'**
   String get student_profile;
 
+  /// No description provided for @teacher_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher Profile'**
+  String get teacher_profile;
+
+  /// No description provided for @start_live.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Live Lesson'**
+  String get start_live;
+
+  /// No description provided for @join_live.
+  ///
+  /// In en, this message translates to:
+  /// **'Join Live Lesson'**
+  String get join_live;
+
+  /// No description provided for @live_lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Lesson'**
+  String get live_lesson;
+
+  /// No description provided for @sign_language_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Language Mode'**
+  String get sign_language_mode;
+
+  /// No description provided for @normal_mode.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal Mode'**
+  String get normal_mode;
+
+  /// No description provided for @end_lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'End Lesson'**
+  String get end_lesson;
+
+  /// No description provided for @are_you_sure_you_want_to_end_the_lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to end the lesson?'**
+  String get are_you_sure_you_want_to_end_the_lesson;
+
+  /// No description provided for @preparing_lesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing Lesson...'**
+  String get preparing_lesson;
+
+  /// No description provided for @permissions_required.
+  ///
+  /// In en, this message translates to:
+  /// **'Permissions Required'**
+  String get permissions_required;
+
+  /// No description provided for @please_wait_while_we_setup.
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait while we set up your session'**
+  String get please_wait_while_we_setup;
+
+  /// No description provided for @we_need_camera_mic_access.
+  ///
+  /// In en, this message translates to:
+  /// **'We need access to your camera and microphone to continue.'**
+  String get we_need_camera_mic_access;
+
+  /// No description provided for @grant_permissions.
+  ///
+  /// In en, this message translates to:
+  /// **'Grant Permissions'**
+  String get grant_permissions;
+
   /// No description provided for @subscription_date.
   ///
   /// In en, this message translates to:
@@ -673,6 +751,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register as Teacher'**
   String get register_as_teacher;
+
+  /// No description provided for @accessibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Accessibility'**
+  String get accessibility;
+
+  /// No description provided for @sign_language_support.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Language Support'**
+  String get sign_language_support;
+
+  /// No description provided for @translate_signs.
+  ///
+  /// In en, this message translates to:
+  /// **'Translate Signs'**
+  String get translate_signs;
+
+  /// No description provided for @sign_language_interpreter.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Language Interpreter'**
+  String get sign_language_interpreter;
+
+  /// No description provided for @enable_captions.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Captions'**
+  String get enable_captions;
+
+  /// No description provided for @sign_language_avatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Language Avatar'**
+  String get sign_language_avatar;
+
+  /// No description provided for @learning_hub.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning Hub'**
+  String get learning_hub;
+
+  /// No description provided for @sign_flashcards.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Flashcards'**
+  String get sign_flashcards;
+
+  /// No description provided for @sign_stickers.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Stickers'**
+  String get sign_stickers;
+
+  /// No description provided for @haptic_feedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Haptic Feedback'**
+  String get haptic_feedback;
+
+  /// No description provided for @video_player.
+  ///
+  /// In en, this message translates to:
+  /// **'Video Player'**
+  String get video_player;
+
+  /// No description provided for @playlists.
+  ///
+  /// In en, this message translates to:
+  /// **'Playlists'**
+  String get playlists;
 }
 
 class _AppLocalizationsDelegate

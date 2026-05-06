@@ -58,6 +58,7 @@ class RegisterTeacherCubit extends Cubit<RegisterTeacherState> {
         email: emailTextController.text,
         phone: phoneTextController.text,
         address: addressTextField.text,
+        supportsSignLanguage: true,
         department: departmentTextController.text,
         coursePrice: coursePriceTextController.text,
         description: descriptionTextController.text,

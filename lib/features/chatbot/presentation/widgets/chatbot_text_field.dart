@@ -13,7 +13,15 @@ class ChatbotTextField extends StatelessWidget {
     return MessageBar(
       onSend: (text) => cubit.askQuestion(text),
       messageBarHintText: AppLocalizations.of(context)!.write_message,
-      actions: [],
+      actions: [
+        IconButton(
+          onPressed: () => cubit.pickImageAndAsk(),
+          icon: const Icon(
+            Icons.camera_alt_rounded,
+            color: Colors.blue,
+          ),
+        ),
+      ],
     );
   }
 }

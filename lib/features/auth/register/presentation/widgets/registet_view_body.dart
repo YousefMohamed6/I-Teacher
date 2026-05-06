@@ -38,7 +38,7 @@ class RegisterViewBody extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else {
-            return RegistetForm();
+            return const RegisterForm();
           }
         },
       ),

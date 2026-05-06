@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 import 'package:iteacher/features/chat/presentation/widgets/record_audio_button.dart';
+import 'package:iteacher/features/chat/presentation/widgets/sign_sticker_button.dart';
 
 class CustomChatTextField extends StatelessWidget {
   const CustomChatTextField({super.key});
@@ -16,6 +17,7 @@ class CustomChatTextField extends StatelessWidget {
         AttachmentButton(),
         SendImageButton(),
         AudioRecorderButton(),
+        SignStickerButton(),
       ],
     );
   }
