@@ -9,7 +9,7 @@ class HandleFileSelectionUseCase {
   HandleFileSelectionUseCase(this._filePickerService);
   Future<FileMessageModel> execute({
     required String senderId,
-    required String reciverId,
+    required String receiverId,
   }) async {
     final file = await _filePickerService.pickFile();
     final bytes = await file.readAsBytes();
@@ -18,7 +18,7 @@ class HandleFileSelectionUseCase {
       fileName: file.path.split('/').last,
       fileBase64: base64Encode(bytes),
       createdAt: DateTime.now().toString(),
-      reciverId: reciverId,
+      receiverId: receiverId,
     );
     return message;
   }

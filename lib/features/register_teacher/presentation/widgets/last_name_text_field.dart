@@ -13,7 +13,7 @@ class LastNameTextField extends StatelessWidget {
       child: CustomFormField(
         textInputType: TextInputType.name,
         prefixIcon: const Icon(Icons.person_outline),
-        lablelText: AppLocalizations.of(context)!.last_name,
+        labelText: AppLocalizations.of(context)!.last_name,
         hintText: AppLocalizations.of(context)!.last_name,
         controller:
             BlocProvider.of<RegisterTeacherCubit>(context).lastNameTextController,

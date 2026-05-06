@@ -12,7 +12,7 @@ class PaymentIDTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.multiline,
       prefixIcon: const Icon(Icons.info_outline),
-      lablelText: AppLocalizations.of(context)!.payment_id,
+      labelText: AppLocalizations.of(context)!.payment_id,
       hintText: AppLocalizations.of(context)!.payment_id,
       controller:
           BlocProvider.of<TeacherProfileCubit>(context).paymentIdTextController,

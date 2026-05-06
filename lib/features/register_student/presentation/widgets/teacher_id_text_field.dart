@@ -11,7 +11,7 @@ class TeacherIdTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomFormField(
       textInputType: TextInputType.streetAddress,
-      lablelText: AppLocalizations.of(context)!.teacher_id,
+      labelText: AppLocalizations.of(context)!.teacher_id,
       hintText: AppLocalizations.of(context)!.enter_teacher_id,
       prefixIcon: const Icon(Icons.info_outline),
       controller:

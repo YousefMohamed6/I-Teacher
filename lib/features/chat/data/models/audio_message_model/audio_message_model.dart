@@ -8,19 +8,19 @@ class AudioMessageModel implements MessageModel {
   @override
   final String createdAt;
   @override
-  final String reciverId;
+  final String receiverId;
   AudioMessageModel({
     required this.audioBase64,
     required this.senderId,
     required this.createdAt,
-    required this.reciverId,
+    required this.receiverId,
   });
   factory AudioMessageModel.fromJson(Map<String, dynamic> json) {
     return AudioMessageModel(
       audioBase64: json['audioBase64'],
       senderId: json[ChatKeys.kSenderField],
       createdAt: json['createdAt'],
-      reciverId: json[ChatKeys.kReciverField],
+      receiverId: json[ChatKeys.kReciverField],
     );
   }
 
@@ -31,7 +31,7 @@ class AudioMessageModel implements MessageModel {
       ChatKeys.kSenderField: senderId,
       'createdAt': createdAt,
       'type': type,
-      ChatKeys.kReciverField: reciverId
+      ChatKeys.kReciverField: receiverId
     };
   }
 

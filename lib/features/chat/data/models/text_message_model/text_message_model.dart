@@ -8,20 +8,20 @@ class TextMessageModel implements MessageModel {
   @override
   final String createdAt;
   @override
-  final String reciverId;
+  final String receiverId;
 
   TextMessageModel({
     required this.text,
     required this.senderId,
     required this.createdAt,
-    required this.reciverId,
+    required this.receiverId,
   });
   factory TextMessageModel.fromJson(Map<String, dynamic> json) {
     return TextMessageModel(
       text: json['text'],
       senderId: json[ChatKeys.kSenderField],
       createdAt: json['createdAt'],
-      reciverId: json[ChatKeys.kReciverField],
+      receiverId: json[ChatKeys.kReciverField],
     );
   }
 
@@ -32,7 +32,7 @@ class TextMessageModel implements MessageModel {
       ChatKeys.kSenderField: senderId,
       'createdAt': createdAt,
       'type': type,
-      ChatKeys.kReciverField: reciverId
+      ChatKeys.kReciverField: receiverId
     };
   }
 

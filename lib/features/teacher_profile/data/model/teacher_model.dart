@@ -20,7 +20,7 @@ class TeacherModel implements UserModel {
   final String department;
   final String description;
   final String coursePrice;
-  final String channalId;
+  final String channelId;
   final String teacherId;
   final String paymentId;
   @override
@@ -36,7 +36,7 @@ class TeacherModel implements UserModel {
     required this.department,
     required this.coursePrice,
     required this.description,
-    required this.channalId,
+    required this.channelId,
     required this.teacherId,
     required this.paymentId,
     required this.accounts,
@@ -53,7 +53,7 @@ class TeacherModel implements UserModel {
       department: json[TeacherKeys.kDepartmentField],
       description: json[TeacherKeys.kDescriptionField],
       coursePrice: json[TeacherKeys.kCoursePriceField],
-      channalId: json[TeacherKeys.kChannelIdField],
+      channelId: json[TeacherKeys.kChannelIdField],
       teacherId: json[TeacherKeys.kTeacherIdField],
       paymentId: json[TeacherKeys.kPaymentIdField],
       imageBase64: json[TeacherKeys.kTeacherImageField],
@@ -75,7 +75,7 @@ class TeacherModel implements UserModel {
       TeacherKeys.kDepartmentField: department,
       TeacherKeys.kDescriptionField: description,
       TeacherKeys.kCoursePriceField: coursePrice,
-      TeacherKeys.kChannelIdField: channalId,
+      TeacherKeys.kChannelIdField: channelId,
       TeacherKeys.kTeacherImageField: imageBase64,
       TeacherKeys.kTeacherIdField: teacherId,
       TeacherKeys.kPaymentIdField: paymentId,

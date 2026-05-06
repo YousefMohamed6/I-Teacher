@@ -284,17 +284,17 @@ abstract class AppLocalizations {
   /// **'Next'**
   String get next;
 
-  /// No description provided for @rest_password.
+  /// No description provided for @reset_password.
   ///
   /// In en, this message translates to:
-  /// **'Rest Password'**
-  String get rest_password;
+  /// **'Reset Password'**
+  String get reset_password;
 
-  /// No description provided for @rest.
+  /// No description provided for @reset.
   ///
   /// In en, this message translates to:
-  /// **'Rest'**
-  String get rest;
+  /// **'Reset'**
+  String get reset;
 
   /// No description provided for @payment.
   ///
@@ -452,11 +452,11 @@ abstract class AppLocalizations {
   /// **'unFound User'**
   String get unfound_user;
 
-  /// No description provided for @channal_id.
+  /// No description provided for @channel_id.
   ///
   /// In en, this message translates to:
   /// **'Channal Id'**
-  String get channal_id;
+  String get channel_id;
 
   /// No description provided for @course_price.
   ///

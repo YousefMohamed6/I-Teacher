@@ -10,7 +10,7 @@ class DepartmentTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomFormField(
-      lablelText: AppLocalizations.of(context)!.department,
+      labelText: AppLocalizations.of(context)!.department,
       hintText: AppLocalizations.of(context)!.department,
       textInputType: TextInputType.text,
       prefixIcon: const Icon(Icons.book_outlined),

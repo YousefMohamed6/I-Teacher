@@ -7,17 +7,17 @@ import 'package:iteacher/core/utils/error_handler/auth_error_handler.dart';
 import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/avatar.dart';
 import 'package:iteacher/core/widgets/background.dart';
-import 'package:iteacher/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
-import 'package:iteacher/features/auth/rest_Password/persentation/widgets/email_form_feild.dart';
-import 'package:iteacher/features/auth/rest_Password/persentation/widgets/rest_password_button.dart';
+import 'package:iteacher/features/auth/reset_password/presentation/manager/reset_password_cubit.dart';
+import 'package:iteacher/features/auth/reset_password/presentation/widgets/email_form_field.dart';
+import 'package:iteacher/features/auth/reset_password/presentation/widgets/reset_password_button.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
-class ForgetPasswodBody extends StatelessWidget {
-  const ForgetPasswodBody({super.key});
+class ResetPasswordViewBody extends StatelessWidget {
+  const ResetPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<RestPasswordCubit, RestPasswordState>(
+    return BlocListener<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
         if (state is Success) {
           ToastMessage.show(msg: AppLocalizations.of(context)!.success);
@@ -31,15 +31,15 @@ class ForgetPasswodBody extends StatelessWidget {
       },
       child: Background(
         child: Form(
-          key: BlocProvider.of<RestPasswordCubit>(context).formKey,
+          key: BlocProvider.of<ResetPasswordCubit>(context).formKey,
           child: ListView(
             children: [
               SizedBox(height: 84.h),
               Avatar(imagePath: AppImages.kAppLogo),
               SizedBox(height: 54.h),
-              RestPasswordEmailFeild(),
+              ResetPasswordEmailField(),
               SizedBox(height: 32.h),
-              RestPasswordButtom(),
+              ResetPasswordButton(),
             ],
           ),
         ),

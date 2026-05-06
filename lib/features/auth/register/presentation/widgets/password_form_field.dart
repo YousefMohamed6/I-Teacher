@@ -22,7 +22,7 @@ class PasswordFormField extends StatelessWidget {
               : const Icon(Icons.visibility_off_outlined),
         ),
         prefixIcon: const Icon(Icons.security_outlined),
-        lablelText: AppLocalizations.of(context)!.password,
+        labelText: AppLocalizations.of(context)!.password,
         hintText: AppLocalizations.of(context)!.enter_password,
         obscureText: cubit.obscuretext,
         controller: cubit.passwordTextController,

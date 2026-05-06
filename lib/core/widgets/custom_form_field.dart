@@ -7,7 +7,7 @@ class CustomFormField extends StatelessWidget {
     this.textInputType,
     this.suffixIcon,
     this.prefixIcon,
-    this.lablelText,
+    this.labelText,
     this.hintText,
     this.obscureText,
     this.controller,
@@ -20,7 +20,7 @@ class CustomFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final TextInputType? textInputType;
-  final String? lablelText;
+  final String? labelText;
   final String? hintText;
   final bool? obscureText;
   final bool? enabled;
@@ -38,7 +38,7 @@ class CustomFormField extends StatelessWidget {
         autovalidateMode:
             autovalidateMode ?? AutovalidateMode.onUserInteraction,
         decoration: InputDecoration(
-          labelText: lablelText,
+          labelText: labelText,
           hintText: hintText,
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,

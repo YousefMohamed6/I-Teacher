@@ -10,7 +10,7 @@ class DescriptionTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomMultiLineTextField(
-      lablelText: AppLocalizations.of(context)!.course_description,
+      labelText: AppLocalizations.of(context)!.course_description,
       hintText: AppLocalizations.of(context)!.course_description,
       prefixIcon: const Icon(Icons.description),
       controller: BlocProvider.of<TeacherProfileCubit>(context)

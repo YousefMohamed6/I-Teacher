@@ -4,7 +4,7 @@ import 'package:iteacher/core/utils/helper/payment_manager.dart';
 import 'package:iteacher/features/payment/data/models/payment/cart_item.dart';
 import 'package:iteacher/features/payment/data/models/payment/payment.dart';
 import 'package:iteacher/features/payment/data/models/payment/redirection_urls.dart';
-import 'package:iteacher/features/payment/data/models/payment_opration_model.dart';
+import 'package:iteacher/features/payment/data/models/payment_operation_model.dart';
 import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
 import 'package:iteacher/features/payment/domain/use_cases/get_teacher_data_use_case.dart';
 import 'package:iteacher/features/payment/domain/use_cases/save_payment_status_use_case.dart';

@@ -1,5 +1,7 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
+import 'package:iteacher/core/extentions/theme_extension.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/features/chatbot/data/model/chatboot_model/chatboot_model.dart';
 
 class ChatbotBubble extends StatelessWidget {
@@ -10,10 +12,10 @@ class ChatbotBubble extends StatelessWidget {
     bool isSender = chatbotModel.isSender;
     return BubbleNormal(
       text: chatbotModel.text,
-      color: isSender ? Color(0xFF1B97F3) : Colors.grey,
+      color: isSender ? context.chatSenderColor : context.chatReceiverColor,
       textStyle: TextStyle(
         color: Colors.white,
-        fontSize: 16,
+        fontSize: AppDimensions.kPadding16,
       ),
       isSender: isSender,
     );

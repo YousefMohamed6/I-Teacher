@@ -9,14 +9,14 @@ class FileMessageModel implements MessageModel {
   final String createdAt;
   final String fileName;
   @override
-  final String reciverId;
+  final String receiverId;
 
   FileMessageModel({
     required this.fileBase64,
     required this.senderId,
     required this.createdAt,
     required this.fileName,
-    required this.reciverId,
+    required this.receiverId,
   });
   @override
   factory FileMessageModel.fromJson(Map<String, dynamic> json) {
@@ -25,7 +25,7 @@ class FileMessageModel implements MessageModel {
       senderId: json[ChatKeys.kSenderField],
       createdAt: json['createdAt'],
       fileName: json['fileName'],
-      reciverId: json[ChatKeys.kReciverField],
+      receiverId: json[ChatKeys.kReciverField],
     );
   }
 
@@ -36,7 +36,7 @@ class FileMessageModel implements MessageModel {
         'createdAt': createdAt,
         'type': type,
         'fileName': fileName,
-        ChatKeys.kReciverField: reciverId
+        ChatKeys.kReciverField: receiverId
       };
 
   @override

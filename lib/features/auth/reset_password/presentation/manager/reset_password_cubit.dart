@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'rest_password_cubit.freezed.dart';
-part 'rest_password_state.dart';
+part 'reset_password_cubit.freezed.dart';
+part 'reset_password_state.dart';
 
-class RestPasswordCubit extends Cubit<RestPasswordState> {
-  RestPasswordCubit() : super(RestPasswordState.initial());
+class ResetPasswordCubit extends Cubit<ResetPasswordState> {
+  ResetPasswordCubit() : super(ResetPasswordState.initial());
   final emailTextController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  Future<void> restPassword() async {
+  Future<void> resetPassword() async {
     try {
-      emit(RestPasswordState.loading());
+      emit(ResetPasswordState.loading());
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: emailTextController.text);
-      emit(RestPasswordState.success());
+      emit(ResetPasswordState.success());
     } on FirebaseAuthException catch (e) {
-      emit(RestPasswordState.failure(e.code));
+      emit(ResetPasswordState.failure(e.code));
     }
   }
 }

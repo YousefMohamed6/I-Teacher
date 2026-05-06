@@ -7,8 +7,8 @@ abstract class MessageModel {
   final String senderId;
   final String createdAt;
   final String type;
-  final String reciverId;
-  MessageModel(this.senderId, this.createdAt, this.type, this.reciverId);
+  final String receiverId;
+  MessageModel(this.senderId, this.createdAt, this.type, this.receiverId);
   factory MessageModel.fromJson(Map<String, dynamic> json) {
     switch (json["type"]) {
       case "text":

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'rest_password_cubit.dart';
+part of 'reset_password_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$RestPasswordState<T> {
+mixin _$ResetPasswordState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -69,24 +69,24 @@ mixin _$RestPasswordState<T> {
 }
 
 /// @nodoc
-abstract class $RestPasswordStateCopyWith<T, $Res> {
-  factory $RestPasswordStateCopyWith(RestPasswordState<T> value,
-          $Res Function(RestPasswordState<T>) then) =
-      _$RestPasswordStateCopyWithImpl<T, $Res, RestPasswordState<T>>;
+abstract class $ResetPasswordStateCopyWith<T, $Res> {
+  factory $ResetPasswordStateCopyWith(ResetPasswordState<T> value,
+          $Res Function(ResetPasswordState<T>) then) =
+      _$ResetPasswordStateCopyWithImpl<T, $Res, ResetPasswordState<T>>;
 }
 
 /// @nodoc
-class _$RestPasswordStateCopyWithImpl<T, $Res,
-        $Val extends RestPasswordState<T>>
-    implements $RestPasswordStateCopyWith<T, $Res> {
-  _$RestPasswordStateCopyWithImpl(this._value, this._then);
+class _$ResetPasswordStateCopyWithImpl<T, $Res,
+        $Val extends ResetPasswordState<T>>
+    implements $ResetPasswordStateCopyWith<T, $Res> {
+  _$ResetPasswordStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of RestPasswordState
+  /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -99,13 +99,13 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$RestPasswordStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of RestPasswordState
+  /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -116,7 +116,7 @@ class _$InitialImpl<T> implements Initial<T> {
 
   @override
   String toString() {
-    return 'RestPasswordState<$T>.initial()';
+    return 'ResetPasswordState<$T>.initial()';
   }
 
   @override
@@ -203,7 +203,7 @@ class _$InitialImpl<T> implements Initial<T> {
   }
 }
 
-abstract class Initial<T> implements RestPasswordState<T> {
+abstract class Initial<T> implements ResetPasswordState<T> {
   const factory Initial() = _$InitialImpl<T>;
 }
 
@@ -216,13 +216,13 @@ abstract class _$$LoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<T, $Res>
-    extends _$RestPasswordStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
+    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$LoadingImpl<T>>
     implements _$$LoadingImplCopyWith<T, $Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl<T> _value, $Res Function(_$LoadingImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of RestPasswordState
+  /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -233,7 +233,7 @@ class _$LoadingImpl<T> implements Loading<T> {
 
   @override
   String toString() {
-    return 'RestPasswordState<$T>.loading()';
+    return 'ResetPasswordState<$T>.loading()';
   }
 
   @override
@@ -320,7 +320,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   }
 }
 
-abstract class Loading<T> implements RestPasswordState<T> {
+abstract class Loading<T> implements ResetPasswordState<T> {
   const factory Loading() = _$LoadingImpl<T>;
 }
 
@@ -333,13 +333,13 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<T, $Res>
-    extends _$RestPasswordStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
+    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$SuccessImpl<T>>
     implements _$$SuccessImplCopyWith<T, $Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl<T> _value, $Res Function(_$SuccessImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of RestPasswordState
+  /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
 }
 
@@ -350,7 +350,7 @@ class _$SuccessImpl<T> implements Success<T> {
 
   @override
   String toString() {
-    return 'RestPasswordState<$T>.success()';
+    return 'ResetPasswordState<$T>.success()';
   }
 
   @override
@@ -437,7 +437,7 @@ class _$SuccessImpl<T> implements Success<T> {
   }
 }
 
-abstract class Success<T> implements RestPasswordState<T> {
+abstract class Success<T> implements ResetPasswordState<T> {
   const factory Success() = _$SuccessImpl<T>;
 }
 
@@ -452,13 +452,13 @@ abstract class _$$FailureImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$FailureImplCopyWithImpl<T, $Res>
-    extends _$RestPasswordStateCopyWithImpl<T, $Res, _$FailureImpl<T>>
+    extends _$ResetPasswordStateCopyWithImpl<T, $Res, _$FailureImpl<T>>
     implements _$$FailureImplCopyWith<T, $Res> {
   __$$FailureImplCopyWithImpl(
       _$FailureImpl<T> _value, $Res Function(_$FailureImpl<T>) _then)
       : super(_value, _then);
 
-  /// Create a copy of RestPasswordState
+  /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -484,7 +484,7 @@ class _$FailureImpl<T> implements Failure<T> {
 
   @override
   String toString() {
-    return 'RestPasswordState<$T>.failure(errorMessage: $errorMessage)';
+    return 'ResetPasswordState<$T>.failure(errorMessage: $errorMessage)';
   }
 
   @override
@@ -499,7 +499,7 @@ class _$FailureImpl<T> implements Failure<T> {
   @override
   int get hashCode => Object.hash(runtimeType, errorMessage);
 
-  /// Create a copy of RestPasswordState
+  /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -582,12 +582,12 @@ class _$FailureImpl<T> implements Failure<T> {
   }
 }
 
-abstract class Failure<T> implements RestPasswordState<T> {
+abstract class Failure<T> implements ResetPasswordState<T> {
   const factory Failure(final String errorMessage) = _$FailureImpl<T>;
 
   String get errorMessage;
 
-  /// Create a copy of RestPasswordState
+  /// Create a copy of ResetPasswordState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<T, _$FailureImpl<T>> get copyWith =>

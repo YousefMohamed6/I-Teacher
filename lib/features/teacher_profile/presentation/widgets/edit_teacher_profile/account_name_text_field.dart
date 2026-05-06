@@ -13,7 +13,7 @@ class AccountNameTextField extends StatelessWidget {
       textInputType: TextInputType.name,
       autovalidateMode: AutovalidateMode.disabled,
       prefixIcon: const Icon(Icons.text_fields),
-      lablelText: AppLocalizations.of(context)!.account_name,
+      labelText: AppLocalizations.of(context)!.account_name,
       hintText: AppLocalizations.of(context)!.account_name,
       controller: BlocProvider.of<TeacherProfileCubit>(context)
           .accountNameTextController,

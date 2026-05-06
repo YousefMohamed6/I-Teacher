@@ -14,7 +14,7 @@ class EmailTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.emailAddress,
       prefixIcon: const Icon(Icons.email_outlined),
-      lablelText: AppLocalizations.of(context)!.email,
+      labelText: AppLocalizations.of(context)!.email,
       hintText: AppLocalizations.of(context)!.enter_email,
       controller: BlocProvider.of<LoginCubit>(context).emailTextController,
     );

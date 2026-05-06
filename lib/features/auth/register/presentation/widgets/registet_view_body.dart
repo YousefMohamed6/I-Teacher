@@ -7,7 +7,7 @@ import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/features/auth/register/presentation/manager/register_cubit.dart';
 import 'package:iteacher/features/auth/register/presentation/widgets/register_form.dart';
-import 'package:iteacher/features/course/presentation/views/course_view.dart';
+import 'package:iteacher/features/course/presentation/Screens/course_view.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class RegisterViewBody extends StatelessWidget {

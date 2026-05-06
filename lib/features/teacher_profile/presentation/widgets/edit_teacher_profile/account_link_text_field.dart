@@ -13,7 +13,7 @@ class AccountLinkTextField extends StatelessWidget {
       textInputType: TextInputType.name,
       autovalidateMode: AutovalidateMode.disabled,
       prefixIcon: const Icon(Icons.link_sharp),
-      lablelText: AppLocalizations.of(context)!.account_link,
+      labelText: AppLocalizations.of(context)!.account_link,
       hintText: AppLocalizations.of(context)!.account_link,
       controller: BlocProvider.of<TeacherProfileCubit>(context)
           .accountUrlTextController,

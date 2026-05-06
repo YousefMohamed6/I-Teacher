@@ -84,7 +84,7 @@ class CourseCubit extends Cubit<CourseState> {
   Future<String> fetchChannelId() async {
     try {
       final teacher = await getTeacherData(teacherId: student.teacherId);
-      return teacher.channalId;
+      return teacher.channelId;
     } catch (e) {
       emit(CourseState.failure(e.toString()));
       return '';

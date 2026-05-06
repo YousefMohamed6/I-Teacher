@@ -5,6 +5,8 @@ import 'package:iteacher/features/chatbot/presentation/manager/chatbot_cubit.dar
 import 'package:iteacher/features/chatbot/presentation/widgets/chatbot_text_field.dart';
 import 'package:iteacher/features/chatbot/presentation/widgets/custom_chat_bubble.dart';
 
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
+
 class ChatbotBody extends StatelessWidget {
   const ChatbotBody({super.key});
 
@@ -18,7 +20,7 @@ class ChatbotBody extends StatelessWidget {
             child: ListView.builder(
               itemCount: messages.length,
               itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(AppDimensions.kPadding8),
                 child: ChatbotBubble(
                   chatbotModel: messages[index],
                 ),

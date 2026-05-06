@@ -8,8 +8,8 @@ import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
 import 'package:iteacher/features/auth/login/presentation/widgets/login_view_form.dart';
-import 'package:iteacher/features/course/presentation/views/course_view.dart';
-import 'package:iteacher/features/teacher_profile/presentation/views/edit_teacher_profile_view.dart';
+import 'package:iteacher/features/course/presentation/Screens/course_view.dart';
+import 'package:iteacher/features/teacher_profile/presentation/Screens/edit_teacher_profile_view.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class LoginViewBody extends StatelessWidget {

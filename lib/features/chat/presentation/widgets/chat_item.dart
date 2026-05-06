@@ -6,7 +6,7 @@ import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/core/widgets/base64_image.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:iteacher/features/chat/presentation/views/chat_view.dart';
+import 'package:iteacher/features/chat/presentation/Screens/chat_view.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 
 class ChatItem extends StatelessWidget {

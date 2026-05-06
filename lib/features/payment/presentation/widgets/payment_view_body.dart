@@ -5,7 +5,7 @@ import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/core/widgets/webview_body.dart';
-import 'package:iteacher/features/auth/register/presentation/views/register_view.dart';
+import 'package:iteacher/features/auth/register/presentation/Screens/register_view.dart';
 import 'package:iteacher/features/payment/data/models/payment_status/payment_status.dart';
 import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
 import 'package:iteacher/features/payment/presentation/widgets/payment_button.dart';

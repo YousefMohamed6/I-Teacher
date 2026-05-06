@@ -102,10 +102,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get next => 'Next';
 
   @override
-  String get rest_password => 'Rest Password';
+  String get reset_password => 'Reset Password';
 
   @override
-  String get rest => 'Rest';
+  String get reset => 'Reset';
 
   @override
   String get payment => 'Payment';
@@ -186,7 +186,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unfound_user => 'unFound User';
 
   @override
-  String get channal_id => 'Channal Id';
+  String get channel_id => 'Channal Id';
 
   @override
   String get course_price => 'Course Price';

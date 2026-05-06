@@ -5,7 +5,7 @@ import 'package:iteacher/core/utils/helper/url_launcher.dart';
 import 'package:iteacher/core/widgets/base64_image.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
-import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/display_teacher_profile/contect_item.dart';
+import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/display_teacher_profile/contact_item.dart';
 import 'package:iteacher/features/teacher_profile/presentation/widgets/edit_teacher_profile/display_teacher_profile/teacher_accounts.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 

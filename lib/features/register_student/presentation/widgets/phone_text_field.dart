@@ -11,7 +11,7 @@ class PhoneTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomFormField(
       textInputType: TextInputType.number,
-      lablelText: AppLocalizations.of(context)!.phone,
+      labelText: AppLocalizations.of(context)!.phone,
       hintText: AppLocalizations.of(context)!.enter_phone,
       prefixIcon: const Icon(Icons.phone_outlined),
       controller: BlocProvider.of<StudentCubit>(context).phoneTextController,

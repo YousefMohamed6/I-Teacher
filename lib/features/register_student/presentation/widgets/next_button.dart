@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/custom_button.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/features/payment/presentation/views/payment_view.dart';
+import 'package:iteacher/features/payment/presentation/Screens/payment_view.dart';
 import 'package:iteacher/features/register_student/presentation/manager/register_student_cubit.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 

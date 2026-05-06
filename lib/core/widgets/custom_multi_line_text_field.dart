@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class CustomMultiLineTextField extends StatelessWidget {
   const CustomMultiLineTextField({
     super.key,
-    this.lablelText,
+    this.labelText,
     this.hintText,
     this.controller,
     this.onChanged,
     this.prefixIcon,
   });
-  final String? lablelText;
+  final String? labelText;
   final String? hintText;
   final TextEditingController? controller;
   final void Function(String)? onChanged;
@@ -20,7 +20,7 @@ class CustomMultiLineTextField extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: TextField(
         decoration: InputDecoration(
-          labelText: lablelText,
+          labelText: labelText,
           hintText: hintText,
           prefixIcon: prefixIcon,
         ),

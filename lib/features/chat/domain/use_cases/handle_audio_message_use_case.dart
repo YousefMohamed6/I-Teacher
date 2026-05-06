@@ -7,14 +7,14 @@ class HandleAudioMessageUseCase {
   Future<AudioMessageModel> execute({
     required File file,
     required String senderId,
-    required String reciverId,
+    required String receiverId,
   }) async {
     final bytes = await file.readAsBytes();
     final message = AudioMessageModel(
       senderId: senderId,
       audioBase64: base64Encode(bytes),
       createdAt: DateTime.now().toString(),
-      reciverId: reciverId,
+      receiverId: receiverId,
     );
     return message;
   }

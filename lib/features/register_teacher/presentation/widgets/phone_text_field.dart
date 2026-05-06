@@ -12,7 +12,7 @@ class PhoneTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.phone,
       prefixIcon: const Icon(Icons.phone_android_outlined),
-      lablelText: AppLocalizations.of(context)!.phone,
+      labelText: AppLocalizations.of(context)!.phone,
       hintText: AppLocalizations.of(context)!.enter_phone,
       controller:
           BlocProvider.of<RegisterTeacherCubit>(context).phoneTextController,

@@ -1,6 +1,8 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteacher/core/extentions/theme_extension.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/features/chat/data/models/text_message_model/text_message_model.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 
@@ -12,11 +14,11 @@ class TextMessageWidget extends StatelessWidget {
     bool isSender = context.read<ChatCubit>().getSender(message.senderId);
     return BubbleNormal(
       text: message.text,
-      color: isSender ? Color(0xFF1B97F3) : Color(0xFFE8E8EE),
+      color: isSender ? context.chatSenderColor : context.chatReceiverColor,
       tail: false,
       textStyle: TextStyle(
         color: Colors.white,
-        fontSize: 16,
+        fontSize: AppDimensions.kPadding16,
       ),
       isSender: isSender,
     );

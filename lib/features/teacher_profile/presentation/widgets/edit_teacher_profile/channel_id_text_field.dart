@@ -12,8 +12,8 @@ class ChannalIdTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.url,
       prefixIcon: const Icon(Icons.link_outlined),
-      lablelText: AppLocalizations.of(context)!.channal_id,
-      hintText: AppLocalizations.of(context)!.channal_id,
+      labelText: AppLocalizations.of(context)!.channel_id,
+      hintText: AppLocalizations.of(context)!.channel_id,
       controller: BlocProvider.of<TeacherProfileCubit>(context)
           .courseLinkTextController,
     );

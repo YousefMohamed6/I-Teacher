@@ -9,52 +9,52 @@ import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/core/utils/constants/sf_keys.dart';
 import 'package:iteacher/features/auth/login/data/repos/login_repo_impl.dart';
 import 'package:iteacher/features/auth/login/di/login_service.dart';
+import 'package:iteacher/features/auth/login/presentation/Screens/login_view.dart';
 import 'package:iteacher/features/auth/login/presentation/manager/login_cubit.dart';
-import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
 import 'package:iteacher/features/auth/register/di/register_service.dart';
 import 'package:iteacher/features/auth/register/domain/repos/i_register_repo.dart';
+import 'package:iteacher/features/auth/register/presentation/Screens/register_view.dart';
 import 'package:iteacher/features/auth/register/presentation/manager/register_cubit.dart';
-import 'package:iteacher/features/auth/register/presentation/views/register_view.dart';
-import 'package:iteacher/features/auth/rest_Password/persentation/manager/rest_password_cubit.dart';
-import 'package:iteacher/features/auth/rest_Password/persentation/view/rest_password_view.dart';
+import 'package:iteacher/features/auth/reset_password/presentation/Screens/reset_password_view.dart';
+import 'package:iteacher/features/auth/reset_password/presentation/manager/reset_password_cubit.dart';
 import 'package:iteacher/features/chat/di/chat_service.dart';
 import 'package:iteacher/features/chat/domain/repos/i_chat_repo.dart';
+import 'package:iteacher/features/chat/presentation/Screens/chat_view.dart';
+import 'package:iteacher/features/chat/presentation/Screens/chats_view.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
-import 'package:iteacher/features/chat/presentation/views/chat_view.dart';
-import 'package:iteacher/features/chat/presentation/views/chats_view.dart';
 import 'package:iteacher/features/chatbot/di/chatbot_service.dart';
 import 'package:iteacher/features/chatbot/domain/repos/i_chatbot_repo.dart';
+import 'package:iteacher/features/chatbot/presentation/Screens/chatbot_view.dart';
 import 'package:iteacher/features/chatbot/presentation/manager/chatbot_cubit.dart';
-import 'package:iteacher/features/chatbot/presentation/views/chatbot_view.dart';
 import 'package:iteacher/features/course/di/course_service.dart';
 import 'package:iteacher/features/course/domain/repos/I_course_repo.dart';
+import 'package:iteacher/features/course/presentation/Screens/course_view.dart';
+import 'package:iteacher/features/course/presentation/Screens/video_player_view.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
-import 'package:iteacher/features/course/presentation/views/course_view.dart';
-import 'package:iteacher/features/course/presentation/views/video_player_view.dart';
 import 'package:iteacher/features/payment/di/payment_service.dart';
 import 'package:iteacher/features/payment/domain/repos/i_payment_repo.dart';
+import 'package:iteacher/features/payment/presentation/Screens/payment_view.dart';
 import 'package:iteacher/features/payment/presentation/manager/payment_cubit.dart';
-import 'package:iteacher/features/payment/presentation/views/payment_view.dart';
 import 'package:iteacher/features/register_student/data/model/student_model.dart';
 import 'package:iteacher/features/register_student/di/register_student_service.dart';
 import 'package:iteacher/features/register_student/domain/repos/i_register_student_repo.dart';
+import 'package:iteacher/features/register_student/presentation/Screens/student_view.dart';
 import 'package:iteacher/features/register_student/presentation/manager/register_student_cubit.dart';
-import 'package:iteacher/features/register_student/presentation/views/student_view.dart';
 import 'package:iteacher/features/register_teacher/di/register_teacher_service.dart';
 import 'package:iteacher/features/register_teacher/domain/repos/i_register_teacher.dart';
+import 'package:iteacher/features/register_teacher/presentation/Screens/register_teacher_view.dart';
 import 'package:iteacher/features/register_teacher/presentation/manager/register_teacher_cubit.dart';
-import 'package:iteacher/features/register_teacher/presentation/views/register_teacher_view.dart';
-import 'package:iteacher/features/student_profile/presentation/views/student_profile_view.dart';
+import 'package:iteacher/features/student_profile/presentation/Screens/student_profile_view.dart';
 import 'package:iteacher/features/teacher_profile/data/model/teacher_model.dart';
 import 'package:iteacher/features/teacher_profile/di/teacher_profile_service.dart';
 import 'package:iteacher/features/teacher_profile/domain/repos/i_teacher_profile_repo.dart';
+import 'package:iteacher/features/teacher_profile/presentation/Screens/edit_teacher_profile_view.dart';
+import 'package:iteacher/features/teacher_profile/presentation/Screens/teacher_profile_view.dart';
 import 'package:iteacher/features/teacher_profile/presentation/manager/teacher_profile_cubit.dart';
-import 'package:iteacher/features/teacher_profile/presentation/views/edit_teacher_profile_view.dart';
-import 'package:iteacher/features/teacher_profile/presentation/views/teacher_profile_view.dart';
 import 'package:iteacher/features/terms_and_conditions/di/terms_and_conditions_service.dart';
 import 'package:iteacher/features/terms_and_conditions/domain/repos/i_terms_and_conditions.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/Screens/terms_and_conditions.dart';
 import 'package:iteacher/features/terms_and_conditions/presentation/manager/terms_and_conditions_cubit.dart';
-import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
 
 sealed class RouterManager {
   static final navigationKey = GlobalKey<NavigatorState>();
@@ -98,12 +98,12 @@ sealed class RouterManager {
         },
       ),
       GoRoute(
-        path: RestPasswordView.routeName,
-        name: RestPasswordView.routeName,
+        path: ResetPasswordView.routeName,
+        name: ResetPasswordView.routeName,
         builder: (context, state) {
           return BlocProvider(
-            create: (context) => RestPasswordCubit(),
-            child: RestPasswordView(),
+            create: (context) => ResetPasswordCubit(),
+            child: ResetPasswordView(),
           );
         },
       ),
@@ -142,13 +142,13 @@ sealed class RouterManager {
         path: ChatView.routeName,
         name: ChatView.routeName,
         builder: (context, state) {
-          final String reciverId =
+          final String receiverId =
               state.uri.queryParameters[ChatKeys.kReciverField] ?? '';
           return RepositoryProvider(
             create: (context) => GetIt.instance<IChatRepo>(),
             child: BlocProvider(
               create: (context) => GetIt.instance<ChatCubit>()
-                ..reciverId = reciverId
+                ..receiverId = receiverId
                 ..getSenderId()
                 ..listenToMessages(),
               child: ChatView(),

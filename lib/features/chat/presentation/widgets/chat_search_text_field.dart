@@ -13,7 +13,7 @@ class ChatSearchTextField extends StatelessWidget {
     return CustomFormField(
       autovalidateMode: AutovalidateMode.disabled,
       prefixIcon: const Icon(Icons.search),
-      lablelText: AppLocalizations.of(context)!.search,
+      labelText: AppLocalizations.of(context)!.search,
       hintText: AppLocalizations.of(context)!.search,
       onChanged: (value) {
         cubit.searchTeacher(value);

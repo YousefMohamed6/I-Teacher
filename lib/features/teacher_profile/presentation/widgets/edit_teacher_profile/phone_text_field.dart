@@ -10,7 +10,7 @@ class PhoneTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomFormField(
-      lablelText: AppLocalizations.of(context)!.phone,
+      labelText: AppLocalizations.of(context)!.phone,
       hintText: AppLocalizations.of(context)!.enter_phone,
       textInputType: TextInputType.phone,
       prefixIcon: const Icon(Icons.call_outlined),

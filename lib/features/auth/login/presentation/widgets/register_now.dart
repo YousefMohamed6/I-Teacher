@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
 import 'package:iteacher/core/widgets/custom_text_button.dart';
-import 'package:iteacher/features/register_student/presentation/views/student_view.dart';
+import 'package:iteacher/features/register_student/presentation/Screens/student_view.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 
 class RegisterNow extends StatelessWidget {

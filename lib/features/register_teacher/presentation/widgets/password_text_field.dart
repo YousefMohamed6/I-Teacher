@@ -12,7 +12,7 @@ class PasswordTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.visiblePassword,
       prefixIcon: const Icon(Icons.security_outlined),
-      lablelText: AppLocalizations.of(context)!.password,
+      labelText: AppLocalizations.of(context)!.password,
       hintText: AppLocalizations.of(context)!.enter_password,
       obscureText: context.watch<RegisterTeacherCubit>().obscureText,
       suffixIcon: IconButton(

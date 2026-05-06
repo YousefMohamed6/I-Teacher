@@ -15,7 +15,7 @@ class CoursePriceTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.number,
       prefixIcon: const FaIcon(FontAwesomeIcons.dollarSign),
-      lablelText: AppLocalizations.of(context)!.course_price,
+      labelText: AppLocalizations.of(context)!.course_price,
       hintText: AppLocalizations.of(context)!.course_price,
       controller: BlocProvider.of<TeacherProfileCubit>(context)
           .coursePriceTextController,

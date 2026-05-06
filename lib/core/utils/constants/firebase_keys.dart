@@ -39,7 +39,7 @@ sealed class ChatKeys {
   static const String kUesrIdField = 'userId';
   static const String kDisplayNameField = 'displayName';
   static const String kSenderField = 'senderId';
-  static const String kReciverField = 'reciverId';
+  static const String kReciverField = 'receiverId';
 }
 
 sealed class StudentKeys {

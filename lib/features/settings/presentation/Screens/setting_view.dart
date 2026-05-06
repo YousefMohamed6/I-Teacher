@@ -4,13 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
-import 'package:iteacher/features/chat/presentation/views/chats_view.dart';
-import 'package:iteacher/features/chatbot/presentation/views/chatbot_view.dart';
+import 'package:iteacher/features/auth/login/presentation/Screens/login_view.dart';
+import 'package:iteacher/features/chat/presentation/Screens/chats_view.dart';
+import 'package:iteacher/features/chatbot/presentation/Screens/chatbot_view.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
 import 'package:iteacher/features/settings/presentation/manager/setting_bloc.dart';
-import 'package:iteacher/features/student_profile/presentation/views/student_profile_view.dart';
-import 'package:iteacher/features/terms_and_conditions/presentation/views/terms_and_conditions.dart';
+import 'package:iteacher/features/student_profile/presentation/Screens/student_profile_view.dart';
+import 'package:iteacher/features/terms_and_conditions/presentation/Screens/terms_and_conditions.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 import 'package:settings_ui/settings_ui.dart';
 

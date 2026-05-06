@@ -1,7 +1,9 @@
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iteacher/core/extentions/theme_extension.dart';
 import 'package:iteacher/core/services/audio_player_service.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/features/chat/data/models/audio_message_model/audio_message_model.dart';
 
 class AudioMessageWidget extends StatelessWidget {
@@ -17,7 +19,7 @@ class AudioMessageWidget extends StatelessWidget {
         builder: (context, snapshot) {
           return RepaintBoundary(
             child: BubbleNormalAudio(
-              color: Color(0xFF1B97F3),
+              color: context.chatSenderColor,
               position: snapshot.data?.inSeconds.toDouble(),
               duration: audioPlayer.duration?.inSeconds.toDouble(),
               isPlaying: audioPlayer.isPlaying,
@@ -46,8 +48,8 @@ class RecordAudio extends StatelessWidget {
       width: 100.w,
       height: 100.h,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
+        color: context.theme.scaffoldBackgroundColor,
+        borderRadius: BorderRadius.circular(AppDimensions.kRadius8),
       ),
       child: Row(
         children: [],

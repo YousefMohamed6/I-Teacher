@@ -7,14 +7,14 @@ class HandleImageSelectionUseCase {
   HandleImageSelectionUseCase(this._imagePickerService);
   Future<ImageMessageModel> execute({
     required String senderId,
-    required String reciverId,
+    required String receiverId,
   }) async {
     final image = await _imagePickerService.pickImageAsBase64FromGallery();
     final message = ImageMessageModel(
       senderId: senderId,
       imageBase64: image,
       createdAt: DateTime.now().toString(),
-      reciverId: reciverId,
+      receiverId: receiverId,
     );
     return message;
   }

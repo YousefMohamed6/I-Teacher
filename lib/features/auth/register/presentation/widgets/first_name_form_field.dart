@@ -13,7 +13,7 @@ class FirstNameFormField extends StatelessWidget {
       child: CustomFormField(
         textInputType: TextInputType.name,
         prefixIcon: const Icon(Icons.person_outlined),
-        lablelText: AppLocalizations.of(context)!.first_name,
+        labelText: AppLocalizations.of(context)!.first_name,
         hintText: AppLocalizations.of(context)!.first_name,
         controller:
             BlocProvider.of<RegisterCubit>(context).firstNameTextController,

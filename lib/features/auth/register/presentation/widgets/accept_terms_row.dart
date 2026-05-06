@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iteacher/features/auth/register/presentation/widgets/accpet_icon.dart';
-import 'package:iteacher/features/auth/register/presentation/widgets/i_accpet_text.dart';
+import 'package:iteacher/features/auth/register/presentation/widgets/accept_icon.dart';
+import 'package:iteacher/features/auth/register/presentation/widgets/i_accept_text.dart';
 import 'package:iteacher/features/auth/register/presentation/widgets/terms_text_button.dart';
 
 class AcceptTermsRow extends StatelessWidget {

@@ -19,4 +19,6 @@ sealed class LightModeColors {
   static const onErrorColor = Color(0xFF1E1E1E);
   static const onSecondaryContainerColor = Color(0xFF1E1E1E);
   static const onPrimaryContainerColor = Color(0xFF1E1E1E);
+  static const chatSenderColor = Color(0xFF1B97F3);
+  static const chatReceiverColor = Color(0xFFE8E8EE);
 }

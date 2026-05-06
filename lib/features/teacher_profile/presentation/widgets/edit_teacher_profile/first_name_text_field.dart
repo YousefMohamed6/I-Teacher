@@ -14,7 +14,7 @@ class FirstNameTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.name,
       prefixIcon: const Icon(Icons.person_outline),
-      lablelText: AppLocalizations.of(context)!.first_name,
+      labelText: AppLocalizations.of(context)!.first_name,
       hintText: AppLocalizations.of(context)!.first_name,
       controller:
           BlocProvider.of<TeacherProfileCubit>(context).firstNameTextController,

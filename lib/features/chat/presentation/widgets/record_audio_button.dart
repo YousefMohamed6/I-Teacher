@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteacher/core/extentions/theme_extension.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 
 class AudioRecorderButton extends StatelessWidget {
@@ -20,15 +22,17 @@ class AudioRecorderButton extends StatelessWidget {
           }
         },
         child: Container(
-          padding: const EdgeInsets.all(8),
-          margin: const EdgeInsets.all(4),
+          padding: EdgeInsets.all(AppDimensions.kPadding8),
+          margin: EdgeInsets.all(AppDimensions.kPadding4),
           decoration: BoxDecoration(
-            color: cubit.audioRecorder.isRecording ? Colors.red : Colors.blue,
+            color: cubit.audioRecorder.isRecording
+                ? context.theme.colorScheme.error
+                : context.theme.primaryColor,
             shape: BoxShape.circle,
           ),
           child: Icon(
             Icons.mic,
-            color: Colors.white,
+            color: context.theme.colorScheme.onPrimary,
             size: 24,
           ),
         ),

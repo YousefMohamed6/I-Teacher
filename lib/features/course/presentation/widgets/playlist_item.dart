@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/models/youtube/playlist_item/playlist_item.dart';
 import 'package:iteacher/features/course/presentation/manager/course_cubit.dart';
-import 'package:iteacher/features/course/presentation/views/video_player_view.dart';
+import 'package:iteacher/features/course/presentation/Screens/video_player_view.dart';
 
 class PlaylistWidget extends StatelessWidget {
   const PlaylistWidget({super.key, required this.playlist});

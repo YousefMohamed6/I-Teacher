@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:iteacher/core/exceptions/expired_subscription_exception.dart';
 import 'package:iteacher/core/services/api_service.dart';
 import 'package:iteacher/core/services/firebase_firestore_service.dart';
-import 'package:iteacher/core/services/loacl_notification_service.dart';
+import 'package:iteacher/core/services/local_notification_service.dart';
 import 'package:iteacher/core/services/router_manager.dart';
 import 'package:iteacher/core/utils/constants/firebase_keys.dart';
 import 'package:iteacher/features/register_student/data/model/student_model.dart';

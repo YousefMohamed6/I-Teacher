@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/utils/helper/toast_message.dart';
 import 'package:iteacher/core/widgets/background.dart';
 import 'package:iteacher/core/widgets/webview_body.dart';
-import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
+import 'package:iteacher/features/auth/login/presentation/Screens/login_view.dart';
 import 'package:iteacher/features/register_teacher/presentation/manager/register_teacher_cubit.dart';
 import 'package:iteacher/features/register_teacher/presentation/widgets/address_text_field.dart';
 import 'package:iteacher/features/register_teacher/presentation/widgets/email_text_field.dart';

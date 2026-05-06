@@ -6,7 +6,7 @@ import 'package:iteacher/core/utils/helper/payment_manager.dart';
 import 'package:iteacher/features/payment/data/models/payment/cart_item.dart';
 import 'package:iteacher/features/payment/data/models/payment/payment.dart';
 import 'package:iteacher/features/payment/data/models/payment/redirection_urls.dart';
-import 'package:iteacher/features/payment/data/models/payment_opration_model.dart';
+import 'package:iteacher/features/payment/data/models/payment_operation_model.dart';
 import 'package:iteacher/features/payment/domain/use_cases/save_payment_status_use_case.dart';
 import 'package:iteacher/features/register_teacher/domain/use_cases/create_teacher_use_case.dart';
 import 'package:iteacher/features/register_teacher/domain/use_cases/fetch_owner_data.dart';
@@ -40,7 +40,7 @@ class RegisterTeacherCubit extends Cubit<RegisterTeacherState> {
   final addressTextField = TextEditingController(text: 'Cairo');
   final teacherIdTextController = TextEditingController();
   final coursePriceTextController = TextEditingController();
-  final channalIdTextController = TextEditingController();
+  final channelIdTextController = TextEditingController();
   final departmentTextController = TextEditingController();
   final descriptionTextController = TextEditingController();
   final paymentIdTextController = TextEditingController();
@@ -61,7 +61,7 @@ class RegisterTeacherCubit extends Cubit<RegisterTeacherState> {
         department: departmentTextController.text,
         coursePrice: coursePriceTextController.text,
         description: descriptionTextController.text,
-        channalId: channalIdTextController.text,
+        channelId: channelIdTextController.text,
         teacherId: teacherId,
         paymentId: paymentIdTextController.text,
         accounts: {},

@@ -102,10 +102,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get next => 'التالي';
 
   @override
-  String get rest_password => 'اعادة ضبط كلمة المرور';
+  String get reset_password => 'اعادة ضبط كلمة المرور';
 
   @override
-  String get rest => 'اعادة الضبط';
+  String get reset => 'اعادة الضبط';
 
   @override
   String get payment => 'منصة الدفع';
@@ -187,7 +187,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unfound_user => 'مستخدم غير موجود';
 
   @override
-  String get channal_id => 'معرف القناة';
+  String get channel_id => 'معرف القناة';
 
   @override
   String get course_price => 'سعر الدورة';

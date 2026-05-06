@@ -12,7 +12,7 @@ class AddressTextField extends StatelessWidget {
     return CustomFormField(
       textInputType: TextInputType.streetAddress,
       prefixIcon: const Icon(Icons.location_on_outlined),
-      lablelText: AppLocalizations.of(context)!.address,
+      labelText: AppLocalizations.of(context)!.address,
       hintText: AppLocalizations.of(context)!.enter_address,
       controller:
           BlocProvider.of<RegisterTeacherCubit>(context).addressTextField,

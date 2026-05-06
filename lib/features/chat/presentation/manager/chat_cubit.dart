@@ -46,7 +46,7 @@ class ChatCubit extends Cubit<ChatState> {
   ) : super(ChatState.initial());
   List<MessageModel> messages = [];
   late String senderId;
-  late String reciverId;
+  late String receiverId;
   List<TeacherModel> _teachers = [];
   List<TeacherModel> result = [];
   Future<void> getAllTeachers() async {
@@ -98,7 +98,7 @@ class ChatCubit extends Cubit<ChatState> {
   Future<void> sendFileMessage() async {
     try {
       final FileMessageModel message = await _handleFileSelectionUseCase
-          .execute(senderId: senderId, reciverId: reciverId);
+          .execute(senderId: senderId, receiverId: receiverId);
       await sendMessage(message);
     } on PickedFileException catch (e) {
       emit(ChatState<PickedFileException>.failure(e.toString()));
@@ -123,7 +123,7 @@ class ChatCubit extends Cubit<ChatState> {
       final ImageMessageModel message =
           await _handleImageSelectionUseCase.execute(
         senderId: senderId,
-        reciverId: reciverId,
+        receiverId: receiverId,
       );
       await sendMessage(message);
     } on PickGalleryImageException catch (_) {
@@ -138,7 +138,7 @@ class ChatCubit extends Cubit<ChatState> {
           await _handleAudioMessageUseCase.execute(
         senderId: senderId,
         file: file,
-        reciverId: reciverId,
+        receiverId: receiverId,
       );
       await sendMessage(message);
     } on PickGalleryImageException catch (_) {
@@ -152,7 +152,7 @@ class ChatCubit extends Cubit<ChatState> {
         senderId: senderId,
         text: text,
         createdAt: DateTime.now().toString(),
-        reciverId: reciverId,
+        receiverId: receiverId,
       );
       await sendMessage(message);
     } on Exception catch (e) {
@@ -187,7 +187,7 @@ class ChatCubit extends Cubit<ChatState> {
         for (var json in docs) {
           final MessageModel message =
               MessageModel.fromJson(json.data() as Map<String, dynamic>);
-          if (message.reciverId == reciverId && message.senderId == senderId) {
+          if (message.receiverId == receiverId && message.senderId == senderId) {
             result.add(message);
           }
         }

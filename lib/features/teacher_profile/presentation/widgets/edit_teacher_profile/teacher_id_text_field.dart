@@ -22,7 +22,7 @@ class TeacherIDTextField extends StatelessWidget {
             child: CustomFormField(
               textInputType: TextInputType.number,
               prefixIcon: const Icon(Icons.info_outline),
-              lablelText: AppLocalizations.of(context)!.teacher_id,
+              labelText: AppLocalizations.of(context)!.teacher_id,
               hintText: AppLocalizations.of(context)!.teacher_id,
               controller: BlocProvider.of<TeacherProfileCubit>(context)
                   .teacherIdTextController,

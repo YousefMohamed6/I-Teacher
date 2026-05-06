@@ -11,7 +11,7 @@ import 'package:iteacher/features/teacher_profile/domain/use_cases/get_teacher_d
 import 'package:iteacher/features/teacher_profile/domain/use_cases/get_user_email_use_case.dart';
 import 'package:iteacher/features/teacher_profile/domain/use_cases/pick_teacher_image.dart';
 import 'package:iteacher/features/teacher_profile/domain/use_cases/save_teache_data_use_case.dart';
-import 'package:iteacher/features/teacher_profile/presentation/views/social_media_account_view.dart';
+import 'package:iteacher/features/teacher_profile/presentation/Screens/social_media_account_view.dart';
 
 part 'teacher_profile_cubit.freezed.dart';
 part 'teacher_profile_state.dart';
@@ -56,7 +56,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
         address: teacher.address,
         department: departmentTextController.text,
         coursePrice: coursePriceTextController.text,
-        channalId: courseLinkTextController.text,
+        channelId: courseLinkTextController.text,
         description: descriptionTextController.text,
         teacherId: teacherIdTextController.text,
         paymentId: paymentIdTextController.text,
@@ -92,7 +92,7 @@ class TeacherProfileCubit extends Cubit<TeacherProfileState> {
     phoneTextController.text = teacher.phone;
     departmentTextController.text = teacher.department;
     coursePriceTextController.text = teacher.coursePrice;
-    courseLinkTextController.text = teacher.channalId;
+    courseLinkTextController.text = teacher.channelId;
     descriptionTextController.text = teacher.description;
     teacherIdTextController.text = teacher.teacherId;
     paymentIdTextController.text = teacher.paymentId;

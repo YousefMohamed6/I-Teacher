@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iteacher/core/widgets/custom_text.dart';
-import 'package:iteacher/features/auth/login/presentation/views/login_view.dart';
+import 'package:iteacher/features/auth/login/presentation/Screens/login_view.dart';
 import 'package:iteacher/features/settings/presentation/manager/setting_bloc.dart';
 import 'package:iteacher/generated/app_localizations.dart';
 import 'package:settings_ui/settings_ui.dart';

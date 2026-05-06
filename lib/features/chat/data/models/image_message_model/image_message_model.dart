@@ -8,12 +8,12 @@ class ImageMessageModel implements MessageModel {
   @override
   final String createdAt;
   @override
-  final String reciverId;
+  final String receiverId;
   ImageMessageModel(
       {required this.imageBase64,
       required this.senderId,
       required this.createdAt,
-      required this.reciverId});
+      required this.receiverId});
 
   @override
   factory ImageMessageModel.fromJson(Map<String, dynamic> json) {
@@ -21,7 +21,7 @@ class ImageMessageModel implements MessageModel {
       imageBase64: json['imageBase64'],
       senderId: json[ChatKeys.kSenderField],
       createdAt: json['createdAt'],
-      reciverId: json[ChatKeys.kReciverField],
+      receiverId: json[ChatKeys.kReciverField],
     );
   }
 
@@ -32,7 +32,7 @@ class ImageMessageModel implements MessageModel {
       ChatKeys.kSenderField: senderId,
       'createdAt': createdAt,
       'type': type,
-      ChatKeys.kReciverField: reciverId
+      ChatKeys.kReciverField: receiverId
     };
   }
 

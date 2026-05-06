@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iteacher/core/extentions/theme_extension.dart';
+import 'package:iteacher/core/utils/constants/app_dimensions.dart';
 import 'package:iteacher/features/chat/data/models/file_message_model/file_message_model.dart';
 import 'package:iteacher/features/chat/presentation/manager/chat_cubit.dart';
 
@@ -16,9 +18,9 @@ class FileMessageWidget extends StatelessWidget {
           isSender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
         Card(
-          color: isSender ? Color(0xFF1B97F3) : Color(0xFFE8E8EE),
+          color: isSender ? context.chatSenderColor : context.chatReceiverColor,
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(AppDimensions.kPadding16),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
