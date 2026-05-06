@@ -71,7 +71,7 @@ class SettingsView extends StatelessWidget {
           title: CustomText(text: AppLocalizations.of(context)!.account),
           tiles: <SettingsTile>[
             SettingsTile.navigation(
-              leading: Icon(FontAwesomeIcons.user),
+              leading: FaIcon(FontAwesomeIcons.user),
               title: CustomText(
                   text: AppLocalizations.of(context)!.student_profile),
               onPressed: (context) {
@@ -80,7 +80,7 @@ class SettingsView extends StatelessWidget {
               },
             ),
             SettingsTile.navigation(
-              leading: Icon(FontAwesomeIcons.fileContract),
+              leading: FaIcon(FontAwesomeIcons.fileContract),
               title: CustomText(
                   text: AppLocalizations.of(context)!.terms_and_conditions),
               onPressed: (context) {

@@ -44,7 +44,7 @@ class PlaylistWidget extends StatelessWidget {
                     vertical: 2,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.8),
+                    color: Colors.black.withValues(alpha: 0.8),
                     borderRadius: BorderRadius.circular(2),
                   ),
                   child: Row(

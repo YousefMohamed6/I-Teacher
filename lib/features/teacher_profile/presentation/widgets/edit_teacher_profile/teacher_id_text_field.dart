@@ -37,7 +37,7 @@ class TeacherIDTextField extends StatelessWidget {
             Clipboard.setData(ClipboardData(text: text));
             ToastMessage.show(msg: AppLocalizations.of(context)!.copied);
           },
-          icon: Icon(FontAwesomeIcons.copy),
+          icon: FaIcon(FontAwesomeIcons.copy),
         ),
       ],
     );
